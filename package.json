@@ -16,10 +16,6 @@
     "eslint-config-next": "13.4.9",
     "next": "13.4.12",
     "next-sanity": "^5.1.1",
-<<<<<<< HEAD
-=======
-    "next-themes": "^0.2.1",
->>>>>>> 536726c (git cli)
     "postcss": "8.4.25",
     "react": "18.2.0",
     "react-dom": "18.2.0",
