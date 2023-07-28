@@ -1,0 +1,59 @@
+import HeaderSvg from "@/components/HeaderSvg"
+import Link from "next/link"
+import dynamicImport from "next/dynamic"
+import { FaChevronDown } from "react-icons/fa"
+
+const Product = dynamicImport(() => import("@/components/Product"))
+
+<<<<<<< HEAD
+export const dynamic = "force-dynamic"
+=======
+export const revalidate = 2
+>>>>>>> 536726c (git cli)
+async function getProducts() {
+  const sanity = (await import("@/components/sanity")).default
+  return await sanity.fetch(`
+  *[_type=="product"]|order(_createdAt asc)[0..3] {
+    _id,
+    type,
+    title,
+    "slug": slug.current,
+    "image": images[0].asset->{metadata{lqip},_id},
+  }`)
+}
+
+export default async function Home() {
+  const data = await getProducts()
+  return (
+    <div className="max-w-4xl mx-auto">
+      <div className="min-h-screen flex flex-col justify-center items-center">
+        <HeaderSvg />
+        <h1 className="font-semibold text-2xl text-center my-5">
+          One Place For All Your Bandhani Needs.
+        </h1>
+        <a href="#arrivals">
+          <FaChevronDown size={40} />
+        </a>
+      </div>
+      <div id="arrivals" className="scroll-mt-5 md:scroll-mt-24">
+        <h1 className="w-fit mb-5 text-2xl font-semibold">New Arrivals</h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          {data.map((props) => {
+<<<<<<< HEAD
+            return <Product key={props.slug} {...props} />
+=======
+            return <Product key={props.slug} {...props} home={true} />
+>>>>>>> 536726c (git cli)
+          })}
+        </div>
+        <Link
+          prefetch={false}
+          className="flex items-center w-fit btn mt-5"
+          href={"/products"}
+        >
+          Explore
+        </Link>
+      </div>
+    </div>
+  )
+}
