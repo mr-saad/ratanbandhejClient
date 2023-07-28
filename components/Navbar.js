@@ -1,22 +1,11 @@
 "use client"
 
 import Link from "next/link"
-<<<<<<< HEAD
-import { useState, useContext } from "react"
-=======
 import { useState, useContext, useEffect } from "react"
->>>>>>> 536726c (git cli)
 import { usePathname } from "next/navigation"
 import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io"
 import { BsSun, BsMoon } from "react-icons/bs"
 import { RatanContext } from "./Provider"
-<<<<<<< HEAD
-
-const Navbar = () => {
-  const [open, setOpen] = useState(false)
-
-  const { dark, setDark, favourites } = useContext(RatanContext)
-=======
 import { useTheme } from "next-themes"
 
 const Navbar = () => {
@@ -24,16 +13,12 @@ const Navbar = () => {
   const [open, setOpen] = useState(false)
 
   const { favourites } = useContext(RatanContext)
->>>>>>> 536726c (git cli)
 
   const pathname = usePathname()
 
   const CloseNav = () => setOpen(false)
-<<<<<<< HEAD
-=======
   const [mounted, setMounted] = useState(false)
   useEffect(() => setMounted(true), [])
->>>>>>> 536726c (git cli)
 
   return (
     <div className="nav relative md:text-base p-4 md:px-20 z-[12] text-white/60 bg-[#1c2630] border-b border-white/10">
@@ -42,29 +27,6 @@ const Navbar = () => {
           open && "h-36 mb-4"
         }`}
       >
-<<<<<<< HEAD
-        {dark ? (
-          <BsSun
-            className="cursor-pointer"
-            size={18}
-            onClick={() => {
-              document.documentElement.classList.remove("dark")
-              setDark(false)
-              localStorage.setItem("ratanDark", false)
-            }}
-          />
-        ) : (
-          <BsMoon
-            className="cursor-pointer"
-            size={18}
-            onClick={() => {
-              document.documentElement.classList.add("dark")
-              setDark(true)
-              localStorage.setItem("ratanDark", true)
-            }}
-          />
-        )}
-=======
         {mounted ? (
           theme === "dark" ? (
             <BsSun
@@ -86,7 +48,6 @@ const Navbar = () => {
             />
           )
         ) : null}
->>>>>>> 536726c (git cli)
         <Link
           prefetch={false}
           onClick={CloseNav}

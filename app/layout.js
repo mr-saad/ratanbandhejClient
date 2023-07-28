@@ -93,11 +93,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-<<<<<<< HEAD
-    <html lang="en">
-=======
-    <html lang="en" suppressHydrationWarning>
->>>>>>> 536726c (git cli)
+    <html suppressHydrationWarning>
       <body>
         <Provider>
           <Navbar />

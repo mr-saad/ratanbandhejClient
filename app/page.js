@@ -5,11 +5,6 @@ import { FaChevronDown } from "react-icons/fa"
 
 const Product = dynamicImport(() => import("@/components/Product"))
 
-<<<<<<< HEAD
-export const dynamic = "force-dynamic"
-=======
-export const revalidate = 2
->>>>>>> 536726c (git cli)
 async function getProducts() {
   const sanity = (await import("@/components/sanity")).default
   return await sanity.fetch(`
@@ -39,11 +34,7 @@ export default async function Home() {
         <h1 className="w-fit mb-5 text-2xl font-semibold">New Arrivals</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {data.map((props) => {
-<<<<<<< HEAD
-            return <Product key={props.slug} {...props} />
-=======
             return <Product key={props.slug} {...props} home={true} />
->>>>>>> 536726c (git cli)
           })}
         </div>
         <Link
