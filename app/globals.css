@@ -36,11 +36,7 @@ body {
 }
 
 .swiper-pagination {
-<<<<<<< HEAD
-  @apply w-fit bg-black/50;
-=======
   @apply w-fit bg-black/70;
->>>>>>> 536726c (git cli)
 }
 
 #nprogress .bar {
