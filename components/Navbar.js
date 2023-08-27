@@ -48,28 +48,31 @@ const Navbar = () => {
             />
           )
         ) : null}
-        <Link
-          prefetch={false}
-          onClick={CloseNav}
-          className={`cursor-pointer transition-all will-change-contents w-fit ${
-            pathname === "/" && "font-semibold text-white"
-          }`}
-          href={"/"}
-        >
-          Home
-        </Link>
+        <li>
+          <Link
+            prefetch={false}
+            onClick={CloseNav}
+            className={`cursor-pointer transition-all will-change-contents w-fit ${
+              pathname === "/" && "font-semibold text-white"
+            }`}
+            href={"/"}
+          >
+            Home
+          </Link>
+        </li>
         {links.map((all) => {
           return (
-            <Link
-              onClick={CloseNav}
-              className={`cursor-pointer transition-all will-change-contents w-fit ${
-                pathname.includes(all.url) && "font-semibold text-white"
-              }`}
-              href={all.url}
-              key={all.url}
-            >
-              {all.text}
-            </Link>
+            <li key={all.url}>
+              <Link
+                onClick={CloseNav}
+                className={`cursor-pointer transition-all will-change-contents w-fit ${
+                  pathname.includes(all.url) && "font-semibold text-white"
+                }`}
+                href={all.url}
+              >
+                {all.text}
+              </Link>
+            </li>
           )
         })}
       </ul>
@@ -91,7 +94,7 @@ const Navbar = () => {
           ></span>
         </div>
 
-        <Link prefetch={false} href="/">
+        <Link aria-label="Home" title="Ratan Bandhej" prefetch={false} href="/">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="200"
@@ -206,7 +209,7 @@ c-131 15 -256 116 -354 287 -27 46 -75 129 -107 185 -100 172 -209 271 -349
           </svg>
         </Link>
 
-        <Link prefetch={false} href="/favourites">
+        <Link prefetch={false} aria-label="favourites" href="/favourites">
           <div
             onClick={() => setOpen(false)}
             className="relative cursor-pointer"

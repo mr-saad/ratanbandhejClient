@@ -26,7 +26,7 @@ export default async function Home() {
         <h1 className="font-semibold text-2xl text-center my-5">
           One Place For All Your Bandhani Needs.
         </h1>
-        <a href="#arrivals">
+        <a aria-label="Scroll Down" title="Scroll Down" href="#arrivals">
           <FaChevronDown size={40} />
         </a>
       </div>
