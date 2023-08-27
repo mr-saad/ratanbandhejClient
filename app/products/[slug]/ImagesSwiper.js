@@ -12,7 +12,7 @@ export default function ImagesSwiper({ images }) {
     <Swiper
       pagination={{ type: "fraction" }}
       modules={[Pagination]}
-      className="w-full max-w-md md:max-w-full aspect-square rounded-md"
+      className="w-full max-w-md md:max-w-full aspect-square rounded-md text-white"
     >
       {images.map((all) => (
         <SwiperSlide key={all._id} className="cursor-grab">
