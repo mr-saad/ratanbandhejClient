@@ -47,7 +47,7 @@ export default function FilterProducts({ data }) {
           style={{ height: !showDropdown ? 0 : "auto" }}
           className="absolute overflow-hidden top-full left-0 w-full z-10 mt-1"
         >
-          <div className="p-3 border dark:border-white/10 rounded-md bg-white dark:bg-[#1c2630]">
+          <div className="p-3 border dark:border-white/10 rounded-md bg-white dark:bg-[#111]">
             <h2
               onClick={() => {
                 ChangeCategory("all")

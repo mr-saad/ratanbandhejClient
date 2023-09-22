@@ -56,12 +56,12 @@ export default function ProductDetails({
   return (
     <div className="self-start">
       <h3 className="font-semibold highlight text-base capitalize">{title}</h3>
-      <p className="mb-2 capitalize">Price: ₹{price}</p>
+      <p className="mb-2 capitalize text-white">Price: ₹{price}</p>
       {!showForm ? (
         <>
           <p className="mt-4 whitespace-pre-wrap capitalize">{description}</p>
-          <p className="my-2 capitalize whitespace-pre">
-            Instock: {colours.split(",")}
+          <p className="my-2 capitalize">
+            <span className="text-white">Instock:</span> {colours}
           </p>
           <div className="flex justify-between items-center">
             <button className="btn" onClick={() => setShowForm(true)}>
@@ -244,9 +244,8 @@ function BookForm({
           <button
             onClick={() => {
               setShowForm(false)
-              scrollTo({ top: 0 })
             }}
-            className="btn !bg-transparent !text-[#1c2630] dark:!text-white"
+            className="btn !bg-transparent !text-[#111] dark:!text-white"
           >
             Cancel
           </button>

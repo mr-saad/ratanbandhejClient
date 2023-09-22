@@ -52,7 +52,7 @@ const About = () => {
       >
         <g
           transform="translate(0.000000,201.000000) scale(0.100000,-0.100000)"
-          className="dark:fill-white fill-[#1c2630]"
+          className="dark:fill-white fill-[#111]"
         >
           <path
             d="M3439 1973 c-151 -78 -244 -200 -256 -334 l-6 -59 -93 0 -94 0 0

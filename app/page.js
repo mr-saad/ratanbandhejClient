@@ -5,6 +5,9 @@ import { FaChevronDown } from "react-icons/fa"
 
 const Product = dynamicImport(() => import("@/components/Product"))
 
+export const runtime = "edge"
+export const preferredRegion = "bom1"
+
 async function getProducts() {
   const sanity = (await import("@/components/sanity")).default
   return await sanity.fetch(`

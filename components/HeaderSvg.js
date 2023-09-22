@@ -16,7 +16,7 @@ export default function HeaderSvg() {
         height="201"
         viewBox="0 0 811 201"
         preserveAspectRatio="xMidYMid meet"
-        fill={mounted ? (theme === "dark" ? "#fff" : "#1c2630") : "#000"}
+        fill={mounted ? (theme === "dark" ? "#fff" : "#111") : "#000"}
       >
         <g transform="translate(0.000000,201.000000) scale(0.100000,-0.100000)">
           <path

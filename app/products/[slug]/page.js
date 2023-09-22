@@ -30,7 +30,7 @@ async function getProduct(slug) {
 export default async function Slug({ params }) {
   const product = await getProduct(params.slug)
   return (
-    <div className="pt-5 md:pt-10 max-w-5xl mx-auto grid md:grid-cols-2 grid-cols-1 md:gap-20 gap-5">
+    <div className="pt-5 mx-auto md:pt-10 max-w-5xl grid md:grid-cols-2 grid-cols-1 md:gap-20 gap-5">
       <ImagesSwiper images={product.images} />
       <ProductDetails product={product} />
     </div>

@@ -26,8 +26,8 @@ export const metadata = {
   },
   category: "Bandhani Shop",
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#1c2630" },
-    { media: "(prefers-color-scheme: dark)", color: "#1c2630" },
+    { media: "(prefers-color-scheme: light)", color: "#111" },
+    { media: "(prefers-color-scheme: dark)", color: "#111" },
   ],
   manifest: "/site.webmanifest",
   generator: "NextJS",

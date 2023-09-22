@@ -21,7 +21,7 @@ const Navbar = () => {
   useEffect(() => setMounted(true), [])
 
   return (
-    <div className="nav relative md:text-base p-4 md:px-20 z-[12] text-white/60 bg-[#1c2630] border-b border-white/10">
+    <div className="nav relative md:text-base p-4 md:px-20 z-[12] text-white/60 bg-[#111] border-b border-white/10">
       <ul
         className={`flex md:items-center md:absolute md:left-1/2 md:top-1/2 md:-translate-y-1/2 md:-translate-x-1/2 justify-between md:justify-center md:gap-5 transition-all flex-col md:flex-row h-0 md:h-auto overflow-hidden ${
           open && "h-36 mb-4"
@@ -64,6 +64,7 @@ const Navbar = () => {
           return (
             <li key={all.url}>
               <Link
+                prefetch={false}
                 onClick={CloseNav}
                 className={`cursor-pointer transition-all will-change-contents w-fit ${
                   pathname.includes(all.url) && "font-semibold text-white"
@@ -82,13 +83,13 @@ const Navbar = () => {
           onClick={() => setOpen((prev) => !prev)}
         >
           <span
-            className={`w-[26px] h-[2px] rounded-md transition-all origin-center bg-white/60 ${
+            className={`w-[26px] h-[2px] rounded-md transition-all origin-center bg-white ${
               open && "rotate-45 translate-y-2"
             }`}
           ></span>
 
           <span
-            className={`w-[26px] h-[2px] rounded-md transition-all origin-center bg-white/60 ${
+            className={`w-[26px] h-[2px] rounded-md transition-all origin-center bg-white ${
               open && "-rotate-45 -translate-y-[2px]"
             }`}
           ></span>
