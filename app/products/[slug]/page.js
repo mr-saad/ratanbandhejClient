@@ -2,11 +2,34 @@ import sanity from "@/components/sanity"
 import ImagesSwiper from "./ImagesSwiper"
 import ProductDetails from "./ProductDetails"
 
+export async function generateMetadata({ params: { slug } }) {
+  const { title } = await sanity.fetch(`*[slug.current==$slug][0]{title}`, {
+    slug
+  })
+  const keywords = title.toLowerCase().split(" ")
+  keywords.push(
+    "ratanbandhej",
+    "ratan",
+    "bandhej",
+    "ratanbandhej.site",
+    "ratanbandhej.vercel.app",
+    "handicraft bandhani",
+    "handmade bandhani"
+  )
+  return {
+    title,
+    alternates: {
+      canonical: `${process.env.VERCEL_URL}/${slug}`
+    },
+    keywords
+  }
+}
+
 export async function generateStaticParams() {
   const products = await sanity.fetch(
     `*[_type=="product"]{"slug":slug.current}`
   )
-  return products.map((all) => ({ slug: all.slug }))
+  return products.map(all => ({ slug: all.slug }))
 }
 
 export const revalidate = 2

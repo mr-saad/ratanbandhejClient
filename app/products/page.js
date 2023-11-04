@@ -1,6 +1,10 @@
 import sanity from "@/components/sanity"
 import FilterProducts from "./FilterProducts"
 
+export const metadata = {
+  title: "Products"
+}
+
 export const runtime = "edge"
 export const preferredRegion = "bom1"
 export const dynamic = "force-dynamic"

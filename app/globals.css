@@ -16,7 +16,6 @@ html {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   word-spacing: 0.1rem;
-  letter-spacing: -0.025rem;
 }
 body {
   @apply dark:bg-[#111] transition-colors dark:text-white/60 text-black/70 text-sm md:text-base;

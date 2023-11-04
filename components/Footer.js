@@ -9,6 +9,7 @@ const Footer = () => {
         <h1 className="text-3xl mb-4 md:mb-0">Ratan Bandhej</h1>
         <div className="flex gap-10">
           <a
+            title="Facebook"
             target="_blank"
             href="https://facebook.com"
             className="hover:text-white transition"
@@ -16,6 +17,7 @@ const Footer = () => {
             <FaFacebook size={30} />
           </a>
           <a
+            title="Instagram"
             className="hover:text-white transition"
             target="_blank"
             href="https://instagram.com/ratanbandhejbhuj/"
@@ -23,6 +25,7 @@ const Footer = () => {
             <FaInstagram size={30} />
           </a>
           <a
+            title="Whatsapp"
             className="hover:text-white transition"
             target="_blank"
             href="https://wa.me/917778975752?text=Hello%20There!"

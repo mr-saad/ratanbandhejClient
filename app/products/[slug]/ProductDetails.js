@@ -13,8 +13,8 @@ export default function ProductDetails({
     images,
     description,
     colours,
-    price,
-  },
+    price
+  }
 }) {
   const { favourites, setFavourites } = useContext(RatanContext)
 
@@ -22,7 +22,7 @@ export default function ProductDetails({
   const [showForm, setShowForm] = useState(false)
 
   useEffect(() => {
-    favourites.forEach((item) => {
+    favourites.forEach(item => {
       if (item._id === _id) {
         setFavBtn(false)
       }
@@ -38,15 +38,15 @@ export default function ProductDetails({
         title,
         image: {
           _id: images[0]._id,
-          metadata: { lqip: images[0].metadata.lqip },
-        },
-      },
+          metadata: { lqip: images[0].metadata.lqip }
+        }
+      }
     ]
     setFavourites(favs)
     localStorage.setItem("favourites", [JSON.stringify(favs)])
   }
   const Delete = () => {
-    const filtered = favourites.filter((all) => {
+    const filtered = favourites.filter(all => {
       return all._id !== _id
     })
     localStorage.setItem("favourites", JSON.stringify(filtered))
@@ -56,14 +56,14 @@ export default function ProductDetails({
   return (
     <div className="self-start">
       <h3 className="font-semibold highlight text-base capitalize">{title}</h3>
-      <p className="mb-2 capitalize text-white">Price: ₹{price}</p>
+      <p className="capitalize">Price: ₹{price}</p>
       {!showForm ? (
         <>
-          <p className="mt-4 whitespace-pre-wrap capitalize">{description}</p>
-          <p className="my-2 capitalize">
-            <span className="text-white">Instock:</span> {colours}
+          <p className="whitespace-pre-wrap capitalize">{description}</p>
+          <p className="capitalize flex gap-1">
+            <span>Instock:</span> <span>{colours}</span>
           </p>
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center mt-4">
             <button className="btn" onClick={() => setShowForm(true)}>
               Book Now
             </button>
@@ -107,7 +107,7 @@ function BookForm({
   image,
   // quantity,
   colours,
-  setShowForm,
+  setShowForm
 }) {
   const [totalPrice, setTotalPrice] = useState(price)
 
@@ -120,14 +120,14 @@ function BookForm({
     product: title,
     // quantity: 1,
     colour: colours.split("/")[0],
-    image: image.url,
+    image: image.url
   })
   // const ChangeQuantity = (e) => {
   //   setBook({ ...book, quantity: parseInt(e.target.value) })
   //   setTotalPrice(parseInt(e.target.value) * price)
   // }
 
-  const Book = (e) => {
+  const Book = e => {
     e.preventDefault()
     alert("Coming Soon :)")
   }
@@ -143,7 +143,7 @@ function BookForm({
           className="peer input"
           value={book.username}
           required
-          onChange={(e) => setBook({ ...book, username: e.target.value })}
+          onChange={e => setBook({ ...book, username: e.target.value })}
         />
         <label className="floating-label">Username</label>
       </div>
@@ -155,7 +155,7 @@ function BookForm({
           className="peer input"
           value={book.email}
           required
-          onChange={(e) => {
+          onChange={e => {
             setBook({ ...book, email: e.target.value })
           }}
         />
@@ -171,7 +171,7 @@ function BookForm({
           minLength={10}
           value={book.phone}
           required
-          onChange={(e) => setBook({ ...book, phone: e.target.value })}
+          onChange={e => setBook({ ...book, phone: e.target.value })}
         />
         <label className="floating-label">Phone</label>
       </div>
@@ -185,7 +185,7 @@ function BookForm({
           className="peer input resize-none"
           value={book.address}
           required
-          onChange={(e) => setBook({ ...book, address: e.target.value })}
+          onChange={e => setBook({ ...book, address: e.target.value })}
         ></textarea>
         <label className="floating-label">Address</label>
       </div>
@@ -220,11 +220,11 @@ function BookForm({
         </label>
         <select
           value={book.colour}
-          onChange={(e) => setBook({ ...book, colour: e.target.value })}
+          onChange={e => setBook({ ...book, colour: e.target.value })}
           id="colours"
           className="input capitalize"
         >
-          {colours.split(",").map((colour) => (
+          {colours.split(",").map(colour => (
             <option
               key={colour}
               className="capitalize text-black"

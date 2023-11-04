@@ -27,27 +27,29 @@ const Navbar = () => {
           open && "h-36 mb-4"
         }`}
       >
-        {mounted ? (
-          theme === "dark" ? (
-            <BsSun
-              className="cursor-pointer"
-              size={18}
-              onClick={() => {
-                setTheme("light")
-                localStorage.setItem("ratanTheme", "light")
-              }}
-            />
-          ) : (
-            <BsMoon
-              className="cursor-pointer"
-              size={18}
-              onClick={() => {
-                setTheme("dark")
-                localStorage.setItem("ratanTheme", "dark")
-              }}
-            />
-          )
-        ) : null}
+        <li>
+          {mounted ? (
+            theme === "dark" ? (
+              <BsSun
+                className="cursor-pointer"
+                size={18}
+                onClick={() => {
+                  setTheme("light")
+                  localStorage.setItem("ratanTheme", "light")
+                }}
+              />
+            ) : (
+              <BsMoon
+                className="cursor-pointer"
+                size={18}
+                onClick={() => {
+                  setTheme("dark")
+                  localStorage.setItem("ratanTheme", "dark")
+                }}
+              />
+            )
+          ) : null}
+        </li>
         <li>
           <Link
             prefetch={false}
@@ -60,7 +62,7 @@ const Navbar = () => {
             Home
           </Link>
         </li>
-        {links.map((all) => {
+        {links.map(all => {
           return (
             <li key={all.url}>
               <Link
@@ -80,7 +82,7 @@ const Navbar = () => {
       <nav className="flex justify-between items-center select-none">
         <div
           className={`md:hidden transition flex flex-col justify-between h-[12px] z-20`}
-          onClick={() => setOpen((prev) => !prev)}
+          onClick={() => setOpen(prev => !prev)}
         >
           <span
             className={`w-[26px] h-[2px] rounded-md transition-all origin-center bg-white ${
@@ -240,14 +242,14 @@ export default Navbar
 const links = [
   {
     text: "Products",
-    url: "/products",
+    url: "/products"
   },
   {
     text: "About",
-    url: "/about",
+    url: "/about"
   },
   {
     text: "Contact",
-    url: "/contact",
-  },
+    url: "/contact"
+  }
 ]

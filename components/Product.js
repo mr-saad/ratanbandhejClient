@@ -11,13 +11,13 @@ export default function Product({ slug, image, title, home }) {
     >
       <Image
         sizes="(max-width: 540px) 60vw, (max-width: 768px) 70vw, (max-width: 1200px) 80vw"
-        alt={title}
+        alt={slug}
         placeholder="blur"
         blurDataURL={image.metadata.lqip}
         src={urlFor(image._id)}
-        width={500}
-        height={500}
-        className="object-top object-cover aspect-square select-none"
+        width={400}
+        height={400}
+        className="object-top object-cover aspect-square w-full select-none"
       />
       <div className="absolute inset-0 flex flex-col justify-end p-4 bg-gradient-to-t from-[#111] to-transparent">
         <h2 className="text-base font-medium text-white capitalize">{title}</h2>

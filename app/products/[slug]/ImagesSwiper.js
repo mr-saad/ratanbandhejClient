@@ -1,6 +1,6 @@
 "use client"
 import { Swiper, SwiperSlide } from "swiper/react"
-import { Pagination } from "swiper"
+import { Pagination } from "swiper/modules"
 import "swiper/css"
 import "swiper/css/pagination"
 
@@ -14,7 +14,7 @@ export default function ImagesSwiper({ images }) {
       modules={[Pagination]}
       className="w-full max-w-md md:max-w-full aspect-square rounded-md text-white"
     >
-      {images.map((all) => (
+      {images.map(all => (
         <SwiperSlide key={all._id} className="cursor-grab">
           <Image
             alt={all._id}

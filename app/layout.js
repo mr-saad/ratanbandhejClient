@@ -3,32 +3,33 @@ import Navbar from "@/components/Navbar"
 import Provider from "@/components/Provider"
 import "./globals.css"
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#111" },
+    { media: "(prefers-color-scheme: dark)", color: "#111" }
+  ]
+}
+
 export const metadata = {
   title: {
     template: "%s | Ratan Bandhej",
-    default: "Ratan Bandhej | One Place For All Your Bandhani Needs",
+    default: "Ratan Bandhej | One Place For All Your Bandhani Needs"
   },
   alternates: {
-    canonical: "/",
+    canonical: "/"
   },
   metadataBase: new URL("https://ratanbandhej.vercel.app"),
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-  },
   robots: {
     index: true,
     follow: true,
     googleBot: {
       index: true,
-      follow: true,
-    },
+      follow: true
+    }
   },
   category: "Bandhani Shop",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#111" },
-    { media: "(prefers-color-scheme: dark)", color: "#111" },
-  ],
   manifest: "/site.webmanifest",
   generator: "NextJS",
   keywords: [
@@ -53,7 +54,7 @@ export const metadata = {
     "ratan bandhej bhuj",
     "one-place-for-all-your-bandhani-needs",
     "handicraft bandhani",
-    "handmade bandhani",
+    "handmade bandhani"
   ],
   applicationName: "Ratan Bandhej",
   referrer: "origin-when-cross-origin",
@@ -73,12 +74,12 @@ export const metadata = {
         url: "https://nextjs.org/og-alt.png",
         width: 1800,
         height: 1600,
-        alt: "ratan bandhej image",
-      },
+        alt: "ratan bandhej image"
+      }
     ],
     locale: "en_US",
     type: "website",
-    authors: ["Saad Khatri"],
+    authors: ["Saad Khatri"]
   },
   icons: {
     icon: "/android-chrome-192x192.png",
@@ -86,9 +87,9 @@ export const metadata = {
     apple: "/apple-touch-icon.png",
     other: {
       rel: "android-chrome-512x512",
-      url: "/android-chrome-512x512.png",
-    },
-  },
+      url: "/android-chrome-512x512.png"
+    }
+  }
 }
 
 export default function RootLayout({ children }) {
