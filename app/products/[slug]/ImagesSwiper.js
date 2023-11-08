@@ -22,7 +22,7 @@ export default function ImagesSwiper({ images }) {
             blurDataURL={all.metadata.lqip}
             src={urlFor(all._id)}
             className="select-none aspect-square object-cover object-top"
-            sizes="(max-width: 540px) 60vw, (max-width: 768px) 70vw, (max-width: 1200px) 90vw"
+            sizes="(max-width: 768px) 100vw, 50vw"
             width={500}
             height={500}
           />

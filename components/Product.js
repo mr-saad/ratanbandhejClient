@@ -10,7 +10,7 @@ export default function Product({ slug, image, title, home }) {
       href={`/products/${slug}`}
     >
       <Image
-        sizes="(max-width: 540px) 60vw, (max-width: 768px) 70vw, (max-width: 1200px) 80vw"
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         alt={slug}
         placeholder="blur"
         blurDataURL={image.metadata.lqip}

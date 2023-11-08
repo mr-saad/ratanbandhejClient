@@ -23,7 +23,7 @@ async function getProducts() {
 export default async function Home() {
   const data = await getProducts()
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className=" mx-auto">
       <div className="min-h-screen flex flex-col justify-center items-center">
         <HeaderSvg />
         <h1 className="font-semibold text-2xl text-center my-5">
@@ -35,8 +35,8 @@ export default async function Home() {
       </div>
       <div id="arrivals" className="scroll-mt-5 md:scroll-mt-24">
         <h1 className="w-fit mb-5 text-2xl font-semibold">New Arrivals</h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {data.map((props) => {
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          {data.map(props => {
             return <Product key={props.slug} {...props} home={true} />
           })}
         </div>

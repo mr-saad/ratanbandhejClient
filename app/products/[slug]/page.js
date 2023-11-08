@@ -19,7 +19,7 @@ export async function generateMetadata({ params: { slug } }) {
   return {
     title,
     alternates: {
-      canonical: `${process.env.VERCEL_URL}/${slug}`
+      canonical: `/products/${slug}`
     },
     keywords
   }
@@ -32,7 +32,7 @@ export async function generateStaticParams() {
   return products.map(all => ({ slug: all.slug }))
 }
 
-export const revalidate = 2
+export const revalidate = 10
 async function getProduct(slug) {
   return await sanity.fetch(
     `*[slug.current==$slug][0]{
