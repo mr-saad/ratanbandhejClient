@@ -6,7 +6,7 @@ export default function Product({ slug, image, title, home }) {
   return (
     <Link
       prefetch={home ? false : true}
-      className="relative overflow-hidden rounded-md product"
+      className="relative rounded-md overflow-hidden"
       href={`/products/${slug}`}
     >
       <Image
@@ -17,7 +17,7 @@ export default function Product({ slug, image, title, home }) {
         src={urlFor(image._id)}
         width={400}
         height={400}
-        className="object-top object-cover aspect-square w-full select-none"
+        className="object-top object-cover aspect-square"
       />
       <div className="absolute inset-0 flex flex-col justify-end p-4 bg-gradient-to-t from-[#111] to-transparent">
         <h2 className="text-base font-medium text-white capitalize">{title}</h2>

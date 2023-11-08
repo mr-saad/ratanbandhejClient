@@ -2,7 +2,10 @@ import sanity from "@/components/sanity"
 import FilterProducts from "./FilterProducts"
 
 export const metadata = {
-  title: "Products"
+  title: "Products",
+  alternates: {
+    canonical: "/products"
+  }
 }
 
 export const runtime = "edge"

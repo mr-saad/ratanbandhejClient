@@ -1,6 +1,5 @@
 @tailwind base;
 @tailwind utilities;
-/* @tailwind components; */
 
 * {
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
@@ -8,6 +7,14 @@
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   -webkit-tap-highlight-color: transparent;
   text-wrap: balance;
+}
+
+.headersvg {
+  fill: #111;
+}
+
+.dark .headersvg {
+  fill: #fff;
 }
 
 html {

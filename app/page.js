@@ -23,7 +23,7 @@ async function getProducts() {
 export default async function Home() {
   const data = await getProducts()
   return (
-    <div className=" mx-auto">
+    <div className="mx-auto">
       <div className="min-h-screen flex flex-col justify-center items-center">
         <HeaderSvg />
         <h1 className="font-semibold text-2xl text-center my-5">
