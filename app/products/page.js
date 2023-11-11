@@ -1,4 +1,3 @@
-import { Suspense } from "react"
 import sanity from "@/components/sanity"
 import FilterProducts from "./FilterProducts"
 
@@ -28,9 +27,7 @@ export default async function Products() {
 
   return (
     <div className="pt-4">
-      <Suspense fallback={<p>Please Wait</p>}>
-        <FilterProducts data={data} />
-      </Suspense>
+      <FilterProducts data={data} />
     </div>
   )
 }

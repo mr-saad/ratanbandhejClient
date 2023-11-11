@@ -1,4 +1,3 @@
-import { Suspense } from "react"
 import Link from "next/link"
 import dynamicImport from "next/dynamic"
 import { FaChevronDown } from "react-icons/fa"
@@ -34,11 +33,9 @@ export default async function Home() {
       <div id="arrivals" className="scroll-mt-5 md:scroll-mt-24">
         <h1 className="w-fit mb-5 text-2xl font-semibold">New Arrivals</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          <Suspense fallback={<p>Please Wait</p>}>
-            {data.map(props => {
-              return <Product key={props.slug} {...props} home={true} />
-            })}
-          </Suspense>
+          {data.map(props => {
+            return <Product key={props.slug} {...props} home={true} />
+          })}
         </div>
         <Link
           prefetch={false}
