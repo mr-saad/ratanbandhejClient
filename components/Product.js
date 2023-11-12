@@ -20,7 +20,9 @@ export default function Product({ slug, image, title, home }) {
         className="object-top object-cover aspect-square"
       />
       <div className="absolute inset-0 flex flex-col justify-end p-4 bg-gradient-to-t from-[#111] to-transparent">
-        <h2 className="text-base font-medium text-white capitalize">{title}</h2>
+        <h2 className="text-base font-semibold text-white capitalize">
+          {title}
+        </h2>
       </div>
     </Link>
   )

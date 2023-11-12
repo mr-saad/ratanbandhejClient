@@ -36,7 +36,7 @@ const Footer = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
         <div>
-          <h2 className="font-medium text-white mx-auto mb-2 ">CATEGORIES</h2>
+          <h2 className="font-semibold text-white mx-auto mb-2 ">CATEGORIES</h2>
           <div>
             <p>Modal Silk</p>
             <p>Kutchi Bandhani Saree</p>
@@ -45,7 +45,7 @@ const Footer = () => {
           </div>
         </div>
         <div>
-          <h2 className="font-medium text-white mx-auto mb-2 ">CONTACT US</h2>
+          <h2 className="font-semibold text-white mx-auto mb-2 ">CONTACT US</h2>
           <a
             target="_blank"
             className="flex gap-1 items-center mb-2 hover:text-white transition"
@@ -64,7 +64,7 @@ const Footer = () => {
           </a>
         </div>
         <div>
-          <h2 className="font-medium text-white mx-auto mb-2 ">ADDRESS</h2>
+          <h2 className="font-semibold text-white mx-auto mb-2 ">ADDRESS</h2>
           <div>
             <p>
               1079, ApnaNagar-1, <br /> Near Sejwala Matam, <br /> Bhuj-Kutchh,

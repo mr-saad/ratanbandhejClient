@@ -12,19 +12,38 @@ export default function ImagesSwiper({ images }) {
     <Swiper
       pagination={{ type: "fraction" }}
       modules={[Pagination]}
-      className="w-full max-w-md md:max-w-full aspect-square rounded-md text-white"
+      className="max-w-full aspect-square rounded-md text-white"
     >
-      {images.map(all => (
-        <SwiperSlide key={all._id} className="cursor-grab">
+      <SwiperSlide className="cursor-grab">
+        <Image
+          loading="eager"
+          fetchPriority="high"
+          alt={images[0]._id}
+          placeholder="blur"
+          blurDataURL={images[0].metadata.lqip}
+          src={urlFor(images[0]._id)}
+          className="select-none h-full rounded-s-md"
+          style={{ objectFit: "cover", objectPosition: "top" }}
+          sizes="(max-width: 768px) 100vw, 50vw"
+          width={400}
+          height={400}
+        />
+      </SwiperSlide>
+      {images.slice(1).map(all => (
+        <SwiperSlide
+          key={all._id}
+          className="cursor-grab last:rounded-e-md overflow-hidden"
+        >
           <Image
             alt={all._id}
             placeholder="blur"
             blurDataURL={all.metadata.lqip}
             src={urlFor(all._id)}
-            className="select-none aspect-square object-cover object-top"
+            className="select-none h-full"
+            style={{ objectFit: "cover", objectPosition: "top" }}
             sizes="(max-width: 768px) 100vw, 50vw"
-            width={500}
-            height={500}
+            width={400}
+            height={400}
           />
         </SwiperSlide>
       ))}

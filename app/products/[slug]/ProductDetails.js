@@ -1,7 +1,6 @@
 "use client"
 import { useContext, useEffect, useState } from "react"
 import { RatanContext } from "@/components/Provider"
-import { BiPlus, BiTrash } from "react-icons/bi"
 
 export default function ProductDetails({
   product: {
@@ -71,16 +70,16 @@ export default function ProductDetails({
             {showFavBtn ? (
               <p
                 onClick={AddToFavourites}
-                className="flex items-center cursor-pointer font-medium highlight"
+                className="flex items-center cursor-pointer highlight"
               >
-                <BiPlus size={24} /> Add to Favourites
+                Add to Favourites
               </p>
             ) : (
               <p
                 onClick={Delete}
-                className="flex items-center cursor-pointer font-medium highlight"
+                className="flex items-center cursor-pointer highlight"
               >
-                <BiTrash size={24} /> Remove from Favourites
+                Remove from Favourites
               </p>
             )}
           </div>
@@ -245,12 +244,12 @@ function BookForm({
             onClick={() => {
               setShowForm(false)
             }}
-            className="btn !bg-transparent !text-[#111] dark:!text-white"
+            className="btn !bg-transparent !text-[#111] dark:!text-white opacity-70"
           >
             Cancel
           </button>
         </div>
-        <p className="font-medium">Total: ₹{totalPrice}</p>
+        <p className="font-semibold">Total: ₹{totalPrice}</p>
       </div>
     </form>
   )

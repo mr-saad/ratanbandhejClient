@@ -5,22 +5,22 @@ import { FaChevronDown } from "react-icons/fa"
 
 export default function FilterProducts({ data }) {
   const [products, setProducts] = useState(data)
-  const categories = [...new Set(data.map((all) => all.type))]
+  const categories = [...new Set(data.map(all => all.type))]
   const [category, setCategory] = useState("all")
 
   const [showDropdown, setShowDropdown] = useState(false)
 
-  const ChangeCategory = (cate) => {
+  const ChangeCategory = cate => {
     setCategory(cate)
     switch (cate) {
       case "Saree":
-        setProducts(data.filter((all) => all.type === "Saree"))
+        setProducts(data.filter(all => all.type === "Saree"))
         break
       case "Dupatta":
-        setProducts(data.filter((all) => all.type === "Dupatta"))
+        setProducts(data.filter(all => all.type === "Dupatta"))
         break
       case "Top Material":
-        setProducts(data.filter((all) => all.type === "Top Material"))
+        setProducts(data.filter(all => all.type === "Top Material"))
         break
       default:
         setProducts(data)
@@ -57,7 +57,7 @@ export default function FilterProducts({ data }) {
             >
               all
             </h2>
-            {categories.map((category) => {
+            {categories.map(category => {
               return (
                 <h2
                   key={category}
@@ -72,7 +72,7 @@ export default function FilterProducts({ data }) {
         </div>
       </div>
       <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5">
-        {products.map((props) => {
+        {products.map(props => {
           return <Product key={props.slug} {...props} />
         })}
       </div>
