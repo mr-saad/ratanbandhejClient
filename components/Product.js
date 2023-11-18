@@ -17,7 +17,7 @@ export default function Product({ slug, image, title, home }) {
         src={urlFor(image._id)}
         width={400}
         height={400}
-        className="object-top object-cover aspect-square"
+        className="object-top object-cover aspect-square w-full"
       />
       <div className="absolute inset-0 flex flex-col justify-end p-4 bg-gradient-to-t from-[#111] to-transparent">
         <h2 className="text-base font-semibold text-white capitalize">
