@@ -14,7 +14,7 @@
     "autoprefixer": "10.4.16",
     "eslint": "8.53.0",
     "eslint-config-next": "14.0.1",
-    "next": "14.0.1",
+    "next": "14.0.3",
     "next-sanity": "^5.5.10",
     "next-themes": "0.2.1",
     "postcss": "8.4.31",

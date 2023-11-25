@@ -22,7 +22,7 @@ export default function ImagesSwiper({ images }) {
           placeholder="blur"
           blurDataURL={images[0].metadata.lqip}
           src={urlFor(images[0]._id)}
-          className="select-none h-full rounded-s-md"
+          className="select-none w-full rounded-s-md"
           style={{ objectFit: "cover", objectPosition: "top" }}
           sizes="(max-width: 768px) 100vw, 50vw"
           width={400}
@@ -39,7 +39,7 @@ export default function ImagesSwiper({ images }) {
             placeholder="blur"
             blurDataURL={all.metadata.lqip}
             src={urlFor(all._id)}
-            className="select-none h-full"
+            className="select-none w-full"
             style={{ objectFit: "cover", objectPosition: "top" }}
             sizes="(max-width: 768px) 100vw, 50vw"
             width={400}

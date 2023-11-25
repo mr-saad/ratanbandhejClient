@@ -2,15 +2,15 @@ import Link from "next/link"
 
 export const metadata = {
   title: "Terms & Conditions",
-  keywords: ["terms", "conditions"],
+  keywords: ["terms", "conditions"]
 }
 
 export default function Terms() {
   return (
     <div className="max-w-4xl mx-auto">
-      <h1 className="text-xl font-semibold highlight my-5">
+      <h2 className="text-xl font-semibold highlight my-5">
         Terms and Conditions
-      </h1>
+      </h2>
 
       <p>Welcome to Ratan Bandhej!</p>
 
@@ -42,7 +42,7 @@ export default function Terms() {
         referring to same.
       </p>
 
-      <h1 className="text-xl font-semibold highlight my-5">License</h1>
+      <h2 className="text-xl font-semibold highlight my-5">License</h2>
 
       <p>
         Unless otherwise stated, Ratan Bandhej and/or its licensors own the
@@ -77,7 +77,9 @@ export default function Terms() {
         appearance of the Comments on this website.
       </p>
 
-      <p className="text-xl highlight mt-5">You warrant and represent that:</p>
+      <h2 className="text-xl font-semibold highlight mt-5">
+        You warrant and represent that:
+      </h2>
 
       <ul className="list-disc mb-5">
         <li className="ml-4">
@@ -110,7 +112,7 @@ export default function Terms() {
         linking absent a trademark license agreement.
       </p>
 
-      <h1 className=" text-xl font-semibold highlight my-5">iFrames</h1>
+      <h2 className=" text-xl font-semibold highlight my-5">iFrames</h2>
 
       <p>
         Without prior approval and written permission, you may not create frames
@@ -118,7 +120,7 @@ export default function Terms() {
         appearance of our Website.
       </p>
 
-      <h1 className=" text-xl font-semibold highlight my-5">Your Privacy</h1>
+      <h2 className=" text-xl font-semibold highlight my-5">Your Privacy</h2>
 
       <p>
         Please read{" "}
@@ -130,9 +132,9 @@ export default function Terms() {
         </Link>
       </p>
 
-      <h1 className=" text-xl font-semibold highlight my-5">
+      <h2 className=" text-xl font-semibold highlight my-5">
         Reservation of Rights
-      </h1>
+      </h2>
 
       <p>
         We reserve the right to request that you remove all links or any
@@ -143,9 +145,9 @@ export default function Terms() {
         these linking terms and conditions.
       </p>
 
-      <h1 className="text-xl font-semibold highlight my-5">
+      <h2 className="text-xl font-semibold highlight my-5">
         Removal of links from our website
-      </h1>
+      </h2>
 
       <p>
         If you find any link on our Website that is offensive for any reason,
@@ -161,7 +163,7 @@ export default function Terms() {
         is kept up to date.
       </p>
 
-      <h1 className="text-xl font-semibold highlight my-5">Disclaimer</h1>
+      <h2 className="text-xl font-semibold highlight my-5">Disclaimer</h2>
 
       <p>
         To the maximum extent permitted by applicable law, we exclude all

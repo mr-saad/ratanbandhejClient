@@ -3,13 +3,13 @@ import Navbar from "@/components/Navbar"
 import Provider from "@/components/Provider"
 import "./globals.css"
 
-import localFont from "next/font/local"
+// import localFont from "next/font/local"
 
-const geist = localFont({
-  src: "./geist-regular.woff2",
-  display: "swap",
-  preload: true
-})
+// const geist = localFont({
+//   src: "./geist-regular.woff2",
+//   display: "swap",
+//   preload: true
+// })
 
 export const viewport = {
   width: "device-width",
@@ -103,7 +103,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={geist.className}>
+      <body>
         <Provider>
           <Navbar />
           <div className="min-h-screen px-4 py-2 md:px-20">{children}</div>
