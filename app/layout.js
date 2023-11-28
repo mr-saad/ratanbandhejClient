@@ -3,14 +3,6 @@ import Navbar from "@/components/Navbar"
 import Provider from "@/components/Provider"
 import "./globals.css"
 
-// import localFont from "next/font/local"
-
-// const geist = localFont({
-//   src: "./geist-regular.woff2",
-//   display: "swap",
-//   preload: true
-// })
-
 export const viewport = {
   width: "device-width",
   initialScale: 1,
@@ -26,7 +18,7 @@ export const metadata = {
     default: "Ratan Bandhej | One Place For All Your Bandhani Needs"
   },
   alternates: {
-    canonical: "/"
+    canonical: "https://ratanbandhej.vercel.app"
   },
   metadataBase: new URL("https://ratanbandhej.vercel.app"),
   robots: {
@@ -76,13 +68,13 @@ export const metadata = {
     description:
       "One Place for All Your Bandhani Needs. Ratan Bandhej Provides Their Customers A Large Number Of Variaties In Bandhani Dupattas, Sarees, Top Materials",
     url: "https://ratanbandhej.vercel.app",
-    siteName: "Ratan Bandhej",
+    siteName: "Ratan Bandhej | One Place For All Your Bandhani Needs",
     images: [
       {
         url: "https://nextjs.org/og-alt.png",
         width: 1800,
         height: 1600,
-        alt: "ratan bandhej image"
+        alt: "ratan bandhej logo"
       }
     ],
     locale: "en_US",
