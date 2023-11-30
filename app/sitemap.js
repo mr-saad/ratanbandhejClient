@@ -7,7 +7,7 @@ export default async function sitemap() {
 
   return [
     {
-      url: `https://ratanbandhej.vercel.app`,
+      url: `https://ratanbandhej.vercel.app/`,
       lastModified: new Date().toISOString(),
       changeFrequency: "weekly",
       priority: 1

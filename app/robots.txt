@@ -1,5 +1,7 @@
 User-Agent: *
 Allow: /
-Disallow: /favourites/
+Disallow: /favourites
+Disallow: /contact
+Disallow: /about
 
 Sitemap: https://ratanbandhej.vercel.app/sitemap.xml

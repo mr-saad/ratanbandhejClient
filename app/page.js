@@ -1,6 +1,5 @@
 import Link from "next/link"
 import dynamicImport from "next/dynamic"
-import { FaChevronDown } from "react-icons/fa"
 
 const Product = dynamicImport(() => import("@/components/Product"))
 
@@ -27,7 +26,19 @@ export default async function Home() {
           One Place For All Your Bandhani Needs.
         </h1>
         <a aria-label="Scroll Down" title="Scroll Down" href="#arrivals">
-          <FaChevronDown size={40} />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="44"
+            height="44"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#fff"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="m6 9 6 6 6-6" />
+          </svg>
         </a>
       </div>
       <div id="arrivals" className="scroll-mt-5 md:scroll-mt-24">

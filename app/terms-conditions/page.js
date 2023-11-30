@@ -78,7 +78,7 @@ export default function Terms() {
       </p>
 
       <h2 className="text-xl font-semibold highlight mt-5">
-        You warrant and represent that:
+        You warrant and represent that :
       </h2>
 
       <ul className="list-disc mb-5">

@@ -3,8 +3,6 @@
 import Link from "next/link"
 import { useState, useContext, useEffect } from "react"
 import { usePathname } from "next/navigation"
-import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io"
-import { BsSun, BsMoon } from "react-icons/bs"
 import { RatanContext } from "./Provider"
 import { useTheme } from "next-themes"
 
@@ -20,42 +18,79 @@ const Navbar = () => {
   const [mounted, setMounted] = useState(false)
   useEffect(() => setMounted(true), [])
 
+  let restofprops =
+    favourites.length !== 0
+      ? {
+          fill: "#ffffff"
+        }
+      : {
+          stroke: pathname === "/favourites" ? "#ffffff" : "currentColor",
+          strokeWidth: "2",
+          strokeLinecap: "round",
+          strokeLinejoin: "round"
+        }
+
   return (
-    <nav className="nav relative md:text-base p-4 md:px-20 z-[12] text-white/60 bg-[#111] border-b border-white/10">
+    <nav className="nav relative md:text-base p-4 md:px-20 z-[12] bg-[#111] border-b border-white/10">
       <ul
-        className={`flex md:items-center md:absolute md:left-1/2 md:top-1/2 md:-translate-y-1/2 md:-translate-x-1/2 justify-between md:justify-center md:gap-5 transition-[height] flex-col md:flex-row h-0 md:h-auto overflow-hidden ${
+        className={`flex md:items-center md:absolute md:left-1/2 md:top-1/2 md:-translate-y-1/2 md:-translate-x-1/2 justify-between md:justify-center md:gap-5 transition-[height] flex-col md:flex-row h-0 md:h-auto overflow-hidden font-semibold text-white ${
           open && "h-36 mb-4"
         }`}
       >
-        <li className="w-5 h-5">
-          {mounted ? (
-            theme === "dark" ? (
-              <BsSun
-                className="cursor-pointer"
-                size={18}
-                onClick={() => {
-                  setTheme("light")
-                  localStorage.setItem("ratanTheme", "light")
-                }}
-              />
-            ) : (
-              <BsMoon
-                className="cursor-pointer"
-                size={18}
-                onClick={() => {
-                  setTheme("dark")
-                  localStorage.setItem("ratanTheme", "dark")
-                }}
-              />
-            )
-          ) : null}
+        <li className="opacity-60 hover:opacity-100 transition">
+          {mounted && theme === "dark" ? (
+            <svg
+              className="cursor-pointer"
+              onClick={() => {
+                setTheme("light")
+                localStorage.setItem("ratanTheme", "light")
+              }}
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2" />
+              <path d="M12 20v2" />
+              <path d="m4.93 4.93 1.41 1.41" />
+              <path d="m17.66 17.66 1.41 1.41" />
+              <path d="M2 12h2" />
+              <path d="M20 12h2" />
+              <path d="m6.34 17.66-1.41 1.41" />
+              <path d="m19.07 4.93-1.41 1.41" />
+            </svg>
+          ) : (
+            <svg
+              className="cursor-pointer"
+              onClick={() => {
+                setTheme("dark")
+                localStorage.setItem("ratanTheme", "dark")
+              }}
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+            </svg>
+          )}
         </li>
         <li>
           <Link
-            prefetch={false}
             onClick={CloseNav}
-            className={`cursor-pointer transition-all will-change-contents w-fit ${
-              pathname === "/" && "font-semibold text-white"
+            className={`cursor-pointer transition-all will-change-contents w-fit hover:opacity-100 ${
+              pathname === "/" ? "opacity-100" : "opacity-60"
             }`}
             href={"/"}
           >
@@ -66,10 +101,9 @@ const Navbar = () => {
           return (
             <li key={all.url}>
               <Link
-                prefetch={false}
                 onClick={CloseNav}
-                className={`cursor-pointer transition-all will-change-contents w-fit ${
-                  pathname.includes(all.url) && "font-semibold text-white"
+                className={`cursor-pointer transition-all will-change-contents w-fit hover:opacity-100 ${
+                  pathname.includes(all.url) ? "opacity-100" : "opacity-60"
                 }`}
                 href={all.url}
               >
@@ -97,23 +131,25 @@ const Navbar = () => {
           ></span>
         </div>
 
-        <Link aria-label="Home" title="Ratan Bandhej" prefetch={false} href="/">
+        <Link aria-label="Home" title="Ratan Bandhej" href="/">
           <RatanSvg />
         </Link>
 
-        <Link prefetch={false} aria-label="favourites" href="/favourites">
+        <Link aria-label="favourites" href="/favourites">
           <div
             onClick={() => setOpen(false)}
             className="relative cursor-pointer"
           >
-            {favourites.length !== 0 ? (
-              <IoIosHeart color="#fff" size={25} />
-            ) : (
-              <IoIosHeartEmpty
-                color={`${pathname === "/favourites" ? "#fff" : "#ffffff99"}`}
-                size={25}
-              />
-            )}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              {...restofprops}
+            >
+              <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+            </svg>
+
             {favourites.length !== 0 && (
               <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-xs text-black">
                 {favourites.length}

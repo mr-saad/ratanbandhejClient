@@ -1,7 +1,6 @@
 "use client"
 import { useState } from "react"
 import Product from "@/components/Product"
-import { FaChevronDown } from "react-icons/fa"
 
 export default function FilterProducts({ data }) {
   const [products, setProducts] = useState(data)
@@ -36,10 +35,21 @@ export default function FilterProducts({ data }) {
           className="flex items-center justify-between p-3 cursor-pointer border dark:border-white/10 rounded-md"
         >
           {category}
-          <FaChevronDown
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="#fff"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             className="transition"
             style={{ transform: !showDropdown ? "none" : "rotate(180deg)" }}
-          />
+          >
+            <path d="m6 9 6 6 6-6" />
+          </svg>
         </div>
 
         {/* dropdown */}

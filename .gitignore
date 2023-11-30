@@ -34,7 +34,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-pnpm-lock.yaml
 .eslintrc.json
 public/favicon_io.zip
 analyze

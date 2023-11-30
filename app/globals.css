@@ -40,19 +40,3 @@ body {
 .floating-label {
   @apply absolute will-change-contents transition-all pointer-events-none left-2 peer-placeholder-shown:top-1/2 peer-focus:-top-2 -top-2 -translate-y-1/2 dark:text-white/60 opacity-80;
 }
-
-.swiper-pagination {
-  --swiper-pagination-bottom: 0;
-  @apply w-fit bg-black/80 p-1;
-}
-
-#nprogress .bar {
-  background: #fff !important;
-}
-#nprogress .spinner {
-  right: 50px !important;
-}
-#nprogress .spinner-icon {
-  border-top-color: #fff !important;
-  border-left-color: #fff !important;
-}
