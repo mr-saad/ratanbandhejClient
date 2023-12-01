@@ -16,7 +16,7 @@ const Contact = () => {
         E-Mail:{" "}
         <a
           href="mailto:ratanbandhej@gmail.com"
-          className="border-b border-white/60 mb-3 font-semibold"
+          className="border-b border-current mb-3 font-semibold"
         >
           ratanbandhejbhuj@gmail.com
         </a>
@@ -25,7 +25,7 @@ const Contact = () => {
         Phone:{" "}
         <a
           href="tel:+917016039766"
-          className="border-b border-white/60 font-semibold"
+          className="border-b border-current font-semibold"
         >
           +91 7016039766
         </a>
@@ -40,7 +40,7 @@ const Contact = () => {
         You can reach us via email at{" "}
         <a
           href="mailto:ratanbandhej@gmail.com"
-          className="border-b border-white/60 font-semibold"
+          className="border-b border-current font-semibold"
         >
           ratanbandhejbhuj@gmail.com
         </a>
@@ -51,7 +51,7 @@ const Contact = () => {
         If you prefer to speak with us directly, you can contact us by phone at{" "}
         <a
           href="tel:+917016039766"
-          className="border-b border-white/60 font-semibold"
+          className="border-b border-current font-semibold"
         >
           +91 7016039766
         </a>

@@ -38,5 +38,5 @@ body {
   @apply w-full text-black dark:text-white bg-transparent border-b dark:border-white/10 dark:focus-within:border-white border-black/10 focus-within:border-black transition-all px-2 py-1 outline-none;
 }
 .floating-label {
-  @apply absolute will-change-contents transition-all pointer-events-none left-2 peer-placeholder-shown:top-1/2 peer-focus:-top-2 -top-2 -translate-y-1/2 dark:text-white/60 opacity-80;
+  @apply absolute will-change-contents transition-all pointer-events-none left-2 peer-placeholder-shown:top-1/2 peer-focus:-top-2 -top-2 -translate-y-1/2;
 }

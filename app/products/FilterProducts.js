@@ -41,11 +41,10 @@ export default function FilterProducts({ data }) {
             height="20"
             fill="none"
             viewBox="0 0 24 24"
-            stroke="#fff"
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="transition"
+            className="transition stroke-current"
             style={{ transform: !showDropdown ? "none" : "rotate(180deg)" }}
           >
             <path d="m6 9 6 6 6-6" />

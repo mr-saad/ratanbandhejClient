@@ -32,7 +32,7 @@ export default async function Home() {
             height="44"
             viewBox="0 0 24 24"
             fill="none"
-            stroke="#fff"
+            className="stroke-current"
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"

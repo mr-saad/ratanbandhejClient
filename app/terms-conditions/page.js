@@ -125,7 +125,7 @@ export default function Terms() {
       <p>
         Please read{" "}
         <Link
-          className="font-semibold highlight border-b pb-1"
+          className="font-semibold highlight border-b border-current"
           href="/privacy-policy"
         >
           Privacy Policy
