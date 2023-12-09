@@ -1,9 +1,10 @@
 import Link from "next/link"
 import dynamicImport from "next/dynamic"
+import { Suspense } from "react"
 
 const Product = dynamicImport(() => import("@/components/Product"))
 
-export const revalidate = 4
+export const revalidate = 10
 async function getProducts() {
   const sanity = (await import("@/components/sanity")).default
   return await sanity.fetch(`
@@ -43,11 +44,13 @@ export default async function Home() {
       </div>
       <div id="arrivals" className="scroll-mt-5 md:scroll-mt-24">
         <h1 className="w-fit mb-5 text-2xl font-semibold">New Arrivals</h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          {data.map(props => {
-            return <Product key={props.slug} {...props} home={true} />
-          })}
-        </div>
+        <Suspense fallback="Please Wait">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            {data.map(props => {
+              return <Product key={props.slug} {...props} home={true} />
+            })}
+          </div>
+        </Suspense>
         <Link
           prefetch={false}
           className="flex items-center w-fit btn mt-5"

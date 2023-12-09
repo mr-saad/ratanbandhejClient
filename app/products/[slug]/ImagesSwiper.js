@@ -3,7 +3,7 @@ import { urlFor } from "@/components/sanity"
 
 export default function ImagesSwiper({ images, title }) {
   return (
-    <div className="overflow-x-auto whitespace-nowrap aspect-square snap-x snap-mandatory">
+    <div className="overflow-x-auto whitespace-nowrap aspect-square snap-x snap-mandatory rounded-md">
       <Image
         loading="eager"
         fetchPriority="high"
