@@ -18,13 +18,14 @@ const Navbar = () => {
   const [mounted, setMounted] = useState(false)
   useEffect(() => setMounted(true), [])
 
-  let restofprops =
+  const restofprops =
     favourites.length !== 0
       ? {
           fill: "#ffffff"
         }
       : {
-          stroke: pathname === "/favourites" ? "#ffffff" : "currentColor",
+          stroke:
+            pathname === "/favourites" ? "#ffffff" : "rgba(255,255,255,0.6)",
           strokeWidth: "2",
           strokeLinecap: "round",
           strokeLinejoin: "round"

@@ -1,10 +1,4 @@
 {
-  "name": "Ratan Bandhej | One Place For All Your Bandhani Needs",
-  "short_name": "Ratan Bandhej",
-  "theme_color": "#111111",
-  "background_color": "#111111",
-  "display": "standalone",
-  "start_url": "/",
   "icons": [
     {
       "src": "windows11/SmallTile.scale-100.png",
