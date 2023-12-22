@@ -25,7 +25,7 @@ html {
   word-spacing: 0.1rem;
 }
 body {
-  @apply dark:bg-[#111] transition-colors dark:text-white/60 text-black/70 text-sm md:text-base;
+  @apply dark:bg-[#111] transition-colors dark:text-white/60 text-black/60 text-sm md:text-base;
 }
 
 .highlight {

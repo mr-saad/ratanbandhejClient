@@ -1,24 +1,25 @@
 import Link from "next/link"
 import dynamicImport from "next/dynamic"
-import { Suspense } from "react"
 
 const Product = dynamicImport(() => import("@/components/Product"))
 
-export const revalidate = 10
-async function getProducts() {
+export const revalidate = 60
+export async function getProducts(count) {
   const sanity = (await import("@/components/sanity")).default
-  return await sanity.fetch(`
-  *[_type=="product"]|order(_createdAt asc)[0..3] {
+  return await sanity.fetch(
+    `*[_type=="product"]|order(_createdAt asc)[0..$count] {
     _id,
     type,
     title,
     "slug": slug.current,
     "image": images[0].asset->{metadata{lqip},_id},
-  }`)
+  }`,
+    { count: count || -1 }
+  )
 }
 
 export default async function Home() {
-  const data = await getProducts()
+  const data = await getProducts(2)
   return (
     <div className="mx-auto">
       <div className="min-h-screen flex flex-col justify-center items-center">
@@ -44,13 +45,11 @@ export default async function Home() {
       </div>
       <div id="arrivals" className="scroll-mt-5 md:scroll-mt-24">
         <h1 className="w-fit mb-5 text-2xl font-semibold">New Arrivals</h1>
-        <Suspense fallback="Please Wait">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-            {data.map(props => {
-              return <Product key={props.slug} {...props} home={true} />
-            })}
-          </div>
-        </Suspense>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          {data.map(props => {
+            return <Product key={props.slug} {...props} home={true} />
+          })}
+        </div>
         <Link
           prefetch={false}
           className="flex items-center w-fit btn mt-5"
