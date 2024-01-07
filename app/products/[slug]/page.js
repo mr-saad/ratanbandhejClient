@@ -1,27 +1,32 @@
 import sanity from "@/components/sanity"
 import ImagesSwiper from "./ImagesSwiper"
 import ProductDetails from "./ProductDetails"
+import { notFound } from "next/navigation"
 
 export async function generateMetadata({ params: { slug } }) {
-  const { title } = await sanity.fetch(`*[slug.current==$slug][0]{title}`, {
+  const product = await sanity.fetch(`*[slug.current==$slug][0]{title}`, {
     slug
   })
-  const keywords = title.toLowerCase().split(" ")
-  keywords.push(
-    "ratanbandhej",
-    "ratan",
-    "bandhej",
-    "ratanbandhej.site",
-    "ratanbandhej.vercel.app",
-    "handicraft bandhani",
-    "handmade bandhani"
-  )
-  return {
-    title,
-    alternates: {
-      canonical: `/products/${slug}`
-    },
-    keywords
+  if (product) {
+    const keywords = product.title.toLowerCase().split(" ")
+    keywords.push(
+      "ratanbandhej",
+      "ratan",
+      "bandhej",
+      "ratanbandhej.site",
+      "ratanbandhej.vercel.app",
+      "handicraft bandhani",
+      "handmade bandhani"
+    )
+    return {
+      title: product.title,
+      alternates: {
+        canonical: `/products/${slug}`
+      },
+      keywords
+    }
+  } else {
+    notFound()
   }
 }
 
