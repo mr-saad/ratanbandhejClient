@@ -12,7 +12,7 @@ export default function FilteredProducts({ data }) {
   const products = searchParams.get("category") ? filtered : data
   return (
     <>
-      <div className="flex flex-wrap gap-2 mb-4">
+      <div className="flex flex-wrap gap-2 mt-2 mb-3">
         {categories.map(category => {
           return (
             <Link
@@ -47,7 +47,7 @@ export default function FilteredProducts({ data }) {
         )}
       </div>
       {/* product list */}
-      <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5">
+      <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-x-10 gap-y-5">
         {products.map(product => {
           return <Product key={product.slug} {...product} />
         })}

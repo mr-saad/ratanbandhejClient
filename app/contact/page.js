@@ -6,7 +6,7 @@ export const metadata = {
 const Contact = () => {
   return (
     <div className="flex flex-col justify-center max-w-4xl mx-auto">
-      <h1 className="text-3xl highlight mb-5 font-semibold">Contact Us</h1>
+      <h1 className="text-3xl highlight font-semibold">Contact Us</h1>
       <p>
         Thank you for your interest in Ratan Bandhej. We are delighted to assist
         you with any inquiries, feedback, or assistance you may require. Here
@@ -24,10 +24,10 @@ const Contact = () => {
       <p className="mb-4">
         Phone:{" "}
         <a
-          href="tel:+917016039766"
+          href="tel:+917778975752"
           className="border-b border-current font-semibold"
         >
-          +91 7016039766
+          +91 7778975752
         </a>
       </p>
       <p className="mb-4">
@@ -50,10 +50,10 @@ const Contact = () => {
       <p className="mb-4">
         If you prefer to speak with us directly, you can contact us by phone at{" "}
         <a
-          href="tel:+917016039766"
+          href="tel:+917778975752"
           className="border-b border-current font-semibold"
         >
-          +91 7016039766
+          +91 7778975752
         </a>
         . Our customer support team is available during business hours to assist
         you with your queries and provide any necessary guidance.

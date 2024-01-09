@@ -10,12 +10,7 @@ export const metadata = {
 
 export const revalidate = 3600
 
-export default async function Products({ searchParams }) {
+export default async function Products() {
   const data = await getProducts()
-
-  return (
-    <div className="pt-4">
-      <FilteredProducts data={data} />
-    </div>
-  )
+  return <FilteredProducts data={data} />
 }

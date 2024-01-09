@@ -1,12 +1,12 @@
 export const metadata = {
   title: "Privacy Policy",
-  keywords: ["privacy", "policy"],
+  keywords: ["privacy", "policy"]
 }
 
 const Privacy = () => {
   return (
     <div className="max-w-4xl mx-auto">
-      <h1 className="text-xl font-semibold highlight mt-5">Privacy Policy</h1>
+      <h1 className="text-xl font-semibold highlight">Privacy Policy</h1>
       <p className="mb-2">Last updated: February 03, 2023</p>
       <p>
         This Privacy Policy describes Our policies and procedures on the
@@ -30,7 +30,6 @@ const Privacy = () => {
             Service.
           </p>
         </li>
-
         <li>
           <p>
             <strong className="highlight">Company</strong> (referred to as
@@ -39,7 +38,6 @@ const Privacy = () => {
             Apnanagar-1, Near Sejwala Matam, Bhuj - Kutchh.
           </p>
         </li>
-
         <li>
           <p>
             <strong className="highlight">Country</strong> refers to: Gujarat,
@@ -106,6 +104,7 @@ const Privacy = () => {
           </p>
         </li>
       </ul>
+
       <h1 className="text-xl font-semibold highlight mt-5">
         Collecting and Using Your Personal Data
       </h1>
@@ -129,7 +128,6 @@ const Privacy = () => {
           <p>Address, State, Province, ZIP/Postal code, City</p>
         </li>
       </ul>
-
       <p>
         We may also collect information that Your browser sends whenever You
         visit our Service or when You access the Service by or through a mobile
@@ -157,7 +155,6 @@ const Privacy = () => {
             Service that are available to You as a registered user.
           </p>
         </li>
-
         <li>
           <p>
             <strong className="highlight">To contact You:</strong> To contact
@@ -184,7 +181,6 @@ const Privacy = () => {
             attend and manage Your requests to Us.
           </p>
         </li>
-
         <li>
           <p>
             <strong className="highlight">For other purposes</strong>: We may
@@ -262,11 +258,11 @@ const Privacy = () => {
           By phone number:{" "}
           <a
             className="border-b highlight"
-            href="tel:+917016039766"
+            href="tel:+917778975752"
             rel="external nofollow noopener"
             target="_blank"
           >
-            +91 70160 39766
+            +91 7778975752
           </a>
         </li>
       </ul>

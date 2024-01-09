@@ -3,9 +3,9 @@ import Link from "next/link"
 const Footer = () => {
   return (
     <footer className="p-5 mt-20 md:px-20 bg-[#111] text-white/60 border-t border-white/10">
-      <p>Follow Us on Social Media Platforms in Order to Stay UpToDate</p>
-      <div className="flex flex-col md:flex-row justify-between md:items-center my-10 mt-10">
-        <h1 className="text-3xl mb-4 md:mb-0">Ratan Bandhej</h1>
+      <h1 className="text-3xl">Ratan Bandhej</h1>
+      <div className="flex flex-col gap-5 md:flex-row justify-between md:items-center my-5">
+        <p>Follow us on Social Media Platforms in Order to Stay up to date</p>
         <div className="flex gap-10">
           <a
             title="Facebook"

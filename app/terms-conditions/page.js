@@ -8,13 +8,11 @@ export const metadata = {
 export default function Terms() {
   return (
     <div className="max-w-4xl mx-auto">
-      <h2 className="text-xl font-semibold highlight my-5">
-        Terms and Conditions
-      </h2>
+      <h2 className="text-xl font-semibold highlight">Terms and Conditions</h2>
 
       <p>Welcome to Ratan Bandhej!</p>
 
-      <p className="mb-5">
+      <p className="mt-2 mb-5">
         These terms and conditions outline the rules and regulations for the use
         of Ratan Bandhej's Website, located at ratanbandhej.vercel.app.
       </p>
@@ -42,7 +40,7 @@ export default function Terms() {
         referring to same.
       </p>
 
-      <h2 className="text-xl font-semibold highlight my-5">License</h2>
+      <h2 className="text-xl font-semibold highlight mt-5">License</h2>
 
       <p>
         Unless otherwise stated, Ratan Bandhej and/or its licensors own the
@@ -100,28 +98,24 @@ export default function Terms() {
           or present commercial activities or unlawful activity.
         </li>
       </ul>
-
       <p>
         You hereby grant Ratan Bandhej a non-exclusive license to use,
         reproduce, edit and authorize others to use, reproduce and edit any of
         your Comments in any and all forms, formats or media.
       </p>
-
       <p>
         No use of Ratan Bandhej's logo or other artwork will be allowed for
         linking absent a trademark license agreement.
       </p>
 
-      <h2 className=" text-xl font-semibold highlight my-5">iFrames</h2>
-
+      <h2 className=" text-xl font-semibold highlight mt-5">iFrames</h2>
       <p>
         Without prior approval and written permission, you may not create frames
         around our Webpages that alter in any way the visual presentation or
         appearance of our Website.
       </p>
 
-      <h2 className=" text-xl font-semibold highlight my-5">Your Privacy</h2>
-
+      <h2 className=" text-xl font-semibold highlight mt-5">Your Privacy</h2>
       <p>
         Please read{" "}
         <Link
@@ -132,10 +126,9 @@ export default function Terms() {
         </Link>
       </p>
 
-      <h2 className=" text-xl font-semibold highlight my-5">
+      <h2 className=" text-xl font-semibold highlight mt-5">
         Reservation of Rights
       </h2>
-
       <p>
         We reserve the right to request that you remove all links or any
         particular link to our Website. You approve to immediately remove all
@@ -145,17 +138,15 @@ export default function Terms() {
         these linking terms and conditions.
       </p>
 
-      <h2 className="text-xl font-semibold highlight my-5">
+      <h2 className="text-xl font-semibold highlight mt-5">
         Removal of links from our website
       </h2>
-
       <p>
         If you find any link on our Website that is offensive for any reason,
         you are free to contact and inform us any moment. We will consider
         requests to remove links but we are not obligated to or so or to respond
         to you directly.
       </p>
-
       <p>
         We do not ensure that the information on this website is correct, we do
         not warrant its completeness or accuracy; nor do we promise to ensure
@@ -163,8 +154,7 @@ export default function Terms() {
         is kept up to date.
       </p>
 
-      <h2 className="text-xl font-semibold highlight my-5">Disclaimer</h2>
-
+      <h2 className="text-xl font-semibold highlight mt-5">Disclaimer</h2>
       <p>
         To the maximum extent permitted by applicable law, we exclude all
         representations, warranties and conditions relating to our website and
