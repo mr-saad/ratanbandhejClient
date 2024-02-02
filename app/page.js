@@ -14,7 +14,7 @@ export async function getProducts(count) {
     "slug": slug.current,
     "image": images[0].asset->{metadata{lqip},_id},
   }`,
-    { count: count || -1 }
+    { count: count || -1 },
   )
 }
 
@@ -44,15 +44,15 @@ export default async function Home() {
         </a>
       </div>
       <div id="arrivals" className="scroll-mt-5 md:scroll-mt-24">
-        <h1 className="w-fit mb-5 text-2xl font-semibold">New Arrivals</h1>
+        <h1 className="heading">New Arrivals</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          {data.map(props => {
-            return <Product key={props.slug} {...props} home={true} />
+          {data.map((props) => {
+            return <Product key={props.slug} {...props} />
           })}
         </div>
         <Link
           prefetch={false}
-          className="flex items-center w-fit btn mt-5"
+          className="inline-block btn mt-5"
           href={"/products"}
         >
           Explore

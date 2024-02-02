@@ -4,8 +4,8 @@ import FilteredProducts from "./FilteredProducts"
 export const metadata = {
   title: "Products",
   alternates: {
-    canonical: "/products"
-  }
+    canonical: "/products",
+  },
 }
 
 export const revalidate = 3600

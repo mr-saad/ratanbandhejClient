@@ -8,17 +8,17 @@ export const viewport = {
   initialScale: 1,
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#111" },
-    { media: "(prefers-color-scheme: dark)", color: "#111" }
-  ]
+    { media: "(prefers-color-scheme: dark)", color: "#111" },
+  ],
 }
 
 export const metadata = {
   title: {
     template: "%s | Ratan Bandhej",
-    default: "Ratan Bandhej | One Place For All Your Bandhani Needs"
+    default: "Ratan Bandhej | One Place For All Your Bandhani Needs",
   },
   alternates: {
-    canonical: "https://ratanbandhej.vercel.app"
+    canonical: "https://ratanbandhej.vercel.app",
   },
   metadataBase: new URL("https://ratanbandhej.vercel.app"),
   robots: {
@@ -26,8 +26,8 @@ export const metadata = {
     follow: true,
     googleBot: {
       index: true,
-      follow: true
-    }
+      follow: true,
+    },
   },
   category: "Bandhani Shop",
   manifest: "/site.webmanifest",
@@ -54,7 +54,7 @@ export const metadata = {
     "ratan bandhej bhuj",
     "one-place-for-all-your-bandhani-needs",
     "handicraft bandhani",
-    "handmade bandhani"
+    "handmade bandhani",
   ],
   applicationName: "Ratan Bandhej",
   referrer: "origin-when-cross-origin",
@@ -74,12 +74,12 @@ export const metadata = {
         url: "https://nextjs.org/og-alt.png",
         width: 1800,
         height: 1600,
-        alt: "ratan bandhej logo"
-      }
+        alt: "ratan bandhej logo",
+      },
     ],
     locale: "en_US",
     type: "website",
-    authors: ["Saad Khatri"]
+    authors: ["Saad Khatri"],
   },
   icons: {
     icon: "/android-chrome-192x192.png",
@@ -87,9 +87,9 @@ export const metadata = {
     apple: "/apple-touch-icon.png",
     other: {
       rel: "android-chrome-512x512",
-      url: "/android-chrome-512x512.png"
-    }
-  }
+      url: "/android-chrome-512x512.png",
+    },
+  },
 }
 
 export default function RootLayout({ children }) {
@@ -98,7 +98,7 @@ export default function RootLayout({ children }) {
       <body>
         <Provider>
           <Navbar />
-          <div className="min-h-screen px-4 py-2 md:px-20">{children}</div>
+          <div className="min-h-screen p-5 lg:px-20">{children}</div>
         </Provider>
         <Footer />
       </body>

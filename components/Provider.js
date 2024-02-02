@@ -8,6 +8,8 @@ export const RatanContext = createContext()
 export default function Provider({ children }) {
   const { setTheme } = useTheme()
   const [favourites, setFavourites] = useState([])
+  const [showOrderLink, setShowOrderLink] = useState(false)
+
   useEffect(() => {
     const isDark = localStorage.getItem("ratanTheme")
     if (isDark === "dark") {
@@ -18,12 +20,15 @@ export default function Provider({ children }) {
     setFavourites(
       localStorage.getItem("favourites")
         ? JSON.parse(localStorage.getItem("favourites"))
-        : []
+        : [],
     )
+    document.cookie.includes("userId") && setShowOrderLink(true)
   }, [])
   return (
-    <ThemeProvider defaultTheme="light" attribute="class">
-      <RatanContext.Provider value={{ favourites, setFavourites }}>
+    <ThemeProvider defaultTheme="system" enableSystem={true} attribute="class">
+      <RatanContext.Provider
+        value={{ favourites, setFavourites, showOrderLink, setShowOrderLink }}
+      >
         {children}
       </RatanContext.Provider>
     </ThemeProvider>

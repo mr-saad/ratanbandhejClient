@@ -1,12 +1,12 @@
 export const metadata = {
   title: "About",
-  keywords: ["About", "aboutus"]
+  keywords: ["About", "aboutus"],
 }
 
 const About = () => {
   return (
     <div className="max-w-4xl mx-auto">
-      <h1 className="text-3xl highlight font-semibold">About Us</h1>
+      <h1 className="heading">About Us</h1>
       <p className="mb-5">
         At Ratan Bandhej, we celebrate the vibrant heritage and artistry of
         traditional Indian textiles. We are passionate about preserving and

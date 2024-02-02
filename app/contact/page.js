@@ -1,12 +1,12 @@
 export const metadata = {
   title: "Contact",
-  keywords: ["contact", "contactus"]
+  keywords: ["contact", "contactus"],
 }
 
 const Contact = () => {
   return (
     <div className="flex flex-col justify-center max-w-4xl mx-auto">
-      <h1 className="text-3xl highlight font-semibold">Contact Us</h1>
+      <h1 className="heading">Contact Us</h1>
       <p>
         Thank you for your interest in Ratan Bandhej. We are delighted to assist
         you with any inquiries, feedback, or assistance you may require. Here

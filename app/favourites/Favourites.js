@@ -11,6 +11,6 @@ export default function Favourites() {
       return <Product key={props.slug} {...props} />
     })
   ) : (
-    <p className="highlight text-3xl">Empty</p>
+    <p>Empty</p>
   )
 }

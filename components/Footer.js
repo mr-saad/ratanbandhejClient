@@ -2,7 +2,7 @@ import Link from "next/link"
 
 const Footer = () => {
   return (
-    <footer className="p-5 mt-20 md:px-20 bg-[#111] text-white/60 border-t border-white/10">
+    <footer className="p-5 mt-20 lg:px-20 bg-[#111] text-white/60 border-t border-white/10">
       <h1 className="text-3xl">Ratan Bandhej</h1>
       <div className="flex flex-col gap-5 md:flex-row justify-between md:items-center my-5">
         <p>Follow us on Social Media Platforms in Order to Stay up to date</p>
@@ -68,7 +68,7 @@ const Footer = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
         <div>
-          <h2 className="font-semibold text-white mx-auto mb-2 ">CATEGORIES</h2>
+          <h2 className="font-semibold text-white mx-auto mb-2">CATEGORIES</h2>
           <div>
             <p>Modal Silk</p>
             <p>Kutchi Bandhani Saree</p>
@@ -77,7 +77,7 @@ const Footer = () => {
           </div>
         </div>
         <div>
-          <h2 className="font-semibold text-white mx-auto mb-2 ">CONTACT US</h2>
+          <h2 className="font-semibold text-white mx-auto mb-2">CONTACT US</h2>
           <a
             target="_blank"
             className="flex gap-1 items-center mb-2 hover:text-white transition"
@@ -120,7 +120,7 @@ const Footer = () => {
           </a>
         </div>
         <div>
-          <h2 className="font-semibold text-white mx-auto mb-2 ">ADDRESS</h2>
+          <h2 className="font-semibold text-white mx-auto mb-2">ADDRESS</h2>
           <div>
             <p>
               1079, ApnaNagar-1, <br /> Near Sejwala Matam, <br /> Bhuj-Kutchh,
@@ -143,7 +143,9 @@ const Footer = () => {
             Privacy Policy
           </Link>
         </div>
-        <p>All Rights Reserved &copy;RatanBandhej.{new Date().getFullYear()}</p>
+        <p>
+          All Rights Reserved &copy; Ratan Bandhej {new Date().getFullYear()}
+        </p>
       </div>
     </footer>
   )

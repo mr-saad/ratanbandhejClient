@@ -10,7 +10,7 @@ const Navbar = () => {
   const { theme, setTheme } = useTheme()
   const [open, setOpen] = useState(false)
 
-  const { favourites } = useContext(RatanContext)
+  const { favourites, showOrderLink } = useContext(RatanContext)
 
   const pathname = usePathname()
 
@@ -21,18 +21,18 @@ const Navbar = () => {
   const restofprops =
     favourites.length !== 0
       ? {
-          fill: "#ffffff"
+          fill: "#ffffff",
         }
       : {
           stroke:
             pathname === "/favourites" ? "#ffffff" : "rgba(255,255,255,0.6)",
           strokeWidth: "2",
           strokeLinecap: "round",
-          strokeLinejoin: "round"
+          strokeLinejoin: "round",
         }
 
   return (
-    <nav className="nav relative md:text-base p-4 md:px-20 z-[12] bg-[#111] border-b border-white/10">
+    <nav className="nav relative md:text-base p-5 lg:px-20 z-[12] bg-[#111] border-b dark:border-white/10">
       <ul
         className={`flex md:items-center md:absolute md:left-1/2 md:top-1/2 md:-translate-y-1/2 md:-translate-x-1/2 justify-between md:justify-center md:gap-5 transition-[height] flex-col md:flex-row h-0 md:h-auto overflow-hidden font-semibold text-white ${
           open && "h-36 mb-4"
@@ -90,7 +90,7 @@ const Navbar = () => {
         <li>
           <Link
             onClick={CloseNav}
-            className={`cursor-pointer transition-all will-change-contents w-fit hover:opacity-100 ${
+            className={`transition-colors block hover:opacity-100 ${
               pathname === "/" ? "opacity-100" : "opacity-60"
             }`}
             href={"/"}
@@ -98,12 +98,12 @@ const Navbar = () => {
             Home
           </Link>
         </li>
-        {links.map(all => {
+        {links.map((all) => {
           return (
             <li key={all.url}>
               <Link
                 onClick={CloseNav}
-                className={`cursor-pointer transition-all will-change-contents w-fit hover:opacity-100 ${
+                className={`transition-colors block hover:opacity-100 ${
                   pathname.includes(all.url) ? "opacity-100" : "opacity-60"
                 }`}
                 href={all.url}
@@ -113,20 +113,33 @@ const Navbar = () => {
             </li>
           )
         })}
+        {showOrderLink && (
+          <li>
+            <Link
+              onClick={CloseNav}
+              className={`transition-colors block hover:opacity-100 ${
+                pathname === "/orders" ? "opacity-100" : "opacity-60"
+              }`}
+              href={"/orders"}
+            >
+              Orders
+            </Link>
+          </li>
+        )}
       </ul>
       <div className="flex justify-between items-center select-none">
         <div
           className={`md:hidden transition flex flex-col justify-between h-[12px] z-20`}
-          onClick={() => setOpen(prev => !prev)}
+          onClick={() => setOpen((prev) => !prev)}
         >
           <span
-            className={`w-[26px] h-[2px] rounded-md transition-all origin-center bg-white ${
+            className={`w-[26px] h-[2px] rounded-md transition-transform origin-center bg-white ${
               open && "rotate-45 translate-y-2"
             }`}
           ></span>
 
           <span
-            className={`w-[26px] h-[2px] rounded-md transition-all origin-center bg-white ${
+            className={`w-[26px] h-[2px] rounded-md transition-transform origin-center bg-white ${
               open && "-rotate-45 -translate-y-[2px]"
             }`}
           ></span>
@@ -168,22 +181,22 @@ export default Navbar
 const links = [
   {
     text: "Products",
-    url: "/products"
+    url: "/products",
   },
   {
     text: "About",
-    url: "/about"
+    url: "/about",
   },
   {
     text: "Contact",
-    url: "/contact"
-  }
+    url: "/contact",
+  },
 ]
 
 const RatanSvg = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="200"
+    width="121"
     height="30"
     viewBox="0 0 811 201"
     preserveAspectRatio="xMidYMid meet"

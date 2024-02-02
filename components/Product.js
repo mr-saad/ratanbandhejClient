@@ -2,10 +2,9 @@ import Image from "next/image"
 import Link from "next/link"
 import { urlFor } from "./sanity"
 
-export default function Product({ slug, image, title, home }) {
+export default function Product({ slug, image, title }) {
   return (
     <Link
-      prefetch={home ? false : true}
       className="relative rounded-md overflow-hidden"
       href={`/products/${slug}`}
     >

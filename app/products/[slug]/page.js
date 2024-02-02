@@ -5,7 +5,7 @@ import { notFound } from "next/navigation"
 
 export async function generateMetadata({ params: { slug } }) {
   const product = await sanity.fetch(`*[slug.current==$slug][0]{title}`, {
-    slug
+    slug,
   })
   if (product) {
     const keywords = product.title.toLowerCase().split(" ")
@@ -16,14 +16,14 @@ export async function generateMetadata({ params: { slug } }) {
       "ratanbandhej.site",
       "ratanbandhej.vercel.app",
       "handicraft bandhani",
-      "handmade bandhani"
+      "handmade bandhani",
     )
     return {
       title: product.title,
       alternates: {
-        canonical: `/products/${slug}`
+        canonical: `/products/${slug}`,
       },
-      keywords
+      keywords,
     }
   } else {
     notFound()
@@ -32,9 +32,9 @@ export async function generateMetadata({ params: { slug } }) {
 
 export async function generateStaticParams() {
   const products = await sanity.fetch(
-    `*[_type=="product"]{"slug":slug.current}`
+    `*[_type=="product"]{"slug":slug.current}`,
   )
-  return products.map(all => ({ slug: all.slug }))
+  return products.map((all) => ({ slug: all.slug }))
 }
 
 export const revalidate = 10
@@ -42,25 +42,27 @@ async function getProduct(slug) {
   return await sanity.fetch(
     `*[slug.current==$slug][0]{
       _id,
+      "slug":slug.current,
       title,
       type,
       "images":images[].asset->{metadata{lqip},_id},
       description,
       colours,
-      price,
-      quantity,
-      "slug":slug.current
+      price
     }`,
-    { slug }
+    { slug },
   )
 }
 
-export default async function Slug({ params }) {
+export default async function Slug({ params, searchParams }) {
   const product = await getProduct(params.slug)
   return (
-    <div className="pt-4 mx-auto md:pt-10 max-w-5xl grid md:grid-cols-2 grid-cols-1 md:gap-10 gap-3">
+    <div className="mx-auto md:pt-10 max-w-md md:max-w-4xl grid md:grid-cols-2 grid-cols-1 md:gap-10">
       <ImagesSwiper images={product.images} title={product.title} />
-      <ProductDetails product={product} />
+      <ProductDetails
+        showForm={searchParams.showForm || null}
+        product={product}
+      />
     </div>
   )
 }

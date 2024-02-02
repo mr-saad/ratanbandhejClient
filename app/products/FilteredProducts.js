@@ -5,15 +5,15 @@ import { useSearchParams } from "next/navigation"
 
 export default function FilteredProducts({ data }) {
   const searchParams = useSearchParams()
-  const categories = [...new Set(data.map(all => all.type))]
+  const categories = [...new Set(data.map((all) => all.type))]
   const filtered = data.filter(
-    ({ type }) => type === searchParams.get("category")
+    ({ type }) => type === searchParams.get("category"),
   )
   const products = searchParams.get("category") ? filtered : data
   return (
     <>
-      <div className="flex flex-wrap gap-2 mt-2 mb-3">
-        {categories.map(category => {
+      <div className="flex flex-wrap gap-2 mb-5">
+        {categories.map((category) => {
           return (
             <Link
               shallow={true}
@@ -48,7 +48,7 @@ export default function FilteredProducts({ data }) {
       </div>
       {/* product list */}
       <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-x-10 gap-y-5">
-        {products.map(product => {
+        {products.map((product) => {
           return <Product key={product.slug} {...product} />
         })}
       </div>

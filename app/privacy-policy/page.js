@@ -1,12 +1,12 @@
 export const metadata = {
   title: "Privacy Policy",
-  keywords: ["privacy", "policy"]
+  keywords: ["privacy", "policy"],
 }
 
 const Privacy = () => {
   return (
     <div className="max-w-4xl mx-auto">
-      <h1 className="text-xl font-semibold highlight">Privacy Policy</h1>
+      <h1 className="heading">Privacy Policy</h1>
       <p className="mb-2">Last updated: February 03, 2023</p>
       <p>
         This Privacy Policy describes Our policies and procedures on the
