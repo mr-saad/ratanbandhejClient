@@ -1,11 +1,11 @@
 "use client"
-import { useContext, useEffect, useState } from "react"
-import { RatanContext } from "@/components/Provider"
+import { useEffect, useState } from "react"
+import { useRatanContext } from "@/components/Provider"
 
 export default function FavouritesButton({ _id, slug, title, images }) {
   const [showFavBtn, setShowFavBtn] = useState(true)
 
-  const { favourites, setFavourites } = useContext(RatanContext)
+  const { favourites, setFavourites } = useRatanContext()
 
   useEffect(() => {
     favourites.forEach((item) => {
@@ -23,7 +23,7 @@ export default function FavouritesButton({ _id, slug, title, images }) {
         slug,
         title,
         image: {
-          _id: images[0]._id,
+          url: images[0].url,
           metadata: { lqip: images[0].metadata.lqip },
         },
       },

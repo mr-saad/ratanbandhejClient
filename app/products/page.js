@@ -1,4 +1,4 @@
-import { getProducts } from "../page"
+import getProducts from "@/lib/getProducts"
 import FilteredProducts from "./FilteredProducts"
 
 export const metadata = {
@@ -8,7 +8,7 @@ export const metadata = {
   },
 }
 
-export const revalidate = 3600
+export const revalidate = 60
 
 export default async function Products() {
   const data = await getProducts()

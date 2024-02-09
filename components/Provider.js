@@ -1,9 +1,11 @@
 "use client"
-
 import { ThemeProvider, useTheme } from "next-themes"
-import { createContext, useEffect, useState } from "react"
+import { createContext, useContext, useEffect, useState } from "react"
 
-export const RatanContext = createContext()
+const RatanContext = createContext()
+export const useRatanContext = () => {
+  return useContext(RatanContext)
+}
 
 export default function Provider({ children }) {
   const { setTheme } = useTheme()
@@ -12,7 +14,10 @@ export default function Provider({ children }) {
 
   useEffect(() => {
     const isDark = localStorage.getItem("ratanTheme")
-    if (isDark === "dark") {
+    if (
+      isDark === "dark" ||
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
       setTheme("dark")
     } else {
       setTheme("light")

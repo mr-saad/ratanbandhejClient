@@ -1,10 +1,9 @@
 "use client"
-import { useContext } from "react"
 import Product from "@/components/Product"
-import { RatanContext } from "@/components/Provider"
+import { useRatanContext } from "@/components/Provider"
 
 export default function Favourites() {
-  const { favourites } = useContext(RatanContext)
+  const { favourites } = useRatanContext()
 
   return favourites.length > 0 ? (
     favourites.map((props) => {

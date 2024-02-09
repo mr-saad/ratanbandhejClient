@@ -1,19 +1,15 @@
 import Image from "next/image"
-import Link from "next/link"
-import { urlFor } from "./sanity"
+import ProductNavigator from "./ProductNavigator"
 
 export default function Product({ slug, image, title }) {
   return (
-    <Link
-      className="relative rounded-md overflow-hidden"
-      href={`/products/${slug}`}
-    >
+    <ProductNavigator href={`/products/${slug}`}>
       <Image
         sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 33vw"
         alt={slug}
         placeholder="blur"
         blurDataURL={image.metadata.lqip}
-        src={urlFor(image._id)}
+        src={image.url}
         width={400}
         height={400}
         loading="eager"
@@ -24,6 +20,6 @@ export default function Product({ slug, image, title }) {
           {title}
         </h2>
       </div>
-    </Link>
+    </ProductNavigator>
   )
 }

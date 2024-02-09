@@ -3,6 +3,8 @@ import ImagesSwiper from "./ImagesSwiper"
 import ProductDetails from "./ProductDetails"
 import { notFound } from "next/navigation"
 
+export const runtime = "edge"
+
 export async function generateMetadata({ params: { slug } }) {
   const product = await sanity.fetch(`*[slug.current==$slug][0]{title}`, {
     slug,
@@ -45,7 +47,7 @@ async function getProduct(slug) {
       "slug":slug.current,
       title,
       type,
-      "images":images[].asset->{metadata{lqip},_id},
+      "images":images[].asset->{metadata{lqip},url,_id},
       description,
       colours,
       price

@@ -1,22 +1,10 @@
-import Link from "next/link"
 import dynamicImport from "next/dynamic"
+import Navigate from "@/components/Navigate"
+import getProducts from "@/lib/getProducts"
 
 const Product = dynamicImport(() => import("@/components/Product"))
 
 export const revalidate = 60
-export async function getProducts(count) {
-  const sanity = (await import("@/components/sanity")).default
-  return await sanity.fetch(
-    `*[_type=="product"]|order(_createdAt asc)[0..$count] {
-    _id,
-    type,
-    title,
-    "slug": slug.current,
-    "image": images[0].asset->{metadata{lqip},_id},
-  }`,
-    { count: count || -1 },
-  )
-}
 
 export default async function Home() {
   const data = await getProducts(2)
@@ -50,13 +38,9 @@ export default async function Home() {
             return <Product key={props.slug} {...props} />
           })}
         </div>
-        <Link
-          prefetch={false}
-          className="inline-block btn mt-5"
-          href={"/products"}
-        >
+        <Navigate href={"/products"} className="inline-block mt-5">
           Explore
-        </Link>
+        </Navigate>
       </div>
     </div>
   )

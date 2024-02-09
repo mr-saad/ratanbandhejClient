@@ -1,18 +1,10 @@
 "use client"
-
-import { RatanContext } from "@/components/Provider"
-import { useContext } from "react"
-
-// import { useFormStatus } from "react-dom"
+import { useRatanContext } from "@/components/Provider"
 
 export default function RegisterButton() {
-  //   const { pending } = useFormStatus()
-
-  const { setShowOrderLink } = useContext(RatanContext)
-
+  const { setShowOrderLink } = useRatanContext()
   return (
     <button
-      //   disabled={pending}
       onClick={() => {
         setShowOrderLink(true)
       }}

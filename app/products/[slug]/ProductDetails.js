@@ -3,6 +3,7 @@ import FavouritesButton from "./FavouritesButton"
 import orderAction from "@/lib/orderAction"
 import RegisterButton from "./RegisterButton"
 import UserId from "./UserId"
+import Navigate from "@/components/Navigate"
 
 export default function ProductDetails({
   product: { _id, slug, type, title, images, description, colours, price },
@@ -31,15 +32,9 @@ export default function ProductDetails({
             <span>Instock:</span> <span>{colours}</span>
           </p>
           <div className="flex justify-between items-center mt-4">
-            <Link
-              shallow={true}
-              scroll={false}
-              className="btn"
-              href={"/products/" + slug + "?showForm=true"}
-            >
+            <Navigate href={"/products/" + slug + "?showForm=true"}>
               Book Now
-            </Link>
-
+            </Navigate>
             <FavouritesButton
               _id={_id}
               slug={slug}
@@ -145,7 +140,6 @@ function BookForm({ _id, price, type, title, image, colours, slug }) {
           <RegisterButton />
           <Link
             shallow={true}
-            scroll={false}
             href={"/products/" + slug}
             className="btn inline-block !bg-transparent !text-[#111] dark:!text-white opacity-70 hover:opacity-100 focus-within:opacity-100"
           >
