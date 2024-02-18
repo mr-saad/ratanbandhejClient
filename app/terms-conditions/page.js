@@ -2,13 +2,13 @@ import Link from "next/link"
 
 export const metadata = {
   title: "Terms & Conditions",
-  keywords: ["terms", "conditions"]
+  keywords: ["terms", "conditions"],
 }
 
 export default function Terms() {
   return (
     <div className="max-w-4xl mx-auto">
-      <h2 className="text-xl font-semibold highlight">Terms and Conditions</h2>
+      <h2 className="heading">Terms and Conditions</h2>
 
       <p>Welcome to Ratan Bandhej!</p>
 

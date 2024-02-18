@@ -56,15 +56,12 @@ async function getProduct(slug) {
   )
 }
 
-export default async function Slug({ params, searchParams }) {
+export default async function Slug({ params }) {
   const product = await getProduct(params.slug)
   return (
     <div className="mx-auto md:pt-10 max-w-md md:max-w-4xl grid md:grid-cols-2 grid-cols-1 md:gap-10">
       <ImagesSwiper images={product.images} title={product.title} />
-      <ProductDetails
-        showForm={searchParams.showForm || null}
-        product={product}
-      />
+      <ProductDetails product={product} />
     </div>
   )
 }

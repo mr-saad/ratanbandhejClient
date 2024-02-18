@@ -1,9 +1,12 @@
 import Image from "next/image"
-import ProductNavigator from "./ProductNavigator"
+import Link from "next/link"
 
 export default function Product({ slug, image, title }) {
   return (
-    <ProductNavigator href={`/products/${slug}`}>
+    <Link
+      href={`/products/${slug}`}
+      className="relative rounded-md overflow-hidden"
+    >
       <Image
         sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 33vw"
         alt={slug}
@@ -20,6 +23,6 @@ export default function Product({ slug, image, title }) {
           {title}
         </h2>
       </div>
-    </ProductNavigator>
+    </Link>
   )
 }

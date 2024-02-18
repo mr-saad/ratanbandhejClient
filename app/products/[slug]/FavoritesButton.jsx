@@ -2,22 +2,22 @@
 import { useEffect, useState } from "react"
 import { useRatanContext } from "@/components/Provider"
 
-export default function FavouritesButton({ _id, slug, title, images }) {
+export default function FavoritesButton({ _id, slug, title, images }) {
   const [showFavBtn, setShowFavBtn] = useState(true)
 
-  const { favourites, setFavourites } = useRatanContext()
+  const { favorites, setFavorites } = useRatanContext()
 
   useEffect(() => {
-    favourites.forEach((item) => {
+    favorites.forEach((item) => {
       if (item._id === _id) {
         setShowFavBtn(false)
       }
     })
-  }, [favourites])
+  }, [favorites])
 
-  const AddToFavourites = () => {
+  const AddToFavorites = () => {
     const favs = [
-      ...favourites,
+      ...favorites,
       {
         _id,
         slug,
@@ -28,23 +28,23 @@ export default function FavouritesButton({ _id, slug, title, images }) {
         },
       },
     ]
-    localStorage.setItem("favourites", [JSON.stringify(favs)])
-    setFavourites(favs)
+    localStorage.setItem("favorites", [JSON.stringify(favs)])
+    setFavorites(favs)
     setShowFavBtn(false)
   }
 
-  const RemoveFromFavourites = () => {
-    const filtered = favourites.filter((all) => {
+  const RemoveFromFavorites = () => {
+    const filtered = favorites.filter((all) => {
       return all._id !== _id
     })
-    localStorage.setItem("favourites", JSON.stringify(filtered))
-    setFavourites(filtered)
+    localStorage.setItem("favorites", JSON.stringify(filtered))
+    setFavorites(filtered)
     setShowFavBtn(true)
   }
 
   return showFavBtn ? (
     <svg
-      onClick={AddToFavourites}
+      onClick={AddToFavorites}
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
@@ -60,7 +60,7 @@ export default function FavouritesButton({ _id, slug, title, images }) {
     </svg>
   ) : (
     <svg
-      onClick={RemoveFromFavourites}
+      onClick={RemoveFromFavorites}
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"

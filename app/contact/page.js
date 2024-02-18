@@ -16,7 +16,7 @@ const Contact = () => {
         E-Mail:{" "}
         <a
           href="mailto:ratanbandhej@gmail.com"
-          className="border-b border-current mb-3 font-semibold"
+          className="border-b border-current mb-3 font-semibold highlight"
         >
           ratanbandhejbhuj@gmail.com
         </a>
@@ -25,7 +25,7 @@ const Contact = () => {
         Phone:{" "}
         <a
           href="tel:+917778975752"
-          className="border-b border-current font-semibold"
+          className="border-b border-current font-semibold highlight"
         >
           +91 7778975752
         </a>
@@ -40,7 +40,7 @@ const Contact = () => {
         You can reach us via email at{" "}
         <a
           href="mailto:ratanbandhej@gmail.com"
-          className="border-b border-current font-semibold"
+          className="border-b border-current font-semibold highlight"
         >
           ratanbandhejbhuj@gmail.com
         </a>
@@ -51,7 +51,7 @@ const Contact = () => {
         If you prefer to speak with us directly, you can contact us by phone at{" "}
         <a
           href="tel:+917778975752"
-          className="border-b border-current font-semibold"
+          className="border-b border-current font-semibold highlight"
         >
           +91 7778975752
         </a>

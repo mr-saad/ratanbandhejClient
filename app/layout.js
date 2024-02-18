@@ -1,5 +1,5 @@
 import Footer from "@/components/Footer"
-import Navbar from "@/components/Navbar"
+import Navbar from "@/components/Navbar/Navbar"
 import Provider from "@/components/Provider"
 import "./globals.css"
 
@@ -94,7 +94,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body>
         <Provider>
           <Navbar />

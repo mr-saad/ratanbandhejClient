@@ -1,54 +1,7 @@
-import Link from "next/link"
-import FavouritesButton from "./FavouritesButton"
 import orderAction from "@/lib/orderAction"
-import RegisterButton from "./RegisterButton"
 import UserId from "./UserId"
-import Navigate from "@/components/Navigate"
 
-export default function ProductDetails({
-  product: { _id, slug, type, title, images, description, colours, price },
-  showForm,
-}) {
-  return (
-    <div>
-      <h3 className="font-semibold highlight text-base capitalize my-3 md:mt-0">
-        {title}
-      </h3>
-      <p className="capitalize">Price: ₹{price}</p>
-      {showForm === "true" ? (
-        <BookForm
-          price={price}
-          type={type}
-          title={title}
-          image={images[0]}
-          colours={colours}
-          slug={slug}
-          _id={_id}
-        />
-      ) : (
-        <>
-          <p className="whitespace-pre-wrap capitalize">{description}</p>
-          <p className="capitalize flex gap-1">
-            <span>Instock:</span> <span>{colours}</span>
-          </p>
-          <div className="flex justify-between items-center mt-4">
-            <Navigate href={"/products/" + slug + "?showForm=true"}>
-              Book Now
-            </Navigate>
-            <FavouritesButton
-              _id={_id}
-              slug={slug}
-              title={title}
-              images={images}
-            />
-          </div>
-        </>
-      )}
-    </div>
-  )
-}
-
-function BookForm({ _id, price, type, title, image, colours, slug }) {
+export default function BookForm({ _id, price, title, colours, setShowForm }) {
   return (
     <form action={orderAction} className="flex flex-col gap-10 mt-10">
       <div className="relative">
@@ -137,14 +90,15 @@ function BookForm({ _id, price, type, title, image, colours, slug }) {
 
       <div className="flex justify-between items-center">
         <div>
-          <RegisterButton />
-          <Link
-            shallow={true}
-            href={"/products/" + slug}
+          <button className="btn mr-3" type="submit">
+            Register
+          </button>
+          <button
+            onClick={() => setShowForm(false)}
             className="btn inline-block !bg-transparent !text-[#111] dark:!text-white opacity-70 hover:opacity-100 focus-within:opacity-100"
           >
             Cancel
-          </Link>
+          </button>
         </div>
         <p className="font-semibold">Total: ₹{price}</p>
       </div>

@@ -9,7 +9,7 @@ export const useRatanContext = () => {
 
 export default function Provider({ children }) {
   const { setTheme } = useTheme()
-  const [favourites, setFavourites] = useState([])
+  const [favorites, setFavorites] = useState([])
   const [showOrderLink, setShowOrderLink] = useState(false)
 
   useEffect(() => {
@@ -22,9 +22,9 @@ export default function Provider({ children }) {
     } else {
       setTheme("light")
     }
-    setFavourites(
-      localStorage.getItem("favourites")
-        ? JSON.parse(localStorage.getItem("favourites"))
+    setFavorites(
+      localStorage.getItem("favorites")
+        ? JSON.parse(localStorage.getItem("favorites"))
         : [],
     )
     document.cookie.includes("userId") && setShowOrderLink(true)
@@ -32,7 +32,7 @@ export default function Provider({ children }) {
   return (
     <ThemeProvider defaultTheme="system" enableSystem={true} attribute="class">
       <RatanContext.Provider
-        value={{ favourites, setFavourites, showOrderLink, setShowOrderLink }}
+        value={{ favorites, setFavorites, showOrderLink, setShowOrderLink }}
       >
         {children}
       </RatanContext.Provider>
