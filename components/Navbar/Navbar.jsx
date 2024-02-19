@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation"
 import RatanSvg from "../RatanSvg"
 import FavoritesBtn from "./FavoritesBtn"
 import ThemeToggle from "./ThemeToggle"
+import OrderLink from "./OrderLink"
 
 const links = [
   {
@@ -53,6 +54,7 @@ const Links = () => {
           </li>
         )
       })}
+      <OrderLink />
     </>
   )
 }

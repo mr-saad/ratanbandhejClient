@@ -1,3 +1,5 @@
+import ScrollToTop from "./ScrollToTop"
+
 export default function loading() {
   return (
     <svg
@@ -13,6 +15,7 @@ export default function loading() {
       className="animate-ping"
     >
       <circle cx="12" cy="12" r="10" />
+      <ScrollToTop />
     </svg>
   )
 }
