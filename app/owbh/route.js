@@ -8,13 +8,12 @@ export async function GET(req, res) {
       to: process.env.email,
       html: `order webhook: ${req.body.product}`,
     })
-    new Response("Success", {
+    return new Response("Success", {
       status: 200,
     })
   } catch (error) {
-    new Response(JSON.stringify(error), {
+    return new Response(JSON.stringify(error), {
       status: 500,
     })
   }
-  new Response("Called")
 }
