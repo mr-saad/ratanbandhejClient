@@ -1,5 +1,5 @@
 import { Resend } from "resend"
-export default async function POST(req, res) {
+export default async function GET(req, res) {
   try {
     const resend = new Resend(process.env.resend_apiKey)
     resend.emails.send({
