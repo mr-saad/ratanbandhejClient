@@ -3,7 +3,7 @@ export async function GET(req, res) {
   try {
     const resend = new Resend(process.env.resend_apiKey)
     await resend.emails.send({
-      from: process.env.email,
+      from: `Saad Khatri (Ratan) <${process.env.email}>`,
       subject: `New Order From`,
       to: process.env.email,
       html: `order webhook`,
