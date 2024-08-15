@@ -4,9 +4,9 @@ export async function GET(req, res) {
     const resend = new Resend(process.env.resend_apiKey)
     await resend.emails.send({
       from: process.env.email,
-      subject: `New Order From ${req.body.username}`,
+      subject: `New Order From`,
       to: process.env.email,
-      html: `order webhook: ${req.body.product}`,
+      html: `order webhook`,
     })
     return new Response("Success", {
       status: 200,
