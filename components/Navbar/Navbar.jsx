@@ -70,8 +70,6 @@ export const CloseNav = () => {
 }
 
 export default function Navbar() {
-  console.log("render")
-
   const openNav = () => {
     ;["h-36", "mb-4"].map((cls) =>
       document.querySelector("nav ul").classList.toggle(cls),

@@ -1,4 +1,4 @@
-import sanity from "@/components/sanity"
+import sanity from "@/lib/sanity"
 import ImagesSwiper from "./ImagesSwiper"
 import ProductDetails from "./ProductDetails"
 import { notFound } from "next/navigation"
