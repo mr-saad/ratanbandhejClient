@@ -16,4 +16,5 @@ export async function GET(req, res) {
       status: 500,
     })
   }
+  new Response("Called")
 }
