@@ -1,14 +1,12 @@
-import { getXataClient } from "@/lib/xata"
 import { cookies } from "next/headers"
-const xata = getXataClient()
+import sanity from "@/lib/sanity"
 
 export default async function Orders() {
-  const orders = cookies().get("userId")
-    ? await xata.db.Orders.filter({
-        UserId: cookies().get("userId").value,
-      }).getMany()
-    : []
-
+  const userId = cookies().get("userId").value
+  const orders = await sanity.fetch(
+    `*[_type=='order' && userId==$userId]{_id,username,productName,price,_createdAt}`,
+    { userId } || [],
+  )
   return (
     <div>
       <h1 className="heading">Orders</h1>
@@ -17,12 +15,16 @@ export default async function Orders() {
           orders.map((order) => {
             return (
               <div
-                key={order.id}
+                key={order._id}
                 className="border dark:border-white/10 p-5 rounded-md"
               >
-                <p className="highlight">{order.ProductName}</p>
-                <p>₹{order.ProductPrice}</p>
-                <p>{order.xata.createdAt.toLocaleString("en-US")}</p>
+                <p className="highlight">{order.productName}</p>
+                <p>₹{order.price}</p>
+                <p>
+                  {new Date(order._createdAt).getDate()}/
+                  {new Date(order._createdAt).getMonth()}/
+                  {new Date(order._createdAt).getFullYear()}
+                </p>
               </div>
             )
           })

@@ -111,7 +111,7 @@ export default function BookForm({ _id, price, title, colours, setShowForm }) {
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-2">
           <button disabled={loading} className="btn" type="submit">
-            Register
+            Confirm
           </button>
           <button
             disabled={loading}

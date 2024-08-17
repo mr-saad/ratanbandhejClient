@@ -9,7 +9,7 @@ const Product = dynamicImport(() => import("@/components/Product"))
 export const revalidate = 60
 
 export default async function Home() {
-  const data = await getProducts(2)
+  const data = await getProducts(5)
   return (
     <div className="mx-auto">
       <div className="min-h-[85vh] mb-10 flex flex-col justify-center items-center">

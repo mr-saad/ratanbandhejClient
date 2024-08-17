@@ -83,7 +83,7 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="nav relative md:text-base p-5 lg:px-20 z-[12] bg-[#111] border-b dark:border-white/10">
+    <nav className="nav sticky top-0 md:text-base p-5 lg:px-20 z-[12] bg-[#111] border-b dark:border-white/10">
       <ul
         className={`flex md:items-center md:absolute md:left-1/2 md:top-1/2 md:-translate-y-1/2 md:-translate-x-1/2 justify-between md:justify-center md:gap-5 transition-[height] flex-col md:flex-row h-0 md:h-auto overflow-hidden font-semibold text-white`}
       >
@@ -92,8 +92,13 @@ export default function Navbar() {
       </ul>
       <div className="flex justify-between items-center select-none">
         <div
+          tabIndex={0}
           className={`md:hidden transition flex flex-col justify-between h-[12px] z-20`}
           onClick={openNav}
+          onKeyUp={(e) => {
+            e.preventDefault()
+            if (e.key === "Enter") openNav()
+          }}
         >
           <span
             className={`line1 w-[26px] h-[2px] rounded-md transition-transform origin-center bg-white`}

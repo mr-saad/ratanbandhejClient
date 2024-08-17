@@ -5,8 +5,7 @@ import { usePathname } from "next/navigation"
 
 export default function OrderLink() {
   const { showOrderLink } = useRatanContext()
-  const { pathname } = usePathname()
-
+  const pathname = usePathname()
   return showOrderLink ? (
     <li>
       <Link

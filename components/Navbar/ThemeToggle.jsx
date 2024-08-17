@@ -7,16 +7,28 @@ export default function ThemeToggle() {
   const [mounted, setMounted] = useState(false)
   useEffect(() => setMounted(true), [])
 
+  const toggleTheme = () => {
+    setTheme(resolvedTheme === "dark" ? "light" : "dark")
+    localStorage.setItem(
+      "ratanTheme",
+      resolvedTheme === "dark" ? "light" : "dark",
+    )
+  }
+
   return (
-    <li className="opacity-60 hover:opacity-100 transition">
+    <li
+      onKeyUp={(e) => {
+        e.preventDefault()
+        if (e.key === "Enter") toggleTheme()
+      }}
+      tabIndex={0}
+      onClick={() => toggleTheme()}
+      className="opacity-60 hover:opacity-100 transition"
+    >
       {mounted ? (
         resolvedTheme === "dark" ? (
           <svg
             className="cursor-pointer"
-            onClick={() => {
-              setTheme("light")
-              localStorage.setItem("ratanTheme", "light")
-            }}
             xmlns="http://www.w3.org/2000/svg"
             width="18"
             height="18"
@@ -40,10 +52,6 @@ export default function ThemeToggle() {
         ) : (
           <svg
             className="cursor-pointer"
-            onClick={() => {
-              setTheme("dark")
-              localStorage.setItem("ratanTheme", "dark")
-            }}
             xmlns="http://www.w3.org/2000/svg"
             width="18"
             height="18"
