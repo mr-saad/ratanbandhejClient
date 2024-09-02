@@ -1,11 +1,11 @@
 export const metadata = {
   title: "About",
-  keywords: ["About", "aboutus"],
+  keywords: ["About", "aboutus", "ratan", "bandhej", "bandhani"],
 }
 
 const About = () => {
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-4xl mx-auto Container">
       <h1 className="heading">About Us</h1>
       <p className="mb-5">
         At Ratan Bandhej, we celebrate the vibrant heritage and artistry of
@@ -18,8 +18,8 @@ const About = () => {
         laborious process of tying and dyeing. Our skilled artisans meticulously
         tie thousands of tiny knots by hand, forming intricate designs on the
         fabric. These knots resist the dye, resulting in beautiful patterns when
-        the fabric is dyed. It is a testament to the artisans' craftsmanship and
-        attention to detail.
+        the fabric is dyed. It is a testament to the artisans&apos;
+        craftsmanship and attention to detail.
       </p>
       <p className="mb-5">
         We work closely with talented artisans from different regions of
@@ -27,7 +27,7 @@ const About = () => {
         supporting fair trade practices, we strive to empower these artisans,
         providing them with a sustainable livelihood while preserving their
         traditional craft. Each Bandhani product you find on our website is a
-        labor of love and a testament to the artisans' dedication.
+        labor of love and a testament to the artisans&apos; dedication.
       </p>
       <p className="mb-5">
         We invite you to explore our collection and discover the intricate

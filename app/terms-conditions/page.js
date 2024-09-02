@@ -7,14 +7,14 @@ export const metadata = {
 
 export default function Terms() {
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-4xl mx-auto Container">
       <h2 className="heading">Terms and Conditions</h2>
 
       <p>Welcome to Ratan Bandhej!</p>
 
       <p className="mt-2 mb-5">
         These terms and conditions outline the rules and regulations for the use
-        of Ratan Bandhej's Website, located at ratanbandhej.vercel.app.
+        of Ratan Bandhej&apos;s Website, located at ratanbandhej.vercel.app.
       </p>
 
       <p className="mb-5">
@@ -25,19 +25,20 @@ export default function Terms() {
 
       <p>
         The following terminology applies to these Terms and Conditions, Privacy
-        Statement and Disclaimer Notice and all Agreements: "Client", "You" and
-        "Your" refers to you, the person log on this website and compliant to
-        the Company’s terms and conditions. "The Company", "Ourselves", "We",
-        "Our" and "Us", refers to our Company. "Party", "Parties", or "Us",
-        refers to both the Client and ourselves. All terms refer to the offer,
-        acceptance and consideration of payment necessary to undertake the
-        process of our assistance to the Client in the most appropriate manner
-        for the express purpose of meeting the Client’s needs in respect of
-        provision of the Company’s stated services, in accordance with and
-        subject to, prevailing law of Netherlands. Any use of the above
-        terminology or other words in the singular, plural, capitalization
-        and/or he/she or they, are taken as interchangeable and therefore as
-        referring to same.
+        Statement and Disclaimer Notice and all Agreements: &quot;Client&quot;,
+        &quot;You&quot; and &quot;Your&quot; refers to you, the person log on
+        this website and compliant to the Company’s terms and conditions.
+        &quot;The Company&quot;, &quot;Ourselves&quot;, &quot;We&quot;,
+        &quot;Our&quot; and &quot;Us&quot;, refers to our Company.
+        &quot;Party&quot;, &quot;Parties&quot;, or &quot;Us&quot;, refers to
+        both the Client and ourselves. All terms refer to the offer, acceptance
+        and consideration of payment necessary to undertake the process of our
+        assistance to the Client in the most appropriate manner for the express
+        purpose of meeting the Client’s needs in respect of provision of the
+        Company’s stated services, in accordance with and subject to, prevailing
+        law of Netherlands. Any use of the above terminology or other words in
+        the singular, plural, capitalization and/or he/she or they, are taken as
+        interchangeable and therefore as referring to same.
       </p>
 
       <h2 className="text-xl font-semibold highlight mt-5">License</h2>
@@ -104,7 +105,7 @@ export default function Terms() {
         your Comments in any and all forms, formats or media.
       </p>
       <p>
-        No use of Ratan Bandhej's logo or other artwork will be allowed for
+        No use of Ratan Bandhej&apos;s logo or other artwork will be allowed for
         linking absent a trademark license agreement.
       </p>
 
@@ -133,7 +134,7 @@ export default function Terms() {
         We reserve the right to request that you remove all links or any
         particular link to our Website. You approve to immediately remove all
         links to our Website upon request. We also reserve the right to amen
-        these terms and conditions and it's linking policy at any time. By
+        these terms and conditions and it&apos;s linking policy at any time. By
         continuously linking to our Website, you agree to be bound to and follow
         these linking terms and conditions.
       </p>

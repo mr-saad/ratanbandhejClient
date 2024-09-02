@@ -3,12 +3,13 @@ import sanity from "@/lib/sanity"
 
 export default async function Orders() {
   const userId = cookies().get("userId").value
-  const orders = await sanity.fetch(
-    `*[_type=='order' && userId==$userId]{_id,username,productName,price,_createdAt}`,
-    { userId } || [],
-  )
+  const orders =
+    (await sanity.fetch(
+      `*[_type=='order' && userId==$userId]{_id,username,productName,price,_createdAt}`,
+      { userId },
+    )) || []
   return (
-    <div>
+    <div className="Container">
       <h1 className="heading">Orders</h1>
       <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10 gap-y-5">
         {orders.length > 0 ? (

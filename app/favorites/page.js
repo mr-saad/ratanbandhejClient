@@ -6,7 +6,7 @@ export const metadata = {
 
 export default function FavoritesPage() {
   return (
-    <div>
+    <div className="Container">
       <h1 className="heading">Favorites</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 gap-y-5">

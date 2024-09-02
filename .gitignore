@@ -38,3 +38,6 @@ next-env.d.ts
 public/favicon_io.zip
 analyze
 cornsilk-chough
+.npmrc
+.prettierrc
+eslint.config.mjs

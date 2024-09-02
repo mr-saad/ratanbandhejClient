@@ -5,7 +5,7 @@ export const metadata = {
 
 const Privacy = () => {
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-4xl mx-auto Container">
       <h1 className="heading">Privacy Policy</h1>
       <p className="mb-2">Last updated: February 18, 2024</p>
       <p>
@@ -164,11 +164,11 @@ const Privacy = () => {
           <p>
             <strong className="highlight font-semibold">To contact You:</strong>{" "}
             To contact You by email, telephone calls, SMS, or other equivalent
-            forms of electronic communication, such as a mobile application's
-            push notifications regarding updates or informative communications
-            related to the functionalities, products or contracted services,
-            including the security updates, when necessary or reasonable for
-            their implementation.
+            forms of electronic communication, such as a mobile
+            application&apos;s push notifications regarding updates or
+            informative communications related to the functionalities, products
+            or contracted services, including the security updates, when
+            necessary or reasonable for their implementation.
           </p>
         </li>
         <li>
@@ -212,7 +212,7 @@ const Privacy = () => {
         security.
       </p>
       <h1 className="text-xl font-semibold highlight mt-5">
-        Children's Privacy
+        Children&apos;s Privacy
       </h1>
       <p>
         Our Service does not address anyone under the age of 13. We do not
@@ -230,8 +230,8 @@ const Privacy = () => {
       <p>
         Our Service may contain links to other websites that are not operated by
         Us. If You click on a third party link, You will be directed to that
-        third party's site. We strongly advise You to review the Privacy Policy
-        of every site You visit.
+        third party&apos;s site. We strongly advise You to review the Privacy
+        Policy of every site You visit.
       </p>
       <p>
         We have no control over and assume no responsibility for the content,
@@ -257,7 +257,7 @@ const Privacy = () => {
           <a
             className="border-b highlight font-semibold"
             href="https://ratanbandhej.vercel.app/contact"
-            rel="external nofollow noopener"
+            rel="noreferrer"
             target="_blank"
           >
             https://ratanbandhej.vercel.app/contact
@@ -268,7 +268,7 @@ const Privacy = () => {
           <a
             className="border-b highlight font-semibold"
             href="tel:+917778975752"
-            rel="external nofollow noopener"
+            rel="noreferrer"
             target="_blank"
           >
             +91 7778975752

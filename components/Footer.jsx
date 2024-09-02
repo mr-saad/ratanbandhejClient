@@ -1,17 +1,23 @@
+import client from "@/lib/sanity"
 import Link from "next/link"
 
-const Footer = () => {
+const Footer = async () => {
+  const data = await client.fetch(`*[_type=='product']{type}`)
+  const catalogue = [...new Set(data.map(({ type }) => type))]
   return (
-    <footer className="p-5 mt-20 lg:px-20 bg-[#111] text-white/60 border-t border-white/10">
+    <footer className="mt-20 border-t border-white/10 bg-[#111] p-5 text-white/60 lg:px-20">
       <h1 className="text-3xl">Ratan Bandhej</h1>
-      <div className="flex flex-col gap-5 md:flex-row justify-between md:items-center my-5">
-        <p>Follow us on Social Media Platforms in Order to Stay up to date</p>
+      <div className="my-5 grid gap-4 md:grid-cols-3 md:gap-10">
+        <p className="col-span-2">
+          Follow us on Social Media Platforms in Order to Stay up to date
+        </p>
         <div className="flex gap-10">
           <a
+            rel="noreferrer"
             title="Facebook"
             target="_blank"
             href="https://facebook.com"
-            className="hover:text-white transition"
+            className="transition hover:text-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -24,8 +30,9 @@ const Footer = () => {
             </svg>
           </a>
           <a
+            rel="noreferrer"
             title="Instagram"
-            className="hover:text-white transition"
+            className="transition hover:text-white"
             target="_blank"
             href="https://instagram.com/ratanbandhejbhuj/"
           >
@@ -46,8 +53,9 @@ const Footer = () => {
             </svg>
           </a>
           <a
+            rel="noreferrer"
             title="Whatsapp"
-            className="hover:text-white transition"
+            className="transition hover:text-white"
             target="_blank"
             href="https://wa.me/917778975752?text=Hello%20There!"
           >
@@ -66,21 +74,21 @@ const Footer = () => {
           </a>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
         <div>
-          <h2 className="font-semibold text-white mx-auto mb-2">CATEGORIES</h2>
+          <h2 className="mx-auto mb-2 font-semibold text-white">CATALOGUE</h2>
           <div>
-            <p>Modal Silk</p>
-            <p>Kutchi Bandhani Saree</p>
-            <p>Kutchi Bandhani Dupatta</p>
-            <p>Kutchi Bandhani Top Material</p>
+            {catalogue.map((cat) => (
+              <p key={cat}>{cat}</p>
+            ))}
           </div>
         </div>
         <div>
-          <h2 className="font-semibold text-white mx-auto mb-2">CONTACT US</h2>
+          <h2 className="mx-auto mb-2 font-semibold text-white">CONTACT US</h2>
           <a
+            rel="noreferrer"
             target="_blank"
-            className="flex gap-1 items-center mb-2 hover:text-white transition"
+            className="mb-2 flex items-center gap-1 transition hover:text-white"
             href="mailto:ratanbandhejbhuj@gmail.com"
           >
             <svg
@@ -93,6 +101,7 @@ const Footer = () => {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
+              className="shrink-0"
             >
               <rect width="20" height="16" x="2" y="4" rx="2" />
               <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
@@ -100,7 +109,8 @@ const Footer = () => {
             ratanbandhejbhuj@gmail.com
           </a>
           <a
-            className="flex gap-1 items-center mb-2 hover:text-white transition"
+            rel="noreferrer"
+            className="mb-2 flex items-center gap-1 transition hover:text-white"
             target="_blank"
             href="https://wa.me/917778975752?text=Hello%20There!"
           >
@@ -120,7 +130,7 @@ const Footer = () => {
           </a>
         </div>
         <div>
-          <h2 className="font-semibold text-white mx-auto mb-2">ADDRESS</h2>
+          <h2 className="mx-auto mb-2 font-semibold text-white">ADDRESS</h2>
           <div>
             <p>
               1079, ApnaNagar-1, <br /> Near Sejwala Matam, <br /> Bhuj-Kutchh,
@@ -129,17 +139,17 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <hr className="border-white/10 my-10" />
-      <div className="flex flex-col md:flex-row justify-between mb-5">
-        <div className="mb-4 md:mb-0">
+      <hr className="my-10 border-white/10" />
+      <div className="mb-5 grid md:grid-cols-3 md:gap-10">
+        <div className="col-span-2 mb-4 md:mb-0">
           <Link
-            className="hover:text-white transition"
+            className="transition hover:text-white"
             href="/terms-conditions"
           >
             Terms & Conditions
           </Link>
           <span className="mx-2">|</span>
-          <Link className="hover:text-white transition" href="/privacy-policy">
+          <Link className="transition hover:text-white" href="/privacy-policy">
             Privacy Policy
           </Link>
         </div>

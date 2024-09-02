@@ -1,9 +1,7 @@
 import sanity from "@/lib/sanity"
-import ImagesSwiper from "./ImagesSwiper"
 import ProductDetails from "./ProductDetails"
 import { notFound } from "next/navigation"
-
-export const runtime = "edge"
+import ImgSwiper from "@/app/ImgSwiper"
 
 export async function generateMetadata({ params: { slug } }) {
   const product = await sanity.fetch(`*[slug.current==$slug][0]{title}`, {
@@ -59,8 +57,8 @@ async function getProduct(slug) {
 export default async function Slug({ params }) {
   const product = await getProduct(params.slug)
   return (
-    <div className="mx-auto md:pt-10 max-w-md md:max-w-4xl grid md:grid-cols-2 grid-cols-1 md:gap-10">
-      <ImagesSwiper images={product.images} title={product.title} />
+    <div className="Container mx-auto grid md:max-w-4xl md:grid-cols-2 md:gap-10 md:pt-10">
+      <ImgSwiper data={product} isImages />
       <ProductDetails product={product} />
     </div>
   )

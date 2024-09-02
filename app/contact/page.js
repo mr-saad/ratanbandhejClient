@@ -5,7 +5,7 @@ export const metadata = {
 
 const Contact = () => {
   return (
-    <div className="flex flex-col justify-center max-w-4xl mx-auto">
+    <div className="flex flex-col justify-center max-w-4xl mx-auto Container">
       <h1 className="heading">Contact Us</h1>
       <p>
         Thank you for your interest in Ratan Bandhej. We are delighted to assist

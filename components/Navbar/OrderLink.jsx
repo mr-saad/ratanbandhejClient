@@ -7,10 +7,10 @@ export default function OrderLink() {
   const { showOrderLink } = useRatanContext()
   const pathname = usePathname()
   return showOrderLink ? (
-    <li>
+    <li className="md:inline">
       <Link
         onClick={CloseNav}
-        className={`transition-colors block hover:opacity-100 ${
+        className={`transition block md:inline py-2 md:px-2 md:py-0 hover:opacity-100 ${
           pathname === "/orders" ? "opacity-100" : "opacity-60"
         }`}
         href={"/orders"}
