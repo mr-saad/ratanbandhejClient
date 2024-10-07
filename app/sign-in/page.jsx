@@ -4,7 +4,6 @@ import isAuthenticated from "@/lib/isAuthenticated"
 
 export default async function LogIn() {
   const auth = await isAuthenticated()
-  console.log(auth)
   if (auth.status) redirect("/products")
   if (auth.verified || auth.noAcc)
     return (
@@ -16,7 +15,7 @@ export default async function LogIn() {
   else
     return (
       <div className="Container">
-        <h1 className="heading break-all">
+        <h1 className="heading break-words">
           We&apos;ve sent an Verification E-Mail to {auth.email} <br /> Check
           your Inbox & Verify Your Account to Continue.
         </h1>

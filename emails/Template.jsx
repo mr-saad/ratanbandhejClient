@@ -37,7 +37,7 @@ export default function Template({ userId, username, token }) {
           </Text>
           <Button
             className="rounded-md bg-[#111] px-3 py-2 font-semibold text-white"
-            href={`${baseUrl}/verify-account?token=${token}`}
+            href={`${baseUrl}/verify-account?token=${token}&userId=${userId}`}
           >
             Verify
           </Button>
