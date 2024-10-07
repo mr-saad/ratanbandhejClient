@@ -7,10 +7,9 @@ export const useRatanContext = () => {
   return useContext(RatanContext)
 }
 
-export default function Provider({ children }) {
+export default function Provider({ children, cartLayout }) {
   const { setTheme } = useTheme()
-  const [favorites, setFavorites] = useState([])
-  const [showOrderLink, setShowOrderLink] = useState(false)
+  const [cart, setCart] = useState(cartLayout)
 
   useEffect(() => {
     const isDark = localStorage.getItem("ratanTheme")
@@ -22,18 +21,15 @@ export default function Provider({ children }) {
     } else {
       setTheme("light")
     }
-    setFavorites(
-      localStorage.getItem("favorites")
-        ? JSON.parse(localStorage.getItem("favorites"))
-        : [],
-    )
-    document.cookie.includes("userId") && setShowOrderLink(true)
   }, [])
+
+  useEffect(() => {
+    setCart(cart)
+  }, [cart])
+
   return (
     <ThemeProvider defaultTheme="system" enableSystem={true} attribute="class">
-      <RatanContext.Provider
-        value={{ favorites, setFavorites, showOrderLink, setShowOrderLink }}
-      >
+      <RatanContext.Provider value={{ cart, setCart }}>
         {children}
       </RatanContext.Provider>
     </ThemeProvider>

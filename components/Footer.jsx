@@ -6,8 +6,7 @@ const Footer = async () => {
   const catalogue = [...new Set(data.map(({ type }) => type))]
   return (
     <footer className="mt-20 border-t border-white/10 bg-[#111] p-5 text-white/60 lg:px-20">
-      <h1 className="text-3xl">Ratan Bandhej</h1>
-      <div className="my-5 grid gap-4 md:grid-cols-3 md:gap-10">
+      <div className="my-5 grid items-center gap-4 md:grid-cols-3 md:gap-10">
         <p className="col-span-2">
           Follow us on Social Media Platforms in Order to Stay up to date
         </p>
@@ -79,7 +78,13 @@ const Footer = async () => {
           <h2 className="mx-auto mb-2 font-semibold text-white">CATALOGUE</h2>
           <div>
             {catalogue.map((cat) => (
-              <p key={cat}>{cat}</p>
+              <Link
+                className="block transition hover:text-white"
+                href={`/products?category=${cat}`}
+                key={cat}
+              >
+                {cat}
+              </Link>
             ))}
           </div>
         </div>
@@ -133,7 +138,7 @@ const Footer = async () => {
           <h2 className="mx-auto mb-2 font-semibold text-white">ADDRESS</h2>
           <div>
             <p>
-              1079, ApnaNagar-1, <br /> Near Sejwala Matam, <br /> Bhuj-Kutchh,
+              1079, ApnaNagar-1, <br /> Near Sejwala Matam, <br /> Bhuj-Kachchh,
               Gujarat
             </p>
           </div>
@@ -154,7 +159,16 @@ const Footer = async () => {
           </Link>
         </div>
         <p>
-          All Rights Reserved &copy; Ratan Bandhej {new Date().getFullYear()}
+          &copy; {new Date().getFullYear()} Ratan Bandhej by{" "}
+          <Link
+            rel="refferer noopener"
+            target="_blank"
+            href="https://instagram.com/sxvd.js"
+            className="underline transition hover:text-white"
+          >
+            SXVD
+          </Link>
+          . All Rights Reserved
         </p>
       </div>
     </footer>

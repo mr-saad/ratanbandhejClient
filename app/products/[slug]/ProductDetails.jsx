@@ -1,48 +1,43 @@
-"use client"
-import FavoritesButton from "./FavoritesButton"
-import { useState } from "react"
-import BookForm from "./BookForm"
+import CartBtn from "./CartBtn"
 
 export default function ProductDetails({
-  product: { _id, slug, type, title, images, description, colours, price },
+  product: { _id, title, specs, description, colours, price },
+  auth,
 }) {
-  const [showForm, setShowForm] = useState(false)
   return (
     <div>
-      <h3 className="font-semibold highlight text-base capitalize my-3 md:mt-0">
+      <h3 className="highlight my-3 text-base font-semibold capitalize md:mt-0">
         {title}
       </h3>
-      <p className="capitalize">Price: ₹{price}</p>
-      {showForm ? (
-        <BookForm
-          price={price}
-          type={type}
-          title={title}
-          image={images[0]}
-          colours={colours}
-          slug={slug}
-          _id={_id}
-          setShowForm={setShowForm}
-        />
-      ) : (
-        <>
-          <p className="whitespace-pre-wrap capitalize">{description}</p>
-          <p className="capitalize flex gap-1">
-            <span>Instock:</span> <span>{colours}</span>
-          </p>
-          <div className="flex justify-between items-center mt-4">
-            <button className="btn" onClick={() => setShowForm(true)}>
-              Book Now
-            </button>
-            <FavoritesButton
-              _id={_id}
-              slug={slug}
-              title={title}
-              images={images}
-            />
-          </div>
-        </>
-      )}
+      <table className="w-full">
+        <tbody>
+          {specs.split(";").map((item) => (
+            <tr key={item} className="*:w-1/2">
+              <td className="align-top font-bold">{item.split(":=")[0]}</td>
+              <td>{item.split(":=")[1]}</td>
+            </tr>
+          ))}
+          <tr className="*:w-1/2">
+            <td className="align-top font-bold">Instock</td>
+            <td>
+              {colours.split(",").map((clr, index, arr) => (
+                <span key={clr}>
+                  {clr.split("=")[0]}
+                  {index < arr.length - 1 ? ", " : ""}
+                </span>
+              ))}
+            </td>
+          </tr>
+          <tr className="*:w-1/2">
+            <td className="align-top font-bold">Price</td>
+            <td>₹{price}</td>
+          </tr>
+        </tbody>
+      </table>
+      <p className="whitespace-pre-wrap">{description}</p>
+      <div className="mt-4 flex items-center justify-between">
+        <CartBtn userId={auth._id} _id={_id} />
+      </div>
     </div>
   )
 }
