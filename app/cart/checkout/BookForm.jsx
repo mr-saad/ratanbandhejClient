@@ -25,12 +25,13 @@ export default function BookForm({ auth: { _id: userId } }) {
     setLoading(true)
 
     const formData = new FormData(e.target)
-    const domColours = e.target.querySelectorAll('[name="color"]')
-    const quantities = e.target.querySelectorAll('[name="quantity"]')
     let clrData = []
-    domColours.forEach((item, index) => {
-      clrData.push({ name: item.value, quantity: quantities[index].value })
-    })
+    formData.getAll("colour").forEach((clr, index) =>
+      clrData.push({
+        name: clr,
+        quantity: formData.getAll("quantity")[index],
+      }),
+    )
 
     const res = await orderAction(cart, userId, formData, clrData)
     if (!res.ok) {

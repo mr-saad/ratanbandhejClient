@@ -2,15 +2,7 @@
 import { useState } from "react"
 import signInAction from "@/lib/actions/signIn"
 import Link from "next/link"
-import { z } from "zod"
-
-const signInSchema = z.object({
-  username: z
-    .string()
-    .trim()
-    .min(3, "username must contain atleast 3 characters"),
-  email: z.string().trim().email("Invalid E-Mail Format"),
-})
+import { signInSchema } from "@/lib/zodSchemas/signInSchema"
 
 export default function SignInForm() {
   const [message, setMessage] = useState("")
@@ -39,6 +31,8 @@ export default function SignInForm() {
     <form onSubmit={onSubmit} className="mx-auto mt-10 grid max-w-lg gap-8">
       <div className="relative">
         <input
+          minLength={3}
+          maxLength={12}
           required
           type="text"
           name="username"

@@ -23,10 +23,7 @@ export default async function Orders() {
         {orders.length > 0 ? (
           orders.map((order) => {
             return (
-              <div
-                key={order._id}
-                className="rounded-md border p-5 dark:border-white/10"
-              >
+              <div key={order._id} className="">
                 <div className="flex gap-4">
                   <Image
                     width={100}
@@ -45,7 +42,13 @@ export default async function Orders() {
                       {new Date(order._createdAt).getFullYear()}
                       {" - "}
                       {Math.abs(
-                        Math.floor(new Date(order._createdAt).getHours() - 12),
+                        Math.floor(
+                          new Date(order._createdAt).getHours() - 12,
+                        ) === 0
+                          ? 12
+                          : Math.floor(
+                              new Date(order._createdAt).getHours() - 12,
+                            ),
                       )}
                       :{new Date(order._createdAt).getMinutes()}{" "}
                       {new Date(order._createdAt).getHours() > 12 ? "PM" : "AM"}

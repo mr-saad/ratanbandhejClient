@@ -60,6 +60,7 @@ const ColourSelector = ({ _id, colours, price, setTotal }) => {
           <div className="relative">
             <label htmlFor={`colours-${index}-${_id}`}>Colour</label>
             <select
+              name="colour"
               id={`colours-${index}-${_id}`}
               className="input min-h-[29px]"
               value={item.colour}
@@ -83,6 +84,7 @@ const ColourSelector = ({ _id, colours, price, setTotal }) => {
           <div className="relative">
             <label htmlFor={`quantity-${index}-${_id}`}>Quantity</label>
             <input
+              name="quantity"
               id={`quantity-${index}-${_id}`}
               type="number"
               min={1}
