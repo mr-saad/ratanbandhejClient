@@ -26,12 +26,17 @@ export default function BookForm({ auth: { _id: userId } }) {
 
     const formData = new FormData(e.target)
     let clrData = []
-    formData.getAll("colour").forEach((clr, index) =>
+    cart.forEach(({ _id }, index) => {
+      const cartItemClrs = document.querySelectorAll(`.cartItem-${index} .clr`)
+      const cartItemQnts = document.querySelectorAll(`.cartItem-${index} .qnt`)
       clrData.push({
-        name: clr,
-        quantity: formData.getAll("quantity")[index],
-      }),
-    )
+        _id,
+        colours: [...cartItemClrs].map((clr, index) => ({
+          name: clr.value,
+          quantity: cartItemQnts[index].value,
+        })),
+      })
+    })
 
     const res = await orderAction(cart, userId, formData, clrData)
     if (!res.ok) {
@@ -76,11 +81,11 @@ export default function BookForm({ auth: { _id: userId } }) {
         </div>
       )}
 
-      {cart.map(({ _id, title, colours, price }) => {
+      {cart.map(({ _id, title, colours, price }, index) => {
         return (
-          <div className="grid gap-4" key={_id}>
+          <div className={`cartItem-${index} grid gap-4`} key={_id}>
             <p>{title}</p>
-
+            <input type="hidden" value={_id} name="prodId" />
             <ColourSelector
               _id={_id}
               colours={colours}

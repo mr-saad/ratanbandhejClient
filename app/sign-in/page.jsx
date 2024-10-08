@@ -16,8 +16,9 @@ export default async function LogIn() {
     return (
       <div className="Container">
         <h1 className="heading break-words">
-          We&apos;ve sent an Verification E-Mail to {auth.email} <br /> Check
-          your Inbox & Verify Your Account to Continue.
+          We&apos;ve sent an Verification E-Mail to{" "}
+          <span className="break-all">{auth.email}</span> <br /> Check your
+          Inbox & Verify Your Account to Continue.
         </h1>
       </div>
     )

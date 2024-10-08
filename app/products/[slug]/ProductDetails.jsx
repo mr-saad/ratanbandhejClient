@@ -34,7 +34,7 @@ export default function ProductDetails({
           </tr>
         </tbody>
       </table>
-      <p className="whitespace-pre-wrap">{description}</p>
+      <p className="mt-2 whitespace-pre-wrap">{description}</p>
       <div className="mt-4 flex items-center justify-between">
         <CartBtn userId={auth._id} _id={_id} />
       </div>

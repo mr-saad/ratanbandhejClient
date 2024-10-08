@@ -60,9 +60,9 @@ const ColourSelector = ({ _id, colours, price, setTotal }) => {
           <div className="relative">
             <label htmlFor={`colours-${index}-${_id}`}>Colour</label>
             <select
-              name="colour"
+              name={`colour-${index}`}
               id={`colours-${index}-${_id}`}
-              className="input min-h-[29px]"
+              className="input clr min-h-[29px]"
               value={item.colour}
               onChange={(e) => handleSelectChange(index, e.target.value)}
             >
@@ -84,12 +84,12 @@ const ColourSelector = ({ _id, colours, price, setTotal }) => {
           <div className="relative">
             <label htmlFor={`quantity-${index}-${_id}`}>Quantity</label>
             <input
-              name="quantity"
+              name={`quantity-${index}`}
               id={`quantity-${index}-${_id}`}
               type="number"
               min={1}
               max={item.maxQuantity}
-              className="input peer capitalize"
+              className={`input qnt peer capitalize`}
               value={item.quantity}
               onChange={(e) => handleQuantityChange(index, e.target.value)}
             />
