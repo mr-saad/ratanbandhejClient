@@ -15,7 +15,7 @@ export async function generateMetadata({ params: { slug } }) {
       "ratan",
       "bandhej",
       "ratanbandhej.site",
-      "ratanbandhej.vercel.app",
+      "ratanbandhej.shop",
       "handicraft bandhani",
       "handmade bandhani",
     )

@@ -21,9 +21,9 @@ export const metadata = {
     default: "Ratan Bandhej | One Place For All Your Bandhani Needs",
   },
   alternates: {
-    canonical: "https://ratanbandhej.vercel.app",
+    canonical: "https://ratanbandhej.shop",
   },
-  metadataBase: new URL("https://ratanbandhej.vercel.app"),
+  metadataBase: new URL("https://ratanbandhej.shop"),
   robots: {
     index: true,
     follow: true,
@@ -49,7 +49,7 @@ export const metadata = {
     "banarasi",
     "saree",
     "ratanbandhej.site",
-    "ratanbandhej.vercel.app",
+    "ratanbandhej.shop",
     "top-materials",
     "top",
     "material",
@@ -70,7 +70,7 @@ export const metadata = {
     title: "Ratan Bandhej | One Place For All Your Bandhani Needs",
     description:
       "One Place for All Your Bandhani Needs. Ratan Bandhej Provides Their Customers A Large Number Of Variaties In Bandhani Dupattas, Sarees, Top Materials",
-    url: "https://ratanbandhej.vercel.app",
+    url: "https://ratanbandhej.shop",
     siteName: "Ratan Bandhej | One Place For All Your Bandhani Needs",
     images: [
       {

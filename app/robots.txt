@@ -4,4 +4,4 @@ Disallow: /favorites
 Disallow: /contact
 Disallow: /about
 
-Sitemap: https://ratanbandhej.vercel.app/sitemap.xml
+Sitemap: https://ratanbandhej.shop/sitemap.xml

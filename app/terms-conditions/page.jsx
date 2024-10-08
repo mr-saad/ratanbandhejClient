@@ -7,14 +7,14 @@ export const metadata = {
 
 export default function Terms() {
   return (
-    <div className="max-w-4xl mx-auto Container">
+    <div className="Container mx-auto max-w-4xl">
       <h2 className="heading">Terms and Conditions</h2>
 
       <p>Welcome to Ratan Bandhej!</p>
 
-      <p className="mt-2 mb-5">
+      <p className="mb-5 mt-2">
         These terms and conditions outline the rules and regulations for the use
-        of Ratan Bandhej&apos;s Website, located at ratanbandhej.vercel.app.
+        of Ratan Bandhej&apos;s Website, located at ratanbandhej.shop.
       </p>
 
       <p className="mb-5">
@@ -41,7 +41,7 @@ export default function Terms() {
         interchangeable and therefore as referring to same.
       </p>
 
-      <h2 className="text-xl font-semibold highlight mt-5">License</h2>
+      <h2 className="highlight mt-5 text-xl font-semibold">License</h2>
 
       <p>
         Unless otherwise stated, Ratan Bandhej and/or its licensors own the
@@ -51,7 +51,7 @@ export default function Terms() {
         these terms and conditions.
       </p>
 
-      <p className="text-xl font-semibold highlight mt-5">You must not :</p>
+      <p className="highlight mt-5 text-xl font-semibold">You must not :</p>
       <ul className="list-disc">
         <li className="ml-4">Republish material from Ratan Bandhej</li>
         <li className="ml-4">
@@ -76,11 +76,11 @@ export default function Terms() {
         appearance of the Comments on this website.
       </p>
 
-      <h2 className="text-xl font-semibold highlight mt-5">
+      <h2 className="highlight mt-5 text-xl font-semibold">
         You warrant and represent that :
       </h2>
 
-      <ul className="list-disc mb-5">
+      <ul className="mb-5 list-disc">
         <li className="ml-4">
           You are entitled to post the Comments on our website and have all
           necessary licenses and consents to do so;
@@ -109,25 +109,25 @@ export default function Terms() {
         linking absent a trademark license agreement.
       </p>
 
-      <h2 className=" text-xl font-semibold highlight mt-5">iFrames</h2>
+      <h2 className="highlight mt-5 text-xl font-semibold">iFrames</h2>
       <p>
         Without prior approval and written permission, you may not create frames
         around our Webpages that alter in any way the visual presentation or
         appearance of our Website.
       </p>
 
-      <h2 className=" text-xl font-semibold highlight mt-5">Your Privacy</h2>
+      <h2 className="highlight mt-5 text-xl font-semibold">Your Privacy</h2>
       <p>
         Please read{" "}
         <Link
-          className="font-semibold highlight border-b border-current"
+          className="highlight border-b border-current font-semibold"
           href="/privacy-policy"
         >
           Privacy Policy
         </Link>
       </p>
 
-      <h2 className=" text-xl font-semibold highlight mt-5">
+      <h2 className="highlight mt-5 text-xl font-semibold">
         Reservation of Rights
       </h2>
       <p>
@@ -139,7 +139,7 @@ export default function Terms() {
         these linking terms and conditions.
       </p>
 
-      <h2 className="text-xl font-semibold highlight mt-5">
+      <h2 className="highlight mt-5 text-xl font-semibold">
         Removal of links from our website
       </h2>
       <p>
@@ -155,7 +155,7 @@ export default function Terms() {
         is kept up to date.
       </p>
 
-      <h2 className="text-xl font-semibold highlight mt-5">Disclaimer</h2>
+      <h2 className="highlight mt-5 text-xl font-semibold">Disclaimer</h2>
       <p>
         To the maximum extent permitted by applicable law, we exclude all
         representations, warranties and conditions relating to our website and

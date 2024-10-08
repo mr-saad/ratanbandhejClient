@@ -5,7 +5,7 @@ export const metadata = {
 
 const Privacy = () => {
   return (
-    <div className="max-w-4xl mx-auto Container">
+    <div className="Container mx-auto max-w-4xl">
       <h1 className="heading">Privacy Policy</h1>
       <p className="mb-2">Last updated: February 18, 2024</p>
       <p>
@@ -20,9 +20,9 @@ const Privacy = () => {
         accordance with this Privacy Policy.
       </p>
 
-      <h1 className="text-xl font-semibold highlight mt-5">Definitions</h1>
+      <h1 className="highlight mt-5 text-xl font-semibold">Definitions</h1>
       <p>For the purposes of this Privacy Policy:</p>
-      <ul className="list-disc ml-4">
+      <ul className="ml-4 list-disc">
         <li>
           <p>
             <strong className="highlight font-semibold">Account</strong> means a
@@ -90,11 +90,11 @@ const Privacy = () => {
             <strong className="highlight font-semibold">Website</strong> refers
             to Ratan Bandhej, accessible from{" "}
             <a
-              href="ratanbandhej.vercel.app"
+              href="ratanbandhej.shop"
               rel="external nofollow noopener"
               target="_blank"
             >
-              ratanbandhej.vercel.app
+              ratanbandhej.shop
             </a>
           </p>
         </li>
@@ -108,7 +108,7 @@ const Privacy = () => {
         </li>
       </ul>
 
-      <h1 className="text-xl font-semibold highlight mt-5">
+      <h1 className="highlight mt-5 text-xl font-semibold">
         Collecting and Using Your Personal Data
       </h1>
       <p>
@@ -117,7 +117,7 @@ const Privacy = () => {
         identify You. Personally identifiable information may include, but is
         not limited to:
       </p>
-      <ul className="list-disc ml-4">
+      <ul className="ml-4 list-disc">
         <li>
           <p>Email address</p>
         </li>
@@ -137,11 +137,11 @@ const Privacy = () => {
         device.
       </p>
 
-      <h1 className="text-xl font-semibold highlight mt-5">
+      <h1 className="highlight mt-5 text-xl font-semibold">
         Use of Your Personal Data
       </h1>
       <p>The Company may use Personal Data for the following purposes:</p>
-      <ul className="list-disc ml-4">
+      <ul className="ml-4 list-disc">
         <li>
           <p>
             <strong className="highlight font-semibold">
@@ -201,7 +201,7 @@ const Privacy = () => {
         </li>
       </ul>
 
-      <h1 className="text-xl font-semibold highlight mt-5">
+      <h1 className="highlight mt-5 text-xl font-semibold">
         Security of Your Personal Data
       </h1>
       <p>
@@ -211,7 +211,7 @@ const Privacy = () => {
         means to protect Your Personal Data, We cannot guarantee its absolute
         security.
       </p>
-      <h1 className="text-xl font-semibold highlight mt-5">
+      <h1 className="highlight mt-5 text-xl font-semibold">
         Children&apos;s Privacy
       </h1>
       <p>
@@ -224,7 +224,7 @@ const Privacy = () => {
         remove that information from Our servers.
       </p>
 
-      <h1 className="text-xl font-semibold highlight mt-5">
+      <h1 className="highlight mt-5 text-xl font-semibold">
         Links to Other Websites
       </h1>
       <p>
@@ -238,15 +238,15 @@ const Privacy = () => {
         privacy policies or practices of any third party sites or services.
       </p>
 
-      <h1 className="text-xl font-semibold highlight mt-5">Contact Us</h1>
+      <h1 className="highlight mt-5 text-xl font-semibold">Contact Us</h1>
       <p>
         If you have any questions about this Privacy Policy, You can contact us:
       </p>
-      <ul className="list-disc ml-4">
+      <ul className="ml-4 list-disc">
         <li>
           By email:{" "}
           <a
-            className="border-b highlight font-semibold"
+            className="highlight border-b font-semibold"
             href="mailto:ratanbandhejbhuj@gmail.com"
           >
             ratanbandhejbhuj@gmail.com
@@ -255,18 +255,18 @@ const Privacy = () => {
         <li>
           By visiting this page on our website:{" "}
           <a
-            className="border-b highlight font-semibold"
-            href="https://ratanbandhej.vercel.app/contact"
+            className="highlight border-b font-semibold"
+            href="https://ratanbandhej.shop/contact"
             rel="noreferrer"
             target="_blank"
           >
-            https://ratanbandhej.vercel.app/contact
+            https://ratanbandhej.shop/contact
           </a>
         </li>
         <li>
           By phone number:{" "}
           <a
-            className="border-b highlight font-semibold"
+            className="highlight border-b font-semibold"
             href="tel:+917778975752"
             rel="noreferrer"
             target="_blank"

@@ -7,31 +7,31 @@ export default async function sitemap() {
 
   return [
     {
-      url: `https://ratanbandhej.vercel.app/`,
+      url: `https://ratanbandhej.shop/`,
       lastModified: new Date().toISOString(),
       changeFrequency: "weekly",
       priority: 1,
     },
     {
-      url: `https://ratanbandhej.vercel.app/products`,
+      url: `https://ratanbandhej.shop/products`,
       lastModified: new Date().toISOString(),
       changeFrequency: "weekly",
       priority: 0.7,
     },
     {
-      url: `https://ratanbandhej.vercel.app/about`,
+      url: `https://ratanbandhej.shop/about`,
       lastModified: new Date().toISOString(),
       changeFrequency: "yearly",
       priority: 0.5,
     },
     {
-      url: `https://ratanbandhej.vercel.app/contact`,
+      url: `https://ratanbandhej.shop/contact`,
       lastModified: new Date().toISOString(),
       changeFrequency: "yearly",
       priority: 0.5,
     },
     ...products.map((all) => ({
-      url: `https://ratanbandhej.vercel.app/products/${all.slug}`,
+      url: `https://ratanbandhej.shop/products/${all.slug}`,
       lastModified: all._updatedAt,
       changeFrequency: "daily",
       priority: 0.9,
