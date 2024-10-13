@@ -17,17 +17,19 @@ export default function ProductDetails({
               <td>{item.split(":=")[1]}</td>
             </tr>
           ))}
-          <tr className="*:w-1/2">
-            <td className="align-top font-bold">Instock</td>
-            <td>
-              {colours.split(",").map((clr, index, arr) => (
-                <span key={clr}>
-                  {clr.split("=")[0]}
-                  {index < arr.length - 1 ? ", " : ""}
-                </span>
-              ))}
-            </td>
-          </tr>
+          {colours && (
+            <tr className="*:w-1/2">
+              <td className="align-top font-bold">Instock</td>
+              <td>
+                {colours.split(",").map((clr, index, arr) => (
+                  <span key={clr}>
+                    {clr.split("=")[0]}
+                    {index < arr.length - 1 ? ", " : ""}
+                  </span>
+                ))}
+              </td>
+            </tr>
+          )}
           <tr className="*:w-1/2">
             <td className="align-top font-bold">Price</td>
             <td>₹{price}</td>
@@ -35,7 +37,7 @@ export default function ProductDetails({
         </tbody>
       </table>
       <p className="mt-2 whitespace-pre-wrap">{description}</p>
-      <div className="mt-4 flex items-center justify-between">
+      <div className="mt-2 flex items-center justify-between">
         <CartBtn userId={auth._id} _id={_id} />
       </div>
     </div>

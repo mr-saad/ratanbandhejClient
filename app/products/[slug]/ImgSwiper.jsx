@@ -7,7 +7,7 @@ import "swiper/css/navigation"
 import "swiper/css/scrollbar"
 
 export default function ImgSwiper({ data, title }) {
-  return (
+  return data.length ? (
     <Swiper
       className="max-w-full self-start rounded-md"
       modules={[Navigation, Scrollbar]}
@@ -28,5 +28,5 @@ export default function ImgSwiper({ data, title }) {
         </SwiperSlide>
       ))}
     </Swiper>
-  )
+  ) : null
 }

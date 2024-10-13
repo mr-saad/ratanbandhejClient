@@ -15,7 +15,7 @@ export default async function FilteredProducts({ data, searchParams }) {
             ? `/products?filter=true${searchCat ? "&category=" + searchCat : ""}`
             : `/products${searchCat ? "?category=" + searchCat : ""}`
         }
-        className="btn mb-2 inline-block"
+        className={`mb-5 inline-block rounded-md border border-current bg-transparent px-4 py-2 font-bold text-[#111] dark:text-white ${searchCat ? "!bg-[#111] !text-white dark:!bg-white dark:!text-[#111]" : ""}`}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -49,7 +49,7 @@ export default async function FilteredProducts({ data, searchParams }) {
                     : "/products?filter=true"
                 }
                 key={category}
-                className={`inline-block rounded-full border border-current px-4 py-1 text-[#111]/70 transition dark:text-white/50 ${
+                className={`inline-block rounded-full border border-[#111] px-4 py-1 text-[#111] transition dark:border-white dark:text-white ${
                   searchParams.category === category &&
                   "bg-[#111] !text-white dark:bg-white dark:!text-[#111]"
                 }`}
