@@ -1,7 +1,7 @@
 import sanity from "@/lib/sanity"
 import ProductDetails from "./ProductDetails"
 import { notFound } from "next/navigation"
-import ImgSwiper from "@/app/ImgSwiper"
+import ImgSwiper from "@/app/products/[slug]/ImgSwiper"
 import isAuthenticated from "@/lib/isAuthenticated"
 
 export async function generateMetadata({ params: { slug } }) {

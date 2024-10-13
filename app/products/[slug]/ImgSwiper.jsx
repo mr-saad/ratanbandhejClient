@@ -9,7 +9,7 @@ import "swiper/css/scrollbar"
 export default function ImgSwiper({ data, title }) {
   return (
     <Swiper
-      className="max-w-full rounded-md"
+      className="max-w-full self-start rounded-md"
       modules={[Navigation, Scrollbar]}
       navigation
       scrollbar={{ draggable: true }}
