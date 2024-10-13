@@ -159,7 +159,8 @@ const Footer = async () => {
           </Link>
         </div>
         <p>
-          &copy; {new Date().getFullYear()} Ratan Bandhej by{" "}
+          All Rights Reserved. &copy; Ratan Bandhej {new Date().getFullYear()}{" "}
+          by{" "}
           <Link
             rel="refferer noopener"
             target="_blank"
@@ -168,7 +169,6 @@ const Footer = async () => {
           >
             SXVD
           </Link>
-          . All Rights Reserved
         </p>
       </div>
     </footer>

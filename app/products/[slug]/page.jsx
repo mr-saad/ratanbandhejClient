@@ -61,7 +61,7 @@ export default async function Slug({ params }) {
   const auth = await isAuthenticated()
   return (
     <div className="Container mx-auto grid md:max-w-4xl md:grid-cols-2 md:gap-10 md:pt-10">
-      <ImgSwiper data={product.images} />
+      <ImgSwiper data={product.images} title={product.title} />
       <ProductDetails product={product} auth={auth} />
     </div>
   )

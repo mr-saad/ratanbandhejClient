@@ -37,9 +37,7 @@ export default function Carousel({ data }) {
               ease: "easeOut",
             }}
           >
-            <h2 className="highlight line-clamp-2 text-2xl font-semibold">
-              {prod.title}
-            </h2>
+            <h2 className="highlight text-2xl font-semibold">{prod.title}</h2>
             <p className="mb-2 line-clamp-2">{prod.description}</p>
             <Link href={"/products/" + prod.slug} className="btn inline-block">
               View More

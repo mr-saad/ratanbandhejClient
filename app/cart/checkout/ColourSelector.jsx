@@ -23,13 +23,13 @@ const ColourSelector = ({ _id, colours, price, setTotal }) => {
     }
     setColourData(updatedData)
   }
-
   const handleQuantityChange = (index, value) => {
     const updatedData = [...colourData]
     updatedData[index].quantity = Math.max(
       1,
       Math.min(updatedData[index].maxQuantity, value),
     )
+    setTotal((prev) => prev + price * updatedData[index].quantity)
     setColourData(updatedData)
   }
 
@@ -48,7 +48,7 @@ const ColourSelector = ({ _id, colours, price, setTotal }) => {
 
   const removeColour = (index) => {
     if (colourData.length <= 1) return
-    setTotal((prev) => prev - price)
+    setTotal((prev) => prev - price * colourData[index].quantity)
     const updatedData = colourData.filter((_, idx) => idx !== index)
     setColourData(updatedData)
   }

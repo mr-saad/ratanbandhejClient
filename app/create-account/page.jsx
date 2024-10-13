@@ -4,7 +4,7 @@ import { useState } from "react"
 import createAcc from "@/lib/actions/createAcc"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
-import { formSchema } from "@/lib/zodSchemas/accSchena"
+import { formSchema } from "@/lib/zodSchemas/accSchema"
 
 export default function CreateAccount() {
   const [loading, setLoading] = useState(false)

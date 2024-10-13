@@ -6,7 +6,7 @@ import "swiper/css"
 import "swiper/css/navigation"
 import "swiper/css/scrollbar"
 
-export default function ImgSwiper({ data }) {
+export default function ImgSwiper({ data, title }) {
   return (
     <Swiper
       className="max-w-full rounded-md"
@@ -17,6 +17,7 @@ export default function ImgSwiper({ data }) {
       {data.map((img, index, arr) => (
         <SwiperSlide key={img._id} className="">
           <Image
+            alt={title}
             src={img.url}
             placeholder="blur"
             blurDataURL={img.metadata.lqip}

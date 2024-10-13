@@ -9,7 +9,7 @@ export default function ProductDetails({
       <h3 className="highlight my-3 text-base font-semibold capitalize md:mt-0">
         {title}
       </h3>
-      <table className="w-full">
+      <table className="w-full border-separate border-spacing-y-4">
         <tbody>
           {specs.split(";").map((item) => (
             <tr key={item} className="*:w-1/2">

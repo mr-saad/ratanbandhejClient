@@ -36,9 +36,6 @@ export default function CartBtn() {
           width="24"
           height="24"
           viewBox="0 0 24 24"
-          // stroke={
-          //   pathname.includes("/cart") ? "#ffffff" : "rgba(255,255,255,0.6)"
-          // }
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
