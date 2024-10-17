@@ -6,7 +6,7 @@ export default function ProductDetails({
 }) {
   return (
     <div>
-      <h3 className="highlight my-3 text-base font-semibold capitalize md:mt-0">
+      <h3 className="highlight mb-3 text-base font-semibold capitalize md:mt-0">
         {title}
       </h3>
       <table className="w-full border-separate border-spacing-y-4">

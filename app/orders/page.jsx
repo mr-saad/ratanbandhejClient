@@ -23,36 +23,36 @@ export default async function Orders() {
         {orders.length > 0 ? (
           orders.map((order) => {
             return (
-              <div key={order._id} className="">
-                <div className="flex gap-4">
-                  <Image
-                    width={100}
-                    height={100}
-                    className="aspect-square h-auto w-auto rounded-md object-cover object-top"
-                    src={order.image.url}
-                    placeholder="blur"
-                    blurDataURL={order.image.metadata.lqip}
-                  />
-                  <div>
-                    <p className="highlight">{order.title}</p>
-                    <p>₹{order.price}</p>
-                    <p>
-                      {new Date(order._createdAt).getDate()}/
-                      {new Date(order._createdAt).getMonth() + 1}/
-                      {new Date(order._createdAt).getFullYear()}
-                      {" - "}
-                      {Math.abs(
-                        Math.floor(
-                          new Date(order._createdAt).getHours() - 12,
-                        ) === 0
-                          ? 12
-                          : Math.floor(
-                              new Date(order._createdAt).getHours() - 12,
-                            ),
-                      )}
-                      :{new Date(order._createdAt).getMinutes()}{" "}
-                      {new Date(order._createdAt).getHours() > 12 ? "PM" : "AM"}
-                    </p>
+              <div key={order._id} className="flex h-full gap-4">
+                <Image
+                  alt={order.title}
+                  width={100}
+                  height={100}
+                  className="aspect-square h-auto w-auto rounded-md object-cover object-top"
+                  src={order.image.url}
+                  placeholder="blur"
+                  blurDataURL={order.image.metadata.lqip}
+                />
+                <div className="flex flex-col">
+                  <p className="highlight">{order.title}</p>
+                  <p>₹{order.price}</p>
+                  <p>
+                    {new Date(order._createdAt).getDate()}/
+                    {new Date(order._createdAt).getMonth() + 1}/
+                    {new Date(order._createdAt).getFullYear()}
+                    {" - "}
+                    {Math.abs(
+                      Math.floor(new Date(order._createdAt).getHours() - 12) ===
+                        0
+                        ? 12
+                        : Math.floor(
+                            new Date(order._createdAt).getHours() - 12,
+                          ),
+                    )}
+                    :{new Date(order._createdAt).getMinutes()}{" "}
+                    {new Date(order._createdAt).getHours() > 12 ? "PM" : "AM"}
+                  </p>
+                  <div className="mt-auto">
                     <CancelOrder _id={order._id} />
                   </div>
                 </div>

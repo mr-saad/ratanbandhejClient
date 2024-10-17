@@ -36,7 +36,7 @@ export default async function Home() {
           placeholder="blur"
           blurDataURL={lqip}
           src={url}
-          className="absolute h-full max-w-full select-none object-cover object-top"
+          className="absolute h-full max-w-full select-none object-cover object-top md:object-center"
           width={1920}
           height={1080}
           loading="eager"

@@ -14,10 +14,7 @@ export default function BookForm({ auth: { _id: userId } }) {
   const { push } = useRouter()
 
   const [total, setTotal] = useState(
-    cart.map(({ price }) => {
-      let t = 0
-      return (t += price)
-    })[0],
+    cart.reduce((prev, item) => prev + item.price, 0),
   )
 
   const Submit = async (e) => {
@@ -52,6 +49,21 @@ export default function BookForm({ auth: { _id: userId } }) {
 
   return (
     <form onSubmit={(e) => Submit(e)} className="flex flex-col gap-10">
+      {cart.map(({ _id, title, colours, price }, index) => {
+        return (
+          <div className={`cartItem-${index} grid gap-4`} key={_id}>
+            <p>{title}</p>
+            <input type="hidden" value={_id} name="prodId" />
+            <ColourSelector
+              _id={_id}
+              colours={colours}
+              price={price}
+              setTotal={setTotal}
+            />
+          </div>
+        )
+      })}
+
       <div className="relative flex gap-2">
         <input
           name="existing"
@@ -68,7 +80,6 @@ export default function BookForm({ auth: { _id: userId } }) {
           <textarea
             minLength={10}
             maxLength={60}
-            type="text"
             name="address"
             id="address"
             placeholder=" "
@@ -80,22 +91,17 @@ export default function BookForm({ auth: { _id: userId } }) {
           </label>
         </div>
       )}
-
-      {cart.map(({ _id, title, colours, price }, index) => {
-        return (
-          <div className={`cartItem-${index} grid gap-4`} key={_id}>
-            <p>{title}</p>
-            <input type="hidden" value={_id} name="prodId" />
-            <ColourSelector
-              _id={_id}
-              colours={colours}
-              price={price}
-              setTotal={setTotal}
-            />
-          </div>
-        )
-      })}
-
+      <div className="relative">
+        <textarea
+          name="note"
+          id="note"
+          placeholder=" "
+          className="input peer resize-none"
+        ></textarea>
+        <label htmlFor="note" className="floating-label">
+          Additional Note (Optional)
+        </label>
+      </div>
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <button disabled={loading} className="btn" type="submit">
@@ -125,7 +131,14 @@ export default function BookForm({ auth: { _id: userId } }) {
             </svg>
           )}
         </div>
-        <p className="font-semibold">Total: ₹{total}</p>
+        <p className="font-semibold">
+          Total:{" "}
+          {total.toLocaleString("en-IN", {
+            style: "currency",
+            currency: "INR",
+            maximumFractionDigits: 2,
+          })}
+        </p>
       </div>
     </form>
   )

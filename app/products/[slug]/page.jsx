@@ -3,6 +3,8 @@ import ProductDetails from "./ProductDetails"
 import { notFound } from "next/navigation"
 import ImgSwiper from "@/app/products/[slug]/ImgSwiper"
 import isAuthenticated from "@/lib/isAuthenticated"
+import getProducts from "@/lib/getProducts"
+import Product from "@/components/Product"
 
 export async function generateMetadata({ params: { slug } }) {
   const product = await sanity.fetch(`*[slug.current==$slug][0]{title}`, {
@@ -58,11 +60,30 @@ async function getProduct(slug) {
 
 export default async function Slug({ params }) {
   const product = await getProduct(params.slug)
+  const similars = await getProducts(
+    5,
+    product.type,
+    "",
+    "similar",
+    product._id,
+  )
   const auth = await isAuthenticated()
   return (
-    <div className="Container mx-auto grid md:max-w-4xl md:grid-cols-2 md:gap-10 md:pt-10">
-      <ImgSwiper data={product.images} title={product.title} />
-      <ProductDetails product={product} auth={auth} />
+    <div className="Container mx-auto md:max-w-4xl md:pt-10">
+      <div className="grid gap-5 md:grid-cols-2">
+        <ImgSwiper data={product.images} title={product.title} />
+        <ProductDetails product={product} auth={auth} />
+      </div>
+      {similars.length ? (
+        <>
+          <h2 className="heading mt-20">You Might Also Like</h2>
+          <div className="grid gap-5 md:grid-cols-2">
+            {similars.map((prod) => (
+              <Product {...prod} key={prod._id} />
+            ))}
+          </div>
+        </>
+      ) : null}
     </div>
   )
 }
