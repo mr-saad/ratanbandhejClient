@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css"
 import "swiper/css/navigation"
 import "swiper/css/scrollbar"
+import { urlFor } from "@/lib/sanity"
 
 export default function ImgSwiper({ data, title }) {
   return data.length ? (
@@ -15,14 +16,14 @@ export default function ImgSwiper({ data, title }) {
       scrollbar={{ draggable: true }}
     >
       {data.map((img, index, arr) => (
-        <SwiperSlide key={img._id} className="">
+        <SwiperSlide key={img._id}>
           <Image
             alt={title}
-            src={img.url}
+            src={urlFor(img).width(400).url()}
             placeholder="blur"
             blurDataURL={img.metadata.lqip}
-            width={500}
-            height={500}
+            width={400}
+            height={400}
             className={`aspect-square max-w-full cursor-grab select-none object-cover object-top active:cursor-grabbing ${index === 0 && "rounded-l-md"} ${index === arr.length - 1 && "rounded-r-md"}`}
           />
         </SwiperSlide>

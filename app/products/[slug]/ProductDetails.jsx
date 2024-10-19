@@ -18,7 +18,7 @@ export default function ProductDetails({
             </tr>
           ))}
           {colours && (
-            <tr className="*:w-1/2">
+            <tr className="capitalize *:w-1/2">
               <td className="align-top font-bold">Instock</td>
               <td>
                 {colours.split(",").map((clr, index, arr) => (
@@ -37,7 +37,7 @@ export default function ProductDetails({
         </tbody>
       </table>
       <p className="mt-2 whitespace-pre-wrap">{description}</p>
-      <div className="mt-2 flex items-center justify-between">
+      <div className="mt-4 flex items-center justify-between">
         <CartBtn userId={auth._id} _id={_id} />
       </div>
     </div>

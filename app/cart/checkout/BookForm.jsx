@@ -52,11 +52,11 @@ export default function BookForm({ auth: { _id: userId } }) {
       {cart.map(({ _id, title, colours, price }, index) => {
         return (
           <div className={`cartItem-${index} grid gap-4`} key={_id}>
-            <p>{title}</p>
+            <p className="highlight">{title}</p>
             <input type="hidden" value={_id} name="prodId" />
             <ColourSelector
               _id={_id}
-              colours={colours}
+              colours={colours || ""}
               price={price}
               setTotal={setTotal}
             />

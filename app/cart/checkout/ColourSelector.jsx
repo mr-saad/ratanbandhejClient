@@ -5,7 +5,7 @@ const ColourSelector = ({ _id, colours, price, setTotal }) => {
     {
       colour: colours.split(",")[0].split("=")[0],
       quantity: 1,
-      maxQuantity: colours.split(",")[0].split("=")[1],
+      maxQuantity: colours.split(",")[0].split("=")[1] || 1,
     },
   ])
 
@@ -16,6 +16,7 @@ const ColourSelector = ({ _id, colours, price, setTotal }) => {
         .split(",")
         .find((clr) => clr.includes(selectedColour))
         ?.split("=")[1] || 1
+    setTotal((prev) => prev - price * (colourData[index].quantity - 1))
     updatedData[index] = {
       colour: selectedColour,
       quantity: 1,
@@ -25,6 +26,13 @@ const ColourSelector = ({ _id, colours, price, setTotal }) => {
   }
 
   const handleQuantityChange = (index, value) => {
+    if (
+      parseInt(value) < 1 ||
+      parseInt(value) > colourData[index].maxQuantity ||
+      value === ""
+    )
+      return
+
     if (parseInt(value) > colourData[index].quantity)
       setTotal((prev) => prev + price)
     else setTotal((prev) => prev - price)
@@ -32,7 +40,7 @@ const ColourSelector = ({ _id, colours, price, setTotal }) => {
     const updatedData = [...colourData]
     updatedData[index].quantity = Math.max(
       1,
-      Math.min(updatedData[index].maxQuantity, parseInt(value)),
+      Math.min(updatedData[index].maxQuantity || 1, value),
     )
     setColourData(updatedData)
   }
@@ -66,7 +74,7 @@ const ColourSelector = ({ _id, colours, price, setTotal }) => {
             <select
               name={`colour-${index}`}
               id={`colours-${index}-${_id}`}
-              className="input clr min-h-[29px]"
+              className="input clr min-h-[29px] capitalize"
               value={item.colour}
               onChange={(e) => handleSelectChange(index, e.target.value)}
             >

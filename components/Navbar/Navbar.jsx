@@ -4,8 +4,18 @@ import { usePathname } from "next/navigation"
 import CartLink from "./CartLink"
 import ThemeToggle from "./ThemeToggle"
 import { Quagera } from "../logoFont"
+import { useEffect } from "react"
 
 export default function Navbar({ auth }) {
+  useEffect(() => {
+    const nav = document.querySelector("nav")
+
+    const listener = document.addEventListener("click", (e) => {
+      if (!nav.contains(e.target)) CloseNav()
+    })
+
+    ;() => removeEventListener("click", listener)
+  }, [])
   return (
     <nav
       className={`nav fixed top-0 z-[12] grid w-full select-none grid-cols-[1fr_2fr_1fr] items-center justify-between border-b border-white/10 bg-[#111]/90 p-5 shadow-xl backdrop-blur-[2px] md:text-base lg:px-20`}

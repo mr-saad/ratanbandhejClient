@@ -72,14 +72,14 @@ export const metadata = {
       "One Place for All Your Bandhani Needs. Ratan Bandhej Provides Their Customers A Large Number Of Variaties In Bandhani Dupattas, Sarees, Top Materials",
     url: "https://ratanbandhej.shop",
     siteName: "Ratan Bandhej | One Place For All Your Bandhani Needs",
-    images: [
-      {
-        url: "https://nextjs.org/og-alt.png",
-        width: 1800,
-        height: 1600,
-        alt: "ratan bandhej logo",
-      },
-    ],
+    // images: [
+    //   {
+    //     url: "https://nextjs.org/og-alt.png",
+    //     width: 1800,
+    //     height: 1600,
+    //     alt: "ratan bandhej logo",
+    //   },
+    // ],
     locale: "en_US",
     type: "website",
     authors: ["Saad Khatri"],
@@ -108,7 +108,7 @@ export default async function RootLayout({ children }) {
           price,
           colours,
           "slug":slug.current,
-          "images":images[].asset->{url,metadata{lqip}},
+          "images":images[].asset->{_id,metadata{lqip}},
         }`,
         { _id: auth._id },
       )
@@ -121,7 +121,9 @@ export default async function RootLayout({ children }) {
       <body>
         <Provider cartLayout={cart}>
           <Navbar />
-          <div className="min-h-screen">{children}</div>
+          <div className="min-h-screen accent-[#111] dark:accent-white">
+            {children}
+          </div>
         </Provider>
         <Footer />
       </body>

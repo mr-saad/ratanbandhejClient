@@ -10,6 +10,7 @@ export default async function FilteredProducts({ data, searchParams }) {
   return (
     <div className="Container">
       <Link
+        prefetch
         href={
           showFilter !== "true"
             ? `/products?filter=true${searchCat ? "&category=" + searchCat : ""}`

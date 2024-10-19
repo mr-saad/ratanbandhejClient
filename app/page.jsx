@@ -1,5 +1,5 @@
 import getProducts from "@/lib/getProducts"
-import client from "@/lib/sanity"
+import client, { urlFor } from "@/lib/sanity"
 import Image from "next/image"
 import Section from "./Section"
 import Carousel from "./Carousel"
@@ -19,27 +19,22 @@ export default async function Home() {
     }
   })
 
-  const {
-    image: {
-      url,
-      metadata: { lqip },
-    },
-  } = await client.fetch(`*[_type=="headerImage"][0]{
-      "image":image.asset->{url,metadata}
+  const { image, lqip } = await client.fetch(`*[_type=="headerImage"][0]{
+      image,
+      "lqip":image.asset->metadata.lqip
     }`)
-
   return (
     <>
       <header className="relative flex min-h-[95vh] w-full items-center bg-[#111] before:absolute before:z-[2] before:h-full before:w-full before:bg-gradient-to-l before:from-transparent before:to-[#111]/90">
         <Image
           priority
+          loading="eager"
           placeholder="blur"
           blurDataURL={lqip}
-          src={url}
-          className="absolute h-full max-w-full select-none object-cover object-top md:object-center"
-          width={1920}
-          height={1080}
-          loading="eager"
+          sizes="100vw"
+          fill
+          src={urlFor(image).width(1200).url()}
+          className="select-none object-cover object-top md:object-center"
           alt={"Ratan Bandhej"}
         />
         <HeaderText />
