@@ -5,12 +5,14 @@ import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 import ColourSelector from "./ColourSelector"
+import { useCartBtn } from "@/app/products/[slug]/CartBtn"
 
 export default function BookForm({ auth: { _id: userId } }) {
   const [loading, setLoading] = useState(false)
   const [isExisting, setExisting] = useState(false)
 
   const { cart } = useRatanContext()
+  const { removeFromCartBtn, loading: cartLoading } = useCartBtn()
   const { push } = useRouter()
 
   const [total, setTotal] = useState(
@@ -48,97 +50,137 @@ export default function BookForm({ auth: { _id: userId } }) {
   }
 
   return (
-    <form onSubmit={(e) => Submit(e)} className="flex flex-col gap-10">
-      {cart.map(({ _id, title, colours, price }, index) => {
-        return (
-          <div className={`cartItem-${index} grid gap-4`} key={_id}>
-            <p className="highlight">{title}</p>
-            <input type="hidden" value={_id} name="prodId" />
-            <ColourSelector
-              _id={_id}
-              colours={colours || ""}
-              price={price}
-              setTotal={setTotal}
-            />
-          </div>
-        )
-      })}
-
-      <div className="relative flex gap-2">
-        <input
-          name="existing"
-          type="checkbox"
-          onChange={handleCheck}
-          id="existing"
-        />
-        <label htmlFor="existing" className="select-none">
-          Use My Existing Address
-        </label>
+    <form onSubmit={(e) => Submit(e)} className="grid gap-10 md:grid-cols-2">
+      <div className="grid content-start gap-5">
+        {cart.map(({ _id, title, colours, price }, index) => {
+          return (
+            <div className={`cartItem-${index} grid gap-4`} key={_id}>
+              <div className="flex items-center justify-between">
+                <p className="highlight">{title}</p>
+                {cartLoading ? (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="shrink-0 animate-spin"
+                  >
+                    <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+                  </svg>
+                ) : (
+                  <svg
+                    tabIndex={0}
+                    onClick={() => removeFromCartBtn(userId, _id)}
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="shrink-0 cursor-pointer stroke-current"
+                  >
+                    <path d="M18 6 6 18" />
+                    <path d="m6 6 12 12" />
+                  </svg>
+                )}
+              </div>
+              <input type="hidden" value={_id} name="prodId" />
+              <ColourSelector
+                _id={_id}
+                colours={colours || ""}
+                price={price}
+                setTotal={setTotal}
+              />
+            </div>
+          )
+        })}
       </div>
-      {!isExisting && (
-        <div className="relative">
-          <textarea
-            minLength={10}
-            maxLength={60}
-            name="address"
-            id="address"
-            placeholder=" "
-            className="input peer resize-none"
-            required
-          ></textarea>
-          <label htmlFor="address" className="floating-label">
-            Address
+
+      <div className="grid content-start gap-5">
+        <div className="relative flex gap-2">
+          <input
+            name="existing"
+            type="checkbox"
+            onChange={handleCheck}
+            id="existing"
+          />
+          <label htmlFor="existing" className="select-none">
+            Use My Existing Address
           </label>
         </div>
-      )}
-      <div className="relative">
-        <textarea
-          name="note"
-          id="note"
-          placeholder=" "
-          className="input peer resize-none"
-        ></textarea>
-        <label htmlFor="note" className="floating-label">
-          Additional Note (Optional)
-        </label>
-      </div>
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <button disabled={loading} className="btn" type="submit">
-            Confirm
-          </button>
-          <Link
-            disabled={loading}
-            className="btn-secondary disabled:opacity-50"
-            href={"/cart"}
-          >
-            Back
-          </Link>
-          {loading && (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="animate-spin"
-            >
-              <path d="M21 12a9 9 0 1 1-6.219-8.56" />
-            </svg>
-          )}
+        {!isExisting && (
+          <div className="relative">
+            <textarea
+              minLength={10}
+              maxLength={60}
+              name="address"
+              id="address"
+              placeholder=" "
+              className="input peer resize-none"
+              required
+            ></textarea>
+            <label htmlFor="address" className="floating-label">
+              Address
+            </label>
+          </div>
+        )}
+        <div className="relative">
+          <textarea
+            name="note"
+            id="note"
+            placeholder=" "
+            className="input peer resize-none"
+          ></textarea>
+          <label htmlFor="note" className="floating-label">
+            Additional Note (Optional)
+          </label>
         </div>
-        <p className="font-semibold">
-          Total:{" "}
-          {total.toLocaleString("en-IN", {
-            style: "currency",
-            currency: "INR",
-            maximumFractionDigits: 2,
-          })}
-        </p>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <button disabled={loading} className="btn" type="submit">
+              Confirm
+            </button>
+            <Link
+              disabled={loading}
+              className="btn-secondary disabled:opacity-50"
+              href={"/cart"}
+            >
+              Back
+            </Link>
+            {loading && (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="animate-spin"
+              >
+                <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+              </svg>
+            )}
+          </div>
+          <p className="font-semibold">
+            Total:{" "}
+            {total.toLocaleString("en-IN", {
+              style: "currency",
+              currency: "INR",
+              maximumFractionDigits: 2,
+            })}
+          </p>
+        </div>
       </div>
     </form>
   )

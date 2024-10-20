@@ -18,12 +18,13 @@ export default function ImgSwiper({ data, title }) {
       {data.map((img, index, arr) => (
         <SwiperSlide key={img._id}>
           <Image
+            quality={100}
             alt={title}
-            src={urlFor(img).width(400).url()}
+            src={urlFor(img).width(600).quality(100).url()}
             placeholder="blur"
             blurDataURL={img.metadata.lqip}
-            width={400}
-            height={400}
+            width={600}
+            height={600}
             className={`aspect-square max-w-full cursor-grab select-none object-cover object-top active:cursor-grabbing ${index === 0 && "rounded-l-md"} ${index === arr.length - 1 && "rounded-r-md"}`}
           />
         </SwiperSlide>

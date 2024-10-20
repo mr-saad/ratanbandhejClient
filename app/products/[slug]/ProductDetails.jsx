@@ -13,13 +13,15 @@ export default function ProductDetails({
         <tbody>
           {specs.split(";").map((item) => (
             <tr key={item} className="*:w-1/2">
-              <td className="align-top font-bold">{item.split(":=")[0]}</td>
+              <td className="highlight align-top font-bold">
+                {item.split(":=")[0]}
+              </td>
               <td>{item.split(":=")[1]}</td>
             </tr>
           ))}
           {colours && (
             <tr className="capitalize *:w-1/2">
-              <td className="align-top font-bold">Instock</td>
+              <td className="highlight align-top font-bold">Instock</td>
               <td>
                 {colours.split(",").map((clr, index, arr) => (
                   <span key={clr}>
@@ -31,7 +33,7 @@ export default function ProductDetails({
             </tr>
           )}
           <tr className="*:w-1/2">
-            <td className="align-top font-bold">Price</td>
+            <td className="highlight align-top font-bold">Price</td>
             <td>₹{price}</td>
           </tr>
         </tbody>

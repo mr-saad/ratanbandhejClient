@@ -5,17 +5,19 @@ const ColourSelector = ({ _id, colours, price, setTotal }) => {
     {
       colour: colours.split(",")[0].split("=")[0],
       quantity: 1,
-      maxQuantity: colours.split(",")[0].split("=")[1] || 1,
+      maxQuantity: parseInt(colours.split(",")[0].split("=")[1]) || 1,
     },
   ])
 
   const handleSelectChange = (index, selectedColour) => {
     const updatedData = [...colourData]
     const maxQuantity =
-      colours
-        .split(",")
-        .find((clr) => clr.includes(selectedColour))
-        ?.split("=")[1] || 1
+      parseInt(
+        colours
+          .split(",")
+          .find((clr) => clr.includes(selectedColour))
+          ?.split("=")[1],
+      ) || 1
     setTotal((prev) => prev - price * (colourData[index].quantity - 1))
     updatedData[index] = {
       colour: selectedColour,
@@ -29,6 +31,7 @@ const ColourSelector = ({ _id, colours, price, setTotal }) => {
     if (
       parseInt(value) < 1 ||
       parseInt(value) > colourData[index].maxQuantity ||
+      value.includes(".") ||
       value === ""
     )
       return
@@ -38,9 +41,8 @@ const ColourSelector = ({ _id, colours, price, setTotal }) => {
     else setTotal((prev) => prev - price)
 
     const updatedData = [...colourData]
-    updatedData[index].quantity = Math.max(
-      1,
-      Math.min(updatedData[index].maxQuantity || 1, value),
+    updatedData[index].quantity = parseInt(
+      Math.max(1, Math.min(updatedData[index].maxQuantity || 1, value)),
     )
     setColourData(updatedData)
   }
@@ -51,9 +53,9 @@ const ColourSelector = ({ _id, colours, price, setTotal }) => {
     setColourData([
       ...colourData,
       {
-        colour: colours.split(",")[0].split("=")[0],
+        colour: colours.split(",")[0].split("=")[0] || "",
         quantity: 1,
-        maxQuantity: colours.split(",")[0].split("=")[1],
+        maxQuantity: parseInt(colours.split(",")[0].split("=")[1]) || 1,
       },
     ])
   }
