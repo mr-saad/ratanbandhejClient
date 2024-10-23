@@ -31,6 +31,7 @@ const nextConfig = {
       },
     ]
   },
+  logging: false,
 }
 
 module.exports = nextConfig

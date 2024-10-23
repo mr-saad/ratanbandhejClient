@@ -6,7 +6,13 @@ import isAuthenticated from "@/lib/isAuthenticated"
 import getProducts from "@/lib/getProducts"
 import Product from "@/components/Product"
 
-export async function generateMetadata({ params: { slug } }) {
+export async function generateMetadata(props) {
+  const params = await props.params;
+
+  const {
+    slug
+  } = params;
+
   const product = await sanity.fetch(`*[slug.current==$slug][0]{title}`, {
     slug,
   })
@@ -58,7 +64,8 @@ async function getProduct(slug) {
   )
 }
 
-export default async function Slug({ params }) {
+export default async function Slug(props) {
+  const params = await props.params;
   const product = await getProduct(params.slug)
   const similars = await getProducts(
     5,

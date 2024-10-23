@@ -45,6 +45,15 @@ body {
 .input {
   @apply w-full border-b border-[#111]/10 bg-transparent py-1 text-[#111] outline-none transition-all focus-within:border-[#111] dark:border-white/10 dark:text-white dark:focus-within:border-white;
 }
+
+input[type="number"]::-webkit-inner-spin-button {
+  appearance: none !important;
+  opacity: 0 !important;
+}
+input[type="number"]::-webkit-outer-spin-button {
+  appearance: none !important;
+  opacity: 0 !important;
+}
 .floating-label {
   @apply pointer-events-none absolute -top-2 left-0 -translate-y-1/2 transition-all will-change-contents peer-placeholder-shown:top-1/2 peer-focus:-top-2;
 }

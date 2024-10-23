@@ -1,6 +1,9 @@
+import { useCartBtn } from "@/app/products/[slug]/CartBtn"
 import { useState } from "react"
 
-const ColourSelector = ({ _id, colours, price, setTotal }) => {
+const ColourSelector = ({ _id, userId, colours, price, setTotal }) => {
+  const { removeFromCartBtn, loading } = useCartBtn()
+
   const [colourData, setColourData] = useState([
     {
       colour: colours.split(",")[0].split("=")[0],
@@ -24,6 +27,39 @@ const ColourSelector = ({ _id, colours, price, setTotal }) => {
       quantity: 1,
       maxQuantity,
     }
+    setColourData(updatedData)
+  }
+  const increaseQuan = (index) => {
+    if (colourData[index].quantity >= colourData[index].maxQuantity) return
+    setTotal((prev) => prev + price)
+
+    const updatedData = [...colourData]
+    updatedData[index].quantity = parseInt(
+      Math.max(
+        1,
+        Math.min(
+          updatedData[index].maxQuantity || 1,
+          colourData[index].quantity + 1,
+        ),
+      ),
+    )
+    setColourData(updatedData)
+  }
+
+  const decreaseQuan = (index) => {
+    if (colourData[index].quantity <= 1) return
+    setTotal((prev) => prev - price)
+
+    const updatedData = [...colourData]
+    updatedData[index].quantity = parseInt(
+      Math.max(
+        1,
+        Math.min(
+          updatedData[index].maxQuantity || 1,
+          colourData[index].quantity - 1,
+        ),
+      ),
+    )
     setColourData(updatedData)
   }
 
@@ -60,11 +96,14 @@ const ColourSelector = ({ _id, colours, price, setTotal }) => {
     ])
   }
 
-  const removeColour = (index) => {
-    if (colourData.length <= 1) return
-    setTotal((prev) => prev - price * colourData[index].quantity)
-    const updatedData = colourData.filter((_, idx) => idx !== index)
-    setColourData(updatedData)
+  const removeColour = async (index) => {
+    if (colourData.length <= 1) {
+      await removeFromCartBtn(userId, _id)
+    } else {
+      setTotal((prev) => prev - price * colourData[index].quantity)
+      const updatedData = colourData.filter((_, idx) => idx !== index)
+      setColourData(updatedData)
+    }
   }
 
   return (
@@ -107,17 +146,75 @@ const ColourSelector = ({ _id, colours, price, setTotal }) => {
               value={item.quantity}
               onChange={(e) => handleQuantityChange(index, e.target.value)}
             />
+            {(parseInt(colours.split(",")[0].split("=")[1]) || 1) > 1 && (
+              <>
+                <button type="button" onClick={() => increaseQuan(index)}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="absolute bottom-[16px] right-0"
+                  >
+                    <path d="m18 15-6-6-6 6" />
+                  </svg>
+                </button>
+                <button type="button" onClick={() => decreaseQuan(index)}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="absolute bottom-0 right-0"
+                  >
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                </button>
+              </>
+            )}
           </div>
 
           <button
-            disabled={colourData.length <= 1}
+            disabled={loading}
             onClick={() => removeColour(index)}
             className="btn"
             type="button"
           >
-            -
+            {loading ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="mx-auto animate-spin"
+              >
+                <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+              </svg>
+            ) : (
+              "-"
+            )}
           </button>
-          <button onClick={addColour} className="btn" type="button">
+          <button
+            disabled={loading}
+            onClick={addColour}
+            className="btn"
+            type="button"
+          >
             +
           </button>
         </div>

@@ -5,7 +5,8 @@ import { redirect } from "next/navigation"
 import Link from "next/link"
 import SignOutBtn from "./SignOutBtn"
 
-export default async function Account({ searchParams }) {
+export default async function Account(props) {
+  const searchParams = await props.searchParams;
   if (!(await isAuthenticated()).status) redirect("/sign-in")
   else {
     const { _id } = await isAuthenticated()

@@ -3,17 +3,18 @@ import { useRatanContext } from "@/components/Provider"
 import orderAction from "@/lib/actions/order"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import ColourSelector from "./ColourSelector"
-import { useCartBtn } from "@/app/products/[slug]/CartBtn"
 
 export default function BookForm({ auth: { _id: userId } }) {
   const [loading, setLoading] = useState(false)
   const [isExisting, setExisting] = useState(false)
 
   const { cart } = useRatanContext()
-  const { removeFromCartBtn, loading: cartLoading } = useCartBtn()
-  const { push } = useRouter()
+  const { push, replace } = useRouter()
+  useEffect(() => {
+    if (!cart.length) replace("/cart")
+  }, [])
 
   const [total, setTotal] = useState(
     cart.reduce((prev, item) => prev + item.price, 0),
@@ -57,44 +58,11 @@ export default function BookForm({ auth: { _id: userId } }) {
             <div className={`cartItem-${index} grid gap-4`} key={_id}>
               <div className="flex items-center justify-between">
                 <p className="highlight">{title}</p>
-                {cartLoading ? (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="shrink-0 animate-spin"
-                  >
-                    <path d="M21 12a9 9 0 1 1-6.219-8.56" />
-                  </svg>
-                ) : (
-                  <svg
-                    tabIndex={0}
-                    onClick={() => removeFromCartBtn(userId, _id)}
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="shrink-0 cursor-pointer stroke-current"
-                  >
-                    <path d="M18 6 6 18" />
-                    <path d="m6 6 12 12" />
-                  </svg>
-                )}
               </div>
               <input type="hidden" value={_id} name="prodId" />
               <ColourSelector
                 _id={_id}
+                userId={userId}
                 colours={colours || ""}
                 price={price}
                 setTotal={setTotal}
