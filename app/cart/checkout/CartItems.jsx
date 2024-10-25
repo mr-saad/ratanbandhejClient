@@ -11,7 +11,7 @@ export default function CartItems({ userId }) {
 
   useEffect(() => {
     if (!cart.length) return replace("/cart")
-  }, [cart])
+  }, [cart, replace])
 
   return cart.map((item) => {
     return (

@@ -14,7 +14,7 @@ export default function BookForm({ auth: { _id: userId } }) {
   const { push, replace } = useRouter()
   useEffect(() => {
     if (!cart.length) replace("/cart")
-  }, [])
+  }, [cart.length, replace])
 
   const [total, setTotal] = useState(
     cart.reduce((prev, item) => prev + item.price, 0),

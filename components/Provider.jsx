@@ -21,7 +21,7 @@ export default function Provider({ children, cartLayout }) {
     } else {
       setTheme("light")
     }
-  }, [])
+  }, [setTheme])
 
   useEffect(() => {
     setCart(cart)

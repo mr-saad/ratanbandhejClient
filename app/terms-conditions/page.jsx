@@ -1,5 +1,7 @@
 import Link from "next/link"
 
+export const dynamic = "force-static"
+
 export const metadata = {
   title: "Terms & Conditions",
   keywords: ["terms", "conditions"],
@@ -25,24 +27,24 @@ export default function Terms() {
 
       <p>
         The following terminology applies to these Terms and Conditions, Privacy
-        Statement and Disclaimer Notice and all Agreements: &quot;Client&quot;,
-        &quot;You&quot; and &quot;Your&quot; refers to you, the person log on
-        this website and compliant to the Company’s terms and conditions.
-        &quot;The Company&quot;, &quot;Ourselves&quot;, &quot;We&quot;,
-        &quot;Our&quot; and &quot;Us&quot;, refers to our Company.
-        &quot;Party&quot;, &quot;Parties&quot;, or &quot;Us&quot;, refers to
-        both the Client and ourselves. All terms refer to the offer, acceptance
-        and consideration of payment necessary to undertake the process of our
-        assistance to the Client in the most appropriate manner for the express
-        purpose of meeting the Client’s needs in respect of provision of the
-        Company’s stated services, in accordance with and subject to, prevailing
-        law of Netherlands. Any use of the above terminology or other words in
-        the singular, plural, capitalization and/or he/she or they, are taken as
-        interchangeable and therefore as referring to same.
+        Statement, and Disclaimer Notice: &quot;Client,&quot; &quot;You,&quot;
+        and &quot;Your&quot; refer to you, the user accessing this website.
+        &quot;The Company,&quot; &quot;Ourselves,&quot; &quot;We,&quot;
+        &quot;Our,&quot; and &quot;Us&quot; refer to Ratan Bandhej.
+      </p>
+
+      <h2 className="highlight mt-5 text-xl font-semibold">
+        Product Creation & Delivery
+      </h2>
+      <p>
+        Ratan Bandhej specializes in handcrafted bandhani materials such as
+        sarees, dupattas, and dresses, created on-demand to meet Client
+        specifications. This crafting process may require additional time based
+        on the nature and complexity of each order. Certain items in our
+        collections may be ready-made and available for immediate purchase.
       </p>
 
       <h2 className="highlight mt-5 text-xl font-semibold">License</h2>
-
       <p>
         Unless otherwise stated, Ratan Bandhej and/or its licensors own the
         intellectual property rights for all material on Ratan Bandhej. All
@@ -63,47 +65,16 @@ export default function Terms() {
         <li className="ml-4">Redistribute content from Ratan Bandhej</li>
       </ul>
 
-      <p className="mt-5">
-        Parts of this website offer an opportunity for users to post and
-        exchange opinions and information in certain areas of the website. Ratan
-        Bandhej does not filter, edit, publish or review Comments prior to their
-        presence on the website. Comments do not reflect the views and opinions
-        of Ratan Bandhej,its agents and/or affiliates. Comments reflect the
-        views and opinions of the person who post their views and opinions. To
-        the extent permitted by applicable laws, Ratan Bandhej shall not be
-        liable for the Comments or for any liability, damages or expenses caused
-        and/or suffered as a result of any use of and/or posting of and/or
-        appearance of the Comments on this website.
-      </p>
-
       <h2 className="highlight mt-5 text-xl font-semibold">
-        You warrant and represent that :
+        Data Collection and Privacy
       </h2>
-
-      <ul className="mb-5 list-disc">
-        <li className="ml-4">
-          You are entitled to post the Comments on our website and have all
-          necessary licenses and consents to do so;
-        </li>
-        <li className="ml-4">
-          The Comments do not invade any intellectual property right, including
-          without limitation copyright, patent or trademark of any third party;
-        </li>
-        <li className="ml-4">
-          The Comments do not contain any defamatory, libelous, offensive,
-          indecent or otherwise unlawful material which is an invasion of
-          privacy
-        </li>
-        <li className="ml-4">
-          The Comments will not be used to solicit or promote business or custom
-          or present commercial activities or unlawful activity.
-        </li>
-      </ul>
       <p>
-        You hereby grant Ratan Bandhej a non-exclusive license to use,
-        reproduce, edit and authorize others to use, reproduce and edit any of
-        your Comments in any and all forms, formats or media.
+        By using our website, you agree to our Privacy Policy. Ratan Bandhej may
+        collect and use your personal information to facilitate orders, provide
+        services, and improve your experience with us. This includes using your
+        data for communication and order fulfillment purposes.
       </p>
+
       <p>
         No use of Ratan Bandhej&apos;s logo or other artwork will be allowed for
         linking absent a trademark license agreement.

@@ -4,6 +4,10 @@ import Image from "next/image"
 import Section from "./Section"
 import Carousel from "./Carousel"
 import HeaderText from "./HeaderText"
+import { Suspense } from "react"
+import Loading from "./loading"
+
+export const experimental_ppr = true
 
 export const revalidate = 10
 
@@ -43,12 +47,16 @@ export default async function Home() {
       <div className="Container mx-auto">
         <div className="home mb-10">
           <h1 className="heading arrivals my-5 !text-4xl">Fresh Crafts</h1>
-          <Carousel data={carouselProds} />
+          <Suspense fallback={<Loading />}>
+            <Carousel data={carouselProds} />
+          </Suspense>
         </div>
 
-        {filtered.map((prod) => (
-          <Section key={prod.type} title={prod.type} data={prod.prods} />
-        ))}
+        <Suspense fallback={<Loading />}>
+          {filtered.map((prod) => (
+            <Section key={prod.type} title={prod.type} data={prod.prods} />
+          ))}
+        </Suspense>
       </div>
     </>
   )

@@ -1,3 +1,5 @@
+export const dynamic = "force-static"
+
 export const metadata = {
   title: "Contact",
   keywords: ["contact", "contactus"],
@@ -5,7 +7,7 @@ export const metadata = {
 
 const Contact = () => {
   return (
-    <div className="flex flex-col justify-center max-w-4xl mx-auto Container">
+    <div className="Container mx-auto flex max-w-4xl flex-col justify-center">
       <h1 className="heading">Contact Us</h1>
       <p>
         Thank you for your interest in Ratan Bandhej. We are delighted to assist
@@ -16,7 +18,7 @@ const Contact = () => {
         E-Mail:{" "}
         <a
           href="mailto:ratanbandhej@gmail.com"
-          className="border-b border-current mb-3 font-semibold highlight"
+          className="highlight mb-3 border-b border-current font-semibold"
         >
           ratanbandhejbhuj@gmail.com
         </a>
@@ -25,7 +27,7 @@ const Contact = () => {
         Phone:{" "}
         <a
           href="tel:+917778975752"
-          className="border-b border-current font-semibold highlight"
+          className="highlight border-b border-current font-semibold"
         >
           +91 7778975752
         </a>
@@ -40,7 +42,7 @@ const Contact = () => {
         You can reach us via email at{" "}
         <a
           href="mailto:ratanbandhej@gmail.com"
-          className="border-b border-current font-semibold highlight"
+          className="highlight border-b border-current font-semibold"
         >
           ratanbandhejbhuj@gmail.com
         </a>
@@ -51,7 +53,7 @@ const Contact = () => {
         If you prefer to speak with us directly, you can contact us by phone at{" "}
         <a
           href="tel:+917778975752"
-          className="border-b border-current font-semibold highlight"
+          className="highlight border-b border-current font-semibold"
         >
           +91 7778975752
         </a>
@@ -62,8 +64,12 @@ const Contact = () => {
         Thank you for choosing Ratan Bandhej. We look forward to hearing from
         you and providing you with an exceptional shopping experience.
       </p>
-      <div className="flex items-center my-10 flex-wrap gap-5">
-        <a href="https://wa.me/917778975752?text=Hi%20There!" target="_blank">
+      <div className="my-10 flex flex-wrap items-center gap-5">
+        <a
+          href="https://wa.me/917778975752?text=Hi%20There!"
+          target="_blank"
+          rel="noreferrer"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="#3fbd4f"
@@ -77,7 +83,7 @@ const Contact = () => {
             </g>
           </svg>
         </a>
-        <a href="https://facebook.com" target="_blank">
+        <a href="https://facebook.com" target="_blank" rel="noreferrer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="60"
@@ -88,7 +94,11 @@ const Contact = () => {
             <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
           </svg>
         </a>
-        <a href="https://instagram.com/ratanbandhejbhuj/" target="_blank">
+        <a
+          href="https://instagram.com/ratanbandhejbhuj/"
+          target="_blank"
+          rel="noreferrer"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="60"

@@ -1,5 +1,7 @@
 import { Quagera } from "@/components/logoFont"
 
+export const dynamic = "force-static"
+
 export const metadata = {
   title: "About",
   keywords: ["About", "aboutus", "ratan", "bandhej", "bandhani"],
