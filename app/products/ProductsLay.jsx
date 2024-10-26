@@ -7,7 +7,7 @@ export default function Layout({ products }) {
   return (
     <motion.div
       layout
-      className="grid grid-cols-1 gap-x-10 gap-y-5 sm:grid-cols-2 lg:grid-cols-3"
+      className="grid gap-x-10 gap-y-5 sm:grid-cols-2 lg:grid-cols-3"
     >
       <AnimatePresence mode="popLayout">
         {products.length ? (

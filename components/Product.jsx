@@ -14,7 +14,7 @@ export default function Product({ slug, image, lqip, title }) {
       exit={{ opacity: 0, transition: { delay: 0 } }}
       className="relative overflow-hidden rounded-md"
     >
-      <Link href={`/products/${slug}`}>
+      <Link prefetch={true} href={`/products/${slug}`}>
         <Image
           sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 33vw"
           alt={slug}

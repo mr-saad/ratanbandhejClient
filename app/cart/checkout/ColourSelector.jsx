@@ -99,6 +99,7 @@ const ColourSelector = ({ _id, userId, colours, price, setTotal }) => {
   const removeColour = async (index) => {
     if (colourData.length <= 1) {
       await removeFromCartBtn(userId, _id)
+      setTotal((prev) => prev - colourData[index].quantity * price)
     } else {
       setTotal((prev) => prev - price * colourData[index].quantity)
       const updatedData = colourData.filter((_, idx) => idx !== index)

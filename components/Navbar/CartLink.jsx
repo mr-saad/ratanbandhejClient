@@ -1,7 +1,6 @@
 import Link from "next/link"
 import { useRatanContext } from "../Provider"
 import { usePathname } from "next/navigation"
-import { CloseNav } from "./Navbar"
 
 export default function CartBtn() {
   const { cart } = useRatanContext()
@@ -24,12 +23,7 @@ export default function CartBtn() {
         }
 
   return (
-    <Link
-      onClick={CloseNav}
-      className="justify-self-end"
-      aria-label="favorites"
-      href="/cart"
-    >
+    <Link className="justify-self-end" aria-label="favorites" href="/cart">
       <div className="relative cursor-pointer">
         <svg
           xmlns="http://www.w3.org/2000/svg"

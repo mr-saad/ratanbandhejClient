@@ -11,10 +11,15 @@ export default function Navbar({ auth }) {
     const nav = document.querySelector("nav")
 
     const listener = document.addEventListener("click", (e) => {
-      if (!nav.contains(e.target)) CloseNav()
+      if (
+        !nav.contains(e.target) ||
+        e.target.tagName === "A" ||
+        e.target.tagName === "svg"
+      )
+        CloseNav()
     })
 
-    ;() => removeEventListener("click", listener)
+    return () => removeEventListener("click", listener)
   }, [])
   return (
     <nav
@@ -38,7 +43,6 @@ export default function Navbar({ auth }) {
       </div>
 
       <Link
-        onClick={CloseNav}
         aria-label="Home"
         title="Ratan Bandhej"
         href="/"
@@ -66,7 +70,6 @@ const Links = ({ auth }) => {
     <>
       <li className="md:inline">
         <Link
-          onClick={CloseNav}
           className={`block py-2 transition hover:opacity-100 md:inline md:px-2 md:py-0 ${
             pathname === "/" ? "opacity-100" : "opacity-60"
           }`}
@@ -81,8 +84,8 @@ const Links = ({ auth }) => {
         return (
           <li className="md:inline" key={all.url}>
             <Link
+              prefetch={true}
               shallow={true}
-              onClick={CloseNav}
               className={`block py-2 transition hover:opacity-100 md:inline md:px-2 md:py-0 ${
                 pathname.includes(all.url) ? "opacity-100" : "opacity-60"
               }`}
@@ -97,7 +100,6 @@ const Links = ({ auth }) => {
         <li className="md:inline">
           <Link
             shallow={true}
-            onClick={CloseNav}
             className={`block py-2 transition hover:opacity-100 md:inline md:px-2 md:py-0 ${
               pathname.includes("/account") ? "opacity-100" : "opacity-60"
             }`}
@@ -110,7 +112,6 @@ const Links = ({ auth }) => {
         <li className="md:inline">
           <Link
             shallow={true}
-            onClick={CloseNav}
             className={`block py-2 transition hover:opacity-100 md:inline md:px-2 md:py-0 ${
               pathname.includes("/create-account")
                 ? "opacity-100"
@@ -141,7 +142,7 @@ const links = [
   },
 ]
 
-export const CloseNav = () => {
+const CloseNav = () => {
   document.querySelector("nav ul").classList.remove("grid")
   document.querySelector("nav ul").classList.add("hidden")
   document

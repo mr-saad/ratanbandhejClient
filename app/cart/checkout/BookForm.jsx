@@ -10,7 +10,7 @@ export default function BookForm({ auth: { _id: userId } }) {
   const [loading, setLoading] = useState(false)
   const [isExisting, setExisting] = useState(false)
 
-  const { cart } = useRatanContext()
+  const { cart, setCart } = useRatanContext()
   const { push, replace } = useRouter()
   useEffect(() => {
     if (!cart.length) replace("/cart")
@@ -39,11 +39,14 @@ export default function BookForm({ auth: { _id: userId } }) {
     })
 
     const res = await orderAction(cart, userId, formData, clrData)
+
     if (!res.ok) {
       alert(res.message)
       setLoading(false)
-      return
-    } else push("/account")
+    } else {
+      push("/orders")
+      setCart([])
+    }
   }
 
   const handleCheck = (e) => {
