@@ -8,7 +8,7 @@ import "swiper/css/scrollbar"
 import { urlFor } from "@/lib/sanity"
 
 export default function ImgSwiper({ data, title }) {
-  return data.length ? (
+  return data ? (
     <Swiper
       className="max-w-full self-start rounded-md"
       modules={[Navigation, Scrollbar]}

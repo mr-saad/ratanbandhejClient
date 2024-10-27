@@ -15,16 +15,18 @@ export default function Product({ slug, image, lqip, title }) {
       className="relative overflow-hidden rounded-md"
     >
       <Link prefetch={true} href={`/products/${slug}`}>
-        <Image
-          sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 33vw"
-          alt={slug}
-          placeholder="blur"
-          blurDataURL={lqip || image.metadata.lqip}
-          src={urlFor(image).width(400).url()}
-          width={400}
-          height={400}
-          className="aspect-square w-full object-cover object-top"
-        />
+        {image && (
+          <Image
+            sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 33vw"
+            alt={slug}
+            placeholder="blur"
+            blurDataURL={lqip || image.metadata.lqip}
+            src={urlFor(image).width(400).url()}
+            width={400}
+            height={400}
+            className="aspect-square w-full object-cover object-top"
+          />
+        )}
         <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-[#111] to-transparent p-4">
           <h2 className="text-base capitalize text-white">{title}</h2>
         </div>

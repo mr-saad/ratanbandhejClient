@@ -44,29 +44,31 @@ export default function Carousel({ data }) {
               View More
             </Link>
           </motion.div>
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{
-              opacity: 1,
-              transition: {
-                delay: 0.6,
-                duration: 0.3,
-                ease: "easeOut",
-              },
-            }}
-            transition={{ delay: 0, duration: 0, ease: "easeOut" }}
-            className="md:justify-self-end"
-          >
-            <Image
-              className="aspect-square max-w-full rounded-md object-cover object-top"
-              src={urlFor(prod.image).width(400).url()}
-              alt={prod.title}
-              placeholder="blur"
-              blurDataURL={prod.lqip}
-              width={400}
-              height={400}
-            />
-          </motion.div>
+          {prod.image && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{
+                opacity: 1,
+                transition: {
+                  delay: 0.6,
+                  duration: 0.3,
+                  ease: "easeOut",
+                },
+              }}
+              transition={{ delay: 0, duration: 0, ease: "easeOut" }}
+              className="md:justify-self-end"
+            >
+              <Image
+                className="aspect-square max-w-full rounded-md object-cover object-top"
+                src={urlFor(prod.image).width(400).url()}
+                alt={prod.title}
+                placeholder="blur"
+                blurDataURL={prod.lqip}
+                width={400}
+                height={400}
+              />
+            </motion.div>
+          )}
         </SwiperSlide>
       ))}
     </Swiper>

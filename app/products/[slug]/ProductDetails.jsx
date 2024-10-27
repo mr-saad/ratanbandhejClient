@@ -23,12 +23,12 @@ export default function ProductDetails({
             <tr className="capitalize *:w-1/2">
               <td className="highlight align-top font-bold">Instock</td>
               <td>
-                {colours.split(",").map((clr, index, arr) => (
-                  <span key={clr}>
-                    {clr.split("=")[0]}
-                    {index < arr.length - 1 ? ", " : ""}
-                  </span>
-                ))}
+                {colours
+                  .split(",")
+                  .map(
+                    (clr, index, arr) =>
+                      `${clr.split("=")[0]}${index < arr.length - 1 ? ", " : ""}`,
+                  )}
               </td>
             </tr>
           )}

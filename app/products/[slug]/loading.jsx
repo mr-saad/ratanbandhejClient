@@ -13,14 +13,16 @@ export default function Loading() {
               ></div>
             ))}
           <table className="w-full border-separate border-spacing-4">
-            {Array(4)
-              .fill(1)
-              .map((item, index) => (
-                <tr key={index}>
-                  <td className="h-2 animate-pulse rounded-md bg-[#111]/20 dark:bg-white/20"></td>
-                  <td className="h-2 animate-pulse rounded-md bg-[#111]/20 dark:bg-white/20"></td>
-                </tr>
-              ))}
+            <tbody>
+              {Array(4)
+                .fill(1)
+                .map((item, index) => (
+                  <tr key={index}>
+                    <td className="h-2 animate-pulse rounded-md bg-[#111]/20 dark:bg-white/20"></td>
+                    <td className="h-2 animate-pulse rounded-md bg-[#111]/20 dark:bg-white/20"></td>
+                  </tr>
+                ))}
+            </tbody>
           </table>
           {Array(2)
             .fill(1)

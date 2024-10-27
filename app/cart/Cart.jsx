@@ -9,7 +9,7 @@ export default function Cart() {
       return (
         <Product
           key={props.slug}
-          image={props.images[0]}
+          image={props.images ? props.images[0] : ""}
           index={index}
           {...props}
         />
