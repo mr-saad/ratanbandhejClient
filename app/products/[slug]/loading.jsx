@@ -1,6 +1,9 @@
+import ScrollToTop from "@/components/ScrollToTop"
 export default function Loading() {
   return (
     <div className="Container mx-auto md:max-w-4xl md:pt-10">
+      <ScrollToTop />
+
       <div className="grid gap-5 md:grid-cols-2">
         <div className="min-h-[335px] animate-pulse rounded-md bg-[#111]/20 dark:bg-white/20"></div>
         <div>

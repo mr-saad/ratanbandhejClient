@@ -1,10 +1,10 @@
-import Footer from "@/components/Footer"
-import Navbar from "@/components/Navbar/NavWrapper"
-import Provider from "@/components/Provider"
 import "./globals.css"
 import isAuthenticated from "@/lib/isAuthenticated"
 import client from "@/lib/sanity"
 import { GeistSans } from "geist/font/sans"
+import Provider from "@/components/Provider"
+import Navbar from "@/components/Navbar/Navbar"
+import Footer from "@/components/Footer"
 
 export const viewport = {
   width: "device-width",
@@ -120,7 +120,7 @@ export default async function RootLayout({ children }) {
     <html className={GeistSans.className} lang="en" suppressHydrationWarning>
       <body>
         <Provider cartLayout={cart}>
-          <Navbar />
+          <Navbar auth={auth} />
           <div className="min-h-screen accent-[#111] dark:accent-white">
             {children}
           </div>
