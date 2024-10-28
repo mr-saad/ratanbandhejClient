@@ -1,5 +1,7 @@
-import Product from "@/components/Product"
+import dynamic from "next/dynamic"
 import Link from "next/link"
+
+const Product = dynamic(() => import("@/components/Product"))
 
 export default function Section({ title, data }) {
   return (

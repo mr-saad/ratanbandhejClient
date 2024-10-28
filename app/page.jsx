@@ -1,11 +1,13 @@
 import getProducts from "@/lib/getProducts"
 import client, { urlFor } from "@/lib/sanity"
 import Image from "next/image"
-import Section from "./Section"
 import Carousel from "./Carousel"
 import HeaderText from "./HeaderText"
 import { Suspense } from "react"
 import Loading from "./loading"
+import dynamic from "next/dynamic"
+
+const Section = dynamic(() => import("./Section"))
 
 export const experimental_ppr = true
 

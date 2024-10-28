@@ -1,7 +1,9 @@
 "use client"
 import { motion } from "framer-motion"
-import Product from "@/components/Product"
 import { AnimatePresence } from "framer-motion"
+import dynamic from "next/dynamic"
+
+const Product = dynamic(() => import("@/components/Product"), { ssr: false })
 
 export default function Layout({ products }) {
   return (
