@@ -6,9 +6,6 @@ import Provider from "@/components/Provider"
 import Navbar from "@/components/Navbar/Navbar"
 import Footer from "@/components/Footer"
 
-export const runtime = "edge"
-export const prefferedRegion = "bom1"
-
 export const viewport = {
   width: "device-width",
   initialScale: 1,
