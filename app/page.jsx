@@ -11,8 +11,6 @@ const Carousel = dynamic(() => import("./Carousel"))
 
 export const experimental_ppr = true
 
-export const revalidate = 10
-
 export default async function Home() {
   const data = await getProducts(-1, "", "home")
   const carouselProds = await getProducts(4)
@@ -37,9 +35,12 @@ export default async function Home() {
           loading="eager"
           placeholder="blur"
           blurDataURL={lqip}
-          sizes="100vw"
+          sizes="(max-width: 640px) 200px,
+               (max-width: 1024px) 400px,
+               (max-width: 1920px) 600px,
+               800px"
           fill
-          src={urlFor(image).width(1200).url()}
+          src={urlFor(image).url()}
           className="select-none object-cover object-top md:object-center"
           alt={"Ratan Bandhej"}
         />

@@ -60,7 +60,11 @@ export default function Carousel({ data }) {
             >
               <Image
                 className="aspect-square max-w-full rounded-md object-cover object-top"
-                src={urlFor(prod.image).width(400).url()}
+                src={urlFor(prod.image).url()}
+                sizes="(max-width: 640px) 200px,
+               (max-width: 1024px) 400px,
+               (max-width: 1920px) 600px,
+               800px"
                 alt={prod.title}
                 placeholder="blur"
                 blurDataURL={prod.lqip}

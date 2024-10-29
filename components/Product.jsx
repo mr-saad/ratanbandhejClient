@@ -17,11 +17,14 @@ export default function Product({ slug, image, lqip, title }) {
       <Link prefetch={true} href={`/products/${slug}`}>
         {image && (
           <Image
-            sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 33vw"
+            sizes="(max-width: 640px) 200px,
+               (max-width: 1024px) 400px,
+               (max-width: 1920px) 600px,
+               800px"
             alt={slug}
             placeholder="blur"
             blurDataURL={lqip || image.metadata.lqip}
-            src={urlFor(image).width(400).url()}
+            src={urlFor(image).url()}
             width={400}
             height={400}
             className="aspect-square w-full object-cover object-top"
