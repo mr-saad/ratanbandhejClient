@@ -1,10 +1,10 @@
 import "./globals.css"
 import isAuthenticated from "@/lib/isAuthenticated"
-import client from "@/lib/sanity"
 import { GeistSans } from "geist/font/sans"
 import Provider from "@/components/Provider"
 import Navbar from "@/components/Navbar/Navbar"
 import Footer from "@/components/Footer"
+import { getCart } from "@/lib/getCart"
 
 export const viewport = {
   width: "device-width",
@@ -97,24 +97,8 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   const auth = await isAuthenticated()
-  const cartLayout = async () => {
-    if (!auth.status) return []
-    else
-      return await client.fetch(
-        `*[_type=="product" && _id in *[_type=="user" && _id==$_id].cart[]._ref]{
-          _id,
-          title,
-          type,
-          price,
-          colours,
-          "slug":slug.current,
-          "images":images[].asset->{_id,metadata{lqip}},
-        }`,
-        { _id: auth._id },
-      )
-  }
 
-  const cart = await cartLayout()
+  const cart = await getCart({ _id: auth?._id || "" })
 
   return (
     <html className={GeistSans.className} lang="en" suppressHydrationWarning>

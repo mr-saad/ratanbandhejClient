@@ -20,7 +20,7 @@ export default function ImgSwiper({ data, title }) {
           <Image
             quality={100}
             alt={title}
-            src={urlFor(img).width(600).quality(100).url()}
+            src={img.url}
             placeholder="blur"
             blurDataURL={img.metadata.lqip}
             width={600}

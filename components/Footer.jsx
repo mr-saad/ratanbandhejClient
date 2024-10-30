@@ -1,8 +1,8 @@
-import client from "@/lib/sanity"
+import { query } from "@/lib/sanity"
 import Link from "next/link"
 
 const Footer = async () => {
-  const data = await client.fetch(`*[_type=='product']{type}`)
+  const data = await query(`*[_type=="product"]{type}`)
   const catalogue = [...new Set(data.map(({ type }) => type))]
   return (
     <footer className="mt-20 border-t border-white/10 bg-[#111] p-5 text-white/60 lg:px-20">

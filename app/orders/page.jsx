@@ -1,39 +1,42 @@
-import client from "@/lib/sanity"
 import CancelOrder from "./CancelOrder"
 import isAuthenticated from "@/lib/isAuthenticated"
+import { query } from "@/lib/sanity"
 import Image from "next/image"
 
 export default async function Orders() {
   const { _id } = await isAuthenticated()
 
-  const orders =
-    (await client.fetch(
-      `*[_type=='product' && _id in *[_type=='order' && user._ref==$_id].product._ref]{
-        "_id":*[_type=="order" && user._ref==$_id && product._ref == ^._id][0]._id,
+  const q = `*[_type=='product' && _id in *[_type=='order' && user._ref==$userId].product._ref]{
+        "_id":*[_type=="order" && user._ref==$userId && product._ref == ^._id][0]._id,
         title,price,
         "image":images[0].asset->{url,metadata{lqip}},
-        "_createdAt": *[_type=="order" && user._ref==$_id && product._ref == ^._id][0]._createdAt
-      }`,
-      { _id },
-    )) || []
+        "_createdAt": *[_type=="order" && user._ref==$userId && product._ref == ^._id][0]._createdAt
+      }`
+
+  const orders = await query(q, { userId: _id })
+
   return (
     <div className="Container">
       <h1 className="heading">My Orders</h1>
-      <div className="grid grid-cols-1 gap-10 gap-y-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-10 gap-y-5 sm:grid-cols-2 lg:grid-cols-3">
         {orders.length > 0 ? (
           orders.map((order) => {
             return (
-              <div key={order._id} className="flex h-full gap-4">
+              <div key={order._id} className="flex gap-4">
                 <Image
                   alt={order.title}
-                  width={100}
-                  height={100}
-                  className="aspect-square h-auto w-auto rounded-md object-cover object-top"
+                  width={200}
+                  height={200}
+                  style={{
+                    objectFit: "cover",
+                    objectPosition: "top",
+                  }}
+                  className="aspect-square w-1/3 self-start rounded-md md:w-1/2"
                   src={order.image.url}
                   placeholder="blur"
                   blurDataURL={order.image.metadata.lqip}
                 />
-                <div className="flex flex-col">
+                <div className="flex flex-col md:w-1/2">
                   <p className="highlight">{order.title}</p>
                   <p>₹{order.price}</p>
                   <p>

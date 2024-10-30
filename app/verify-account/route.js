@@ -1,24 +1,33 @@
-import client from "@/lib/sanity"
+import { mutate, query } from "@/lib/sanity"
 import jwt from "jsonwebtoken"
 import { isRedirectError } from "next/dist/client/components/redirect"
 import { redirect } from "next/navigation"
 
 export async function GET(req) {
   try {
-    const user = await client.fetch(`*[_type=="user" && _id==$userId][0]`, {
-      userId: req.nextUrl.searchParams.get("userId") || "",
-    })
+    const q = `*[_type=="user" && _id==$userId][0]`
+    const userId = req.nextUrl.searchParams.get("userId") || ""
+    const user = await query(q, { userId })
     if (user?._id) {
       const token = req.nextUrl.searchParams.get("token")
       const ver = jwt.verify(token, process.env.tokenKey)
       if (ver) {
-        await client
-          .patch(user._id)
-          .set({
-            verified: true,
-          })
-          .commit()
-        redirect("/sign-in")
+        const res = await mutate([
+          {
+            patch: {
+              id: user._id,
+              set: {
+                verified: true,
+              },
+            },
+          },
+        ])
+
+        if (res?.transctionId) {
+          redirect("/sign-in")
+        } else {
+          return new Response(JSON.stringify(res))
+        }
       } else {
         return new Response("Invalid Token")
       }

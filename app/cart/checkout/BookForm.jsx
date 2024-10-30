@@ -24,12 +24,12 @@ export default function BookForm({ auth: { _id: userId } }) {
     e.preventDefault()
     setLoading(true)
 
-    const formData = new FormData(e.target)
-    let clrData = []
+    const data = new FormData(e.target)
+    let colours = []
     cart.forEach(({ _id }, index) => {
       const cartItemClrs = document.querySelectorAll(`.cartItem-${index} .clr`)
       const cartItemQnts = document.querySelectorAll(`.cartItem-${index} .qnt`)
-      clrData.push({
+      colours.push({
         _id,
         colours: [...cartItemClrs].map((clr, index) => ({
           name: clr.value,
@@ -37,8 +37,11 @@ export default function BookForm({ auth: { _id: userId } }) {
         })),
       })
     })
-
-    const res = await orderAction(cart, userId, formData, clrData)
+    const formData = {
+      existing: data.get("existing"),
+      note: data.get("note"),
+    }
+    const res = await orderAction({ userId, formData, colours })
 
     if (!res.ok) {
       alert(res.message)
@@ -62,7 +65,6 @@ export default function BookForm({ auth: { _id: userId } }) {
               <div className="flex items-center justify-between">
                 <p className="highlight">{title}</p>
               </div>
-              <input type="hidden" value={_id} name="prodId" />
               <ColourSelector
                 _id={_id}
                 userId={userId}
@@ -117,31 +119,31 @@ export default function BookForm({ auth: { _id: userId } }) {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <button disabled={loading} className="btn" type="submit">
-              Confirm
+              {loading ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="animate-spin"
+                >
+                  <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+                </svg>
+              ) : (
+                "Confirm"
+              )}
             </button>
             <Link
-              disabled={loading}
-              className="btn-secondary disabled:opacity-50"
+              className={`btn-secondary ${loading ? "pointer-events-none opacity-50" : ""}`}
               href={"/cart"}
             >
               Back
             </Link>
-            {loading && (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="animate-spin"
-              >
-                <path d="M21 12a9 9 0 1 1-6.219-8.56" />
-              </svg>
-            )}
           </div>
           <p className="font-semibold">
             Total:{" "}

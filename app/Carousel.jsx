@@ -7,7 +7,6 @@ import { motion } from "framer-motion"
 import "swiper/css"
 import "swiper/css/pagination"
 import Link from "next/link"
-import { urlFor } from "@/lib/sanity"
 
 export default function Carousel({ data }) {
   return (
@@ -60,14 +59,14 @@ export default function Carousel({ data }) {
             >
               <Image
                 className="aspect-square max-w-full rounded-md object-cover object-top"
-                src={urlFor(prod.image).url()}
+                src={prod.image.url}
                 sizes="(max-width: 640px) 200px,
-               (max-width: 1024px) 400px,
-               (max-width: 1920px) 600px,
-               800px"
+                (max-width: 1024px) 400px,
+                (max-width: 1920px) 600px,
+                800px"
                 alt={prod.title}
                 placeholder="blur"
-                blurDataURL={prod.lqip}
+                blurDataURL={prod.image.metadata.lqip}
                 width={400}
                 height={400}
               />

@@ -1,11 +1,19 @@
 /** @type {import('next').NextConfig} */
 
-const nextConfig = {
+const withAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true",
+})
+
+const nextConfig = withAnalyzer({
   images: {
     remotePatterns: [
       {
         protocol: "https",
         hostname: "cdn.sanity.io",
+      },
+      {
+        protocol: "https",
+        hostname: "img.freepik.com",
       },
     ],
   },
@@ -14,6 +22,6 @@ const nextConfig = {
     ppr: "incremental",
     reactCompiler: true,
   },
-}
+})
 
 module.exports = nextConfig

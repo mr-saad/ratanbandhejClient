@@ -1,19 +1,17 @@
 import isAuthenticated from "@/lib/isAuthenticated"
 import EditForm from "./EditForm"
-import client from "@/lib/sanity"
 import { redirect } from "next/navigation"
 import Link from "next/link"
 import SignOutBtn from "./SignOutBtn"
+import { query } from "@/lib/sanity"
 
 export default async function Account(props) {
-  const searchParams = await props.searchParams;
   if (!(await isAuthenticated()).status) redirect("/sign-in")
   else {
     const { _id } = await isAuthenticated()
-    const user = await client.fetch(
-      `*[_type=="user" && _id==$_id][0]{_id,username,email,address}`,
-      { _id },
-    )
+    const q = `*[_type=="user"&&_id==$userId][0]{_id,username,email,address}`
+    const user = await query(q, { userId: _id })
+    const searchParams = await props.searchParams
 
     const isEditable = searchParams.edit === "true" ? true : false
     return (

@@ -2,7 +2,6 @@
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { urlFor } from "@/lib/sanity"
 
 export default function Product({ slug, image, lqip, title }) {
   return (
@@ -23,8 +22,8 @@ export default function Product({ slug, image, lqip, title }) {
                800px"
             alt={slug}
             placeholder="blur"
-            blurDataURL={lqip || image.metadata.lqip}
-            src={urlFor(image).url()}
+            blurDataURL={image.metadata.lqip}
+            src={image.url}
             width={400}
             height={400}
             className="aspect-square w-full object-cover object-top"

@@ -1,19 +1,19 @@
-import sanity from "@/lib/sanity"
 import ProductDetails from "./ProductDetails"
 import { notFound } from "next/navigation"
 import ImgSwiper from "@/app/products/[slug]/ImgSwiper"
 import isAuthenticated from "@/lib/isAuthenticated"
 import getProducts from "@/lib/getProducts"
 import Product from "@/components/Product"
+import { query } from "@/lib/sanity"
 
 export async function generateMetadata(props) {
   const params = await props.params
 
   const { slug } = params
 
-  const product = await sanity.fetch(`*[slug.current==$slug][0]{title}`, {
-    slug,
-  })
+  const q = `*[slug.current==$slug][0]{title}`
+
+  const product = await query(q, { slug })
   if (product) {
     const keywords = product.title.toLowerCase().split(" ")
     keywords.push(
@@ -38,30 +38,26 @@ export async function generateMetadata(props) {
 }
 
 export async function generateStaticParams() {
-  const products = await sanity.fetch(
-    `*[_type=="product"]{"slug":slug.current}`,
-  )
-  return products.map((all) => ({ slug: all.slug }))
+  const q = `*[_type=="product"]{"slug":slug.current}`
+  const res = await query(q)
+  return res.map((all) => ({ slug: all.slug }))
 }
 
-export const revalidate = 10
 async function getProduct(slug) {
-  const product = await sanity.fetch(
-    `*[slug.current==$slug][0]{
+  const q = `*[slug.current==$slug][0]{
       _id,
       "slug":slug.current,
       title,
       type,
-      "images":images[].asset->{_id,metadata{lqip}},
+      "images":images[].asset->{url,metadata{lqip}},
       specs,
       description,
       colours,
       price
-    }`,
-    { slug },
-  )
-  if (product) {
-    return product
+    }`
+  const res = await query(q, { slug })
+  if (res) {
+    return res
   } else {
     notFound()
   }
@@ -70,14 +66,14 @@ async function getProduct(slug) {
 export default async function Slug(props) {
   const params = await props.params
   const product = await getProduct(params.slug)
-  const similars = await getProducts(
-    5,
-    product.type,
-    "",
-    "similar",
-    product._id,
-  )
+  const similars = await getProducts({
+    count: 5,
+    type: product.type,
+    similar: "similar",
+    _id: product._id,
+  })
   const auth = await isAuthenticated()
+
   return (
     <div className="Container mx-auto md:max-w-4xl md:pt-10">
       <div className="grid gap-5 md:grid-cols-2">

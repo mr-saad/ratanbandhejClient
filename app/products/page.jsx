@@ -10,6 +10,6 @@ export const metadata = {
 
 export default async function Products(props) {
   const searchParams = await props.searchParams
-  const data = await getProducts()
+  const data = await getProducts({ count: -1 })
   return <FilteredProducts data={data} searchParams={searchParams} />
 }
