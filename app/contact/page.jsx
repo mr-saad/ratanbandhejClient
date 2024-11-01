@@ -1,5 +1,3 @@
-export const dynamic = "force-static"
-
 export const metadata = {
   title: "Contact",
   keywords: ["contact", "contactus"],

@@ -23,7 +23,7 @@ export async function GET(req) {
           },
         ])
 
-        if (res?.transctionId) {
+        if (res?.transactionId) {
           redirect("/sign-in")
         } else {
           return new Response(JSON.stringify(res))
