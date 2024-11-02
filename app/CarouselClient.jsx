@@ -59,7 +59,7 @@ export default function CarouselClient({ data }) {
             >
               <Image
                 className="aspect-square max-w-full rounded-md object-cover object-top"
-                src={prod.image.url}
+                src={prod.image.path}
                 sizes={`(max-width: 640px) 200px,
                 (max-width: 1024px) 400px,
                 (max-width: 1920px) 600px,

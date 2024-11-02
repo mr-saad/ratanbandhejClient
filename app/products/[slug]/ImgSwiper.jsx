@@ -5,7 +5,6 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css"
 import "swiper/css/navigation"
 import "swiper/css/scrollbar"
-import { urlFor } from "@/lib/sanity"
 
 export default function ImgSwiper({ data, title }) {
   return data ? (
@@ -20,7 +19,7 @@ export default function ImgSwiper({ data, title }) {
           <Image
             quality={100}
             alt={title}
-            src={img.url}
+            src={img.path}
             placeholder="blur"
             blurDataURL={img.metadata.lqip}
             width={600}

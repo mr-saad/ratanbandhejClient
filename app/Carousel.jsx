@@ -1,5 +1,7 @@
 import getProducts from "@/lib/getProducts"
-import CarouselClient from "./CarouselClient"
+import dynamic from "next/dynamic"
+
+const CarouselClient = dynamic(() => import("./CarouselClient"))
 
 export default async function Carousel() {
   const data = await getProducts({ count: 4 })

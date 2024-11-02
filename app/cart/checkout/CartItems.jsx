@@ -20,10 +20,7 @@ export default function CartItems({ userId }) {
         className="flex items-center justify-between gap-4 border-b pb-2 dark:border-white/10"
       >
         <p className="text-lg">{item.title}</p>
-        <button
-          className="stroke-[#888] transition hover:stroke-[#111] disabled:pointer-events-none disabled:opacity-50 dark:hover:stroke-white"
-          // disabled={loading}
-        >
+        <button className="stroke-[#888] transition hover:stroke-[#111] disabled:pointer-events-none disabled:opacity-50 dark:hover:stroke-white">
           {loading ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"

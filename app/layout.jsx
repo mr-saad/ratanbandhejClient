@@ -72,14 +72,6 @@ export const metadata = {
       "One Place for All Your Bandhani Needs. Ratan Bandhej Provides Their Customers A Large Number Of Variaties In Bandhani Dupattas, Sarees, Top Materials",
     url: "https://ratanbandhej.shop",
     siteName: "Ratan Bandhej | One Place For All Your Bandhani Needs",
-    // images: [
-    //   {
-    //     url: "https://nextjs.org/og-alt.png",
-    //     width: 1800,
-    //     height: 1600,
-    //     alt: "ratan bandhej logo",
-    //   },
-    // ],
     locale: "en_US",
     type: "website",
     authors: ["Saad Khatri"],

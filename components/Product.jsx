@@ -23,7 +23,7 @@ export default function Product({ slug, image, lqip, title }) {
             alt={slug}
             placeholder="blur"
             blurDataURL={image.metadata.lqip}
-            src={image.url}
+            src={image.path}
             width={400}
             height={400}
             className="aspect-square w-full object-cover object-top"
