@@ -9,7 +9,7 @@ export default async function Orders() {
   const q = `*[_type=='product' && _id in *[_type=='order' && user._ref==$userId].product._ref]{
         "_id":*[_type=="order" && user._ref==$userId && product._ref == ^._id][0]._id,
         title,price,
-        "image":images[0].asset->{url,metadata{lqip}},
+        "image":images[0].asset->{path,metadata{lqip}},
         "_createdAt": *[_type=="order" && user._ref==$userId && product._ref == ^._id][0]._createdAt
       }`
 

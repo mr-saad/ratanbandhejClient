@@ -78,7 +78,6 @@ export const metadata = {
   },
   icons: {
     icon: "/android-chrome-192x192.png",
-    shortcut: "/favicon.ico",
     apple: "/apple-touch-icon.png",
     other: {
       rel: "android-chrome-512x512",
