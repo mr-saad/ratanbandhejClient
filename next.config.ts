@@ -1,10 +1,10 @@
 import type { NextConfig } from "next"
 
-// const withAnalyzer = require("@next/bundle-analyzer")({
-//   enabled: process.env.ANALYZE === "true",
-// })
+const withAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true",
+})
 
-const nextConfig: NextConfig = /*  withAnalyzer( */ {
+const nextConfig: NextConfig = withAnalyzer({
   images: {
     remotePatterns: [
       {
@@ -26,11 +26,12 @@ const nextConfig: NextConfig = /*  withAnalyzer( */ {
       "react",
       "next",
       "framer-motion",
+      "swiper",
       "next-themes",
       "zod",
     ],
   },
   productionBrowserSourceMaps: false,
-} /* ) */
+})
 
 module.exports = nextConfig
