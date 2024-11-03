@@ -32,7 +32,7 @@ export default async function Orders() {
                     objectPosition: "top",
                   }}
                   className="aspect-square w-1/3 self-start rounded-md md:w-1/2"
-                  src={order.image.url}
+                  src={order.image.path}
                   placeholder="blur"
                   blurDataURL={order.image.metadata.lqip}
                 />
