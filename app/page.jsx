@@ -20,7 +20,7 @@ export default async function Home() {
         <HeaderText />
       </header>
       <div className="Container mx-auto">
-        <div className="home mb-10">
+        <div className="home mb-10 overflow-hidden">
           <h1 className="heading arrivals my-5 !text-4xl">Fresh Crafts</h1>
           <Suspense fallback={<Loading />}>
             <Carousel />
