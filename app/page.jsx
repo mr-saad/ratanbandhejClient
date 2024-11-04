@@ -4,10 +4,11 @@ import Loading from "./loading"
 import dynamic from "next/dynamic"
 import HeaderImage from "./HeaderImage"
 
+export const revalidate = 3600
+export const experimental_ppr = true
+
 const Sections = dynamic(() => import("./Sections"))
 const Carousel = dynamic(() => import("./Carousel"))
-
-export const experimental_ppr = true
 
 export default async function Home() {
   return (

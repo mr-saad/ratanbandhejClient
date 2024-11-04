@@ -4,11 +4,13 @@ import Image from "next/image"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Pagination, Autoplay } from "swiper/modules"
 import { motion } from "framer-motion"
-import "swiper/css"
-import "swiper/css/pagination"
 import Link from "next/link"
+import { useEffect } from "react"
 
 export default function CarouselClient({ data }) {
+  useEffect(() => {
+    Promise.all([import("swiper/css"), import("swiper/css/pagination")])
+  }, [])
   return (
     <Swiper
       spaceBetween={50}
