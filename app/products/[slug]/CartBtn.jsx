@@ -6,11 +6,19 @@ import removeFromCart from "@/lib/actions/removeFromCart"
 import { useRouter } from "next/navigation"
 
 export const useCartBtn = () => {
-  const { setCart } = useRatanContext()
+  const { push } = useRouter()
+
+  const {
+    setCart,
+    auth: { _id: userId },
+  } = useRatanContext()
   const [showCartBtn, setShowCartBtn] = useState(true)
   const [loading, setLoading] = useState(false)
 
-  const addToCartBtn = async (userId, _id) => {
+  const addToCartBtn = async (_id) => {
+    if (!userId) {
+      return push("/sign-in")
+    }
     setLoading(true)
     const res = await addToCart(userId, _id)
     if (!res.ok) alert(res.message)
@@ -18,7 +26,7 @@ export const useCartBtn = () => {
     setLoading(false)
   }
 
-  const removeFromCartBtn = async (userId, _id) => {
+  const removeFromCartBtn = async (_id) => {
     setLoading(true)
     const res = await removeFromCart(userId, _id)
     if (!res.ok) alert(res.message)
@@ -38,8 +46,7 @@ export const useCartBtn = () => {
   }
 }
 
-export default function CartBtn({ userId, _id }) {
-  const { push } = useRouter()
+export default function CartBtn({ _id }) {
   const {
     setShowCartBtn,
     showCartBtn,
@@ -58,21 +65,20 @@ export default function CartBtn({ userId, _id }) {
     })
   }
 
-  const handleClick = () => {
-    if (!userId) {
-      return push("/sign-in")
-    }
-    addToCartBtn(userId, _id)
-  }
-
   useEffect(() => {
     isInCart()
-  }, [cart])
+  })
 
   return (
     <>
       {showCartBtn ? (
-        <button disabled={loading} className="btn" onClick={handleClick}>
+        <button
+          disabled={loading}
+          className="btn"
+          onClick={() => {
+            addToCartBtn(_id)
+          }}
+        >
           {loading ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -96,7 +102,7 @@ export default function CartBtn({ userId, _id }) {
         <button
           disabled={loading}
           className="btn"
-          onClick={() => removeFromCartBtn(userId, _id)}
+          onClick={() => removeFromCartBtn(_id)}
         >
           {loading ? (
             <svg

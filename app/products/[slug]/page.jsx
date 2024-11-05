@@ -1,9 +1,8 @@
 import ProductDetails from "./ProductDetails"
 import { notFound } from "next/navigation"
-import ImgSwiper from "@/app/products/[slug]/ImgSwiper"
-import isAuthenticated from "@/lib/isAuthenticated"
+import ImgSwiperWrapper from "@/app/products/[slug]/ImgSwiperWrapper"
 import getProducts from "@/lib/getProducts"
-import Product from "@/components/Product"
+import ProductWrapper from "@/components/ProductWrapper"
 import { query } from "@/lib/sanity"
 
 export async function generateMetadata(props) {
@@ -72,20 +71,19 @@ export default async function Slug(props) {
     similar: "similar",
     _id: product._id,
   })
-  const auth = await isAuthenticated()
 
   return (
     <div className="Container mx-auto md:max-w-4xl md:pt-10">
       <div className="grid gap-5 md:grid-cols-2">
-        <ImgSwiper data={product.images} title={product.title} />
-        <ProductDetails product={product} auth={auth} />
+        <ImgSwiperWrapper data={product.images} title={product.title} />
+        <ProductDetails product={product} />
       </div>
       {similars.length ? (
         <>
           <h2 className="heading mt-20">You Might Also Like</h2>
           <div className="grid gap-5 md:grid-cols-2">
             {similars.map((prod) => (
-              <Product {...prod} key={prod._id} />
+              <ProductWrapper {...prod} key={prod._id} />
             ))}
           </div>
         </>

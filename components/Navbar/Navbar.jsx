@@ -5,8 +5,10 @@ import CartLink from "./CartLink"
 import ThemeToggle from "./ThemeToggle"
 import { Quagera } from "../logoFont"
 import { useEffect } from "react"
+import { useRatanContext } from "../Provider"
 
-export default function Navbar({ auth }) {
+export default function Navbar() {
+  const { auth } = useRatanContext()
   useEffect(() => {
     const nav = document.querySelector("nav")
 

@@ -1,8 +1,6 @@
-import dynamic from "next/dynamic"
 import Link from "next/link"
 import getProducts from "@/lib/getProducts"
-
-const Product = dynamic(() => import("@/components/Product"))
+import ProductWrapper from "@/components/ProductWrapper"
 
 export default async function Sections() {
   const [dupatta, saree, dress, topMaterial] = await Promise.all([
@@ -32,8 +30,8 @@ function Section({ title, data }) {
         </Link>
       </div>
       <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-3 md:gap-10">
-        {data.map((props, index) => (
-          <Product key={props.slug} index={index} {...props} />
+        {data.map((props) => (
+          <ProductWrapper key={props.slug} {...props} />
         ))}
       </div>
     </div>

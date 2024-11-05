@@ -22,9 +22,9 @@ export default function ImgSwiper({ data, title }) {
             src={img.path}
             placeholder="blur"
             blurDataURL={img.metadata.lqip}
-            width={600}
-            height={600}
-            className={`aspect-square max-w-full cursor-grab select-none object-cover object-top active:cursor-grabbing ${index === 0 && "rounded-l-md"} ${index === arr.length - 1 && "rounded-r-md"}`}
+            width={400}
+            height={400}
+            className={`aspect-square max-h-full cursor-grab select-none object-cover object-top active:cursor-grabbing ${index === 0 && "rounded-l-md"} ${index === arr.length - 1 && "rounded-r-md"}`}
           />
         </SwiperSlide>
       ))}

@@ -94,8 +94,8 @@ export default async function RootLayout({ children }) {
   return (
     <html className={GeistSans.className} lang="en" suppressHydrationWarning>
       <body>
-        <Provider cartLayout={cart}>
-          <Navbar auth={auth} />
+        <Provider cartLayout={cart} auth={auth}>
+          <Navbar />
           <div className="min-h-screen accent-[#111] dark:accent-white">
             {children}
           </div>

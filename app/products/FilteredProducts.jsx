@@ -1,5 +1,5 @@
 import Link from "next/link"
-import Layout from "./ProductsLay"
+import ProductsLayWrapper from "./ProductsLayWrapper"
 
 export default async function FilteredProducts({ data, searchParams }) {
   const categories = [...new Set(data.map((all) => all.type))]
@@ -62,7 +62,7 @@ export default async function FilteredProducts({ data, searchParams }) {
           })}
         </div>
       )}
-      <Layout products={products} />
+      <ProductsLayWrapper products={products} />
     </div>
   )
 }

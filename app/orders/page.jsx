@@ -1,5 +1,5 @@
-import CancelOrder from "./CancelOrder"
 import isAuthenticated from "@/lib/isAuthenticated"
+import CancelOrder from "./CancelOrder"
 import { query } from "@/lib/sanity"
 import Image from "next/image"
 
@@ -19,7 +19,7 @@ export default async function Orders() {
     <div className="Container">
       <h1 className="heading">My Orders</h1>
       <div className="grid gap-10 gap-y-5 sm:grid-cols-2 lg:grid-cols-3">
-        {orders.length > 0 ? (
+        {orders.length ? (
           orders.map((order) => {
             return (
               <div key={order._id} className="flex gap-4">
@@ -36,7 +36,7 @@ export default async function Orders() {
                   placeholder="blur"
                   blurDataURL={order.image.metadata.lqip}
                 />
-                <div className="flex flex-col md:w-1/2">
+                <div className="flex flex-col">
                   <p className="highlight">{order.title}</p>
                   <p>₹{order.price}</p>
                   <p>

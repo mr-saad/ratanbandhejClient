@@ -13,8 +13,8 @@ export default function Layout({ products }) {
     >
       <AnimatePresence mode="popLayout">
         {products.length ? (
-          products.map((product, index) => {
-            return <Product key={product.slug} index={index} {...product} />
+          products.map((product) => {
+            return <Product key={product.slug} {...product} />
           })
         ) : (
           <p>No Products</p>

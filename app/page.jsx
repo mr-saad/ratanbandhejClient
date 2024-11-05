@@ -1,14 +1,12 @@
-import HeaderText from "./HeaderText"
 import { Suspense } from "react"
 import Loading from "./loading"
-import dynamic from "next/dynamic"
 import HeaderImage from "./HeaderImage"
+import Sections from "./Sections"
+import Carousel from "./Carousel"
+import HeaderTextWrapper from "./HeaderTextWrapper"
 
 export const revalidate = 3600
 export const experimental_ppr = true
-
-const Sections = dynamic(() => import("./Sections"))
-const Carousel = dynamic(() => import("./Carousel"))
 
 export default async function Home() {
   return (
@@ -17,7 +15,7 @@ export default async function Home() {
         <Suspense fallback={""}>
           <HeaderImage />
         </Suspense>
-        <HeaderText />
+        <HeaderTextWrapper />
       </header>
       <div className="Container mx-auto">
         <div className="home mb-10 overflow-hidden">

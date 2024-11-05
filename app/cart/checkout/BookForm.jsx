@@ -1,24 +1,30 @@
 "use client"
-import { useRatanContext } from "@/components/Provider"
 import orderAction from "@/lib/actions/order"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import ColourSelector from "./ColourSelector"
+import { useRatanContext } from "@/components/Provider"
 
-export default function BookForm({ auth: { _id: userId } }) {
+export default function BookForm() {
+  const {
+    cart,
+    setCart,
+    auth: { _id: userId },
+  } = useRatanContext()
+
   const [loading, setLoading] = useState(false)
   const [isExisting, setExisting] = useState(false)
 
-  const { cart, setCart } = useRatanContext()
-  const { push, replace } = useRouter()
-  useEffect(() => {
-    if (!cart.length) replace("/cart")
-  }, [cart.length, replace])
+  const { replace } = useRouter()
 
   const [total, setTotal] = useState(
     cart.reduce((prev, item) => prev + item.price, 0),
   )
+
+  useEffect(() => {
+    if (!cart.length) replace("/cart")
+  }, [cart.length, replace])
 
   const Submit = async (e) => {
     e.preventDefault()
@@ -47,7 +53,7 @@ export default function BookForm({ auth: { _id: userId } }) {
       alert(res.message)
       setLoading(false)
     } else {
-      push("/orders")
+      replace("/orders")
       setCart([])
     }
   }
