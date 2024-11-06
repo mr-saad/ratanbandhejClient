@@ -1,6 +1,6 @@
-import SignInForm from "./SignInForm"
 import { redirect } from "next/navigation"
 import isAuthenticated from "@/lib/isAuthenticated"
+import SignInFormWrapper from "./SignInFormWrapper"
 
 export default async function LogIn() {
   const auth = await isAuthenticated()
@@ -9,7 +9,7 @@ export default async function LogIn() {
     return (
       <div className="Container">
         <h1 className="heading text-center">Sign In</h1>
-        <SignInForm />
+        <SignInFormWrapper />
       </div>
     )
   else

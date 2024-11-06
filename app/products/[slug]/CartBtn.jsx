@@ -12,12 +12,13 @@ export const useCartBtn = () => {
     setCart,
     auth: { _id: userId },
   } = useRatanContext()
+
   const [showCartBtn, setShowCartBtn] = useState(true)
   const [loading, setLoading] = useState(false)
 
   const addToCartBtn = async (_id) => {
     if (!userId) {
-      return push("/sign-in")
+      push("/sign-in")
     }
     setLoading(true)
     const res = await addToCart(userId, _id)

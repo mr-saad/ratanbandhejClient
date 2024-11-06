@@ -1,6 +1,8 @@
 "use client"
-import Product from "@/components/Product"
 import { useRatanContext } from "@/components/Provider"
+import dynamic from "next/dynamic"
+
+const Product = dynamic(() => import("@/components/Product"), { ssr: false })
 
 export default function Cart() {
   const { cart } = useRatanContext()

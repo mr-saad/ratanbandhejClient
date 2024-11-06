@@ -1,9 +1,9 @@
 import isAuthenticated from "@/lib/isAuthenticated"
-import EditForm from "./EditForm"
 import { redirect } from "next/navigation"
 import Link from "next/link"
-import SignOutBtn from "./SignOutBtn"
 import { query } from "@/lib/sanity"
+import EditFormWrapper from "./EditFormWrapper"
+import SignOutBtnWrapper from "./SignOutBtnWrapper"
 
 export default async function Account(props) {
   if (!(await isAuthenticated()).status) redirect("/sign-in")
@@ -17,12 +17,12 @@ export default async function Account(props) {
     return (
       <div className="Container mx-auto max-w-3xl">
         <h1 className="heading">My Account</h1>
-        <EditForm user={user} isEditable={isEditable} />
+        <EditFormWrapper user={user} isEditable={isEditable} />
         <div className="mt-5 flex gap-5">
           <Link href={"/orders"} className="btn">
             My Orders
           </Link>
-          <SignOutBtn />
+          <SignOutBtnWrapper />
         </div>
       </div>
     )

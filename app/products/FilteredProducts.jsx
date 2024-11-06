@@ -14,8 +14,8 @@ export default async function FilteredProducts({ data, searchParams }) {
         prefetch
         href={
           showFilter !== "true"
-            ? `/products?filter=true${searchCat ? "&category=" + searchCat : ""}`
-            : `/products${searchCat ? "?category=" + searchCat : ""}`
+            ? `/products?filter=true${searchCat ? "&category=" + searchCat.replace(/ /g, "+") : ""}`
+            : `/products${searchCat ? "?category=" + searchCat.replace(/ /g, "+") : ""}`
         }
         className={`mb-5 inline-block rounded-md border border-current bg-transparent px-4 py-2 font-bold text-[#111] dark:text-white ${searchCat ? "!bg-[#111] !text-white dark:!bg-white dark:!text-[#111]" : ""}`}
       >
@@ -47,7 +47,7 @@ export default async function FilteredProducts({ data, searchParams }) {
                 shallow={true}
                 href={
                   searchParams.category !== category
-                    ? `/products?filter=true&category=${category}`
+                    ? `/products?filter=true&category=${category.replace(/ /g, "+")}`
                     : "/products?filter=true"
                 }
                 key={category}

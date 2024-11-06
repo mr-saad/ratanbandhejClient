@@ -104,6 +104,7 @@ export default function EditForm({ user, isEditable }) {
         </div>
       ) : (
         <Link
+          prefetch
           shallow={true}
           href={"/account?edit=true"}
           className="btn mt-2 inline-block justify-self-start"

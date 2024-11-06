@@ -1,11 +1,13 @@
 "use client"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import CartLink from "./CartLink"
-import ThemeToggle from "./ThemeToggle"
 import { Quagera } from "../logoFont"
 import { useEffect } from "react"
 import { useRatanContext } from "../Provider"
+import dynamic from "next/dynamic"
+
+const CartLink = dynamic(() => import("./CartLink"), { ssr: false })
+const ThemeToggle = dynamic(() => import("./ThemeToggle"), { ssr: false })
 
 export default function Navbar() {
   const { auth } = useRatanContext()
