@@ -5,9 +5,10 @@ export default function ProductDetails({
 }) {
   return (
     <div>
-      <h3 className="highlight mb-3 text-base font-semibold capitalize md:mt-0">
+      <h3 className="highlight mb-3 text-2xl font-semibold capitalize md:mt-0">
         {title}
       </h3>
+      <p className="mt-2 whitespace-pre-wrap">{description}</p>
       <table className="w-full border-separate border-spacing-y-4">
         <tbody>
           {specs.split(";").map((item) => (
@@ -37,10 +38,7 @@ export default function ProductDetails({
           </tr>
         </tbody>
       </table>
-      <p className="mt-2 whitespace-pre-wrap">{description}</p>
-      <div className="mt-4 flex items-center justify-between">
-        <CartBtn _id={_id} />
-      </div>
+      <CartBtn _id={_id} />
     </div>
   )
 }

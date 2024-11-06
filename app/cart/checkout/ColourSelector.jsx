@@ -186,7 +186,7 @@ const ColourSelector = ({ _id, colours, price, setTotal }) => {
           <button
             disabled={loading}
             onClick={() => removeColour(index)}
-            className="btn"
+            className="btn !border-red-700 !bg-red-700 hover:!bg-transparent hover:!text-red-700"
             type="button"
           >
             {loading ? (

@@ -7,7 +7,7 @@ export default function CheckoutBtn() {
   const { cart } = useRatanContext()
   return (
     cart.length !== 0 && (
-      <Link href={"/cart/checkout"} className="btn">
+      <Link href={"/cart/checkout"} prefetch className="btn">
         Checkout
       </Link>
     )

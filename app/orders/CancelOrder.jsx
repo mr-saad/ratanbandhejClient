@@ -25,7 +25,7 @@ export default function CancelOrder({ _id }) {
         <button
           onClick={onClick}
           disabled={loading}
-          className="btn mt-1 disabled:opacity-50"
+          className="btn mt-1 !border-red-700 !bg-red-700 !text-white hover:!bg-transparent hover:!text-red-700 disabled:opacity-50"
         >
           {loading ? (
             <svg
