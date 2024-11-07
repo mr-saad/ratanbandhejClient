@@ -99,6 +99,7 @@ export default function EditForm({ user, isEditable }) {
             )}
           </button>
           <Link
+            prefetch
             shallow={true}
             className="btn-secondary flex-1 text-center"
             href={"/account"}

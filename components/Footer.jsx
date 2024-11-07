@@ -1,9 +1,8 @@
-import { query } from "@/lib/sanity"
 import Link from "next/link"
+import Catalogue from "./Catalogue"
+import { Suspense } from "react"
 
 const Footer = async () => {
-  const data = await query(`*[_type=="product"]{type}`)
-  const catalogue = [...new Set(data.map(({ type }) => type))]
   return (
     <footer className="mt-20 border-t border-white/10 bg-[#111] p-5 text-white/60 lg:px-20">
       <div className="my-5 grid items-center gap-4 md:grid-cols-3 md:gap-10">
@@ -76,17 +75,9 @@ const Footer = async () => {
       <div className="mt-8 grid grid-cols-1 gap-10 md:grid-cols-3">
         <div>
           <h2 className="mx-auto mb-2 font-semibold text-white">CATALOGUE</h2>
-          <div>
-            {catalogue.map((cat) => (
-              <Link
-                className="block py-1 transition hover:text-white md:py-0"
-                href={`/products?category=${cat}`}
-                key={cat}
-              >
-                {cat}
-              </Link>
-            ))}
-          </div>
+          <Suspense fallback={""}>
+            <Catalogue />
+          </Suspense>
         </div>
         <div>
           <h2 className="mx-auto mb-2 font-semibold text-white">CONTACT US</h2>
@@ -148,13 +139,18 @@ const Footer = async () => {
       <div className="mb-5 grid md:grid-cols-3 md:gap-10">
         <div className="col-span-2 mb-4 md:mb-0">
           <Link
+            prefetch
             className="transition hover:text-white"
             href="/terms-conditions"
           >
             Terms & Conditions
           </Link>
           <span className="mx-2">|</span>
-          <Link className="transition hover:text-white" href="/privacy-policy">
+          <Link
+            prefetch
+            className="transition hover:text-white"
+            href="/privacy-policy"
+          >
             Privacy Policy
           </Link>
         </div>

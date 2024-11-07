@@ -6,7 +6,10 @@ import { useEffect } from "react"
 import { useRatanContext } from "../Provider"
 import dynamic from "next/dynamic"
 
-const CartLink = dynamic(() => import("./CartLink"), { ssr: false })
+const CartLink = dynamic(() => import("./CartLink"), {
+  ssr: false,
+  loading: () => <div className="min-h-6"></div>,
+})
 const ThemeToggle = dynamic(() => import("./ThemeToggle"), { ssr: false })
 
 export default function Navbar() {
@@ -103,6 +106,7 @@ const Links = ({ auth }) => {
       {auth.status ? (
         <li className="md:inline">
           <Link
+            prefetch
             shallow={true}
             className={`block py-2 transition hover:opacity-100 md:inline md:px-2 md:py-0 ${
               pathname.includes("/account") ? "opacity-100" : "opacity-60"
@@ -115,6 +119,7 @@ const Links = ({ auth }) => {
       ) : (
         <li className="md:inline">
           <Link
+            prefetch
             shallow={true}
             className={`block py-2 transition hover:opacity-100 md:inline md:px-2 md:py-0 ${
               pathname.includes("/create-account")

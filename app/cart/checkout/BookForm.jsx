@@ -54,7 +54,7 @@ export default function BookForm() {
       setLoading(false)
     } else {
       replace("/orders")
-      setCart([])
+      setTimeout(() => setCart([]), 100)
     }
   }
 

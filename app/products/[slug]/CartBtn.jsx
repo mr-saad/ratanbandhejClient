@@ -4,6 +4,7 @@ import { useRatanContext } from "@/components/Provider"
 import addToCart from "@/lib/actions/addToCart"
 import removeFromCart from "@/lib/actions/removeFromCart"
 import { useRouter } from "next/navigation"
+import { getCart } from "@/lib/getCart"
 
 export const useCartBtn = () => {
   const { push } = useRouter()
@@ -23,7 +24,9 @@ export const useCartBtn = () => {
     setLoading(true)
     const res = await addToCart(userId, _id)
     if (!res.ok) alert(res.message)
-    else setCart(res.cart)
+    else {
+      setCart(await getCart({ _id: userId }))
+    }
     setLoading(false)
   }
 
@@ -32,7 +35,7 @@ export const useCartBtn = () => {
     const res = await removeFromCart(userId, _id)
     if (!res.ok) alert(res.message)
     else {
-      setCart(res.cart)
+      setCart(await getCart({ _id: userId }))
       setShowCartBtn(true)
     }
     setLoading(false)
