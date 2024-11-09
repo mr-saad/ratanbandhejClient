@@ -1,16 +1,22 @@
 "use client"
+import { useRatanContext } from "@/components/Provider"
 import signOut from "@/lib/actions/signOut"
 import { useState } from "react"
 
 export default function SignOutBtn() {
   const [loading, setLoading] = useState(false)
 
+  const { setCart } = useRatanContext()
+
   const onSignOut = async () => {
     setLoading(true)
     const warn = confirm(
       "You'll be Signed Out. You have to Sign In again to place an order. Sure?",
     )
-    if (warn) await signOut()
+    if (warn) {
+      setCart([])
+      await signOut()
+    }
     setLoading(false)
   }
   return (

@@ -7,6 +7,7 @@ export default async function HeaderImage() {
   return (
     <Image
       priority
+      fetchPriority="high"
       quality={100}
       loading="eager"
       placeholder="blur"

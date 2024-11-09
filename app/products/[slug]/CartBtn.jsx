@@ -19,7 +19,7 @@ export const useCartBtn = () => {
 
   const addToCartBtn = async (_id) => {
     if (!userId) {
-      push("/sign-in")
+      return push("/sign-in")
     }
     setLoading(true)
     const res = await addToCart(userId, _id)

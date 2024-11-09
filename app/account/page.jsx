@@ -19,7 +19,7 @@ export default async function Account(props) {
         <h1 className="heading">My Account</h1>
         <EditFormWrapper user={user} isEditable={isEditable} />
         <div className="mt-5 flex flex-col gap-5">
-          <Link href={"/orders"} className="btn text-center">
+          <Link prefetch href={"/orders"} className="btn text-center">
             <span className="flex items-center justify-center gap-1">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

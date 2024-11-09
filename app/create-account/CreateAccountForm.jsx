@@ -113,7 +113,7 @@ export default function CreateAccountForm() {
           Terms of Service
         </Link>{" "}
         &{" "}
-        <Link className="underline" href={"/privacy-poilicy"}>
+        <Link className="underline" href={"/privacy-policy"}>
           Privacy Policy
         </Link>
       </p>

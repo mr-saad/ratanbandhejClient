@@ -23,7 +23,12 @@ export default function CartBtn() {
         }
 
   return (
-    <Link className="justify-self-end" aria-label="favorites" href="/cart">
+    <Link
+      prefetch
+      className="justify-self-end"
+      aria-label="favorites"
+      href="/cart"
+    >
       <div className="relative cursor-pointer">
         <svg
           xmlns="http://www.w3.org/2000/svg"

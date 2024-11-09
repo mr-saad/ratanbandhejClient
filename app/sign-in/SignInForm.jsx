@@ -3,8 +3,12 @@ import { useState } from "react"
 import signInAction from "@/lib/actions/signIn"
 import Link from "next/link"
 import { signInSchema } from "@/lib/zodSchemas/signInSchema"
+import { getCart } from "@/lib/getCart"
+import { useRatanContext } from "@/components/Provider"
 
 export default function SignInForm() {
+  const { setCart } = useRatanContext()
+
   const [message, setMessage] = useState("")
   const [loading, setLoading] = useState(false)
 
@@ -19,6 +23,7 @@ export default function SignInForm() {
     const parsedData = signInSchema.safeParse(data)
     if (parsedData.success) {
       const res = await signInAction(parsedData.data)
+      if (res.ok) setCart(await getCart({ _id: res.userId }))
       setMessage(res.message)
       setTimeout(() => setMessage(""), 4000)
     } else {

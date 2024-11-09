@@ -41,7 +41,11 @@ export default function CarouselClient({ data }) {
           >
             <h2 className="highlight text-2xl font-semibold">{prod.title}</h2>
             <p className="mb-2 line-clamp-2">{prod.description}</p>
-            <Link href={"/products/" + prod.slug} className="btn inline-block">
+            <Link
+              prefetch
+              href={"/products/" + prod.slug}
+              className="btn inline-block"
+            >
               View More
             </Link>
           </motion.div>

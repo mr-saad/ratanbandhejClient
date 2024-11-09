@@ -17,8 +17,9 @@ export default function ImgSwiper({ data, title }) {
       {data.map((img, index, arr) => (
         <SwiperSlide key={img._id}>
           <Image
-            loading={index === 0 ? "eager" : "lazy"}
             priority={index === 0}
+            fetchPriority={index === 0 ? "high" : "low"}
+            loading={index === 0 ? "eager" : "lazy"}
             quality={100}
             alt={title}
             src={img.path}

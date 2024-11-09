@@ -4,7 +4,7 @@ import SignInFormWrapper from "./SignInFormWrapper"
 
 export default async function LogIn() {
   const auth = await isAuthenticated()
-  if (auth.status) redirect("/products")
+  if (auth.status) return redirect("/products")
   if (auth.verified || auth.noAcc)
     return (
       <div className="Container">
