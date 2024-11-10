@@ -2,8 +2,8 @@ import ProductDetails from "./ProductDetails"
 import { notFound } from "next/navigation"
 import ImgSwiperWrapper from "@/app/products/[slug]/ImgSwiperWrapper"
 import getProducts from "@/lib/getProducts"
-import ProductWrapper from "@/components/ProductWrapper"
 import { query } from "@/lib/sanity"
+import Product from "@/components/Product"
 
 export async function generateMetadata(props) {
   const params = await props.params
@@ -83,7 +83,7 @@ export default async function Slug(props) {
           <h2 className="heading mt-20">You Might Also Like</h2>
           <div className="grid gap-5 md:grid-cols-2">
             {similars.map((prod) => (
-              <ProductWrapper {...prod} key={prod._id} />
+              <Product {...prod} key={prod._id} />
             ))}
           </div>
         </>
