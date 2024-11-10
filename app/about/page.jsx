@@ -3,6 +3,9 @@ import { Quagera } from "@/components/logoFont"
 export const metadata = {
   title: "About",
   keywords: ["About", "aboutus", "ratan", "bandhej", "bandhani"],
+  alternates: {
+    canonical: "/about",
+  },
 }
 
 const About = () => {

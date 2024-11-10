@@ -29,6 +29,30 @@ export default async function sitemap() {
       changeFrequency: "yearly",
       priority: 0.5,
     },
+    {
+      url: `https://ratanbandhej.shop/create-account`,
+      lastModified: new Date().toISOString(),
+      changeFrequency: "yearly",
+      priority: 0.4,
+    },
+    {
+      url: `https://ratanbandhej.shop/sign-in`,
+      lastModified: new Date().toISOString(),
+      changeFrequency: "yearly",
+      priority: 0.4,
+    },
+    {
+      url: `https://ratanbandhej.shop/cart`,
+      lastModified: new Date().toISOString(),
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+    {
+      url: `https://ratanbandhej.shop/orders`,
+      lastModified: new Date().toISOString(),
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
     ...products.map((all) => ({
       url: `https://ratanbandhej.shop/products/${all.slug}`,
       lastModified: all._updatedAt,

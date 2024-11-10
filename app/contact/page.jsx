@@ -1,6 +1,9 @@
 export const metadata = {
   title: "Contact",
   keywords: ["contact", "contactus"],
+  alternates: {
+    canonical: "/contact",
+  },
 }
 
 const Contact = () => {
@@ -39,6 +42,7 @@ const Contact = () => {
       <p className="mb-4">
         You can reach us via email at{" "}
         <a
+          title="E-Mail"
           href="mailto:ratanbandhej@gmail.com"
           className="highlight border-b border-current font-semibold"
         >
@@ -50,6 +54,7 @@ const Contact = () => {
       <p className="mb-4">
         If you prefer to speak with us directly, you can contact us by phone at{" "}
         <a
+          title="Phone"
           href="tel:+917778975752"
           className="highlight border-b border-current font-semibold"
         >
@@ -64,6 +69,7 @@ const Contact = () => {
       </p>
       <div className="my-10 flex flex-wrap items-center gap-5">
         <a
+          title="Whatsapp"
           href="https://wa.me/917778975752?text=Hi%20There!"
           target="_blank"
           rel="noreferrer"
@@ -81,7 +87,12 @@ const Contact = () => {
             </g>
           </svg>
         </a>
-        <a href="https://facebook.com" target="_blank" rel="noreferrer">
+        <a
+          title="Facebook"
+          href="https://facebook.com"
+          target="_blank"
+          rel="noreferrer"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="60"
@@ -93,6 +104,7 @@ const Contact = () => {
           </svg>
         </a>
         <a
+          title="Instagram"
           href="https://instagram.com/ratanbandhejbhuj/"
           target="_blank"
           rel="noreferrer"

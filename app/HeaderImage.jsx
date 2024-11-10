@@ -13,10 +13,7 @@ export default async function HeaderImage() {
       placeholder="blur"
       blurDataURL={image.asset.metadata.lqip}
       fill
-      sizes={`(max-width: 640px) 200px,
-        (max-width: 1024px) 400px,
-        (max-width: 1200px) 600px,
-        800px`}
+      sizes="100vw"
       src={image.asset.path}
       className="select-none object-cover object-top md:object-center"
       alt={"Ratan Bandhej"}

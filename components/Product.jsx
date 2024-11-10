@@ -1,37 +1,26 @@
-"use client"
 import Image from "next/image"
 import Link from "next/link"
-import { motion } from "framer-motion"
 
-export default function Product({ slug, image, title }) {
+export default function Product({ slug, image, title, index }) {
   return (
-    <motion.div
-      layout
-      initial={{ opacity: 0 }}
-      viewport={{ once: true }}
-      whileInView={{ opacity: 1 }}
-      className="relative overflow-hidden rounded-md"
-    >
-      <Link prefetch={true} href={`/products/${slug}`}>
-        {image && (
-          <Image
-            sizes={`(max-width: 640px) 200px,
-               (max-width: 1024px) 400px,
-               (max-width: 1920px) 600px,
-               800px`}
-            alt={slug}
-            placeholder="blur"
-            blurDataURL={image.metadata.lqip}
-            src={image.path}
-            width={400}
-            height={400}
-            className="aspect-square w-full object-cover object-top"
-          />
-        )}
-        <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-[#111] to-transparent p-4">
-          <h2 className="text-base capitalize text-white">{title}</h2>
-        </div>
-      </Link>
-    </motion.div>
+    <Link prefetch className="relative" href={`/products/${slug}`}>
+      {image && (
+        <Image
+          priority={index === 0}
+          fetchPriority={index === 0 ? "high" : "low"}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          alt={slug}
+          placeholder="blur"
+          blurDataURL={image.metadata.lqip}
+          src={image.path}
+          width={400}
+          height={400}
+          className="aspect-square w-full object-cover object-top"
+        />
+      )}
+      <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-[#111] to-transparent p-4">
+        <h2 className="text-base capitalize text-white">{title}</h2>
+      </div>
+    </Link>
   )
 }

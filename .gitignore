@@ -41,3 +41,4 @@ cornsilk-chough
 .npmrc
 .prettierrc
 eslint.config.mjs
+.unlighthouse

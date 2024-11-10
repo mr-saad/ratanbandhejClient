@@ -3,6 +3,9 @@ import Link from "next/link"
 export const metadata = {
   title: "Terms & Conditions",
   keywords: ["terms", "conditions"],
+  alternates: {
+    canonical: "/terms-conditions",
+  },
 }
 
 export default function Terms() {

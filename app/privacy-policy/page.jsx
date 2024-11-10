@@ -1,6 +1,9 @@
 export const metadata = {
   title: "Privacy Policy",
   keywords: ["privacy", "policy"],
+  alternates: {
+    canonical: "/privacy-policy",
+  },
 }
 
 export default function Privacy() {

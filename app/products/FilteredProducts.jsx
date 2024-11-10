@@ -1,5 +1,5 @@
 import Link from "next/link"
-import ProductsLayWrapper from "./ProductsLayWrapper"
+import Product from "@/components/Product"
 
 export default async function FilteredProducts({ data, searchParams }) {
   const categories = [...new Set(data.map((all) => all.type))]
@@ -62,7 +62,15 @@ export default async function FilteredProducts({ data, searchParams }) {
           })}
         </div>
       )}
-      <ProductsLayWrapper products={products} />
+      <div className="grid gap-x-10 gap-y-5 sm:grid-cols-2 lg:grid-cols-3">
+        {products.length ? (
+          products.map((product, index) => {
+            return <Product index={index} key={product.slug} {...product} />
+          })
+        ) : (
+          <p>No Products</p>
+        )}
+      </div>
     </div>
   )
 }

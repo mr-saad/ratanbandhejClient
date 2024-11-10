@@ -2,6 +2,13 @@ import { redirect } from "next/navigation"
 import isAuthenticated from "@/lib/isAuthenticated"
 import SignInFormWrapper from "./SignInFormWrapper"
 
+export const metadata = {
+  title: "Sign In",
+  alternates: {
+    canonical: "/sign-in",
+  },
+}
+
 export default async function LogIn() {
   const auth = await isAuthenticated()
   if (auth.status) return redirect("/products")

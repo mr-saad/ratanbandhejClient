@@ -1,6 +1,6 @@
 import Link from "next/link"
 import getProducts from "@/lib/getProducts"
-import ProductWrapper from "@/components/ProductWrapper"
+import Product from "@/components/Product"
 
 export default async function Sections() {
   const [dupatta, saree, dress, topMaterial] = await Promise.all([
@@ -31,7 +31,7 @@ function Section({ title, data }) {
       </div>
       <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-3 md:gap-10">
         {data.map((props) => (
-          <ProductWrapper key={props.slug} {...props} />
+          <Product key={props.slug} {...props} />
         ))}
       </div>
     </div>

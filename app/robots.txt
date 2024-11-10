@@ -1,7 +1,3 @@
 User-Agent: *
 Allow: /
-Disallow: /favorites
-Disallow: /contact
-Disallow: /about
-
 Sitemap: https://ratanbandhej.shop/sitemap.xml
