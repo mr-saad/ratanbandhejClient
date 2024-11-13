@@ -4,7 +4,7 @@ const withAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 }) as (config: NextConfig) => NextConfig
 
-const nextConfig: NextConfig = withAnalyzer({
+const nextConfig = withAnalyzer({
   images: {
     minimumCacheTTL: 31556926,
     remotePatterns: [
@@ -33,19 +33,6 @@ const nextConfig: NextConfig = withAnalyzer({
     ],
   },
   productionBrowserSourceMaps: false,
-  async headers() {
-    return [
-      {
-        source: "/",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=36000, stale-while-revalidate=600",
-          },
-        ],
-      },
-    ]
-  },
 })
 
 module.exports = nextConfig
