@@ -27,6 +27,7 @@ export async function middleware(request) {
   const pathname = request.nextUrl.pathname
 
   if (pathname === "/") {
+    console.log("inside home page")
     const response = NextResponse.next()
 
     const clientETag = request.headers.get("if-none-match")
