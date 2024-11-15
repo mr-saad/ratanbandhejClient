@@ -27,22 +27,19 @@ export async function middleware(request) {
   const pathname = request.nextUrl.pathname
 
   if (pathname === "/") {
-    console.log("inside home page")
     const response = NextResponse.next()
 
-    const clientETag = request.headers.get("if-none-match")
+    const clientETag = request.headers.get("If-None-Match")
     const serverETag = await generateETag()
 
     if (clientETag === serverETag) {
       return new NextResponse(null, { status: 304 })
     }
-
     response.headers.set("ETag", serverETag)
-    console.log("set: ", serverETag)
-
+    response.headers.set("Cache-Control", "public, max-age=0, must-revalidate")
+    console.log(response.headers)
     return response
   }
-
   return NextResponse.next()
 }
 
