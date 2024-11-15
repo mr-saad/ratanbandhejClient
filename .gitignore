@@ -42,3 +42,4 @@ cornsilk-chough
 .prettierrc
 eslint.config.mjs
 .unlighthouse
+.vercel

@@ -1,26 +1,26 @@
 import { query } from "@/lib/sanity"
 import { NextResponse } from "next/server"
 
-let cachedETag = null
-let lastETagGeneration = 0
+// let cachedETag = null
+// let lastETagGeneration = 0
 
 const generateETag = async () => {
-  const cacheDuration = 60 * 1000
+  // const cacheDuration = 60 * 1000
 
-  if (cachedETag && Date.now() - lastETagGeneration < cacheDuration) {
-    return cachedETag
-  }
+  // if (cachedETag && Date.now() - lastETagGeneration < cacheDuration) {
+  //   return cachedETag
+  // }
 
   const prods = await query(`*[_type=="product"]{_updatedAt}`)
   const content = prods.map((prod) => prod._updatedAt).join(",")
   const data = new TextEncoder().encode(content)
   const hashBuffer = await crypto.subtle.digest("SHA-256", data)
-  cachedETag = [...new Uint8Array(hashBuffer)]
+  // cachedETag =
+  // lastETagGeneration = Date.now()
+
+  return [...new Uint8Array(hashBuffer)]
     .map((byte) => byte.toString(16).padStart(2, "0"))
     .join("")
-  lastETagGeneration = Date.now()
-
-  return cachedETag
 }
 
 export async function middleware(request) {
@@ -37,6 +37,7 @@ export async function middleware(request) {
     }
 
     response.headers.set("ETag", serverETag)
+    console.log("set: ", serverETag)
 
     return response
   }
