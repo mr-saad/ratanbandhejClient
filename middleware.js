@@ -36,7 +36,7 @@ export async function middleware(request) {
       return new NextResponse(null, { status: 304 })
     }
     response.headers.set("ETag", serverETag)
-    response.headers.set("Cache-Control", "public, max-age=0, must-revalidate")
+    response.headers.set("Cache-Control", "public, no-store, must-revalidate")
     console.log(response.headers)
     return response
   }
