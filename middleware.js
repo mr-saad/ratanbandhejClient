@@ -28,16 +28,17 @@ export async function middleware(request) {
 
   if (pathname === "/") {
     const response = NextResponse.next()
+    response.headers.set("X-Saad-Test", "khatri")
 
-    const clientETag = request.headers.get("If-None-Match")
-    const serverETag = await generateETag()
+    // const clientETag = request.headers.get("If-None-Match")
+    // const serverETag = await generateETag()
 
-    if (clientETag === serverETag) {
-      return new NextResponse(null, { status: 304 })
-    }
-    response.headers.set("ETag", serverETag)
-    response.headers.set("Cache-Control", "public, max-age=0, must-revalidate")
-    console.log(response.headers)
+    // if (clientETag === serverETag) {
+    //   return new NextResponse(null, { status: 304 })
+    // }
+    // response.headers.set("ETag", serverETag)
+    // response.headers.set("Cache-Control", "public, max-age=0, must-revalidate")
+    // console.log(response.headers)
     return response
   }
   return NextResponse.next()
