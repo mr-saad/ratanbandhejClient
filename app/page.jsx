@@ -5,7 +5,7 @@ import Sections from "./Sections"
 import Carousel from "./Carousel"
 import HeaderTextWrapper from "./HeaderTextWrapper"
 
-// export const revalidate = 3600
+export const revalidate = 3600
 export const experimental_ppr = true
 
 export default async function Home() {
