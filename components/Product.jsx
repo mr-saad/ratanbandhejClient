@@ -8,7 +8,7 @@ export default function Product({ slug, image, title, index }) {
         <Image
           priority={index === 0}
           fetchPriority={index === 0 ? "high" : "low"}
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 33vw"
           alt={slug}
           placeholder="blur"
           blurDataURL={image.metadata.lqip}

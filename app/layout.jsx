@@ -5,7 +5,6 @@ import Provider from "@/components/Provider"
 import Navbar from "@/components/Navbar/Navbar"
 import Footer from "@/components/Footer"
 import { getCart } from "@/lib/getCart"
-import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const viewport = {
   width: "device-width",
@@ -95,7 +94,6 @@ export default async function RootLayout({ children }) {
   return (
     <html className={GeistSans.className} lang="en" suppressHydrationWarning>
       <body>
-        <SpeedInsights />
         <Provider cartLayout={cart} auth={auth}>
           <Navbar />
           <div className="min-h-screen accent-[#111] dark:accent-white">

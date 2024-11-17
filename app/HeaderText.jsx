@@ -23,7 +23,7 @@ export default function HeaderText() {
         transition={{ duration: 0.3, delay: 0.9, ease: "easeOut" }}
         className="text-2xl"
       >
-        One Place For All Your Bandhani Needs.
+        One Place For All Your Bandhani Needs
       </motion.p>
     </div>
   )
