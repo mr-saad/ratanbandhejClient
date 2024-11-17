@@ -15,7 +15,7 @@ export default function Product({ slug, image, title, index }) {
           src={image.path}
           width={400}
           height={400}
-          className="aspect-square w-full object-cover object-top"
+          className="aspect-square w-full rounded-md object-cover object-top"
         />
       )}
       <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-[#111] to-transparent p-4">
