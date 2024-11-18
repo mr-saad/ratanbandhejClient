@@ -15,7 +15,7 @@ const baseUrl =
     ? "https://ratanbandhej.shop"
     : "localhost:3000"
 
-export default function Template({ userId, username, token }) {
+export default function Template(props) {
   return (
     <Tailwind>
       <Head>
@@ -30,14 +30,14 @@ export default function Template({ userId, username, token }) {
       </Head>
       <Html lang="en">
         <Section className="mx-auto max-w-4xl">
-          <Heading>Welcome to Ratan Bandhej, {username}</Heading>
+          <Heading>Welcome to Ratan Bandhej, {props.username}</Heading>
           <Text>
             Click the link below to Verify your Account & Sign in to continue
             Shopping with Ratan Bandhej.
           </Text>
           <Button
             className="rounded-md bg-[#111] px-3 py-2 font-semibold text-white"
-            href={`${baseUrl}/verify-account?token=${token}&userId=${userId}`}
+            href={`${baseUrl}/verify-account?token=${props.token}&userId=${props.userId}`}
           >
             Verify
           </Button>

@@ -1,10 +1,8 @@
 import "./globals.css"
-import isAuthenticated from "@/lib/isAuthenticated"
 import { GeistSans } from "geist/font/sans"
-import Provider from "@/components/Provider"
 import Navbar from "@/components/Navbar/Navbar"
 import Footer from "@/components/Footer"
-import { getCart } from "@/lib/getCart"
+import ProviderServer from "@/components/ProviderServer"
 
 export const viewport = {
   width: "device-width",
@@ -87,19 +85,15 @@ export const metadata = {
 }
 
 export default async function RootLayout({ children }) {
-  const auth = await isAuthenticated()
-
-  const cart = await getCart({ _id: auth?._id || "" })
-
   return (
     <html className={GeistSans.className} lang="en" suppressHydrationWarning>
       <body>
-        <Provider cartLayout={cart} auth={auth}>
+        <ProviderServer>
           <Navbar />
           <div className="min-h-screen accent-[#111] dark:accent-white">
             {children}
           </div>
-        </Provider>
+        </ProviderServer>
         <Footer />
       </body>
     </html>
