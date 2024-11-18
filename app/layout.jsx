@@ -2,7 +2,7 @@ import "./globals.css"
 import { GeistSans } from "geist/font/sans"
 import Navbar from "@/components/Navbar/Navbar"
 import Footer from "@/components/Footer"
-import ProviderServer from "@/components/ProviderServer"
+import Provider from "@/components/Provider"
 
 export const viewport = {
   width: "device-width",
@@ -88,12 +88,12 @@ export default async function RootLayout({ children }) {
   return (
     <html className={GeistSans.className} lang="en" suppressHydrationWarning>
       <body>
-        <ProviderServer>
+        <Provider>
           <Navbar />
           <div className="min-h-screen accent-[#111] dark:accent-white">
             {children}
           </div>
-        </ProviderServer>
+        </Provider>
         <Footer />
       </body>
     </html>

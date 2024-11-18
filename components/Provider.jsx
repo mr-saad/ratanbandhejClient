@@ -1,4 +1,6 @@
 "use client"
+import { getCart } from "@/lib/getCart"
+import isAuthenticated from "@/lib/isAuthenticated"
 import { ThemeProvider, useTheme } from "next-themes"
 import { createContext, useContext, useEffect, useState } from "react"
 
@@ -7,9 +9,10 @@ export const useRatanContext = () => {
   return useContext(RatanContext)
 }
 
-export default function Provider({ children, cartLayout, auth }) {
+export default function Provider({ children }) {
   const { setTheme } = useTheme()
-  const [cart, setCart] = useState(cartLayout)
+  const [cart, setCart] = useState([])
+  const [auth, setAuth] = useState([])
 
   useEffect(() => {
     const isDark = localStorage.getItem("ratanTheme")
@@ -24,7 +27,14 @@ export default function Provider({ children, cartLayout, auth }) {
   }, [setTheme])
 
   useEffect(() => {
-    setCart(cart)
+    const Cart = async () => {
+      setCart(await getCart())
+    }
+    Cart()
+    const Auth = async () => {
+      setAuth(await isAuthenticated())
+    }
+    Auth()
   }, [cart])
 
   return (
