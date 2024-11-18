@@ -3,7 +3,6 @@ import Loading from "./loading"
 import HeaderImage from "./HeaderImage"
 import Sections from "./Sections"
 import Carousel from "./Carousel"
-import HeaderTextWrapper from "./HeaderTextWrapper"
 
 export const experimental_ppr = true
 
@@ -14,7 +13,15 @@ export default async function Home() {
         <Suspense fallback={""}>
           <HeaderImage />
         </Suspense>
-        <HeaderTextWrapper />
+        <h1
+          className={
+            "pb-4 text-7xl font-extrabold [text-shadow:0_0_10px_rgba(0,0,0,0.5)] " +
+            Quagera.className
+          }
+        >
+          Ratan Bandhej
+        </h1>
+        <p className="text-2xl">One Place For All Your Bandhani Needs</p>
       </header>
       <div className="Container mx-auto">
         <div className="home mb-10 overflow-hidden">
