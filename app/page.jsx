@@ -3,6 +3,7 @@ import Loading from "./loading"
 import HeaderImage from "./HeaderImage"
 import Sections from "./Sections"
 import Carousel from "./Carousel"
+import { Quagera } from "@/components/logoFont"
 
 export const experimental_ppr = true
 
