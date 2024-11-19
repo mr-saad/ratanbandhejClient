@@ -5,12 +5,15 @@ import Link from "next/link"
 import { signInSchema } from "@/lib/zodSchemas/signInSchema"
 import { getCart } from "@/lib/getCart"
 import { useRatanContext } from "@/components/Provider"
+import { useRouter } from "next/navigation"
 
 export default function SignInForm() {
-  const { setCart } = useRatanContext()
+  const { setCart, setAuth } = useRatanContext()
 
   const [message, setMessage] = useState("")
   const [loading, setLoading] = useState(false)
+
+  const { push } = useRouter()
 
   const onSubmit = async (e) => {
     e.preventDefault()
@@ -23,7 +26,11 @@ export default function SignInForm() {
     const parsedData = signInSchema.safeParse(data)
     if (parsedData.success) {
       const res = await signInAction(parsedData.data)
-      if (res.ok) setCart(await getCart({ _id: res.userId }))
+      if (res.ok) {
+        setCart(await getCart({ _id: res.userId }))
+        setAuth(res.auth)
+        return push("/products")
+      }
       setMessage(res.message)
       setTimeout(() => setMessage(""), 4000)
     } else {

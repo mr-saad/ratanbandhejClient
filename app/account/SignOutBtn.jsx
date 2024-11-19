@@ -6,7 +6,7 @@ import { useState } from "react"
 export default function SignOutBtn() {
   const [loading, setLoading] = useState(false)
 
-  const { setCart } = useRatanContext()
+  const { setCart, setAuth } = useRatanContext()
 
   const onSignOut = async () => {
     setLoading(true)
@@ -15,6 +15,7 @@ export default function SignOutBtn() {
     )
     if (warn) {
       setCart([])
+      setAuth({})
       await signOut()
     }
     setLoading(false)

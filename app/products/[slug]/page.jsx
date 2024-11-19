@@ -1,9 +1,11 @@
 import ProductDetails from "./ProductDetails"
 import { notFound } from "next/navigation"
-import ImgSwiperWrapper from "@/app/products/[slug]/ImgSwiperWrapper"
+import ImgSwiper from "@/app/products/[slug]/ImgSwiper"
 import getProducts from "@/lib/getProducts"
 import { query } from "@/lib/sanity"
 import Product from "@/components/Product"
+
+export const revalidate = 3600
 
 export async function generateMetadata(props) {
   const params = await props.params
@@ -75,7 +77,7 @@ export default async function Slug(props) {
   return (
     <div className="Container mx-auto md:max-w-4xl md:pt-10">
       <div className="grid gap-5 md:grid-cols-2">
-        <ImgSwiperWrapper data={product.images} title={product.title} />
+        <ImgSwiper data={product.images} title={product.title} />
         <ProductDetails product={product} />
       </div>
       {similars.length ? (

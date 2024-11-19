@@ -10,7 +10,6 @@ export const useRatanContext = () => {
 }
 
 export default function Provider({ children }) {
-  console.log("from provider")
   const { setTheme } = useTheme()
   const [cart, setCart] = useState([])
   const [auth, setAuth] = useState([])
@@ -40,7 +39,7 @@ export default function Provider({ children }) {
 
   return (
     <ThemeProvider defaultTheme="system" enableSystem={true} attribute="class">
-      <RatanContext.Provider value={{ cart, setCart, auth }}>
+      <RatanContext.Provider value={{ cart, setCart, auth, setAuth }}>
         {children}
       </RatanContext.Provider>
     </ThemeProvider>

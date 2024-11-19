@@ -1,6 +1,5 @@
-import { redirect } from "next/navigation"
 import isAuthenticated from "@/lib/isAuthenticated"
-import SignInFormWrapper from "./SignInFormWrapper"
+import SignInForm from "./SignInForm"
 
 export const metadata = {
   title: "Sign In",
@@ -11,12 +10,11 @@ export const metadata = {
 
 export default async function LogIn() {
   const auth = await isAuthenticated()
-  if (auth.status) return redirect("/products")
   if (auth.verified || auth.noAcc)
     return (
       <div className="Container">
         <h1 className="heading text-center">Sign In</h1>
-        <SignInFormWrapper />
+        <SignInForm />
       </div>
     )
   else
