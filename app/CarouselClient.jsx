@@ -64,12 +64,10 @@ export default function CarouselClient({ data }) {
               className="md:justify-self-end"
             >
               <Image
+                quality={60}
                 className="aspect-square max-w-full rounded-md object-cover object-top"
                 src={prod.image.path}
-                sizes={`(max-width: 640px) 200px,
-                (max-width: 1024px) 400px,
-                (max-width: 1920px) 600px,
-                800px`}
+                sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 33vw"
                 alt={prod.title}
                 placeholder="blur"
                 blurDataURL={prod.image.metadata.lqip}

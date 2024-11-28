@@ -50,6 +50,7 @@ export default function Navbar() {
       </div>
 
       <Link
+        prefetch
         aria-label="Home"
         title="Ratan Bandhej"
         href="/"
@@ -77,11 +78,11 @@ const Links = ({ auth }) => {
     <>
       <li className="md:inline">
         <Link
+          prefetch
           className={`block py-2 transition hover:opacity-100 md:inline md:px-2 md:py-0 ${
             pathname === "/" ? "opacity-100" : "opacity-60"
           }`}
-          href={"/"}
-          shallow={true}
+          href="/"
         >
           Home
         </Link>

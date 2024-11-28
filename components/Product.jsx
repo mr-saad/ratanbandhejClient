@@ -6,6 +6,7 @@ export default function Product({ slug, image, title, index }) {
     <Link prefetch className="relative" href={`/products/${slug}`}>
       {image && (
         <Image
+          quality={60}
           priority={index === 0}
           fetchPriority={index === 0 ? "high" : "low"}
           sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 33vw"

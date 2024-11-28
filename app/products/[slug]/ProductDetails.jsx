@@ -1,6 +1,7 @@
 import CartBtn from "./CartBtn"
 
 export default function ProductDetails({
+  userId,
   product: { _id, title, specs, description, colours, price },
 }) {
   return (
@@ -38,7 +39,7 @@ export default function ProductDetails({
           </tr>
         </tbody>
       </table>
-      <CartBtn _id={_id} />
+      <CartBtn userId={userId} _id={_id} />
     </div>
   )
 }

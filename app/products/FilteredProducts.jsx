@@ -10,7 +10,6 @@ export default async function FilteredProducts({ data, searchParams }) {
   return (
     <div className="Container">
       <Link
-        shallow={true}
         prefetch
         href={
           showFilter !== "true"
@@ -44,7 +43,6 @@ export default async function FilteredProducts({ data, searchParams }) {
             return (
               <Link
                 prefetch
-                shallow={true}
                 href={
                   searchParams.category !== category
                     ? `/products?filter=true&category=${category.replace(/ /g, "+")}`

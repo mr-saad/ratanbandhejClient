@@ -2,13 +2,13 @@ import { getHeaderImage } from "@/lib/getHeaderImage"
 import Image from "next/image"
 
 export default async function HeaderImage() {
-  const { image } = await getHeaderImage()
+  const { image } = await getHeaderImage(120)
 
   return (
     <Image
       priority
       fetchPriority="high"
-      quality={100}
+      quality={60}
       loading="eager"
       placeholder="blur"
       blurDataURL={image.asset.metadata.lqip}

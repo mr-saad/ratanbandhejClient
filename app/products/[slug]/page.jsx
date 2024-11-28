@@ -4,6 +4,7 @@ import ImgSwiper from "@/app/products/[slug]/ImgSwiper"
 import getProducts from "@/lib/getProducts"
 import { query } from "@/lib/sanity"
 import Product from "@/components/Product"
+import isAuthenticated from "@/lib/isAuthenticated"
 
 export const revalidate = 3600
 
@@ -73,12 +74,13 @@ export default async function Slug(props) {
     similar: "similar",
     _id: product._id,
   })
+  const { _id: userId } = await isAuthenticated()
 
   return (
     <div className="Container mx-auto md:max-w-4xl md:pt-10">
       <div className="grid gap-5 md:grid-cols-2">
         <ImgSwiper data={product.images} title={product.title} />
-        <ProductDetails product={product} />
+        <ProductDetails userId={userId} product={product} />
       </div>
       {similars.length ? (
         <>
