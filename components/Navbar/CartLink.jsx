@@ -2,7 +2,7 @@ import Link from "next/link"
 import { useRatanContext } from "../Provider"
 import { usePathname } from "next/navigation"
 
-export default function CartBtn() {
+export default function CartLink() {
   const { cart } = useRatanContext()
   const pathname = usePathname()
 

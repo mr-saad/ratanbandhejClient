@@ -4,13 +4,8 @@ import { usePathname } from "next/navigation"
 import { Quagera } from "../logoFont"
 import { useEffect } from "react"
 import { useRatanContext } from "../Provider"
-import dynamic from "next/dynamic"
-
-const CartLink = dynamic(() => import("./CartLink"), {
-  ssr: false,
-  loading: () => <div className="min-h-6"></div>,
-})
-const ThemeToggle = dynamic(() => import("./ThemeToggle"), { ssr: false })
+import CartLink from "./CartLink"
+import ThemeToggle from "./ThemeToggle"
 
 export default function Navbar() {
   const { auth } = useRatanContext()
@@ -78,6 +73,7 @@ const Links = ({ auth }) => {
     <>
       <li className="md:inline">
         <Link
+          shallow={true}
           prefetch
           className={`block py-2 transition hover:opacity-100 md:inline md:px-2 md:py-0 ${
             pathname === "/" ? "opacity-100" : "opacity-60"
