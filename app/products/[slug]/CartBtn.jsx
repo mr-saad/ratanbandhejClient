@@ -3,36 +3,30 @@ import { useEffect, useState } from "react"
 import { useRatanContext } from "@/components/Provider"
 import addToCart from "@/lib/actions/addToCart"
 import removeFromCart from "@/lib/actions/removeFromCart"
-import { useRouter } from "next/navigation"
 import { getCart } from "@/lib/getCart"
 
 export const useCartBtn = () => {
-  const { push } = useRouter()
-
   const { setCart } = useRatanContext()
 
   const [showCartBtn, setShowCartBtn] = useState(true)
   const [loading, setLoading] = useState(false)
 
-  const addToCartBtn = async (_id, userId) => {
-    if (!userId) {
-      return push("/sign-in")
-    }
+  const addToCartBtn = async (_id) => {
     setLoading(true)
-    const res = await addToCart(userId, _id)
+    const res = await addToCart(_id)
     if (!res.ok) alert(res.message)
     else {
-      setCart(await getCart({ _id: userId }))
+      setCart(await getCart())
     }
     setLoading(false)
   }
 
-  const removeFromCartBtn = async (_id, userId) => {
+  const removeFromCartBtn = async (_id) => {
     setLoading(true)
-    const res = await removeFromCart(userId, _id)
+    const res = await removeFromCart(_id)
     if (!res.ok) alert(res.message)
     else {
-      setCart(await getCart({ _id: userId }))
+      setCart(await getCart())
       setShowCartBtn(true)
     }
     setLoading(false)
@@ -47,7 +41,7 @@ export const useCartBtn = () => {
   }
 }
 
-export default function CartBtn({ _id, userId }) {
+export default function CartBtn({ _id }) {
   const [mount, setMount] = useState(false)
   const {
     setShowCartBtn,
@@ -80,7 +74,7 @@ export default function CartBtn({ _id, userId }) {
             disabled={loading}
             className="btn w-full"
             onClick={() => {
-              addToCartBtn(_id, userId)
+              addToCartBtn(_id)
             }}
           >
             <span className="flex items-center justify-center gap-1">
@@ -125,7 +119,7 @@ export default function CartBtn({ _id, userId }) {
           <button
             disabled={loading}
             className="btn w-full !border-red-700 !bg-red-700 !text-white hover:!bg-transparent hover:!text-red-700"
-            onClick={() => removeFromCartBtn(_id, userId)}
+            onClick={() => removeFromCartBtn(_id)}
           >
             <span className="flex items-center justify-center gap-1">
               {loading ? (

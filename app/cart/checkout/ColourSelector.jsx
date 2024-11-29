@@ -1,7 +1,7 @@
 import { useCartBtn } from "@/app/products/[slug]/CartBtn"
 import { useState } from "react"
 
-const ColourSelector = ({ userId, _id, colours, price, setTotal }) => {
+const ColourSelector = ({ _id, colours, price, setTotal }) => {
   const { removeFromCartBtn, loading } = useCartBtn()
 
   const [colourData, setColourData] = useState([
@@ -98,7 +98,7 @@ const ColourSelector = ({ userId, _id, colours, price, setTotal }) => {
 
   const removeColour = async (index) => {
     if (colourData.length <= 1) {
-      await removeFromCartBtn(_id, userId)
+      await removeFromCartBtn(_id)
       setTotal((prev) => prev - colourData[index].quantity * price)
     } else {
       setTotal((prev) => prev - price * colourData[index].quantity)

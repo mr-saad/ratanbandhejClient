@@ -6,12 +6,8 @@ import { useEffect, useState } from "react"
 import ColourSelector from "./ColourSelector"
 import { useRatanContext } from "@/components/Provider"
 
-export default function BookForm() {
-  const {
-    cart,
-    setCart,
-    auth: { _id: userId },
-  } = useRatanContext()
+export default function BookForm({ cart }) {
+  const { setCart } = useRatanContext()
 
   const [loading, setLoading] = useState(false)
   const [isExisting, setExisting] = useState(false)
@@ -47,14 +43,14 @@ export default function BookForm() {
       existing: data.get("existing"),
       note: data.get("note"),
     }
-    const res = await orderAction({ userId, formData, colours })
+    const res = await orderAction({ formData, colours })
 
     if (!res.ok) {
       alert(res.message)
       setLoading(false)
     } else {
       replace("/orders")
-      setTimeout(() => setCart([]), 100)
+      setCart([])
     }
   }
 
@@ -73,7 +69,6 @@ export default function BookForm() {
               </div>
               <ColourSelector
                 _id={_id}
-                userId={userId}
                 colours={colours || ""}
                 price={price}
                 setTotal={setTotal}
@@ -111,7 +106,7 @@ export default function BookForm() {
             </label>
           </div>
         )}
-        <div className="relative">
+        <div className="relative mt-2">
           <textarea
             name="note"
             id="note"

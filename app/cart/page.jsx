@@ -5,7 +5,7 @@ export const metadata = {
   title: "Cart",
 }
 
-export default async function CartPage() {
+export default function CartPage() {
   return (
     <div className="Container">
       <div className="mb-5 flex items-center justify-between gap-5">

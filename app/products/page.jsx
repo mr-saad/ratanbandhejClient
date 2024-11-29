@@ -1,5 +1,7 @@
-import getProducts from "@/lib/getProducts"
 import FilteredProducts from "./FilteredProducts"
+import getProducts from "@/lib/getProducts"
+
+export const revalidate = 3600
 
 export const metadata = {
   title: "Products",
@@ -8,8 +10,7 @@ export const metadata = {
   },
 }
 
-export default async function Products(props) {
-  const searchParams = await props.searchParams
-  const data = await getProducts({ count: -1 })
-  return <FilteredProducts data={data} searchParams={searchParams} />
+export default async function Products() {
+  const products = await getProducts({ count: -1 })
+  return <FilteredProducts data={products} />
 }

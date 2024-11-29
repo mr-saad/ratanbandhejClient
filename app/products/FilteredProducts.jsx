@@ -1,16 +1,22 @@
+"use client"
 import Link from "next/link"
 import Product from "@/components/Product"
+import { useSearchParams } from "next/navigation"
 
-export default async function FilteredProducts({ data, searchParams }) {
+export default function FilteredProducts({ data }) {
+  const search = useSearchParams()
+
   const categories = [...new Set(data.map((all) => all.type))]
-  const filtered = data.filter(({ type }) => type === searchParams.category)
-  const products = searchParams.category ? filtered : data
-  const showFilter = searchParams.filter
-  const searchCat = searchParams.category
+  const filtered = data.filter(({ type }) => type === search.get("category"))
+
+  const products = search.get("category") ? filtered : data
+  const showFilter = search.get("filter")
+  const searchCat = search.get("category")
   return (
     <div className="Container">
       <Link
         prefetch
+        shallow={true}
         href={
           showFilter !== "true"
             ? `/products?filter=true${searchCat ? "&category=" + searchCat.replace(/ /g, "+") : ""}`
@@ -44,13 +50,13 @@ export default async function FilteredProducts({ data, searchParams }) {
               <Link
                 prefetch
                 href={
-                  searchParams.category !== category
+                  search.get("category") !== category
                     ? `/products?filter=true&category=${category.replace(/ /g, "+")}`
                     : "/products?filter=true"
                 }
                 key={category}
                 className={`inline-block rounded-full border border-[#111] px-4 py-1 text-[#111] transition dark:border-white dark:text-white ${
-                  searchParams.category === category &&
+                  search.get("category") === category &&
                   "bg-[#111] !text-white dark:bg-white dark:!text-[#111]"
                 }`}
               >
