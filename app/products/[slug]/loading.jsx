@@ -27,14 +27,7 @@ export default function Loading() {
                 ))}
             </tbody>
           </table>
-          {Array(2)
-            .fill(1)
-            .map((item, index) => (
-              <div
-                key={index}
-                className="mt-4 h-2 animate-pulse rounded-md bg-[#111]/20 dark:bg-white/20"
-              ></div>
-            ))}
+          <div className="mt-4 h-10 animate-pulse rounded-md bg-[#111]/20 dark:bg-white/20"></div>
         </div>
       </div>
     </div>

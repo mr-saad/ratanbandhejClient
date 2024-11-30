@@ -2,23 +2,28 @@
 import orderAction from "@/lib/actions/order"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import ColourSelector from "./ColourSelector"
 import { useRatanContext } from "@/components/Provider"
 
-export default function BookForm({ cart }) {
-  const { setCart } = useRatanContext()
+export default function BookForm() {
+  const [mount, setMount] = useState(false)
+
+  const { cart, setCart } = useRatanContext()
 
   const [loading, setLoading] = useState(false)
   const [isExisting, setExisting] = useState(false)
 
   const { replace } = useRouter()
+  useEffect(() => {
+    if (!cart.length) return replace("/cart")
+  }, [cart.length, replace])
 
   const [total, setTotal] = useState(
     cart.reduce((prev, item) => prev + item.price, 0),
   )
 
-  const Submit = async (e) => {
+  async function Submit(e) {
     e.preventDefault()
     setLoading(true)
 
@@ -54,7 +59,10 @@ export default function BookForm({ cart }) {
     setExisting(e.target.checked)
   }
 
-  return (
+  useEffect(() => {
+    setMount(true)
+  }, [])
+  return mount ? (
     <form onSubmit={(e) => Submit(e)} className="grid gap-10 md:grid-cols-2">
       <div className="grid content-start gap-5">
         {cart.map(({ _id, title, colours, price }, index) => {
@@ -143,7 +151,7 @@ export default function BookForm({ cart }) {
             </Link>
           </div>
           <p className="font-semibold">
-            Total:{" "}
+            Total:
             {total.toLocaleString("en-IN", {
               style: "currency",
               currency: "INR",
@@ -153,5 +161,7 @@ export default function BookForm({ cart }) {
         </div>
       </div>
     </form>
+  ) : (
+    "Please Wait"
   )
 }

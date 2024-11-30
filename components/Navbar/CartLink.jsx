@@ -1,3 +1,4 @@
+"use client"
 import Link from "next/link"
 import { useRatanContext } from "../Provider"
 import { usePathname } from "next/navigation"

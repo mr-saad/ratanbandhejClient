@@ -1,3 +1,4 @@
+"use client"
 import { useTheme } from "next-themes"
 import { useEffect, useState } from "react"
 
@@ -23,12 +24,12 @@ export default function ThemeToggle() {
       }}
       tabIndex={0}
       onClick={() => toggleTheme()}
-      className="opacity-60 hover:opacity-100 transition md:inline pb-2 md:pb-0 md:pr-2"
+      className="pb-2 opacity-60 transition hover:opacity-100 md:inline md:pb-0 md:pr-2"
     >
       {mounted ? (
         resolvedTheme === "dark" ? (
           <svg
-            className="cursor-pointer md:inline align-middle"
+            className="cursor-pointer align-middle md:inline"
             xmlns="http://www.w3.org/2000/svg"
             width="18"
             height="18"
@@ -51,7 +52,7 @@ export default function ThemeToggle() {
           </svg>
         ) : (
           <svg
-            className="cursor-pointer md:inline align-middle"
+            className="cursor-pointer align-middle md:inline"
             xmlns="http://www.w3.org/2000/svg"
             width="18"
             height="18"
