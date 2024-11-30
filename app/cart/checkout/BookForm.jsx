@@ -2,7 +2,7 @@
 import orderAction from "@/lib/actions/order"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import ColourSelector from "./ColourSelector"
 import { useRatanContext } from "@/components/Provider"
 
@@ -17,10 +17,6 @@ export default function BookForm({ cart }) {
   const [total, setTotal] = useState(
     cart.reduce((prev, item) => prev + item.price, 0),
   )
-
-  useEffect(() => {
-    if (!cart.length) replace("/cart")
-  }, [cart.length, replace])
 
   const Submit = async (e) => {
     e.preventDefault()

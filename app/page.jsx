@@ -1,21 +1,24 @@
-import { Suspense } from "react"
-import Loading from "./loading"
 import HeaderImage from "./HeaderImage"
 import Sections from "./Sections"
-import Carousel from "./Carousel"
 import { Quagera } from "@/components/logoFont"
-import CarouselLoading from "@/components/loadings/CarouselLoading"
-import ProductsLoading from "@/components/loadings/ProductsLoading"
+import CarouselClient from "./CarouselClient"
+import getProducts from "@/lib/getProducts"
 
-export const experimental_ppr = true
+export const revalidate = 3600
 
-export default function Home() {
+export default async function Home() {
+  const carousel = await getProducts({ count: 4 })
+  const [dupatta, saree, dress, topMaterial] = await Promise.all([
+    getProducts({ type: "Dupatta", count: 2 }),
+    getProducts({ type: "Saree", count: 2 }),
+    getProducts({ type: "Dress", count: 2 }),
+    getProducts({ type: "Top Material", count: 2 }),
+  ])
+
   return (
     <>
       <header className="relative flex min-h-[95vh] w-full items-center bg-[#111] before:absolute before:z-[2] before:h-full before:w-full before:bg-gradient-to-l before:from-transparent before:to-[#111]/90">
-        <Suspense fallback={""}>
-          <HeaderImage />
-        </Suspense>
+        <HeaderImage />
         <div className="z-10 px-5 text-white md:px-20">
           <h1
             className={
@@ -31,13 +34,14 @@ export default function Home() {
       <div className="Container mx-auto">
         <div className="home mb-10 overflow-hidden">
           <h1 className="heading arrivals my-5 !text-4xl">Fresh Crafts</h1>
-          <Suspense fallback={<CarouselLoading />}>
-            <Carousel />
-          </Suspense>
+          <CarouselClient data={carousel} />
         </div>
-        <Suspense fallback={<ProductsLoading />}>
-          <Sections />
-        </Suspense>
+        <Sections
+          dupatta={dupatta}
+          saree={saree}
+          dress={dress}
+          topMaterial={topMaterial}
+        />
       </div>
     </>
   )

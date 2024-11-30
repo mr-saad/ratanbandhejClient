@@ -1,9 +1,11 @@
-import { getHeaderImage } from "@/lib/getHeaderImage"
+import { query } from "@/lib/sanity"
 import Image from "next/image"
 
 export default async function HeaderImage() {
-  const { image } = await getHeaderImage()
-
+  const { image } = await query(
+    `*[_type=="headerImage"][0]{image{asset->{path,metadata{lqip}}}}`,
+    null,
+  )
   return (
     <Image
       priority

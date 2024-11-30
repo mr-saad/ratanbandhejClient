@@ -1,14 +1,7 @@
 import Link from "next/link"
-import getProducts from "@/lib/getProducts"
 import Product from "@/components/Product"
 
-export default async function Sections() {
-  const [dupatta, saree, dress, topMaterial] = await Promise.all([
-    getProducts({ type: "Dupatta", count: 2 }),
-    getProducts({ type: "Saree", count: 2 }),
-    getProducts({ type: "Dress", count: 2 }),
-    getProducts({ type: "Top Material", count: 2 }),
-  ])
+export default async function Sections({ dupatta, saree, dress, topMaterial }) {
   return (
     <>
       <Section title={dupatta[0].type} data={dupatta} />
