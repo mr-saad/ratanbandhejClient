@@ -1,18 +1,14 @@
 "use client"
-import { getCart } from "@/lib/getCart"
-import isAuthenticated from "@/lib/isAuthenticated"
 import { ThemeProvider, useTheme } from "next-themes"
-import { createContext, useContext, useEffect, useState } from "react"
+import { createContext, useEffect, useState } from "react"
 
-const RatanContext = createContext()
-export const useRatanContext = () => {
-  return useContext(RatanContext)
-}
+export const RatanContext = createContext()
 
 export default function Provider({ children }) {
   const { setTheme } = useTheme()
   const [cart, setCart] = useState([])
   const [auth, setAuth] = useState([])
+  const [authLoad, setAuthLoad] = useState(false)
 
   useEffect(() => {
     const isDark = localStorage.getItem("ratanTheme")
@@ -24,22 +20,19 @@ export default function Provider({ children }) {
     } else {
       setTheme("light")
     }
-  }, [setTheme])
-
-  useEffect(() => {
-    const Cart = async () => {
-      setCart(await getCart())
+    const getAuth = async () => {
+      setAuthLoad(true)
+      const res = await (await fetch("/api/getAuth")).json()
+      setAuth(res)
+      setCart(res.cart)
+      setAuthLoad(false)
     }
-    Cart()
-    const Auth = async () => {
-      setAuth(await isAuthenticated())
-    }
-    Auth()
+    getAuth()
   }, [])
 
   return (
     <ThemeProvider defaultTheme="system" enableSystem={true} attribute="class">
-      <RatanContext.Provider value={{ cart, setCart, auth, setAuth }}>
+      <RatanContext.Provider value={{ cart, setCart, auth, setAuth, authLoad }}>
         {children}
       </RatanContext.Provider>
     </ThemeProvider>

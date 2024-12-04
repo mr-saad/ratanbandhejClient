@@ -1,8 +1,6 @@
 import FilteredProducts from "./FilteredProducts"
 import getProducts from "@/lib/getProducts"
 
-export const revalidate = 3600
-
 export const metadata = {
   title: "Products",
   alternates: {

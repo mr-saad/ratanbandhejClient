@@ -4,8 +4,8 @@ import signInAction from "@/lib/actions/signIn"
 import Link from "next/link"
 import { signInSchema } from "@/lib/zodSchemas/signInSchema"
 import { getCart } from "@/lib/getCart"
-import { useRatanContext } from "@/components/Provider"
 import { useRouter } from "next/navigation"
+import useRatanContext from "@/lib/hooks/useRatanContext"
 
 export default function SignInForm() {
   const { setCart, setAuth } = useRatanContext()

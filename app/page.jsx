@@ -1,8 +1,8 @@
+import { Suspense } from "react"
 import HeaderImage from "./HeaderImage"
+import Carousel from "./Carousel"
 import Sections from "./Sections"
 import { Quagera } from "@/components/logoFont"
-import Carousel from "./Carousel"
-import { Suspense } from "react"
 import CarouselLoading from "@/components/loadings/CarouselLoading"
 import ProductsLoading from "@/components/loadings/ProductsLoading"
 

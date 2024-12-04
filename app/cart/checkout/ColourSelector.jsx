@@ -1,7 +1,7 @@
-import { useCartBtn } from "@/app/products/[slug]/CartBtn"
+import { useCartBtn } from "@/lib/hooks/useCartBtn"
 import { useState } from "react"
 
-const ColourSelector = ({ _id, colours, price, setTotal }) => {
+const ColourSelector = ({ _id, colours, price, setTotal, cart, prod }) => {
   const { removeFromCartBtn, loading } = useCartBtn()
 
   const [colourData, setColourData] = useState([
@@ -98,8 +98,12 @@ const ColourSelector = ({ _id, colours, price, setTotal }) => {
 
   const removeColour = async (index) => {
     if (colourData.length <= 1) {
-      await removeFromCartBtn(_id)
       setTotal((prev) => prev - colourData[index].quantity * price)
+
+      const res = await removeFromCartBtn(prod)
+      if (!res.ok) {
+        setTotal((prev) => prev + colourData[index].quantity * price)
+      }
     } else {
       setTotal((prev) => prev - price * colourData[index].quantity)
       const updatedData = colourData.filter((_, idx) => idx !== index)

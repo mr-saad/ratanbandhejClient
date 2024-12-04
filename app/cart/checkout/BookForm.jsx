@@ -4,23 +4,22 @@ import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import ColourSelector from "./ColourSelector"
-import { useRatanContext } from "@/components/Provider"
+import useRatanContext from "@/lib/hooks/useRatanContext"
 
 export default function BookForm() {
   const [mount, setMount] = useState(false)
 
-  const { cart, setCart } = useRatanContext()
+  const { cart, setCart, authLoad } = useRatanContext()
 
   const [loading, setLoading] = useState(false)
   const [isExisting, setExisting] = useState(false)
 
   const { replace } = useRouter()
-  useEffect(() => {
-    if (!cart.length) return replace("/cart")
-  }, [cart.length, replace])
 
-  const [total, setTotal] = useState(
-    cart.reduce((prev, item) => prev + item.price, 0),
+  const [total, setTotal] = useState(0)
+  useEffect(
+    () => setTotal(cart.reduce((prev, item) => prev + item.price, 0)),
+    [cart],
   )
 
   async function Submit(e) {
@@ -62,10 +61,11 @@ export default function BookForm() {
   useEffect(() => {
     setMount(true)
   }, [])
-  return mount ? (
+  return mount && !authLoad ? (
     <form onSubmit={(e) => Submit(e)} className="grid gap-10 md:grid-cols-2">
       <div className="grid content-start gap-5">
-        {cart.map(({ _id, title, colours, price }, index) => {
+        {cart.map(({ _id, title, colours, price, slug, image }, index) => {
+          const prod = { _id, title, colours, price, slug, image }
           return (
             <div className={`cartItem-${index} grid gap-4`} key={_id}>
               <div className="flex items-center justify-between">
@@ -76,6 +76,8 @@ export default function BookForm() {
                 colours={colours || ""}
                 price={price}
                 setTotal={setTotal}
+                cart={cart}
+                prod={prod}
               />
             </div>
           )

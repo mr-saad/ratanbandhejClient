@@ -1,8 +1,16 @@
 import CartBtn from "./CartBtn"
 
 export default function ProductDetails({
-  product: { _id, title, specs, description, colours, price },
+  product: { _id, title, specs, description, colours, price, slug, images },
 }) {
+  const prod = {
+    _id,
+    title,
+    colours,
+    price,
+    image: images ? images[0] : "",
+    slug,
+  }
   return (
     <div>
       <h1 className="highlight mb-3 text-2xl font-semibold capitalize md:mt-0">
@@ -38,7 +46,7 @@ export default function ProductDetails({
           </tr>
         </tbody>
       </table>
-      <CartBtn _id={_id} />
+      <CartBtn prod={prod} />
     </div>
   )
 }

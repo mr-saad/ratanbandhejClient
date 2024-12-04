@@ -1,47 +1,9 @@
 "use client"
 import { useEffect, useState } from "react"
-import { useRatanContext } from "@/components/Provider"
-import addToCart from "@/lib/actions/addToCart"
-import removeFromCart from "@/lib/actions/removeFromCart"
-import { getCart } from "@/lib/getCart"
+import { useCartBtn } from "@/lib/hooks/useCartBtn"
+import useRatanContext from "@/lib/hooks/useRatanContext"
 
-export const useCartBtn = () => {
-  const { setCart } = useRatanContext()
-
-  const [showCartBtn, setShowCartBtn] = useState(true)
-  const [loading, setLoading] = useState(false)
-
-  const addToCartBtn = async (_id) => {
-    setLoading(true)
-    const res = await addToCart(_id)
-    if (!res.ok) alert(res.message)
-    else {
-      setCart(await getCart())
-    }
-    setLoading(false)
-  }
-
-  const removeFromCartBtn = async (_id) => {
-    setLoading(true)
-    const res = await removeFromCart(_id)
-    if (!res.ok) alert(res.message)
-    else {
-      setCart(await getCart())
-      setShowCartBtn(true)
-    }
-    setLoading(false)
-  }
-
-  return {
-    loading,
-    addToCartBtn,
-    removeFromCartBtn,
-    showCartBtn,
-    setShowCartBtn,
-  }
-}
-
-export default function CartBtn({ _id }) {
+export default function CartBtn({ prod }) {
   const [mount, setMount] = useState(false)
   const {
     setShowCartBtn,
@@ -55,7 +17,7 @@ export default function CartBtn({ _id }) {
 
   const isInCart = () => {
     cart.forEach((product) => {
-      if (product._id === _id) {
+      if (product._id === prod._id) {
         setShowCartBtn(false)
       }
     })
@@ -74,7 +36,7 @@ export default function CartBtn({ _id }) {
             disabled={loading}
             className="btn w-full"
             onClick={() => {
-              addToCartBtn(_id)
+              addToCartBtn(prod)
             }}
           >
             <span className="flex items-center justify-center gap-1">
@@ -119,7 +81,7 @@ export default function CartBtn({ _id }) {
           <button
             disabled={loading}
             className="btn w-full !border-red-700 !bg-red-700 !text-white hover:!bg-transparent hover:!text-red-700"
-            onClick={() => removeFromCartBtn(_id)}
+            onClick={() => removeFromCartBtn(prod)}
           >
             <span className="flex items-center justify-center gap-1">
               {loading ? (

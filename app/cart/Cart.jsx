@@ -1,14 +1,14 @@
 "use client"
 import Product from "@/components/Product"
-import { useRatanContext } from "@/components/Provider"
+import useRatanContext from "@/lib/hooks/useRatanContext"
 import { useEffect, useState } from "react"
 
 export default function Cart() {
   const [mount, setMount] = useState(false)
-  const { cart } = useRatanContext()
+  const { cart, authLoad } = useRatanContext()
   useEffect(() => setMount(true), [])
 
-  return mount ? (
+  return mount && !authLoad ? (
     cart.length > 0 ? (
       cart.map((props) => {
         return (
