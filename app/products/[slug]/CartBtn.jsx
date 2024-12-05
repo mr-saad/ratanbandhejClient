@@ -1,7 +1,7 @@
 "use client"
 import { useEffect, useState } from "react"
 import { useCartBtn } from "@/lib/hooks/useCartBtn"
-import useRatanContext from "@/lib/hooks/useRatanContext"
+import { useRatanContext } from "@/lib/hooks/useRatanContext"
 
 export default function CartBtn({ prod }) {
   const [mount, setMount] = useState(false)

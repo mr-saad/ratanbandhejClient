@@ -100,7 +100,6 @@ export default function EditForm({ user, isEditable }) {
           </button>
           <Link
             prefetch
-            shallow={true}
             className="btn-secondary flex-1 text-center"
             href={"/account"}
           >
@@ -110,7 +109,6 @@ export default function EditForm({ user, isEditable }) {
       ) : (
         <Link
           prefetch
-          shallow={true}
           href={"/account?edit=true"}
           className="btn mt-2 block text-center"
         >

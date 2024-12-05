@@ -28,7 +28,7 @@ export default function Provider({ children }) {
       setAuthLoad(false)
     }
     getAuth()
-  }, [])
+  }, [setTheme])
 
   return (
     <ThemeProvider defaultTheme="system" enableSystem={true} attribute="class">

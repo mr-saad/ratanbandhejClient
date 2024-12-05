@@ -8,7 +8,7 @@ export const metadata = {
   },
 }
 
-export default async function Products() {
+export default async function Products({ searchParams }) {
   const products = await getProducts({ count: -1 })
-  return <FilteredProducts data={products} />
+  return <FilteredProducts data={products} searchParams={searchParams} />
 }

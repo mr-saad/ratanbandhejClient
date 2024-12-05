@@ -1,13 +1,15 @@
 import Link from "next/link"
 import Product from "@/components/Product"
 import getProducts from "@/lib/getProducts"
+import { unstable_noStore } from "next/cache"
 
 export default async function Sections() {
+  unstable_noStore()
   const [dupatta, saree, dress, topMaterial] = await Promise.all([
-    getProducts({ type: "Dupatta", count: 2 }),
-    getProducts({ type: "Saree", count: 2 }),
-    getProducts({ type: "Dress", count: 2 }),
-    getProducts({ type: "Top Material", count: 2 }),
+    getProducts({ type: "Dupatta", count: 2 }, "no-store"),
+    getProducts({ type: "Saree", count: 2 }, "no-store"),
+    getProducts({ type: "Dress", count: 2 }, "no-store"),
+    getProducts({ type: "Top Material", count: 2 }, "no-store"),
   ])
   return (
     <>
