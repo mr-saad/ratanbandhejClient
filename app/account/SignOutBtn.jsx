@@ -1,6 +1,6 @@
 "use client"
 import signOut from "@/lib/actions/signOut"
-import { useRatanContext } from "@/lib/hooks/useRatanContext"
+import useRatanContext from "@/lib/hooks/UseRatanContext"
 import { useState } from "react"
 
 export default function SignOutBtn() {

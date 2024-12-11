@@ -2,7 +2,8 @@ import "./globals.css"
 import { GeistSans } from "geist/font/sans"
 import Navbar from "@/components/Navbar/Navbar"
 import Footer from "@/components/Footer"
-import Provider from "@/components/Provider"
+import Provider from "@/lib/context/Provider"
+import { preconnect } from "react-dom"
 
 export const viewport = {
   width: "device-width",
@@ -85,6 +86,7 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
+  preconnect("https://cdn.sanity.io")
   return (
     <html className={GeistSans.className} lang="en" suppressHydrationWarning>
       <body>

@@ -49,18 +49,6 @@ export default function Links() {
   }, [])
   return (
     <>
-      <li className="md:inline">
-        <Link
-          prefetch
-          className={`block py-2 transition hover:opacity-100 md:inline md:px-2 md:py-0 ${
-            pathname === "/" ? "opacity-100" : "opacity-60"
-          }`}
-          href="/"
-        >
-          Home
-        </Link>
-      </li>
-
       {links.map((all) => {
         return (
           <li className="md:inline" key={all.url}>

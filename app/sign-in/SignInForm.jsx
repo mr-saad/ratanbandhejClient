@@ -4,10 +4,10 @@ import signInAction from "@/lib/actions/signIn"
 import Link from "next/link"
 import { signInSchema } from "@/lib/zodSchemas/signInSchema"
 import { useRouter } from "next/navigation"
-import { useRatanContext } from "@/lib/hooks/useRatanContext"
+import useRatanContext from "@/lib/hooks/UseRatanContext"
 
 export default function SignInForm() {
-  const { setCart, setAuth } = useRatanContext()
+  const { setCart, setAuth, auth } = useRatanContext()
 
   const [message, setMessage] = useState("")
   const [loading, setLoading] = useState(false)

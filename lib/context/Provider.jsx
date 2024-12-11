@@ -1,13 +1,12 @@
 "use client"
 import { ThemeProvider, useTheme } from "next-themes"
-import { createContext, useEffect, useState } from "react"
-
-export const RatanContext = createContext()
+import { useEffect, useState } from "react"
+import { RatanContext } from "./Context"
 
 export default function Provider({ children }) {
   const { setTheme } = useTheme()
   const [cart, setCart] = useState([])
-  const [auth, setAuth] = useState([])
+  const [auth, setAuth] = useState({})
   const [authLoad, setAuthLoad] = useState(false)
 
   useEffect(() => {
@@ -22,19 +21,23 @@ export default function Provider({ children }) {
     }
     const getAuth = async () => {
       setAuthLoad(true)
-      const res = await (await fetch("/api/getAuth")).json()
-      setAuth(res)
-      setCart(res.cart)
-      setAuthLoad(false)
+      try {
+        const res = await (await fetch("/api/getAuth")).json()
+        setAuth(res)
+        setCart(res.cart)
+        setAuthLoad(false)
+      } catch (error) {
+        alert(error.message)
+      }
     }
     getAuth()
   }, [setTheme])
 
   return (
     <ThemeProvider defaultTheme="system" enableSystem={true} attribute="class">
-      <RatanContext.Provider value={{ cart, setCart, auth, setAuth, authLoad }}>
+      <RatanContext value={{ cart, setCart, auth, setAuth, authLoad }}>
         {children}
-      </RatanContext.Provider>
+      </RatanContext>
     </ThemeProvider>
   )
 }

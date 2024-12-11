@@ -1,4 +1,4 @@
-import { useCartBtn } from "@/lib/hooks/useCartBtn"
+import useCartBtn from "@/lib/hooks/UseCartBtn"
 import { useState } from "react"
 
 const ColourSelector = ({ _id, colours, price, setTotal, cart, prod }) => {

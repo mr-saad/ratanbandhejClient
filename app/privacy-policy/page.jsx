@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 export const metadata = {
   title: "Privacy Policy",
   keywords: ["privacy", "policy"],
@@ -103,14 +105,9 @@ export default function Privacy() {
         </li>
         <li>
           By visiting this page on our website:{" "}
-          <a
-            className="highlight border-b font-semibold"
-            href="https://ratanbandhej.shop/contact"
-            rel="noreferrer"
-            target="_blank"
-          >
-            https://ratanbandhej.shop/contact
-          </a>
+          <Link className="highlight border-b font-semibold" href="/contact">
+            Contact
+          </Link>
         </li>
         <li>
           By phone number:{" "}
