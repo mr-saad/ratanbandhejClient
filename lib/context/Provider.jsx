@@ -1,7 +1,7 @@
 "use client"
 import { ThemeProvider, useTheme } from "next-themes"
 import { useEffect, useState } from "react"
-import { RatanContext } from "./Context"
+import RatanContext from "./RatanContext"
 
 export default function Provider({ children }) {
   const { setTheme } = useTheme()
@@ -27,7 +27,7 @@ export default function Provider({ children }) {
         setCart(res.cart)
         setAuthLoad(false)
       } catch (error) {
-        alert(error.message)
+        console.error(error)
       }
     }
     getAuth()

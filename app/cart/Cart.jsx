@@ -1,6 +1,6 @@
 "use client"
 import Product from "@/components/Product"
-import useRatanContext from "@/lib/hooks/UseRatanContext"
+import useRatanContext from "@/lib/hooks/useRatanContext"
 import { useEffect, useState } from "react"
 
 export default function Cart() {

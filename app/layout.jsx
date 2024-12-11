@@ -65,16 +65,16 @@ export const metadata = {
   authors: [{ name: "Saad Khatri", url: "https://instagram.com/sxvd.js" }],
   description:
     "One Place for All Your Bandhani Needs. Ratan Bandhej Provides Their Customers A Large Number Of Variaties In Bandhani Dupattas, Sarees, Top Materials",
-  openGraph: {
-    title: "Ratan Bandhej | One Place For All Your Bandhani Needs",
-    description:
-      "One Place for All Your Bandhani Needs. Ratan Bandhej Provides Their Customers A Large Number Of Variaties In Bandhani Dupattas, Sarees, Top Materials",
-    url: "https://ratanbandhej.shop",
-    siteName: "Ratan Bandhej | One Place For All Your Bandhani Needs",
-    locale: "en_US",
-    type: "website",
-    authors: ["Saad Khatri"],
-  },
+  // openGraph: {
+  //   title: "Ratan Bandhej | One Place For All Your Bandhani Needs",
+  //   description:
+  //     "One Place for All Your Bandhani Needs. Ratan Bandhej Provides Their Customers A Large Number Of Variaties In Bandhani Dupattas, Sarees, Top Materials",
+  //   url: "https://ratanbandhej.shop",
+  //   siteName: "Ratan Bandhej | One Place For All Your Bandhani Needs",
+  //   locale: "en_US",
+  //   type: "website",
+  //   authors: ["Saad Khatri"],
+  // },
   icons: {
     icon: "/android-chrome-192x192.png",
     apple: "/apple-touch-icon.png",

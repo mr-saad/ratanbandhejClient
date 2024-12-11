@@ -4,7 +4,7 @@ import signInAction from "@/lib/actions/signIn"
 import Link from "next/link"
 import { signInSchema } from "@/lib/zodSchemas/signInSchema"
 import { useRouter } from "next/navigation"
-import useRatanContext from "@/lib/hooks/UseRatanContext"
+import useRatanContext from "@/lib/hooks/useRatanContext"
 
 export default function SignInForm() {
   const { setCart, setAuth, auth } = useRatanContext()
@@ -27,7 +27,7 @@ export default function SignInForm() {
       const res = await signInAction(parsedData.data)
       if (res.ok) {
         setAuth(res.auth)
-        setCart(auth.cart)
+        setCart(res.auth.cart)
         return push("/products")
       }
       setMessage(res.message)

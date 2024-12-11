@@ -1,5 +1,5 @@
 "use client"
-import useRatanContext from "@/lib/hooks/UseRatanContext"
+import useRatanContext from "@/lib/hooks/useRatanContext"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
