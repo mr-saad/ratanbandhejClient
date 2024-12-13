@@ -14,7 +14,7 @@ const Footer = async () => {
             rel="noreferrer"
             title="Facebook"
             target="_blank"
-            href="https://facebook.com"
+            href="https://www.facebook.com/people/Ratan-Bandhej/100071573145928"
             className="transition hover:text-white"
           >
             <svg

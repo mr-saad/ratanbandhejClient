@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation"
 import useRatanContext from "@/lib/hooks/useRatanContext"
 
 export default function SignInForm() {
-  const { setCart, setAuth, auth } = useRatanContext()
+  const { setCart, setAuth } = useRatanContext()
 
   const [message, setMessage] = useState("")
   const [loading, setLoading] = useState(false)

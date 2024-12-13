@@ -89,7 +89,7 @@ const Contact = () => {
         </a>
         <a
           title="Facebook"
-          href="https://facebook.com"
+          href="https://www.facebook.com/people/Ratan-Bandhej/100071573145928"
           target="_blank"
           rel="noreferrer"
         >

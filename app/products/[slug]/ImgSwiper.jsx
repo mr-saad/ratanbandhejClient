@@ -15,7 +15,7 @@ export default function ImgSwiper({ data, title }) {
       scrollbar={{ draggable: true }}
     >
       {data.map((img, index, arr) => (
-        <SwiperSlide key={img._id}>
+        <SwiperSlide key={img.path}>
           <Image
             priority={index === 0}
             fetchPriority={index === 0 ? "high" : "low"}

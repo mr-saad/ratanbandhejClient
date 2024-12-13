@@ -17,21 +17,6 @@ const nextConfig = withAnalyzer({
     loaderFile: "./ImageLoader.js",
   },
   logging: false,
-  experimental: {
-    ppr: "incremental",
-    reactCompiler: true,
-    turbo: {
-      treeShaking: true,
-    },
-    optimizePackageImports: [
-      "react",
-      "next",
-      "framer-motion",
-      "swiper",
-      "next-themes",
-      "zod",
-    ],
-  },
   productionBrowserSourceMaps: false,
 })
 

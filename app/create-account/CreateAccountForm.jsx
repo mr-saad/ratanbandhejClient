@@ -14,14 +14,13 @@ export default function CreateAccountForm() {
 
   const onSubmit = async (e) => {
     e.preventDefault()
-    setLoading(true)
+    // setLoading(true)
     const formData = new FormData(e.target)
     const data = {
       username: formData.get("username"),
       email: formData.get("email"),
       phone: formData.get("phone"),
       address: formData.get("address"),
-      verified: false,
     }
     const parsedData = formSchema.safeParse(data)
     if (parsedData.success) {
@@ -41,7 +40,7 @@ export default function CreateAccountForm() {
       setMessage(parsedData.error.issues[0].message)
       setTimeout(() => setMessage(""), 4000)
     }
-    setLoading(false)
+    // setLoading(false)
   }
   return (
     <form onSubmit={onSubmit} className="mx-auto mt-10 max-w-lg">

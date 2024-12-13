@@ -1,41 +1,25 @@
-import { mutate, query } from "@/lib/sanity"
-import jwt from "jsonwebtoken"
-import { isRedirectError } from "next/dist/client/components/redirect"
+import { mutate } from "@/lib/sanity"
+import { jwtVerify } from "jose"
+import { isRedirectError } from "next/dist/client/components/redirect-error"
 import { redirect } from "next/navigation"
 
 export async function GET(req) {
   try {
-    const q = `*[_type=="user" && _id==$userId][0]`
-    const userId = req.nextUrl.searchParams.get("userId") || ""
-    const user = await query(q, { userId })
-    if (user?._id) {
-      const token = req.nextUrl.searchParams.get("token")
-      const ver = jwt.verify(token, process.env.tokenKey)
+    const token = req.nextUrl.searchParams.get("token") || ""
+    if (token) {
+      const encoder = new TextEncoder()
+      const ver = await jwtVerify(token, encoder.encode(process.env.tokenKey))
       if (ver) {
-        const res = await mutate([
-          {
-            patch: {
-              id: user._id,
-              set: {
-                verified: true,
-              },
-            },
-          },
+        await mutate([
+          { patch: { id: ver.payload.userId, set: { verified: true } } },
         ])
-
-        if (res?.transactionId) {
-          redirect("/sign-in")
-        } else {
-          return new Response(JSON.stringify(res))
-        }
-      } else {
-        return new Response("Invalid Token")
+        return redirect("/sign-in")
       }
     }
-    return new Response("Invalid User")
+    return Response.json({ message: "UnAuthorized" }, { status: 401 })
   } catch (error) {
     if (isRedirectError(error)) throw error
     console.error(error)
-    return new Response(error)
+    return Response.json(error)
   }
 }
