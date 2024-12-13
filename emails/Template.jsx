@@ -15,7 +15,7 @@ const baseUrl =
   /* ? */ "https://ratanbandhej.shop"
 // : "localhost:3000"
 
-export default function Template({ username = "", token = "", userId = "" }) {
+export default function Template({ username = "", token = "" }) {
   return (
     <Html>
       <Tailwind>
@@ -40,7 +40,7 @@ export default function Template({ username = "", token = "", userId = "" }) {
             </Text>
             <Link
               className="rounded-md bg-[#111] px-3 py-2 font-semibold text-white dark:bg-white dark:text-black"
-              href={`${baseUrl}/verify-account?token=${token}&userId=${userId}`}
+              href={`${baseUrl}/verify-account?token=${token}`}
             >
               Verify
             </Link>

@@ -14,7 +14,7 @@ export default function CreateAccountForm() {
 
   const onSubmit = async (e) => {
     e.preventDefault()
-    // setLoading(true)
+    setLoading(true)
     const formData = new FormData(e.target)
     const data = {
       username: formData.get("username"),
@@ -40,7 +40,7 @@ export default function CreateAccountForm() {
       setMessage(parsedData.error.issues[0].message)
       setTimeout(() => setMessage(""), 4000)
     }
-    // setLoading(false)
+    setLoading(false)
   }
   return (
     <form onSubmit={onSubmit} className="mx-auto mt-10 max-w-lg">
