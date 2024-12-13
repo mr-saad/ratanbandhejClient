@@ -78,7 +78,11 @@ export default function EditForm({ user, isEditable }) {
       {message !== "" && <p className="mt-2">message</p>}
       {isEditable ? (
         <div className="mt-2 flex justify-stretch gap-4">
-          <button disabled={loading} className="btn flex-1" type="submit">
+          <button
+            disabled={loading}
+            className="btn flex-1 items-center"
+            type="submit"
+          >
             {loading ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
