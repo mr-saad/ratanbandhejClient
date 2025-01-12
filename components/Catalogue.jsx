@@ -8,8 +8,9 @@ export default async function Catalogue() {
     <div>
       {catalogue.map((cat) => (
         <Link
+          scroll={true}
           className="block py-1 transition hover:text-white md:py-0"
-          href={`/products?category=${cat}`}
+          href={`/products?category=${cat.replaceAll(" ", "+")}`}
           key={cat}
         >
           {cat}

@@ -1,6 +1,5 @@
 import Link from "next/link"
 import Catalogue from "./Catalogue"
-import { Suspense } from "react"
 
 const Footer = async () => {
   return (
@@ -75,9 +74,7 @@ const Footer = async () => {
       <div className="mt-8 grid grid-cols-1 gap-10 md:grid-cols-3">
         <div>
           <h2 className="mx-auto mb-2 font-semibold text-white">CATALOGUE</h2>
-          <Suspense fallback={""}>
-            <Catalogue />
-          </Suspense>
+          <Catalogue />
         </div>
         <div>
           <h2 className="mx-auto mb-2 font-semibold text-white">CONTACT US</h2>
