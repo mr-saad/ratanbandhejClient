@@ -1,5 +1,5 @@
 import { query } from "@/lib/sanity"
-import Link from "next/link"
+import CatalogueLink from "./CatalogueLink"
 
 export default async function Catalogue() {
   const data = await query(`*[_type=="product"]{type}`)
@@ -7,14 +7,7 @@ export default async function Catalogue() {
   return (
     <div>
       {catalogue.map((cat) => (
-        <Link
-          scroll={true}
-          className="block py-1 transition hover:text-white md:py-0"
-          href={`/products?category=${cat.replaceAll(" ", "+")}`}
-          key={cat}
-        >
-          {cat}
-        </Link>
+        <CatalogueLink key={cat} cat={cat} />
       ))}
     </div>
   )
