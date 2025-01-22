@@ -1,15 +1,35 @@
+"use client"
+
 import Link from "next/link"
 import Product from "@/components/Product"
+import { useSearchParams } from "next/navigation"
+import { useEffect, useState } from "react"
 
-export default async function FilteredProducts({ data, searchParams }) {
-  const search = await searchParams
+export default function FilteredProducts({ data }) {
+  const search = useSearchParams()
 
   const categories = [...new Set(data.map((all) => all.type))]
-  const filtered = data.filter(({ type }) => type === search.category)
+  const filtered = data.filter(({ type }) => type === search.get("category"))
 
-  const products = search.category ? filtered : data
-  const showFilter = search.filter
-  const searchCat = search.category
+  const products = search.get("category") ? filtered : data
+  const searchCat = search.get("category")
+  const showFilter = search.get("filter")
+
+  const [screenWidth, setScreenWidth] = useState(0)
+
+  useEffect(() => {
+    setScreenWidth(innerWidth)
+    const controller = new AbortController()
+    window.addEventListener(
+      "resize",
+      () => {
+        setScreenWidth(window.innerWidth)
+      },
+      { signal: controller.signal },
+    )
+    ;() => controller.abort()
+  }, [])
+
   return (
     <div className="Container">
       <Link
@@ -19,7 +39,7 @@ export default async function FilteredProducts({ data, searchParams }) {
             ? `/products?filter=true${searchCat ? "&category=" + searchCat.replace(/ /g, "+") : ""}`
             : `/products${searchCat ? "?category=" + searchCat.replace(/ /g, "+") : ""}`
         }
-        className={`mb-5 inline-block rounded-md border border-current bg-transparent px-4 py-2 font-bold text-[#111] dark:text-white ${searchCat ? "!bg-[#111] !text-white dark:!bg-white dark:!text-[#111]" : ""}`}
+        className={`mb-5 inline-block rounded-md border border-current bg-transparent px-4 py-2 font-bold text-[#111] dark:text-white md:hidden ${searchCat ? "!bg-[#111] !text-white dark:!bg-white dark:!text-[#111]" : ""}`}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -38,22 +58,22 @@ export default async function FilteredProducts({ data, searchParams }) {
           <circle cx="17" cy="17" r="3" />
           <circle cx="7" cy="7" r="3" />
         </svg>
-        Filter by Category
+        Filter
       </Link>
-      {showFilter === "true" && (
+      {(showFilter === "true" || screenWidth > 768) && (
         <div className="mb-5 flex flex-wrap gap-2">
           {categories.map((category) => {
             return (
               <Link
                 prefetch
                 href={
-                  search.category !== category
+                  search.get("category") !== category
                     ? `/products?filter=true&category=${category.replace(/ /g, "+")}`
                     : "/products?filter=true"
                 }
                 key={category}
-                className={`inline-block rounded-full border border-[#111] px-4 py-1 text-[#111] transition dark:border-white dark:text-white ${
-                  search.category === category &&
+                className={`inline-block rounded-md border border-[#111] px-4 py-1 text-[#111] transition dark:border-white dark:text-white ${
+                  search.get("category") === category &&
                   "bg-[#111] !text-white dark:bg-white dark:!text-[#111]"
                 }`}
               >
