@@ -14,7 +14,7 @@ export default async function Account(props) {
     <div className="Container mx-auto max-w-2xl">
       <h1 className="heading">My Account</h1>
       <EditForm user={user} isEditable={isEditable} />
-      <div className="mt-5 flex flex-col gap-5">
+      <div className="mt-5 flex flex-wrap gap-5">
         <Link prefetch href={"/orders"} className="btn text-center">
           <span className="flex items-center justify-center gap-1">
             <svg

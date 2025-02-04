@@ -114,9 +114,8 @@ export default function EditForm({ user, isEditable }) {
         <Link
           prefetch
           href={"/account?edit=true"}
-          className="btn mt-2 block text-center"
+          className="btn inline-flex items-center justify-center gap-1 mt-2 text-center"
         >
-          <span className="flex items-center justify-center gap-1">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -132,7 +131,6 @@ export default function EditForm({ user, isEditable }) {
               <circle cx="12" cy="7" r="4" />
             </svg>
             Edit Profile
-          </span>
         </Link>
       )}
     </form>
