@@ -19,7 +19,7 @@ export default async function Orders() {
   return (
     <div className="Container">
       <h1 className="heading">My Orders</h1>
-      <div className="ssm:grid-cols-2 slg:grid-cols-3 grid gap-10 divide-y divide-white/10">
+      <div className="grid gap-10 divide-y dark:divide-white/10">
         {orders.length ? (
           orders.map((order) => {
             return (
@@ -41,6 +41,7 @@ export default async function Orders() {
                   placeholder="blur"
                   blurDataURL={order.image.metadata.lqip}
                 />
+
                 <div className="flex flex-col">
                   <p className="highlight line-clamp-3">{order.title}</p>
                   <p>₹{order.price}</p>
