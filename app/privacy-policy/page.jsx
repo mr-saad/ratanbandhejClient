@@ -113,11 +113,11 @@ export default function Privacy() {
           By phone number:{" "}
           <a
             className="highlight border-b font-semibold"
-            href="tel:+917778975752"
+            href="tel:+919228405162"
             rel="noreferrer"
             target="_blank"
           >
-            +91 7778975752
+            +91 9228405162
           </a>
         </li>
       </ul>

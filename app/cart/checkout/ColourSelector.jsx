@@ -1,7 +1,7 @@
 import useCartBtn from "@/lib/hooks/useCartBtn"
 import { useState } from "react"
 
-const ColourSelector = ({ _id, colours, price, setTotal, cart, prod }) => {
+const ColourSelector = ({ _id, colours, price, setTotal, prod }) => {
   const { removeFromCartBtn, loading } = useCartBtn()
 
   const [colourData, setColourData] = useState([
@@ -110,16 +110,11 @@ const ColourSelector = ({ _id, colours, price, setTotal, cart, prod }) => {
       setColourData(updatedData)
     }
   }
-
   return (
-    <div className="grid gap-5">
+    <div className="mt-2 grid gap-4">
       {colourData.map((item, index) => (
-        <div
-          className="grid grid-flow-col grid-cols-4 items-end gap-5"
-          key={index}
-        >
-          <div className="relative">
-            <label htmlFor={`colours-${index}-${_id}`}>Colour</label>
+        <div className="grid gap-2" key={index}>
+          <div className="flex gap-4">
             <select
               id={`colours-${index}-${_id}`}
               className="input clr min-h-[29px] capitalize"
@@ -139,90 +134,90 @@ const ColourSelector = ({ _id, colours, price, setTotal, cart, prod }) => {
                 )
               })}
             </select>
+            <div className="relative">
+              <input
+                id={`quantity-${index}-${_id}`}
+                type="number"
+                min={1}
+                max={item.maxQuantity}
+                className={`input qnt peer capitalize`}
+                value={item.quantity}
+                onChange={(e) => handleQuantityChange(index, e.target.value)}
+              />
+              {(parseInt(colours.split(",")[0].split("=")[1]) || 1) > 1 && (
+                <>
+                  <button type="button" onClick={() => increaseQuan(index)}>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="absolute bottom-[16px] right-0"
+                    >
+                      <path d="m18 15-6-6-6 6" />
+                    </svg>
+                  </button>
+                  <button type="button" onClick={() => decreaseQuan(index)}>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="absolute bottom-0 right-0"
+                    >
+                      <path d="m6 9 6 6 6-6" />
+                    </svg>
+                  </button>
+                </>
+              )}
+            </div>
           </div>
 
-          <div className="relative">
-            <label htmlFor={`quantity-${index}-${_id}`}>Quantity</label>
-            <input
-              id={`quantity-${index}-${_id}`}
-              type="number"
-              min={1}
-              max={item.maxQuantity}
-              className={`input qnt peer capitalize`}
-              value={item.quantity}
-              onChange={(e) => handleQuantityChange(index, e.target.value)}
-            />
-            {(parseInt(colours.split(",")[0].split("=")[1]) || 1) > 1 && (
-              <>
-                <button type="button" onClick={() => increaseQuan(index)}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="absolute bottom-[16px] right-0"
-                  >
-                    <path d="m18 15-6-6-6 6" />
-                  </svg>
-                </button>
-                <button type="button" onClick={() => decreaseQuan(index)}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="absolute bottom-0 right-0"
-                  >
-                    <path d="m6 9 6 6 6-6" />
-                  </svg>
-                </button>
-              </>
-            )}
+          <div className="flex items-stretch justify-end gap-4">
+            <button
+              disabled={loading}
+              onClick={() => removeColour(index)}
+              className="btn w-14 !border-red-700 !bg-red-700 !text-white hover:!bg-transparent hover:!text-red-700"
+              type="button"
+            >
+              {loading ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="mx-auto animate-spin"
+                >
+                  <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+                </svg>
+              ) : (
+                "-"
+              )}
+            </button>
+            <button
+              disabled={loading}
+              onClick={addColour}
+              className="btn w-14"
+              type="button"
+            >
+              +
+            </button>
           </div>
-
-          <button
-            disabled={loading}
-            onClick={() => removeColour(index)}
-            className="btn !border-red-700 !bg-red-700 !text-white hover:!bg-transparent hover:!text-red-700"
-            type="button"
-          >
-            {loading ? (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="mx-auto animate-spin"
-              >
-                <path d="M21 12a9 9 0 1 1-6.219-8.56" />
-              </svg>
-            ) : (
-              "-"
-            )}
-          </button>
-          <button
-            disabled={loading}
-            onClick={addColour}
-            className="btn"
-            type="button"
-          >
-            +
-          </button>
         </div>
       ))}
     </div>

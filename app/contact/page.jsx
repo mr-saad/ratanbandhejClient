@@ -27,10 +27,10 @@ const Contact = () => {
       <p className="mb-4">
         Phone:{" "}
         <a
-          href="tel:+917778975752"
+          href="tel:+919228405162"
           className="highlight border-b border-current font-semibold"
         >
-          +91 7778975752
+          +91 9228405162
         </a>
       </p>
       <p className="mb-4">
@@ -55,10 +55,10 @@ const Contact = () => {
         If you prefer to speak with us directly, you can contact us by phone at{" "}
         <a
           title="Phone"
-          href="tel:+917778975752"
+          href="tel:+919228405162"
           className="highlight border-b border-current font-semibold"
         >
-          +91 7778975752
+          +91 9228405162
         </a>
         . Our customer support team is available during business hours to assist
         you with your queries and provide any necessary guidance.
@@ -70,7 +70,7 @@ const Contact = () => {
       <div className="my-10 flex flex-wrap items-center gap-5">
         <a
           title="Whatsapp"
-          href="https://wa.me/917778975752?text=Hi%20There!"
+          href="https://wa.me/919228405162?text=Hi%20There!"
           target="_blank"
           rel="noreferrer"
         >

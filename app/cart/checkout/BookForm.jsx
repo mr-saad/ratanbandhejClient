@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import ColourSelector from "./ColourSelector"
 import useRatanContext from "@/lib/hooks/useRatanContext"
+import Image from "next/image"
 
 export default function BookForm() {
   const [mount, setMount] = useState(false)
@@ -68,17 +69,28 @@ export default function BookForm() {
           const prod = { _id, title, colours, price, slug, image }
           return (
             <div className={`cartItem-${index} grid gap-4`} key={_id}>
-              <div className="flex items-center justify-between">
-                <p className="highlight">{title}</p>
+              <div className="flex items-start gap-4">
+                <Image
+                  placeholder="blur"
+                  blurDataURL={image.metadata.lqip}
+                  alt={title}
+                  src={image.path}
+                  className="aspect-square rounded-md object-cover"
+                  width={80}
+                  height={80}
+                />
+                <div className="w-full">
+                  <p className="highlight line-clamp-2">{title}</p>
+                  <ColourSelector
+                    _id={_id}
+                    colours={colours || ""}
+                    price={price}
+                    setTotal={setTotal}
+                    cart={cart}
+                    prod={prod}
+                  />
+                </div>
               </div>
-              <ColourSelector
-                _id={_id}
-                colours={colours || ""}
-                price={price}
-                setTotal={setTotal}
-                cart={cart}
-                prod={prod}
-              />
             </div>
           )
         })}
@@ -97,7 +109,7 @@ export default function BookForm() {
           </label>
         </div>
         {!isExisting && (
-          <div className="relative">
+          <div className="relative mb-2">
             <textarea
               minLength={10}
               maxLength={60}
@@ -108,11 +120,11 @@ export default function BookForm() {
               required
             ></textarea>
             <label htmlFor="address" className="floating-label">
-              Address
+              Address<span className="text-xl text-red-600">*</span>
             </label>
           </div>
         )}
-        <div className="relative mt-2">
+        <div className="relative">
           <textarea
             name="note"
             id="note"
@@ -120,7 +132,7 @@ export default function BookForm() {
             className="input peer"
           ></textarea>
           <label htmlFor="note" className="floating-label">
-            Additional Note (Optional)
+            Additional Note
           </label>
         </div>
         <div className="flex items-center justify-between">
@@ -152,8 +164,8 @@ export default function BookForm() {
               Back
             </Link>
           </div>
-          <p className="font-semibold">
-            Total:
+          <p className="highlight font-semibold">
+            Total:{" "}
             {total.toLocaleString("en-IN", {
               style: "currency",
               currency: "INR",
