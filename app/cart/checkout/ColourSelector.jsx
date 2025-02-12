@@ -114,7 +114,10 @@ const ColourSelector = ({ _id, colours, price, setTotal, cart, prod }) => {
   return (
     <div className="grid gap-5">
       {colourData.map((item, index) => (
-        <div className="grid grid-flow-col grid-cols-4 gap-5" key={index}>
+        <div
+          className="grid grid-flow-col grid-cols-4 items-end gap-5"
+          key={index}
+        >
           <div className="relative">
             <label htmlFor={`colours-${index}-${_id}`}>Colour</label>
             <select

@@ -85,7 +85,7 @@ export default function BookForm() {
       </div>
 
       <div className="grid content-start gap-5">
-        <div className="relative flex gap-2">
+        <div className="relative mb-4 flex gap-2">
           <input
             name="existing"
             type="checkbox"
@@ -104,7 +104,7 @@ export default function BookForm() {
               name="address"
               id="address"
               placeholder=" "
-              className="input peer resize-none"
+              className="input peer"
               required
             ></textarea>
             <label htmlFor="address" className="floating-label">
@@ -117,7 +117,7 @@ export default function BookForm() {
             name="note"
             id="note"
             placeholder=" "
-            className="input peer resize-none"
+            className="input peer"
           ></textarea>
           <label htmlFor="note" className="floating-label">
             Additional Note (Optional)

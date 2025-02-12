@@ -12,22 +12,23 @@ export default function Loading() {
             .map((item, index) => (
               <div
                 key={index}
-                className="mb-4 h-2 animate-pulse rounded-md bg-[#111]/20 dark:bg-white/20"
+                className="mb-4 h-4 animate-pulse rounded-md bg-[#111]/20 dark:bg-white/20"
               ></div>
             ))}
-          <table className="w-full border-separate border-spacing-y-2">
+          <div className="mt-4 h-10 animate-pulse rounded-md bg-[#111]/20 dark:bg-white/20"></div>
+          <table className="w-full border-separate border-spacing-y-4">
             <tbody>
               {Array(4)
                 .fill(1)
                 .map((item, index) => (
                   <tr key={index}>
-                    <td className="h-2 animate-pulse rounded-md bg-[#111]/20 dark:bg-white/20"></td>
-                    <td className="h-2 animate-pulse rounded-md bg-[#111]/20 dark:bg-white/20"></td>
+                    <td className="h-4 animate-pulse rounded-md bg-[#111]/20 dark:bg-white/20"></td>
+                    <td className="w-4"></td>
+                    <td className="h-4 animate-pulse rounded-md bg-[#111]/20 dark:bg-white/20"></td>
                   </tr>
                 ))}
             </tbody>
           </table>
-          <div className="mt-4 h-10 animate-pulse rounded-md bg-[#111]/20 dark:bg-white/20"></div>
         </div>
       </div>
     </div>

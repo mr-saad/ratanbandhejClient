@@ -16,7 +16,13 @@ export default function ProductDetails({
       <h1 className="highlight mb-3 text-2xl font-semibold capitalize md:mt-0">
         {title}
       </h1>
+      <span>
+        <strong className="highlight text-xl">₹{price}</strong> + Shipping
+      </span>
       <p className="mt-2 whitespace-pre-wrap">{description}</p>
+
+      <CartBtn prod={prod} />
+      <hr className="mt-4 dark:border-white/20" />
       <table className="w-full border-separate border-spacing-y-4">
         <tbody>
           {specs.split(";").map((item) => (
@@ -40,13 +46,12 @@ export default function ProductDetails({
               </td>
             </tr>
           )}
-          <tr className="*:w-1/2">
+          {/* <tr className="*:w-1/2">
             <td className="highlight align-top font-bold">Price</td>
             <td>₹{price}</td>
-          </tr>
+          </tr> */}
         </tbody>
       </table>
-      <CartBtn prod={prod} />
     </div>
   )
 }

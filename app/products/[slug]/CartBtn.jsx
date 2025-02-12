@@ -28,7 +28,7 @@ export default function CartBtn({ prod }) {
       {mount ? (
         showCartBtn ? (
           <button
-            className="btn w-full"
+            className="btn mt-4 w-full"
             onClick={() => {
               addToCartBtn(prod)
             }}
@@ -45,16 +45,16 @@ export default function CartBtn({ prod }) {
                 strokeLinecap="round"
                 strokeLinejoin="round"
               >
-                <circle cx="12" cy="12" r="10" />
-                <path d="M8 12h8" />
-                <path d="M12 8v8" />
+                <circle cx="8" cy="21" r="1" />
+                <circle cx="19" cy="21" r="1" />
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
               </svg>
               Add to Cart
             </span>
           </button>
         ) : (
           <button
-            className="btn w-full !border-red-700 !bg-red-700 !text-white hover:!bg-transparent hover:!text-red-700"
+            className="btn my-4 w-full !border-red-700 !bg-red-700 !text-white hover:!bg-transparent hover:!text-red-700"
             onClick={() => removeFromCartBtn(prod)}
           >
             <span className="flex items-center justify-center gap-1">
@@ -69,8 +69,9 @@ export default function CartBtn({ prod }) {
                 strokeLinecap="round"
                 strokeLinejoin="round"
               >
-                <circle cx="12" cy="12" r="10" />
-                <path d="M8 12h8" />
+                <circle cx="8" cy="21" r="1" />
+                <circle cx="19" cy="21" r="1" />
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
               </svg>
               Remove from Cart
             </span>
