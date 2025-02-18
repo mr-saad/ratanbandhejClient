@@ -24,7 +24,7 @@ function Section({ title, data }) {
     <div className="my-20">
       <div className="mb-5 flex items-center justify-between gap-5">
         <h3 className="heading !mb-0 shrink-0">{title}</h3>
-        <hr className="w-full border-[#888]" />
+        <hr className="w-full border-black/20 dark:border-white/20" />
         <Link href={"/products?category=" + title} className="btn inline-block">
           Explore
         </Link>

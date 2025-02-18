@@ -18,7 +18,6 @@ export default function EditForm({ user, isEditable }) {
     const data = {
       _id: user._id,
       username: formData.get("username"),
-      email: formData.get("email"),
       address: formData.get("address"),
     }
     const res = await editFormAction(data)
@@ -42,20 +41,6 @@ export default function EditForm({ user, isEditable }) {
           />
           <label className="floating-label" htmlFor="username">
             Username
-          </label>
-        </div>
-        <div className="relative">
-          <input
-            type="email"
-            id="email"
-            name="email"
-            defaultValue={user.email}
-            placeholder=" "
-            className="input peer disabled:opacity-50"
-            disabled={!isEditable}
-          />
-          <label className="floating-label" htmlFor="email">
-            E-Mail
           </label>
         </div>
         <div className="relative">

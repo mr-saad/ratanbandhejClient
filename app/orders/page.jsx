@@ -6,7 +6,7 @@ import Image from "next/image"
 export default async function Orders() {
   const { _id } = await isAuthenticated()
 
-  const q = `*[_type=='product' && _id in *[_type=='order' && user._ref==$userId].product._ref]{
+  const q = `*[_type=='product' && _id in *[_type=='order' && user._ref==$userId].product._ref]| order(*[_type=="order" && user._ref==$userId && product._ref == ^._id][0]._createdAt desc){
         "_id":*[_type=="order" && user._ref==$userId && product._ref == ^._id][0]._id,
         title,price,
         "status":*[_type=="order" && user._ref==$userId && product._ref == ^._id][0].status,
@@ -36,7 +36,7 @@ export default async function Orders() {
                     objectFit: "cover",
                     objectPosition: "top",
                   }}
-                  className="aspect-square w-20 self-start rounded-md sm:w-auto"
+                  className="aspect-square w-20 self-start rounded-md sm:w-64"
                   src={order.image.path}
                   placeholder="blur"
                   blurDataURL={order.image.metadata.lqip}
@@ -45,23 +45,7 @@ export default async function Orders() {
                 <div className="flex flex-col">
                   <p className="highlight line-clamp-3">{order.title}</p>
                   <p>₹{order.price}</p>
-
-                  <p>
-                    {new Date(order._createdAt).getDate()}/
-                    {new Date(order._createdAt).getMonth() + 1}/
-                    {new Date(order._createdAt).getFullYear()}
-                    {" - "}
-                    {Math.abs(
-                      Math.floor(new Date(order._createdAt).getHours() - 12) ===
-                        0
-                        ? 12
-                        : Math.floor(
-                            new Date(order._createdAt).getHours() - 12,
-                          ),
-                    )}
-                    :{new Date(order._createdAt).getMinutes()}{" "}
-                    {new Date(order._createdAt).getHours() > 12 ? "PM" : "AM"}
-                  </p>
+                  <p>{new Date(order._createdAt).toLocaleString()}</p>
                   <p>
                     Status:{" "}
                     <span

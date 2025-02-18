@@ -102,16 +102,16 @@ export default function CreateAccountForm() {
             type="tel"
           ></textarea>
           <label className="floating-label" htmlFor="address">
-            Address (Pincode-City)
+            Address
           </label>
         </div>
       </div>
-      <p className="text-pretty">
+      <p className="my-4 text-pretty">
         By clicking continue, you agree to our{" "}
         <Link className="underline" href={"/terms-conditions"}>
-          Terms of Service
+          Terms & Conditions
         </Link>{" "}
-        &{" "}
+        and{" "}
         <Link className="underline" href={"/privacy-policy"}>
           Privacy Policy
         </Link>
@@ -119,7 +119,7 @@ export default function CreateAccountForm() {
       <button
         disabled={loading}
         type="submit"
-        className="btn my-2 block w-full"
+        className="btn mb-4 block w-full"
       >
         Continue
       </button>

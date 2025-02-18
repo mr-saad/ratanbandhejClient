@@ -6,7 +6,8 @@ const Footer = async () => {
     <footer className="mt-20 border-t border-white/10 bg-[#111] p-5 text-white/60 lg:px-20">
       <div className="my-5 grid items-center gap-4 md:grid-cols-3 md:gap-10">
         <p className="col-span-2">
-          Follow us on Social Media Platforms in Order to Stay up to date
+          Stay connected with us through our social media channels to receive
+          the latest updates and news.
         </p>
         <div className="flex gap-10">
           <a
