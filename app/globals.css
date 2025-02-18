@@ -1,5 +1,4 @@
-@tailwind base;
-@tailwind utilities;
+@import "tailwindcss";
 
 * {
   -webkit-tap-highlight-color: transparent;
@@ -25,7 +24,7 @@ html {
 }
 
 body {
-  @apply text-sm text-[#111]/70 transition-colors dark:bg-[#111] dark:text-white/60 md:text-base;
+  @apply text-sm text-[#111]/70 transition-colors md:text-base dark:bg-[#111] dark:text-white/60;
 }
 .Container {
   @apply mt-[71px] p-5 md:px-20;
@@ -43,7 +42,7 @@ body {
   @apply rounded-md border border-[#111] bg-transparent px-3 py-2 font-semibold text-[#111] transition-colors disabled:opacity-50 dark:border-white dark:text-white;
 }
 .input {
-  @apply w-full rounded-md border border-[#111]/10 bg-transparent p-2 text-[#111] outline-none transition-all focus-within:border-[#111] dark:border-white/10 dark:text-white dark:focus-within:border-white;
+  @apply w-full rounded-md border border-[#111]/10 bg-transparent p-2 text-[#111] transition-all outline-none focus-within:border-[#111] dark:border-white/10 dark:text-white dark:focus-within:border-white;
 }
 
 input[type="number"]::-webkit-inner-spin-button {
@@ -55,7 +54,7 @@ input[type="number"]::-webkit-outer-spin-button {
   opacity: 0 !important;
 }
 .floating-label {
-  @apply pointer-events-none absolute -top-4 left-0 -translate-y-1/2 transition-all will-change-contents peer-placeholder-shown:left-2 peer-placeholder-shown:top-1/2 peer-focus:-top-4 peer-focus:left-0;
+  @apply pointer-events-none absolute -top-4 left-0 -translate-y-1/2 transition-all will-change-contents peer-placeholder-shown:top-1/2 peer-placeholder-shown:left-2 peer-focus:-top-4 peer-focus:left-0;
 }
 
 .home .swiper {
