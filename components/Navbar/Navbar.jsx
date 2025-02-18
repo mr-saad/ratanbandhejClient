@@ -8,7 +8,7 @@ import CartLink from "./CartLink"
 export default function Navbar() {
   return (
     <nav
-      className={`nav fixed top-0 z-[12] grid w-full select-none grid-cols-[1fr_2fr_1fr] items-center justify-between border-b border-white/10 bg-[#111]/90 p-5 shadow-xl backdrop-blur-[2px] md:text-base lg:px-20`}
+      className={`nav fixed top-0 z-[12] grid w-full grid-cols-[1fr_2fr_1fr] items-center justify-between border-b border-white/10 bg-[#111]/90 p-5 shadow-xl backdrop-blur-[2px] select-none md:text-base lg:px-20`}
     >
       <MenuToggler />
       <Link
