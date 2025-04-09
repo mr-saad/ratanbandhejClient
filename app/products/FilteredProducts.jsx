@@ -3,7 +3,6 @@
 import Link from "next/link"
 import Product from "@/components/Product"
 import { useSearchParams } from "next/navigation"
-import { useEffect, useState } from "react"
 
 export default function FilteredProducts({ data }) {
   const search = useSearchParams()
@@ -14,21 +13,6 @@ export default function FilteredProducts({ data }) {
   const products = search.get("category") ? filtered : data
   const searchCat = search.get("category")
   const showFilter = search.get("filter")
-
-  const [screenWidth, setScreenWidth] = useState(0)
-
-  useEffect(() => {
-    setScreenWidth(innerWidth)
-    const controller = new AbortController()
-    window.addEventListener(
-      "resize",
-      () => {
-        setScreenWidth(window.innerWidth)
-      },
-      { signal: controller.signal },
-    )
-    ;() => controller.abort()
-  }, [])
 
   return (
     <div className="Container">
@@ -60,29 +44,29 @@ export default function FilteredProducts({ data }) {
         </svg>
         Filter
       </Link>
-      {(showFilter === "true" || screenWidth > 768) && (
-        <div className="mb-5 flex flex-wrap gap-2">
-          {categories.map((category) => {
-            return (
-              <Link
-                prefetch
-                href={
-                  search.get("category") !== category
-                    ? `/products?filter=true&category=${category.replace(/ /g, "+")}`
-                    : "/products?filter=true"
-                }
-                key={category}
-                className={`inline-block rounded-md border border-[#111] px-4 py-1 text-[#111] transition dark:border-white dark:text-white ${
-                  search.get("category") === category &&
-                  "bg-[#111] !text-white dark:bg-white dark:!text-[#111]"
-                }`}
-              >
-                {category}
-              </Link>
-            )
-          })}
-        </div>
-      )}
+      <div
+        className={`mb-5 ${showFilter === "true" ? "flex" : "hidden"} flex-wrap gap-2 md:flex`}
+      >
+        {categories.map((category) => {
+          return (
+            <Link
+              prefetch
+              href={
+                search.get("category") !== category
+                  ? `/products?filter=true&category=${category.replace(/ /g, "+")}`
+                  : "/products?filter=true"
+              }
+              key={category}
+              className={`inline-block rounded-md border border-[#111] px-4 py-1 text-[#111] transition dark:border-white dark:text-white ${
+                search.get("category") === category &&
+                "bg-[#111] !text-white dark:bg-white dark:!text-[#111]"
+              }`}
+            >
+              {category}
+            </Link>
+          )
+        })}
+      </div>
       <div className="grid gap-x-10 gap-y-5 sm:grid-cols-2 lg:grid-cols-3">
         {products.length ? (
           products.map((product, index) => {

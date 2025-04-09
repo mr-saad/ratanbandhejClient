@@ -45,7 +45,7 @@ export default async function Orders() {
                 <div className="flex flex-col">
                   <p className="highlight line-clamp-3">{order.title}</p>
                   <p>₹{order.price}</p>
-                  <p>{new Date(order._createdAt).toLocaleString()}</p>
+                  <p>{new Date(order._createdAt).toString()}</p>
                   <p>
                     Status:{" "}
                     <span
