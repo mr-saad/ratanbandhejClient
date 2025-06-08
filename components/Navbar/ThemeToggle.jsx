@@ -24,15 +24,15 @@ export default function ThemeToggle() {
       }}
       tabIndex={0}
       onClick={() => toggleTheme()}
-      className="pb-2 opacity-60 transition hover:opacity-100 md:inline md:pb-0 md:pr-2"
+      className="pb-2 opacity-60 transition hover:opacity-100 md:inline md:pr-2 md:pb-0"
     >
       {mounted ? (
         resolvedTheme === "dark" ? (
           <svg
             className="cursor-pointer align-middle md:inline"
             xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
+            width="20"
+            height="20"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -54,8 +54,8 @@ export default function ThemeToggle() {
           <svg
             className="cursor-pointer align-middle md:inline"
             xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
+            width="20"
+            height="20"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
