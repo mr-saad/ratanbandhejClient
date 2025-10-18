@@ -1,3 +1,3 @@
 User-Agent: *
 Allow: /
-Sitemap: https://ratanbandhej.shop/sitemap.xml
+Sitemap: https://ratanbandhej.vercel.app/sitemap.xml

@@ -12,7 +12,7 @@ import {
 
 const baseUrl =
   // process.env.NODE_ENV === "production"
-  /* ? */ "https://ratanbandhej.shop"
+  /* ? */ "https://ratanbandhej.vercel.app"
 // : "localhost:3000"
 
 export default function Template({ username = "", token = "" }) {
@@ -51,7 +51,7 @@ export default function Template({ username = "", token = "" }) {
             <Heading>
               <Link
                 className="text-black dark:text-white"
-                href="https://ratanbandhej.shop"
+                href="https://ratanbandhej.vercel.app"
               >
                 Ratan Bandhej
               </Link>

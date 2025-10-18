@@ -40,7 +40,7 @@ export default function Product({ slug, image, title, index }) {
             className="aspect-square w-full object-cover object-top"
           />
         )}
-        <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-[#111] to-transparent p-4">
+        <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-[#111]/70 to-transparent p-4">
           <h2 className="text-base text-white capitalize">{title}</h2>
         </div>
       </Link>

@@ -35,13 +35,13 @@ body {
   @apply text-[#111] dark:text-white;
 }
 .heading {
-  @apply mb-5 text-3xl font-bold text-[#111] dark:text-white;
+  @apply mb-5 text-3xl font-bold text-[#111] capitalize dark:text-white;
 }
 .btn {
-  @apply cursor-pointer rounded-md border border-[#111] bg-[#111] px-3 py-2 font-semibold text-white transition focus-within:bg-transparent focus-within:text-[#111] hover:bg-transparent hover:text-[#111] active:scale-[.98] disabled:opacity-50 dark:border-white dark:bg-white dark:text-[#111] dark:focus-within:bg-transparent dark:focus-within:text-white dark:hover:bg-transparent dark:hover:text-white;
+  @apply cursor-pointer rounded-md border border-[#111] bg-[#111] px-3 py-2 font-semibold text-white capitalize transition focus-within:bg-transparent focus-within:text-[#111] hover:bg-transparent hover:text-[#111] active:scale-[.98] disabled:opacity-50 dark:border-white dark:bg-white dark:text-[#111] dark:focus-within:bg-transparent dark:focus-within:text-white dark:hover:bg-transparent dark:hover:text-white;
 }
 .btn-secondary {
-  @apply cursor-pointer rounded-md border border-[#111] bg-transparent px-3 py-2 font-semibold text-[#111] transition-colors disabled:opacity-50 dark:border-white dark:text-white;
+  @apply cursor-pointer rounded-md border border-[#111] bg-transparent px-3 py-2 font-semibold text-[#111] capitalize transition-colors disabled:opacity-50 dark:border-white dark:text-white;
 }
 .input {
   @apply w-full rounded-md border border-[#111]/10 bg-transparent p-2 text-[#111] transition-all outline-none focus-within:border-[#111] dark:border-white/10 dark:text-white dark:focus-within:border-white;

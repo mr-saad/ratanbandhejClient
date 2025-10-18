@@ -19,14 +19,11 @@ export default async function Orders() {
   return (
     <div className="Container">
       <h1 className="heading">My Orders</h1>
-      <div className="grid gap-10 divide-y dark:divide-white/10">
+      <div className="grid gap-5 lg:grid-cols-2 dark:divide-white/10">
         {orders.length ? (
-          orders.map((order) => {
+          orders.map((order, index, arr) => {
             return (
-              <div
-                key={order._id}
-                className="flex gap-4 pt-10 first-of-type:pt-0"
-              >
+              <div key={order._id} className={`flex gap-4`}>
                 <Image
                   alt={order.title}
                   width={200}
@@ -43,11 +40,16 @@ export default async function Orders() {
                 />
 
                 <div className="flex flex-col">
-                  <p className="highlight line-clamp-3">{order.title}</p>
+                  <p className="highlight line-clamp-3 capitalize">
+                    {order.title}
+                  </p>
                   <p>₹{order.price}</p>
                   <p>
-                    {new Date(order._createdAt).toLocaleDateString()}{" "}
-                    {new Date(order._createdAt).toLocaleTimeString()}
+                    {new Intl.DateTimeFormat("en-US", {
+                      timeStyle: "short",
+                      dateStyle: "short",
+                      timeZone: "Asia/Kolkata",
+                    }).format(new Date(order._createdAt))}
                   </p>
                   <p>
                     Status:{" "}

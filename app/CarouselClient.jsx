@@ -20,7 +20,7 @@ export default function CarouselClient({ data }) {
       {data.map((prod) => (
         <SwiperSlide
           key={prod._id}
-          className="!grid select-none items-center gap-4 md:grid-cols-2"
+          className="!grid items-center gap-4 select-none md:grid-cols-2"
         >
           <motion.div
             initial={{
@@ -37,7 +37,9 @@ export default function CarouselClient({ data }) {
               ease: "easeOut",
             }}
           >
-            <h2 className="highlight text-2xl font-semibold">{prod.title}</h2>
+            <h2 className="highlight text-2xl font-semibold capitalize">
+              {prod.title}
+            </h2>
             <p className="mb-2 line-clamp-2">{prod.description}</p>
             <Link
               prefetch

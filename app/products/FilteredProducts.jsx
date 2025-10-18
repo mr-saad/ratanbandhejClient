@@ -57,7 +57,7 @@ export default function FilteredProducts({ data }) {
                   : "/products?filter=true"
               }
               key={category}
-              className={`inline-block rounded-md border border-[#111] px-4 py-1 text-[#111] transition dark:border-white dark:text-white ${
+              className={`inline-block rounded-md border border-[#111] px-4 py-1 text-[#111] capitalize transition dark:border-white dark:text-white ${
                 search.get("category") === category &&
                 "bg-[#111] !text-white dark:bg-white dark:!text-[#111]"
               }`}

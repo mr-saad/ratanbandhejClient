@@ -1,7 +1,7 @@
 import type { NextConfig } from "next"
 
 const withAnalyzer = require("@next/bundle-analyzer")({
-  enabled: process.env.ANALYZE === "true",
+  enabled: process.env.ANALYZE === "false",
 }) as (config: NextConfig) => NextConfig
 
 const nextConfig = withAnalyzer({

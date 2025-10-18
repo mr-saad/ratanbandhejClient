@@ -62,9 +62,9 @@ export default function EditForm({ user, isEditable }) {
         </div>
       </div>
       {message !== "" && <p className="mt-2">message</p>}
-      <div className="mt-2 flex flex-col gap-4">
+      <div className="mt-2 flex flex-wrap gap-2">
         {isEditable ? (
-          <div className="flex gap-4">
+          <div className="flex gap-2">
             <button
               disabled={loading}
               className="btn flex-1 items-center"
@@ -98,11 +98,7 @@ export default function EditForm({ user, isEditable }) {
             </Link>
           </div>
         ) : (
-          <Link
-            prefetch
-            href={"/account?edit=true"}
-            className="btn flex items-center justify-center gap-1"
-          >
+          <Link prefetch href={"/account?edit=true"} className="btn flex gap-1">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -114,17 +110,13 @@ export default function EditForm({ user, isEditable }) {
               strokeLinecap="round"
               strokeLinejoin="round"
             >
-              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
-              <circle cx="12" cy="7" r="4" />
+              <path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" />
+              <path d="m15 5 4 4" />
             </svg>
             Edit Profile
           </Link>
         )}
-        <Link
-          prefetch
-          href={"/orders"}
-          className="btn flex items-center justify-center gap-1"
-        >
+        <Link prefetch href={"/orders"} className="btn flex gap-1">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

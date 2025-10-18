@@ -15,9 +15,9 @@ export default function Terms() {
 
       <p>Welcome to Ratan Bandhej!</p>
 
-      <p className="mb-5 mt-2">
+      <p className="mt-2 mb-5">
         These terms and conditions outline the rules and regulations for the use
-        of Ratan Bandhej&apos;s Website, located at ratanbandhej.shop.
+        of Ratan Bandhej&apos;s Website, located at ratanbandhej.vercel.app.
       </p>
 
       <p className="mb-5">

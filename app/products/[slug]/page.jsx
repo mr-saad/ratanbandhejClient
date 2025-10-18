@@ -22,7 +22,7 @@ export async function generateMetadata(props) {
       "ratan",
       "bandhej",
       "ratanbandhej.site",
-      "ratanbandhej.shop",
+      "ratanbandhej.vercel.app",
       "handicraft bandhani",
       "handmade bandhani",
     )
