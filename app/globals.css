@@ -38,10 +38,12 @@ body {
   @apply mb-5 text-3xl font-bold text-[#111] capitalize dark:text-white;
 }
 .btn {
-  @apply cursor-pointer rounded-md border border-[#111] bg-[#111] px-3 py-2 font-semibold text-white capitalize transition focus-within:bg-transparent focus-within:text-[#111] hover:bg-transparent hover:text-[#111] active:scale-[.98] disabled:opacity-50 dark:border-white dark:bg-white dark:text-[#111] dark:focus-within:bg-transparent dark:focus-within:text-white dark:hover:bg-transparent dark:hover:text-white;
+  @apply cursor-pointer rounded-[200px] border border-[#111] bg-[#111] px-3 py-2 font-semibold text-white capitalize transition focus-within:bg-transparent focus-within:text-[#111] hover:bg-transparent hover:text-[#111] active:scale-[.98] disabled:opacity-50 dark:border-white dark:bg-white dark:text-[#111] dark:focus-within:bg-transparent dark:focus-within:text-white dark:hover:bg-transparent dark:hover:text-white;
+  corner-shape: squircle;
 }
 .btn-secondary {
-  @apply cursor-pointer rounded-md border border-[#111] bg-transparent px-3 py-2 font-semibold text-[#111] capitalize transition-colors disabled:opacity-50 dark:border-white dark:text-white;
+  @apply cursor-pointer rounded-[200px] border border-[#111] bg-transparent px-3 py-2 font-semibold text-[#111] capitalize transition-colors disabled:opacity-50 dark:border-white dark:text-white;
+  corner-shape: squircle;
 }
 .input {
   @apply w-full rounded-md border border-[#111]/10 bg-transparent p-2 text-[#111] transition-all outline-none focus-within:border-[#111] dark:border-white/10 dark:text-white dark:focus-within:border-white;
@@ -64,7 +66,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .swiper-pagination {
-  @apply bg-[#111]/20 [--swiper-pagination-color:#111] dark:bg-white/10 dark:[--swiper-pagination-color:#fff];
+  @apply [--swiper-pagination-color:#111] dark:[--swiper-pagination-color:#fff];
   width: fit-content !important;
   border-radius: 1000px;
   @apply [--swiper-pagination-bottom:auto] [--swiper-pagination-top:0px] md:[--swiper-pagination-bottom:0px] md:[--swiper-pagination-top:unset];
