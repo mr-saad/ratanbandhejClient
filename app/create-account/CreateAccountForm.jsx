@@ -27,7 +27,7 @@ export default function CreateAccountForm() {
       const res = await createAcc(parsedData.data)
       if (res.ok) {
         alert(
-          "We've sent an Verification E-Mail to " +
+          "We've sent a Verification E-Mail to " +
             data.email +
             ". Please check your Inbox & Verify your Account to continue.",
         )

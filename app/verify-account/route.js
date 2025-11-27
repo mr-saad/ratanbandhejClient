@@ -6,6 +6,7 @@ import { redirect } from "next/navigation"
 export async function GET(req) {
   try {
     const token = req.nextUrl.searchParams.get("token") || ""
+    console.log(token)
     if (token) {
       const encoder = new TextEncoder()
       const ver = await jwtVerify(token, encoder.encode(process.env.tokenKey))
