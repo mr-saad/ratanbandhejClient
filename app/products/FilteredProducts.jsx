@@ -59,7 +59,7 @@ export default function FilteredProducts({ data }) {
               key={category}
               className={`inline-block rounded-[200px] border border-[#111] px-4 py-1 text-[#111] capitalize transition [corner-shape:squircle] dark:border-white dark:text-white ${
                 search.get("category") === category &&
-                "bg-[#111] !text-white dark:bg-white dark:!text-[#111]"
+                "bg-[#111] text-white! dark:bg-white dark:text-[#111]!"
               }`}
             >
               {category}
@@ -67,7 +67,7 @@ export default function FilteredProducts({ data }) {
           )
         })}
       </div>
-      <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="gap-5 sm:columns-2 lg:columns-3 2xl:columns-4">
         {products.length ? (
           products.map((product, index) => {
             return <Product index={index} key={product.slug} {...product} />

@@ -6,6 +6,7 @@ const withAnalyzer = require("@next/bundle-analyzer")({
 
 const nextConfig = withAnalyzer({
   images: {
+    qualities:[60,75],
     minimumCacheTTL: 31556926,
     remotePatterns: [
       {
