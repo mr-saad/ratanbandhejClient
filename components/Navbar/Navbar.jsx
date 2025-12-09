@@ -4,6 +4,7 @@ import ThemeToggle from "./ThemeToggle"
 import MenuToggler from "./MenuToggler"
 import Links from "./Links"
 import CartLink from "./CartLink"
+import AccountLink from "./AccountLink"
 
 export default function Navbar() {
   return (
@@ -26,16 +27,22 @@ export default function Navbar() {
       <ul
         className={`col-span-3 row-start-2 mt-5 hidden grid-flow-row border-t border-white/10 pt-5 text-white capitalize md:col-span-1 md:row-start-auto md:mt-0 md:grid md:grid-flow-col md:place-content-center md:border-none md:pt-0`}
       >
+        <Links />
+        <div className="md:hidden">
+          <AccountLink />
+        </div>
         <div className="sm:hidden">
           <ThemeToggle />
         </div>
-        <Links />
       </ul>
-      <div className="flex gap-2 justify-self-end">
+      <div className="flex items-center gap-4 justify-self-end">
         <div className="hidden text-white md:block">
           <ThemeToggle />
         </div>
         <CartLink />
+        <div className="hidden md:block">
+          <AccountLink />
+        </div>
       </div>
     </nav>
   )

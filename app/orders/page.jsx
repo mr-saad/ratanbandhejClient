@@ -54,7 +54,7 @@ export default async function Orders() {
                   <p>
                     Status:{" "}
                     <span
-                      className={`${order.status === "Cancelled" && "!text-red-600"} highlight font-semibold`}
+                      className={`${order.status === "Cancelled" && "text-red-600!"} highlight font-semibold`}
                     >
                       {order.status}
                     </span>

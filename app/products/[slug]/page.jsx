@@ -83,7 +83,7 @@ export default async function Slug(props) {
       {similars.length ? (
         <>
           <h2 className="heading mt-20">You Might Also Like</h2>
-          <div className="grid gap-5 md:grid-cols-2">
+          <div className="gap-5 md:columns-2">
             {similars.map((prod) => (
               <Product {...prod} key={prod._id} />
             ))}

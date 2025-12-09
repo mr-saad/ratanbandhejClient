@@ -4,7 +4,7 @@ import { NextResponse } from "next/server"
 export default async function middleware(req) {
   const auth = await isAuthenticated()
   switch (req.nextUrl.pathname) {
-    case "/account":
+    case "/profile":
       if (!auth.status)
         return NextResponse.redirect(new URL("/sign-in", req.url))
       break
@@ -21,5 +21,5 @@ export default async function middleware(req) {
 }
 
 export const config = {
-  matcher: ["/account", "/sign-in", "/cart/checkout"],
+  matcher: ["/profile", "/sign-in", "/cart/checkout"],
 }

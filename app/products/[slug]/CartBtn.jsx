@@ -54,7 +54,7 @@ export default function CartBtn({ prod }) {
           </button>
         ) : (
           <button
-            className="btn mt-4 w-full !border-red-700 !bg-red-700 !text-white hover:!bg-transparent hover:!text-red-700"
+            className="btn mt-4 w-full border-red-700! bg-red-700! text-white! hover:bg-transparent! hover:text-red-700!"
             onClick={() => removeFromCartBtn(prod)}
           >
             <span className="flex items-center justify-center gap-1">

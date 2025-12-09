@@ -23,13 +23,13 @@ function Section({ title, data }) {
   return (
     <div className="my-20">
       <div className="mb-5 flex items-center justify-between gap-5">
-        <h3 className="heading !mb-0 shrink-0">{title}</h3>
+        <h3 className="heading mb-0! shrink-0">{title}</h3>
         <hr className="w-full border-black/20 dark:border-white/20" />
         <Link href={"/products?category=" + title} className="btn inline-block">
           Explore
         </Link>
       </div>
-      <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-3 md:gap-10">
+      <div className="gap-5 sm:columns-2 md:columns-3">
         {data.map((props) => (
           <Product key={props.slug} {...props} />
         ))}

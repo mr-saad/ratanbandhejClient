@@ -127,7 +127,7 @@ const ColourSelector = ({ _id, colours, price, setTotal, prod }) => {
                   <option
                     key={clrItem}
                     value={clr}
-                    className="capitalize text-black"
+                    className="text-black capitalize"
                   >
                     {clr}
                   </option>
@@ -157,7 +157,7 @@ const ColourSelector = ({ _id, colours, price, setTotal, prod }) => {
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className="absolute bottom-[16px] right-0"
+                      className="absolute right-0 bottom-4"
                     >
                       <path d="m18 15-6-6-6 6" />
                     </svg>
@@ -173,7 +173,7 @@ const ColourSelector = ({ _id, colours, price, setTotal, prod }) => {
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className="absolute bottom-0 right-0"
+                      className="absolute right-0 bottom-0"
                     >
                       <path d="m6 9 6 6 6-6" />
                     </svg>
@@ -187,7 +187,7 @@ const ColourSelector = ({ _id, colours, price, setTotal, prod }) => {
             <button
               disabled={loading}
               onClick={() => removeColour(index)}
-              className="btn w-14 !border-red-700 !bg-red-700 !text-white hover:!bg-transparent hover:!text-red-700"
+              className="btn w-14 border-red-700! bg-red-700! text-white! hover:bg-transparent! hover:text-red-700!"
               type="button"
             >
               {loading ? (

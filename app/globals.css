@@ -13,6 +13,9 @@
 .dark .headersvg {
   fill: #fff;
 }
+.dark .swiper-pagination-bullet {
+  --swiper-pagination-bullet-inactive-color: rgba(255, 255, 255, 0.5);
+}
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -41,7 +44,7 @@ body {
   @apply cursor-pointer rounded-md border border-[#111] bg-[#111] px-3 py-2 font-semibold text-white capitalize transition [corner-shape:squircle] focus-within:bg-transparent focus-within:text-[#111] hover:bg-transparent hover:text-[#111] active:scale-[.98] disabled:opacity-50 supports-[corner-shape:squircle]:rounded-[200px] dark:border-white dark:bg-white dark:text-[#111] dark:focus-within:bg-transparent dark:focus-within:text-white dark:hover:bg-transparent dark:hover:text-white;
 }
 .btn-secondary {
-  @apply cursor-pointer rounded-md border border-[#111] bg-transparent px-3 py-2 font-semibold text-[#111] capitalize transition-colors disabled:opacity-50 supports-[corner-shape:squircle]:[corner-shape:squircle] dark:border-white dark:text-white;
+  @apply cursor-pointer rounded-md border border-[#111] bg-transparent px-3 py-2 font-semibold text-[#111] capitalize transition active:scale-[.98] disabled:opacity-50 supports-[corner-shape:squircle]:rounded-[200px] supports-[corner-shape:squircle]:[corner-shape:squircle] dark:border-white dark:text-white;
 }
 .input {
   @apply w-full rounded-md border border-[#111]/10 bg-transparent p-2 text-[#111] transition-all outline-none focus-within:border-[#111] dark:border-white/10 dark:text-white dark:focus-within:border-white;
@@ -60,7 +63,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .home .swiper {
-  @apply !pt-10 md:!pt-0;
+  @apply pt-10! md:pt-0!;
 }
 
 .swiper-pagination {

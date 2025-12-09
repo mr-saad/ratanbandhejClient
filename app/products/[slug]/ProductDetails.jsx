@@ -46,10 +46,6 @@ export default function ProductDetails({
               </td>
             </tr>
           )}
-          {/* <tr className="*:w-1/2">
-            <td className="highlight align-top font-bold">Price</td>
-            <td>₹{price}</td>
-          </tr> */}
         </tbody>
       </table>
     </div>

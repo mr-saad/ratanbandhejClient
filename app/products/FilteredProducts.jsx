@@ -23,7 +23,7 @@ export default function FilteredProducts({ data }) {
             ? `/products?filter=true${searchCat ? "&category=" + searchCat.replace(/ /g, "+") : ""}`
             : `/products${searchCat ? "?category=" + searchCat.replace(/ /g, "+") : ""}`
         }
-        className={`mb-5 inline-block rounded-[200px] border border-current bg-transparent px-4 py-2 font-bold text-[#111] [corner-shape:squircle] md:hidden dark:text-white ${searchCat ? "!bg-[#111] !text-white dark:!bg-white dark:!text-[#111]" : ""}`}
+        className={`mb-5 inline-block rounded-[200px] border border-current bg-transparent px-4 py-2 font-bold text-[#111] [corner-shape:squircle] md:hidden dark:text-white ${searchCat ? "bg-[#111]! text-white! dark:bg-white! dark:text-[#111]!" : ""}`}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

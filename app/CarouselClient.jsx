@@ -20,7 +20,7 @@ export default function CarouselClient({ data }) {
       {data.map((prod) => (
         <SwiperSlide
           key={prod._id}
-          className="!grid items-center gap-4 select-none md:grid-cols-2"
+          className="grid! items-center gap-4 select-none md:grid-cols-2"
         >
           <motion.div
             initial={{

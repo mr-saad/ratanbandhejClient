@@ -20,7 +20,7 @@ export default async function LogIn() {
   else
     return (
       <div className="Container">
-        <h1 className="heading break-words">
+        <h1 className="heading wrap-break-word">
           We&apos;ve sent an Verification E-Mail to{" "}
           <span className="break-all">{auth.email}</span> <br /> Check your
           Inbox & Verify Your Account to Continue.
