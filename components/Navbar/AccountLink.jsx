@@ -12,7 +12,7 @@ export default function AccountLink() {
   const pathname = usePathname()
 
   return auth.status ? (
-    <div className="relative py-2 text-[#888] md:py-0">
+    <div className="relative py-2 text-white md:py-0">
       <button
         onClick={() => setDropdown((prev) => !prev)}
         className="btn-secondary border-white! text-white! normal-case!"
@@ -20,7 +20,7 @@ export default function AccountLink() {
         {auth.username ? auth.username : "Guest User"}
       </button>
       {dropdown && (
-        <div className="md:0 top-12 right-0 mt-2 grid min-w-max rounded-md border border-white/10 bg-[#111] shadow-md md:absolute">
+        <div className="md:0 top-12 right-0 mt-2 grid min-w-max rounded-md border border-white/10 bg-fuchsia-800 shadow-md md:absolute">
           <Link
             onClick={() => setDropdown(false)}
             prefetch
@@ -77,7 +77,7 @@ export default function AccountLink() {
   ) : (
     <Link
       prefetch
-      className={`block py-2 transition hover:opacity-100 md:inline md:px-2 md:py-0 ${
+      className={`block py-2 text-white transition hover:opacity-100 md:inline md:px-2 md:py-0 ${
         pathname.includes("/create-account") ? "opacity-100" : "opacity-60"
       }`}
       href={"/create-account"}

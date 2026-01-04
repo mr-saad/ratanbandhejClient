@@ -7,7 +7,7 @@ export default function Product({ slug, image, title, index }) {
   return (
     <motion.div
       layout
-      className="relative mb-5 overflow-hidden rounded-md"
+      className="relative overflow-hidden rounded-md"
       transition={{
         ease: "linear",
         duration: 0.2,
@@ -38,7 +38,7 @@ export default function Product({ slug, image, title, index }) {
             src={image.path}
             width={400}
             height={400}
-            className="h-auto w-full object-cover object-top"
+            className="h-full w-full object-cover object-top"
           />
         )}
         <div className="absolute inset-0 flex flex-col justify-end bg-linear-to-t from-[#111]/80 to-transparent p-4">

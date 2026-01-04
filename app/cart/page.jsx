@@ -13,7 +13,7 @@ export default function CartPage() {
         <hr className="w-full border-black/20 dark:border-white/20" />
         <CheckoutBtn />
       </div>
-      <div className="grid grid-cols-1 gap-10 gap-y-5 md:grid-cols-3">
+      <div className="3xl:grid-cols-5 grid gap-5 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4">
         <Cart />
       </div>
     </div>

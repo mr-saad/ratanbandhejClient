@@ -9,8 +9,8 @@ export const viewport = {
   width: "device-width",
   initialScale: 1,
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#111" },
-    { media: "(prefers-color-scheme: dark)", color: "#111" },
+    { media: "(prefers-color-scheme: light)", color: "#a81344" },
+    { media: "(prefers-color-scheme: dark)", color: "#a81344" },
   ],
 }
 
@@ -92,7 +92,7 @@ export default function RootLayout({ children }) {
       <body>
         <Provider>
           <Navbar />
-          <main className="min-h-screen accent-[#111] dark:accent-white">
+          <main className="min-h-screen accent-fuchsia-800 dark:accent-white">
             {children}
           </main>
         </Provider>

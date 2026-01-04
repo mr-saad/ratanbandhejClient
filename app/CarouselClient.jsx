@@ -65,7 +65,7 @@ export default function CarouselClient({ data }) {
             >
               <Image
                 quality={60}
-                className="aspect-square max-w-full rounded-md object-cover object-top"
+                className="aspect-square w-full rounded-md object-cover object-top"
                 src={prod.image.path}
                 sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 33vw"
                 alt={prod.title}

@@ -23,7 +23,7 @@ export default function FilteredProducts({ data }) {
             ? `/products?filter=true${searchCat ? "&category=" + searchCat.replace(/ /g, "+") : ""}`
             : `/products${searchCat ? "?category=" + searchCat.replace(/ /g, "+") : ""}`
         }
-        className={`mb-5 inline-block rounded-[200px] border border-current bg-transparent px-4 py-2 font-bold text-[#111] [corner-shape:squircle] md:hidden dark:text-white ${searchCat ? "bg-[#111]! text-white! dark:bg-white! dark:text-[#111]!" : ""}`}
+        className={`mb-5 inline-block rounded-[200px] border border-current bg-transparent px-4 py-2 font-bold text-fuchsia-800 [corner-shape:squircle] md:hidden dark:text-white ${searchCat ? "bg-fuchsia-800! text-white! dark:bg-white! dark:text-fuchsia-800!" : ""}`}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -57,9 +57,9 @@ export default function FilteredProducts({ data }) {
                   : "/products?filter=true"
               }
               key={category}
-              className={`inline-block rounded-[200px] border border-[#111] px-4 py-1 text-[#111] capitalize transition [corner-shape:squircle] dark:border-white dark:text-white ${
+              className={`inline-block rounded-[200px] border border-fuchsia-800 px-4 py-1 text-fuchsia-800 capitalize transition [corner-shape:squircle] dark:border-white dark:text-white ${
                 search.get("category") === category &&
-                "bg-[#111] text-white! dark:bg-white dark:text-[#111]!"
+                "bg-fuchsia-800 text-white! dark:bg-white dark:text-fuchsia-800!"
               }`}
             >
               {category}
@@ -67,7 +67,7 @@ export default function FilteredProducts({ data }) {
           )
         })}
       </div>
-      <div className="gap-5 sm:columns-2 lg:columns-3 2xl:columns-4">
+      <div className="3xl:grid-cols-5 grid gap-5 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4">
         {products.length ? (
           products.map((product, index) => {
             return <Product index={index} key={product.slug} {...product} />

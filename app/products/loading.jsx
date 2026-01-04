@@ -4,15 +4,15 @@ export default function Loading() {
     <div className="Container">
       <ScrollToTop />
 
-      <div className="mb-5 h-11 max-w-[210px] animate-pulse rounded-md bg-[#111]/20 dark:bg-white/20"></div>
+      <div className="mb-5 h-11 max-w-[210px] animate-pulse rounded-md bg-fuchsia-800/20 dark:bg-white/20"></div>
 
-      <div className="grid gap-x-10 gap-y-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="3xl:grid-cols-5 grid gap-5 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4">
         {Array(6)
           .fill(1)
           .map((item, index) => (
             <div
               key={index}
-              className="aspect-square max-w-[400px] animate-pulse rounded-md bg-[#111]/20 dark:bg-white/20"
+              className="aspect-square animate-pulse rounded-md bg-fuchsia-800/20 dark:bg-white/20"
             ></div>
           ))}
       </div>

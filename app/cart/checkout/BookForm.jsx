@@ -81,14 +81,16 @@ export default function BookForm() {
                 />
                 <div className="w-full">
                   <p className="highlight line-clamp-2">{title}</p>
-                  <ColourSelector
-                    _id={_id}
-                    colours={colours || ""}
-                    price={price}
-                    setTotal={setTotal}
-                    cart={cart}
-                    prod={prod}
-                  />
+                  {colours && (
+                    <ColourSelector
+                      _id={_id}
+                      colours={colours || ""}
+                      price={price}
+                      setTotal={setTotal}
+                      cart={cart}
+                      prod={prod}
+                    />
+                  )}
                 </div>
               </div>
             </div>

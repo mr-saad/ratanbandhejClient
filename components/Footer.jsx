@@ -3,7 +3,7 @@ import Catalogue from "./Catalogue"
 
 const Footer = async () => {
   return (
-    <footer className="mt-20 border-t border-white/10 bg-[#111] p-5 text-white/60 lg:px-20">
+    <footer className="mt-20 border-t border-white/10 bg-fuchsia-800 p-5 text-white/60 lg:px-20">
       <div className="my-5 grid items-center gap-4 md:grid-cols-3 md:gap-10">
         <p className="col-span-2">
           Stay connected with us through our social media channels to receive
