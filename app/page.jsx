@@ -11,7 +11,7 @@ export default async function Home() {
 
   return (
     <>
-      <header className="relative flex min-h-[95dvh] w-full items-center bg-red-800 before:absolute before:z-2 before:h-full before:w-full before:bg-linear-to-l before:from-transparent before:to-[#111]/90">
+      <header className="relative flex min-h-[95vh] w-full items-center bg-red-800 before:absolute before:z-2 before:h-full before:w-full before:bg-linear-to-l before:from-transparent before:to-[#111]/90">
         <HeaderImage />
         <div className="z-10 px-5 text-white md:px-20">
           <h1
