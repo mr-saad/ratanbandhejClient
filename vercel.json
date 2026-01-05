@@ -1,6 +1,5 @@
 {
   "trailingSlash": false,
-  "installCommand": "bun install",
-  "buildCommand": "bun run build",
-  "bunVersion": "1.x"
+  "installCommand": "pnpm install",
+  "buildCommand": "pnpm build"
 }
