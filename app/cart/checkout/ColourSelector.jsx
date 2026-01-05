@@ -117,7 +117,7 @@ const ColourSelector = ({ _id, colours, price, setTotal, prod }) => {
           <div className="flex gap-4">
             <select
               id={`colours-${index}-${_id}`}
-              className="input clr min-h-[29px] capitalize"
+              className="input clr min-h-7.25 capitalize"
               value={item.colour}
               onChange={(e) => handleSelectChange(index, e.target.value)}
             >
