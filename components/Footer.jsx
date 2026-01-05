@@ -9,7 +9,7 @@ const catalogue = [
 
 const Footer = async () => {
   return (
-    <footer className="mt-20 border-t border-white/10 bg-linear-45 from-red-800 to-red-700 p-5 text-white/60 lg:px-20">
+    <footer className="mt-20 border-t border-white/10 bg-linear-to-t from-red-800 to-red-700 p-5 text-white/60 lg:px-20">
       <div className="my-5 grid items-center gap-4 md:grid-cols-3 md:gap-10">
         <p className="col-span-2">
           Stay connected with us through our social media channels to receive

@@ -23,7 +23,7 @@ export default function FilteredProducts({ data }) {
             ? `/products?filter=true${searchCat ? "&category=" + searchCat.replace(/ /g, "+") : ""}`
             : `/products${searchCat ? "?category=" + searchCat.replace(/ /g, "+") : ""}`
         }
-        className={`mb-2 inline-block rounded-[200px] border border-current bg-transparent px-4 py-2 font-bold text-red-800 [corner-shape:squircle] md:hidden dark:text-white ${searchCat ? "bg-linear-45 from-red-800 to-red-600 text-white!" : ""}`}
+        className={`mb-2 inline-block rounded-[200px] border border-current bg-transparent px-4 py-2 font-bold text-red-800 [corner-shape:squircle] md:hidden dark:text-white ${searchCat ? "bg-linear-to-t from-red-800 to-red-600 text-white!" : ""}`}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -59,7 +59,7 @@ export default function FilteredProducts({ data }) {
               key={category}
               className={`btn-secondary ${
                 search.get("category") === category &&
-                "bg-linear-45 text-white!"
+                "bg-linear-to-t text-white!"
               }`}
             >
               {category}
