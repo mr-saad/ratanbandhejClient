@@ -51,7 +51,7 @@ export default function Links() {
       <li className="md:inline">
         <Link
           prefetch={true}
-          className={`block pb-2 transition hover:opacity-100 md:inline md:px-2 md:py-0 ${
+          className={`block pb-2 transition hover:opacity-100 focus-visible:opacity-100 md:inline md:px-2 md:py-0 ${
             pathname === "/" ? "opacity-100" : "opacity-60"
           }`}
           href={"/"}
@@ -64,7 +64,7 @@ export default function Links() {
           <li className="md:inline" key={all.url}>
             <Link
               prefetch={true}
-              className={`block py-2 transition hover:opacity-100 md:inline md:px-2 md:py-0 ${
+              className={`block py-2 transition hover:opacity-100 focus-visible:opacity-100 md:inline md:px-2 md:py-0 ${
                 pathname.includes(all.url) ? "opacity-100" : "opacity-60"
               }`}
               href={all.url}

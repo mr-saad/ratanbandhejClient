@@ -12,7 +12,7 @@ export default function AccountLink() {
   const pathname = usePathname()
 
   return auth.status ? (
-    <div className="relative py-2 text-white md:py-0">
+    <div className="relative py-2 text-white/60 md:py-0">
       <button
         onClick={() => setDropdown((prev) => !prev)}
         className="btn-secondary border-white! text-white! normal-case!"
@@ -20,11 +20,11 @@ export default function AccountLink() {
         {auth.username ? auth.username : "Guest User"}
       </button>
       {dropdown && (
-        <div className="md:0 top-12 right-0 mt-2 grid min-w-max rounded-md border border-white/10 bg-fuchsia-800 shadow-md md:absolute">
+        <div className="top-13 right-0 mt-2 grid w-max rounded-xl border-white/10 from-red-800 to-red-600 px-5 md:absolute md:border md:bg-linear-45 md:shadow-md">
           <Link
             onClick={() => setDropdown(false)}
             prefetch
-            className={`flex items-center gap-1 border-b border-white/10 p-2 transition hover:text-white`}
+            className={`flex items-center gap-1 border-white/10 py-2 transition hover:text-white focus-visible:text-white md:border-b`}
             href={"/profile"}
           >
             <svg
@@ -47,7 +47,7 @@ export default function AccountLink() {
           <Link
             onClick={() => setDropdown(false)}
             prefetch
-            className={`flex items-center gap-1 border-b border-white/10 p-2 transition hover:text-white`}
+            className={`flex items-center gap-1 border-white/10 py-2 transition hover:text-white focus-visible:text-white md:border-b`}
             href={"/orders"}
           >
             <svg
@@ -68,9 +68,7 @@ export default function AccountLink() {
             </svg>
             Orders
           </Link>
-          <div className="m-2">
-            <SignOutBtn />
-          </div>
+          <SignOutBtn />
         </div>
       )}
     </div>

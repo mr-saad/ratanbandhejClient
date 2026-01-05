@@ -29,7 +29,7 @@ export default function Template({ username = "", token = "" }) {
             }}
           />
         </Head>
-        <Body className="p-5 dark:bg-fuchsia-800 dark:text-white/60">
+        <Body className="p-5 dark:bg-[#100000] dark:text-white/60">
           <Section className="mx-auto max-w-4xl">
             <Heading className="dark:text-white">
               Welcome to Ratan Bandhej {username}
@@ -39,7 +39,7 @@ export default function Template({ username = "", token = "" }) {
               Shopping with Ratan Bandhej.
             </Text>
             <Link
-              className="rounded-md bg-fuchsia-800 px-3 py-2 font-semibold text-white dark:bg-white dark:text-black"
+              className="rounded-md bg-linear-45 from-red-800 to-red-600 px-3 py-2 font-semibold text-white dark:bg-white dark:text-black"
               href={`${baseUrl}/verify-account?token=${token}`}
             >
               Verify

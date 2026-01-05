@@ -92,9 +92,7 @@ export default function RootLayout({ children }) {
       <body>
         <Provider>
           <Navbar />
-          <main className="min-h-screen accent-fuchsia-800 dark:accent-white">
-            {children}
-          </main>
+          <main className="min-h-screen">{children}</main>
         </Provider>
         <Footer />
       </body>

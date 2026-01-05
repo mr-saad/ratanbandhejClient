@@ -1,4 +1,5 @@
 import { Quagera } from "@/components/logoFont"
+import ScrollToTop from "@/components/ScrollToTop"
 
 export const metadata = {
   title: "About",
@@ -11,6 +12,7 @@ export const metadata = {
 const About = () => {
   return (
     <div className="Container mx-auto max-w-4xl">
+      <ScrollToTop />
       <h1 className="heading">About Us</h1>
       <p className="mb-5">
         At Ratan Bandhej, we celebrate the vibrant heritage and artistry of

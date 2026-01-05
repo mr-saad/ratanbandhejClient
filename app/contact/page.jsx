@@ -1,3 +1,5 @@
+import ScrollToTop from "@/components/ScrollToTop"
+
 export const metadata = {
   title: "Contact",
   keywords: ["contact", "contactus"],
@@ -9,6 +11,7 @@ export const metadata = {
 const Contact = () => {
   return (
     <div className="Container mx-auto flex max-w-4xl flex-col justify-center">
+      <ScrollToTop />
       <h1 className="heading">Contact Us</h1>
       <p>
         Thank you for your interest in Ratan Bandhej. We are delighted to assist

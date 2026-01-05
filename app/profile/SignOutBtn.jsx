@@ -24,8 +24,8 @@ export default function SignOutBtn() {
     <button
       disabled={loading}
       onClick={onSignOut}
-      className="btn border-red-700! bg-red-700! text-white! disabled:opacity-50"
       type="button"
+      className="cursor-pointer py-2 transition hover:text-white focus-visible:text-white"
     >
       <span className="flex items-center justify-center gap-1">
         <svg

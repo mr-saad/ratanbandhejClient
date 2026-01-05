@@ -27,7 +27,7 @@ export default function ImgSwiper({ data, title }) {
             blurDataURL={img.metadata.lqip}
             width={400}
             height={400}
-            className={`aspect-square cursor-grab select-none object-cover object-top active:cursor-grabbing ${index === 0 && "rounded-l-md"} ${index === arr.length - 1 && "rounded-r-md"}`}
+            className={`aspect-square cursor-grab object-cover object-top select-none active:cursor-grabbing ${index === 0 && "rounded-l-md"} ${index === arr.length - 1 && "rounded-r-md"}`}
           />
         </SwiperSlide>
       ))}

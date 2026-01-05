@@ -1,9 +1,15 @@
 import Link from "next/link"
-import Catalogue from "./Catalogue"
+
+const catalogue = [
+  { text: "Saree", route: "Saree" },
+  { text: "Dress", route: "Dress" },
+  { text: "Dupatta", route: "Dupatta" },
+  { text: "Top Material", route: "Top+Material" },
+]
 
 const Footer = async () => {
   return (
-    <footer className="mt-20 border-t border-white/10 bg-fuchsia-800 p-5 text-white/60 lg:px-20">
+    <footer className="mt-20 border-t border-white/10 bg-linear-45 from-red-800 to-red-700 p-5 text-white/60 lg:px-20">
       <div className="my-5 grid items-center gap-4 md:grid-cols-3 md:gap-10">
         <p className="col-span-2">
           Stay connected with us through our social media channels to receive
@@ -15,7 +21,7 @@ const Footer = async () => {
             title="Facebook"
             target="_blank"
             href="https://www.facebook.com/people/Ratan-Bandhej/100071573145928"
-            className="transition hover:text-white"
+            className="transition hover:text-white focus-visible:text-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -30,7 +36,7 @@ const Footer = async () => {
           <a
             rel="noreferrer"
             title="Instagram"
-            className="transition hover:text-white"
+            className="transition hover:text-white focus-visible:text-white"
             target="_blank"
             href="https://instagram.com/ratanbandhejbhuj/"
           >
@@ -53,7 +59,7 @@ const Footer = async () => {
           <a
             rel="noreferrer"
             title="Whatsapp"
-            className="transition hover:text-white"
+            className="transition hover:text-white focus-visible:text-white"
             target="_blank"
             href="https://wa.me/919228405162?text=Hello%20There!"
           >
@@ -75,14 +81,22 @@ const Footer = async () => {
       <div className="mt-8 grid grid-cols-1 gap-10 md:grid-cols-3">
         <div>
           <h2 className="mx-auto mb-2 font-semibold text-white">CATALOGUE</h2>
-          <Catalogue />
+          {catalogue.map((cat) => (
+            <Link
+              className="block py-1 transition hover:text-white focus-visible:text-white md:py-0"
+              href={`/products?category=${cat.route}`}
+              key={cat.text}
+            >
+              {cat.text}
+            </Link>
+          ))}
         </div>
         <div>
           <h2 className="mx-auto mb-2 font-semibold text-white">CONTACT US</h2>
           <a
             rel="noreferrer"
             target="_blank"
-            className="mb-2 flex items-center gap-1 transition hover:text-white"
+            className="mb-2 flex items-center gap-1 transition hover:text-white focus-visible:text-white"
             href="mailto:ratanbandhejbhuj@gmail.com"
           >
             <svg
@@ -104,7 +118,7 @@ const Footer = async () => {
           </a>
           <a
             rel="noreferrer"
-            className="mb-2 flex items-center gap-1 transition hover:text-white"
+            className="mb-2 flex items-center gap-1 transition hover:text-white focus-visible:text-white"
             target="_blank"
             href="https://wa.me/919228405162?text=Hello%20There!"
           >
@@ -138,7 +152,7 @@ const Footer = async () => {
         <div className="col-span-2 mb-4 md:mb-0">
           <Link
             prefetch
-            className="transition hover:text-white"
+            className="transition hover:text-white focus-visible:text-white"
             href="/terms-conditions"
           >
             Terms & Conditions
@@ -146,7 +160,7 @@ const Footer = async () => {
           <span className="mx-2">|</span>
           <Link
             prefetch
-            className="transition hover:text-white"
+            className="transition hover:text-white focus-visible:text-white"
             href="/privacy-policy"
           >
             Privacy Policy
@@ -158,7 +172,7 @@ const Footer = async () => {
             rel="refferer noopener"
             target="_blank"
             href="https://instagram.com/sxvd.js"
-            className="underline transition hover:text-white"
+            className="underline transition hover:text-white focus-visible:text-white"
           >
             SXVD
           </Link>

@@ -1,9 +1,9 @@
-import ScrollToTopWrapper from "@/components/ScrollToTopWrapper"
+import ScrollToTop from "@/components/ScrollToTop"
 
 export default function Loading() {
   return (
-    <div className="h-[95vh] animate-pulse bg-fuchsia-800/20 dark:bg-white/20">
-      <ScrollToTopWrapper />
+    <div className="h-[95dvh] animate-pulse bg-red-800/20 dark:bg-white/20">
+      <ScrollToTop />
     </div>
   )
 }

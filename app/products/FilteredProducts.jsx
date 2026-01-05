@@ -23,7 +23,7 @@ export default function FilteredProducts({ data }) {
             ? `/products?filter=true${searchCat ? "&category=" + searchCat.replace(/ /g, "+") : ""}`
             : `/products${searchCat ? "?category=" + searchCat.replace(/ /g, "+") : ""}`
         }
-        className={`mb-5 inline-block rounded-[200px] border border-current bg-transparent px-4 py-2 font-bold text-fuchsia-800 [corner-shape:squircle] md:hidden dark:text-white ${searchCat ? "bg-fuchsia-800! text-white! dark:bg-white! dark:text-fuchsia-800!" : ""}`}
+        className={`mb-2 inline-block rounded-[200px] border border-current bg-transparent px-4 py-2 font-bold text-red-800 [corner-shape:squircle] md:hidden dark:text-white ${searchCat ? "bg-linear-45 from-red-800 to-red-600 text-white!" : ""}`}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -57,9 +57,9 @@ export default function FilteredProducts({ data }) {
                   : "/products?filter=true"
               }
               key={category}
-              className={`inline-block rounded-[200px] border border-fuchsia-800 px-4 py-1 text-fuchsia-800 capitalize transition [corner-shape:squircle] dark:border-white dark:text-white ${
+              className={`btn-secondary ${
                 search.get("category") === category &&
-                "bg-fuchsia-800 text-white! dark:bg-white dark:text-fuchsia-800!"
+                "bg-linear-45 text-white!"
               }`}
             >
               {category}
@@ -67,7 +67,7 @@ export default function FilteredProducts({ data }) {
           )
         })}
       </div>
-      <div className="3xl:grid-cols-5 grid gap-5 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4">
+      <div className="3xl:grid-cols-5 mt-3 grid gap-5 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4">
         {products.length ? (
           products.map((product, index) => {
             return <Product index={index} key={product.slug} {...product} />
