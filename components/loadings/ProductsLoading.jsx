@@ -6,7 +6,7 @@ export default function ProductsLoading() {
         .map((item, index) => (
           <div
             key={index}
-            className="aspect-square max-w-[400px] animate-pulse rounded-md bg-red-800/20 dark:bg-white/20"
+            className="aspect-square max-w-100 animate-pulse rounded-md bg-red-800/20 dark:bg-white/20"
           ></div>
         ))}
     </div>

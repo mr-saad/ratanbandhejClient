@@ -5,7 +5,7 @@ export default function Loading() {
       <ScrollToTop />
 
       <div className="grid gap-5 md:grid-cols-2">
-        <div className="aspect-square max-h-[400px] max-w-[400px] animate-pulse rounded-md bg-red-800/20 dark:bg-white/20"></div>
+        <div className="aspect-square max-h-100 max-w-100 animate-pulse rounded-md bg-red-800/20 dark:bg-white/20"></div>
         <div>
           {Array(4)
             .fill(1)

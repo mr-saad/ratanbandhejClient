@@ -2,7 +2,7 @@ import Link from "next/link"
 
 export default function NotFound() {
   return (
-    <div className="mt-[calc(71px+1.25rem)] text-center">
+    <div className="mt-22.75 text-center">
       <h1 className="heading">404</h1>
       <p className="text-xl">
         The page you&apos;re looking for doesn&apos;t Exist.
