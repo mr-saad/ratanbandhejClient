@@ -10,8 +10,8 @@ export default function ImgSwiper({ data, title }) {
   return data ? (
     <Swiper
       className="max-w-full self-start rounded-md"
-      modules={[Navigation, Scrollbar]}
-      navigation
+      modules={[Scrollbar]}
+      loop={true}
       scrollbar={{ draggable: true }}
     >
       {data.map((img, index, arr) => (

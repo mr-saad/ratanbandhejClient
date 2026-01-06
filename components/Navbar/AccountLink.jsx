@@ -2,6 +2,7 @@
 
 import SignOutBtn from "@/app/profile/SignOutBtn"
 import useRatanContext from "@/lib/hooks/useRatanContext"
+import { ChevronDown } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
@@ -15,12 +16,13 @@ export default function AccountLink() {
     <div className="relative py-2 text-white/60 md:py-0">
       <button
         onClick={() => setDropdown((prev) => !prev)}
-        className="btn-secondary border-white! text-white! normal-case!"
+        className="flex cursor-pointer items-center text-white"
       >
         {auth.username ? auth.username : "Guest User"}
+        <ChevronDown className={`transition ${dropdown ? "rotate-180" : ""}`} />
       </button>
       {dropdown && (
-        <div className="top-13 right-0 mt-2 grid w-max rounded-xl border-white/10 from-red-800 to-red-600 px-5 md:absolute md:border md:bg-linear-45 md:shadow-md">
+        <div className="top-11 right-0 mt-2 grid w-max rounded-xl border-white/10 from-red-800 to-red-600 px-5 md:absolute md:border md:bg-linear-to-t md:shadow-md">
           <Link
             onClick={() => setDropdown(false)}
             prefetch
@@ -33,7 +35,7 @@ export default function AccountLink() {
               height="24"
               viewBox="0 0 24 24"
               fill="none"
-              stroke="currentColor"
+              stroke="#dda0a5"
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -56,7 +58,7 @@ export default function AccountLink() {
               height="24"
               viewBox="0 0 24 24"
               fill="none"
-              stroke="currentColor"
+              stroke="#dda0a5"
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"

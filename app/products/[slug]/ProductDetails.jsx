@@ -22,7 +22,7 @@ export default function ProductDetails({
       <p className="mt-2 whitespace-pre-wrap">{description}</p>
 
       <CartBtn prod={prod} />
-      <hr className="mt-4 dark:border-white/20" />
+      <hr className="mt-4 border-black/10 dark:border-white/10" />
       <table className="w-full border-separate border-spacing-y-4">
         <tbody>
           {specs.split(";").map((item) => (

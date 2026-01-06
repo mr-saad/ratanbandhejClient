@@ -100,7 +100,7 @@ export default function Checkout() {
                               _id={prod._id}
                               colours={prod.colours || ""}
                               price={prod.price}
-                              setTotal={prod.setTotal}
+                              setTotal={setTotal}
                               cart={cart}
                               prod={prod}
                             />
