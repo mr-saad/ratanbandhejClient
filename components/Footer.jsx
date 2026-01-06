@@ -9,19 +9,19 @@ const catalogue = [
 
 const Footer = async () => {
   return (
-    <footer className="mt-20 border-t border-white/10 bg-linear-to-t from-red-800 to-red-700 p-5 text-white/60 lg:px-20">
+    <footer className="mt-20 border-t border-black/10 p-5 lg:px-20 dark:border-white/10">
       <div className="my-5 grid items-center gap-4 md:grid-cols-3 md:gap-10">
         <p className="col-span-2">
           Stay connected with us through our social media channels to receive
           the latest updates and news.
         </p>
-        <div className="flex gap-10">
+        <div className="flex gap-10 md:justify-self-end-safe">
           <a
             rel="noreferrer"
             title="Facebook"
             target="_blank"
             href="https://www.facebook.com/people/Ratan-Bandhej/100071573145928"
-            className="transition hover:text-white focus-visible:text-white"
+            className="link"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +36,7 @@ const Footer = async () => {
           <a
             rel="noreferrer"
             title="Instagram"
-            className="transition hover:text-white focus-visible:text-white"
+            className="link"
             target="_blank"
             href="https://instagram.com/ratanbandhejbhuj/"
           >
@@ -59,7 +59,7 @@ const Footer = async () => {
           <a
             rel="noreferrer"
             title="Whatsapp"
-            className="transition hover:text-white focus-visible:text-white"
+            className="link"
             target="_blank"
             href="https://wa.me/919228405162?text=Hello%20There!"
           >
@@ -80,10 +80,10 @@ const Footer = async () => {
       </div>
       <div className="mt-8 grid grid-cols-1 gap-10 md:grid-cols-3">
         <div>
-          <h2 className="mx-auto mb-2 font-semibold text-white">CATALOGUE</h2>
+          <h2 className="highlight mx-auto mb-2 font-semibold">CATALOGUE</h2>
           {catalogue.map((cat) => (
             <Link
-              className="block py-1 transition hover:text-white focus-visible:text-white md:py-0"
+              className="link block py-1 md:py-0"
               href={`/products?category=${cat.route}`}
               key={cat.text}
             >
@@ -91,12 +91,12 @@ const Footer = async () => {
             </Link>
           ))}
         </div>
-        <div>
-          <h2 className="mx-auto mb-2 font-semibold text-white">CONTACT US</h2>
+        <div className="md:justify-self-center-safe">
+          <h2 className="highlight mx-auto mb-2 font-semibold">CONTACT US</h2>
           <a
             rel="noreferrer"
             target="_blank"
-            className="mb-2 flex items-center gap-1 transition hover:text-white focus-visible:text-white"
+            className="link mb-2 flex items-center gap-1"
             href="mailto:ratanbandhejbhuj@gmail.com"
           >
             <svg
@@ -118,7 +118,7 @@ const Footer = async () => {
           </a>
           <a
             rel="noreferrer"
-            className="mb-2 flex items-center gap-1 transition hover:text-white focus-visible:text-white"
+            className="link mb-2 flex items-center gap-1"
             target="_blank"
             href="https://wa.me/919228405162?text=Hello%20There!"
           >
@@ -137,8 +137,8 @@ const Footer = async () => {
             +91 9228405162
           </a>
         </div>
-        <div>
-          <h2 className="mx-auto mb-2 font-semibold text-white">ADDRESS</h2>
+        <div className="md:justify-self-end-safe">
+          <h2 className="highlight mx-auto mb-2 font-semibold">ADDRESS</h2>
           <div>
             <p>
               1079, ApnaNagar-1, <br /> Near Sejwala Matam, <br /> Bhuj-Kachchh,
@@ -150,19 +150,11 @@ const Footer = async () => {
       <hr className="my-10 border-white/10" />
       <div className="mb-5 grid md:grid-cols-3 md:gap-10">
         <div className="col-span-2 mb-4 md:mb-0">
-          <Link
-            prefetch
-            className="transition hover:text-white focus-visible:text-white"
-            href="/terms-conditions"
-          >
+          <Link prefetch className="link" href="/terms-conditions">
             Terms & Conditions
           </Link>
           <span className="mx-2">|</span>
-          <Link
-            prefetch
-            className="transition hover:text-white focus-visible:text-white"
-            href="/privacy-policy"
-          >
+          <Link prefetch className="link" href="/privacy-policy">
             Privacy Policy
           </Link>
         </div>
@@ -172,7 +164,7 @@ const Footer = async () => {
             rel="refferer noopener"
             target="_blank"
             href="https://instagram.com/sxvd.js"
-            className="underline transition hover:text-white focus-visible:text-white"
+            className="link underline"
           >
             SXVD
           </Link>

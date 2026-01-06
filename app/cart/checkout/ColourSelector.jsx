@@ -187,7 +187,7 @@ const ColourSelector = ({ _id, colours, price, setTotal, prod }) => {
             <button
               disabled={loading}
               onClick={() => removeColour(index)}
-              className="btn w-14 border-red-700! bg-red-700! text-white! hover:bg-transparent! hover:text-red-700!"
+              className="btn flex! h-7 w-7 items-center justify-center rounded-full! p-0! [corner-shape:round]!"
               type="button"
             >
               {loading ? (
@@ -212,7 +212,7 @@ const ColourSelector = ({ _id, colours, price, setTotal, prod }) => {
             <button
               disabled={loading}
               onClick={addColour}
-              className="btn w-14"
+              className="btn flex! h-7 w-7 items-center justify-center rounded-full! p-0! [corner-shape:round]!"
               type="button"
             >
               +

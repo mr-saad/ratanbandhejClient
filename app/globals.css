@@ -46,13 +46,16 @@ body {
   @apply mb-5 text-3xl font-bold text-black capitalize dark:text-white;
 }
 .btn {
-  @apply cursor-pointer rounded-md border border-red-800 bg-linear-to-t from-red-800 to-red-600 px-4 py-1.5 font-semibold text-white capitalize outline-offset-2 transition-all [corner-shape:squircle] hover:bg-none hover:text-red-800 focus-visible:bg-none focus-visible:text-red-800 active:scale-[.98] disabled:opacity-50 supports-[corner-shape:squircle]:rounded-[200px];
+  @apply cursor-pointer rounded-md border border-red-800 bg-linear-to-r from-red-800 to-red-600 px-4 py-1.5 font-semibold text-white capitalize outline-offset-2 transition-all [corner-shape:squircle] hover:bg-none hover:text-red-800 focus-visible:bg-none focus-visible:text-red-800 active:scale-[.98] disabled:opacity-50 supports-[corner-shape:squircle]:rounded-[200px];
 }
 .btn-secondary {
-  @apply cursor-pointer rounded-md border border-red-800 from-red-800 to-red-600 px-4 py-1.5 font-semibold text-red-800 capitalize outline-offset-2 transition-all hover:bg-linear-to-t hover:text-white focus-visible:bg-linear-45 focus-visible:text-white active:scale-[.98] disabled:opacity-50 supports-[corner-shape:squircle]:rounded-[200px] supports-[corner-shape:squircle]:[corner-shape:squircle];
+  @apply cursor-pointer rounded-md border border-red-800 from-red-800 to-red-600 px-4 py-1.5 font-semibold text-red-800 capitalize outline-offset-2 transition-all hover:bg-linear-to-r hover:text-white focus-visible:bg-linear-45 focus-visible:text-white active:scale-[.98] disabled:opacity-50 supports-[corner-shape:squircle]:rounded-[200px] supports-[corner-shape:squircle]:[corner-shape:squircle];
 }
 .input {
   @apply w-full rounded-md border border-red-800/10 bg-transparent p-2 text-red-800 transition-all outline-none focus-visible:border-red-800 dark:border-white/10 dark:text-white dark:focus-visible:border-white;
+}
+.link {
+  @apply transition hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white;
 }
 
 input[type="number"]::-webkit-inner-spin-button {
