@@ -12,7 +12,7 @@ export default function Privacy() {
   return (
     <div className="Container mx-auto max-w-4xl">
       <h1 className="heading">Privacy Policy</h1>
-      <p className="mb-2">Last updated: October 25, 2024</p>
+      <p className="mb-2">Last updated - October 25, 2024</p>
       <p>
         This Privacy Policy describes Our policies and procedures on the
         collection, use and disclosure of Your information when You use the
@@ -31,7 +31,7 @@ export default function Privacy() {
 
       <p>
         To process orders, communicate and enhance user experience, we collect
-        personal information such as:
+        personal information such as
       </p>
 
       <ul className="ml-4 list-disc">
@@ -50,7 +50,7 @@ export default function Privacy() {
         Use of Personal Data
       </h2>
 
-      <p>We use your personal data to:</p>
+      <p>We use your personal data to</p>
 
       <ul className="ml-4 list-disc">
         <li>Process and deliver orders, including custom requests.</li>
@@ -95,7 +95,7 @@ export default function Privacy() {
       </p>
       <ul className="ml-4 list-disc">
         <li>
-          By email:{" "}
+          By email -{" "}
           <a
             className="highlight border-b font-semibold"
             href="mailto:ratanbandhejbhuj@gmail.com"
@@ -104,13 +104,13 @@ export default function Privacy() {
           </a>
         </li>
         <li>
-          By visiting this page on our website:{" "}
+          By visiting this page on our website -{" "}
           <Link className="highlight border-b font-semibold" href="/contact">
             Contact
           </Link>
         </li>
         <li>
-          By phone number:{" "}
+          By phone number -{" "}
           <a
             className="highlight border-b font-semibold"
             href="tel:+919228405162"

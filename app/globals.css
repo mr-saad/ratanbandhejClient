@@ -34,7 +34,7 @@ html {
 }
 
 body {
-  @apply text-black/70 accent-red-800 transition-colors dark:bg-[#100000] dark:text-white/70;
+  @apply text-black/55 accent-red-800 transition-colors dark:bg-[#100000] dark:text-white/50;
 }
 .Container {
   @apply mt-22 p-5 md:px-20;

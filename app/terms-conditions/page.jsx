@@ -54,7 +54,7 @@ export default function Terms() {
         these terms and conditions.
       </p>
 
-      <p className="highlight mt-5 text-xl font-semibold">You must not :</p>
+      <p className="highlight mt-5 text-xl font-semibold">You must not</p>
       <ul className="list-disc">
         <li className="ml-4">Republish material from Ratan Bandhej</li>
         <li className="ml-4">

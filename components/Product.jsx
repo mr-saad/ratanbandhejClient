@@ -41,7 +41,7 @@ export default function Product({ slug, image, title, index }) {
             className="h-full w-full object-cover object-top transition duration-300 ease-in-out will-change-transform group-focus-within:scale-105 group-hover:scale-105"
           />
         )}
-        <div className="bg-linear-to-45 absolute inset-0 flex flex-col justify-end from-[#111]/80 to-transparent p-4">
+        <div className="absolute inset-0 flex flex-col justify-end bg-linear-to-t from-[#111]/80 to-transparent p-5">
           <h2 className="text-base text-white capitalize">{title}</h2>
         </div>
       </Link>

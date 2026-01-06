@@ -147,7 +147,7 @@ const Footer = async () => {
           </div>
         </div>
       </div>
-      <hr className="my-10 border-white/10" />
+      <hr className="my-10 border-black/10 dark:border-white/10" />
       <div className="mb-5 grid md:grid-cols-3 md:gap-10">
         <div className="col-span-2 mb-4 md:mb-0">
           <Link prefetch className="link" href="/terms-conditions">
@@ -159,7 +159,7 @@ const Footer = async () => {
           </Link>
         </div>
         <p>
-          All Rights Reserved &copy; {new Date().getFullYear()} Ratan Bandhej By{" "}
+          All Rights Reserved &copy; Ratan Bandhej {new Date().getFullYear()} By{" "}
           <Link
             rel="refferer noopener"
             target="_blank"

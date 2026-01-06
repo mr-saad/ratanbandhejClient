@@ -70,7 +70,7 @@ export const metadata = {
     description:
       "One Place for All Your Bandhani Needs. Ratan Bandhej Provides Their Customers A Large Number Of Variaties In Bandhani Dupattas, Sarees, Top Materials",
     url: "https://ratanbandhej.vercel.app",
-    siteName: "Ratan Bandhej | One Place For All Your Bandhani Needs",
+    siteName: "Ratan Bandhej",
     locale: "en_US",
     type: "website",
     authors: ["Saad Khatri"],

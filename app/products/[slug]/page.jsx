@@ -16,22 +16,19 @@ export async function generateMetadata(props) {
 
   const product = await query(q, { slug })
   if (product) {
-    const keywords = product.title.toLowerCase().split(" ")
-    keywords.push(
-      "ratanbandhej",
-      "ratan",
-      "bandhej",
-      "ratanbandhej.site",
-      "ratanbandhej.vercel.app",
-      "handicraft bandhani",
-      "handmade bandhani",
-    )
+    const keywords = product.title.toLowerCase()
+
     return {
       title: product.title,
       alternates: {
         canonical: `/products/${slug}`,
       },
       keywords,
+      openGraph: {
+        title: product.title,
+        description: `Buy ${product.title} at Ratan Bandhej`,
+        url: `/products/${slug}`,
+      },
     }
   } else {
     notFound()
