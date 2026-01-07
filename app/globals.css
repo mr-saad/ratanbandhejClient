@@ -12,7 +12,7 @@
 }
 
 .headersvg {
-  fill: #a81344;
+  fill: #9f0712;
 }
 
 .dark .headersvg {
@@ -75,7 +75,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .swiper-pagination {
-  @apply [--swiper-pagination-color:#a81344] dark:[--swiper-pagination-color:#fff];
+  @apply [--swiper-pagination-color:#9f0712] dark:[--swiper-pagination-color:#fff];
   width: fit-content !important;
   border-radius: 1000px;
   @apply [--swiper-pagination-bottom:auto] [--swiper-pagination-top:0px] md:[--swiper-pagination-bottom:0px] md:[--swiper-pagination-top:unset];

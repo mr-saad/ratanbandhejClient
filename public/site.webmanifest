@@ -1,8 +1,8 @@
 {
   "name": "Ratan Bandhej",
   "short_name": "Ratan Bandhej",
-  "theme_color": "#a81344",
-  "background_color": "#a81344",
+  "theme_color": "#9f0712",
+  "background_color": "#9f0712",
   "display": "standalone",
   "start_url": "/",
   "icons": [

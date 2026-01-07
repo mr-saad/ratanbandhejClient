@@ -14,6 +14,7 @@ export default function Carousel({ data }) {
       pagination={{ clickable: true }}
       modules={[Pagination, Autoplay]}
       autoplay={{ delay: 4500 }}
+      loop={true}
       className="cursor-grab active:cursor-grabbing"
     >
       {data.map((prod) => (
