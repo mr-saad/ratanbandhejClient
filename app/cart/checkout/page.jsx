@@ -15,7 +15,7 @@ export default function Checkout() {
 
   const { replace } = useRouter()
   const { cart, setCart, authLoad, auth } = useRatanContext()
-  if (mount && !auth.status) return replace("/sign-in")
+  if (mount && !auth.status) replace("/sign-in")
 
   const [loading, setLoading] = useState(false)
   const [isExisting, setExisting] = useState(false)

@@ -10,7 +10,7 @@ export default function Account() {
 
   const { replace } = useRouter()
   const { auth } = useRatanContext()
-  if (mount && !auth.status) return replace("/sign-in")
+  if (mount && !auth.status) replace("/sign-in")
 
   const [loading, setLoading] = useState(false)
   const [isEditable, setIsEditable] = useState(false)
