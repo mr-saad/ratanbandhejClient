@@ -6,8 +6,8 @@ import useRatanContext from "@/lib/hooks/useRatanContext"
 
 export default function Account() {
   const { replace } = useRouter()
-  const { auth } = useRatanContext()
-  if (!auth.status) return replace("/sign-in")
+  const { authLoad, auth } = useRatanContext()
+  if (!authLoad && !auth.status) return replace("/sign-in")
 
   const [loading, setLoading] = useState(false)
   const [isEditable, setIsEditable] = useState(false)

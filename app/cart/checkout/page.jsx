@@ -12,7 +12,7 @@ import Card from "@/components/ui/Card"
 export default function Checkout() {
   const { replace } = useRouter()
   const { cart, setCart, authLoad, auth } = useRatanContext()
-  if (!auth.status) return replace("/sign-in")
+  if (!authLoad && !auth.status) return replace("/sign-in")
 
   const [mount, setMount] = useState(false)
   const [loading, setLoading] = useState(false)
