@@ -10,11 +10,13 @@ import Head from "next/head"
 import Card from "@/components/ui/Card"
 
 export default function Checkout() {
+  const [mount, setMount] = useState(false)
+  useEffect(() => setMount(true), [])
+
   const { replace } = useRouter()
   const { cart, setCart, authLoad, auth } = useRatanContext()
-  if (!authLoad && !auth.status) return replace("/sign-in")
+  if (mount && !auth.status) return replace("/sign-in")
 
-  const [mount, setMount] = useState(false)
   const [loading, setLoading] = useState(false)
   const [isExisting, setExisting] = useState(false)
 
@@ -59,10 +61,6 @@ export default function Checkout() {
   const handleCheck = (e) => {
     setExisting(e.target.checked)
   }
-
-  useEffect(() => {
-    setMount(true)
-  }, [])
 
   return (
     <>

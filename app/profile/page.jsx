@@ -1,13 +1,16 @@
 "use client"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import editFormAction from "@/lib/actions/editForm"
 import { useRouter } from "next/navigation"
 import useRatanContext from "@/lib/hooks/useRatanContext"
 
 export default function Account() {
+  const [mount, setMount] = useState(false)
+  useEffect(() => setMount(true), [])
+
   const { replace } = useRouter()
-  const { authLoad, auth } = useRatanContext()
-  if (!authLoad && !auth.status) return replace("/sign-in")
+  const { auth } = useRatanContext()
+  if (mount && !auth.status) return replace("/sign-in")
 
   const [loading, setLoading] = useState(false)
   const [isEditable, setIsEditable] = useState(false)
