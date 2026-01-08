@@ -36,12 +36,7 @@ export default function Links() {
     const nav = document.querySelector("nav")
 
     const listener = document.addEventListener("click", (e) => {
-      if (
-        !nav.contains(e.target) ||
-        e.target.tagName === "A" ||
-        e.target.tagName === "svg"
-      )
-        CloseNav()
+      if (!nav.contains(e.target) || e.target.tagName === "A") CloseNav()
     })
 
     return () => removeEventListener("click", listener)

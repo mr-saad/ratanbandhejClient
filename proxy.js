@@ -21,5 +21,9 @@ export default async function middleware(req) {
 }
 
 export const config = {
-  matcher: ["/profile", "/sign-in", "/cart/checkout"],
+  matcher: [
+    // "/profile",
+    // "/sign-in",
+    // "/cart/checkout"
+  ],
 }

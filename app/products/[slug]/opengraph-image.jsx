@@ -10,8 +10,8 @@ export async function generateImageMetadata({ params }) {
   )
 
   return images.map((image, idx) => ({
-    id: idx,
-    size: { width: 1200, height: 600 },
+    id: "og" + idx,
+    size: { width: 1200, height: 630 },
     alt: image.title,
     contentType: "image/png",
   }))
@@ -31,49 +31,32 @@ export default async function OGImage({ params }) {
         width: "100%",
         height: "100%",
         display: "flex",
-        flexDirection: "column",
-        gap: 10,
-        justifyContent: "center",
+        padding: "0 2rem",
+        gap: "2rem",
         alignItems: "center",
         textTransform: "uppercase",
-        background: "#100000",
-        color: "white",
         fontSize: "4rem",
-        position: "relative",
       }}
     >
       <img
         style={{
-          width: "100%",
-          height: "100%",
+          width: 300,
           objectFit: "cover",
+          borderRadius: 12,
+          boxShadow: "0 5px 10px rgba(0,0,0,0.2)",
         }}
         width={200}
         src={product.image.url}
         alt={product.title}
       />
-      <div
-        style={{
-          display: "flex",
 
-          alignItems: "flex-end",
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: "linear-gradient(transparent,rgba(0,0,0,0.5))",
+      <p
+        style={{
+          marginBlock: 0,
         }}
       >
-        <p
-          style={{
-            marginBottom: 0,
-            textWrap: "balance",
-          }}
-        >
-          {product.title}
-        </p>
-      </div>
+        {product.title}
+      </p>
     </div>,
   )
 }

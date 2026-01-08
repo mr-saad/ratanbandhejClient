@@ -1,17 +1,22 @@
-"use client"
+// import isAuthenticated from "@/lib/isAuthenticated"
+// import { query } from "@/lib/sanity"
+// import EditForm from "./EditForm"
+
 import { useState } from "react"
 import editFormAction from "@/lib/actions/editForm"
+import Link from "next/link"
 import { useRouter } from "next/navigation"
-import useRatanContext from "@/lib/hooks/useRatanContext"
 
-export default function Account() {
-  const { replace } = useRouter()
-  const { auth } = useRatanContext()
-  if (!auth.status) return replace("/sign-in")
+export default function Account(props) {
+  // const { _id } = await isAuthenticated()
+  // const q = `*[_type=="user"&&_id==$userId][0]{_id,username,email,address}`
+  // const user = await query(q, { userId: _id })
+  // const searchParams = await props.searchParams
+  // const isEditable = searchParams.edit === "true" ? true : false
 
   const [loading, setLoading] = useState(false)
-  const [isEditable, setIsEditable] = useState(false)
   const [message, setMessage] = useState("")
+  const { replace } = useRouter()
 
   const Submit = async (e) => {
     setLoading(true)
@@ -37,7 +42,7 @@ export default function Account() {
               type="text"
               id="username"
               name="username"
-              defaultValue={auth.username}
+              defaultValue={user.username}
               placeholder=" "
               className="input peer disabled:opacity-50"
               disabled={!isEditable}
@@ -54,7 +59,7 @@ export default function Account() {
               maxLength={60}
               placeholder=" "
               required
-              defaultValue={auth.address}
+              defaultValue={user.address}
               className="input peer disabled:opacity-50"
               id="address"
               name="address"
@@ -68,7 +73,11 @@ export default function Account() {
         <div className="mt-2 flex flex-wrap gap-2">
           {isEditable ? (
             <div className="flex gap-2">
-              <button disabled={loading} className="btn" type="submit">
+              <button
+                disabled={loading}
+                className="btn flex-1 items-center"
+                type="submit"
+              >
                 {loading ? (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -88,17 +97,22 @@ export default function Account() {
                   "Save"
                 )}
               </button>
-              <button
-                className="btn-secondary"
-                onClick={() => setIsEditable(false)}
+              <Link
+                prefetch
+                className="btn-secondary flex-1 text-center"
+                href={"/profile"}
               >
                 Cancel
-              </button>
+              </Link>
             </div>
           ) : (
-            <button className="btn" onClick={() => setIsEditable(true)}>
+            <Link
+              prefetch
+              href={"/profile?edit=true"}
+              className="btn flex gap-1"
+            >
               Edit
-            </button>
+            </Link>
           )}
         </div>
       </form>
