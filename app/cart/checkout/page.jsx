@@ -10,12 +10,13 @@ import Head from "next/head"
 import Card from "@/components/ui/Card"
 
 export default function Checkout() {
-  const [mount, setMount] = useState(false)
-  useEffect(() => setMount(true), [])
-
   const { replace } = useRouter()
-  const { cart, setCart, authLoad, auth } = useRatanContext()
-  if (mount && !auth.status) replace("/sign-in")
+  const { cart, setCart, authLoading, auth } = useRatanContext()
+
+  useEffect(() => {
+    if (authLoading) return
+    if (!auth.status) replace("/sign-in")
+  }, [authLoading, auth])
 
   const [loading, setLoading] = useState(false)
   const [isExisting, setExisting] = useState(false)
@@ -62,6 +63,13 @@ export default function Checkout() {
     setExisting(e.target.checked)
   }
 
+  if (authLoading)
+    return (
+      <div className="Container highlight mx-auto max-w-2xl text-3xl font-bold">
+        Loading
+      </div>
+    )
+
   return (
     <>
       <Head>
@@ -69,7 +77,7 @@ export default function Checkout() {
       </Head>
       <div className="Container">
         <h1 className="heading">Checkout</h1>
-        {mount && !authLoad ? (
+        {!authLoading ? (
           <form
             onSubmit={(e) => Submit(e)}
             className="grid items-start gap-5 md:grid-cols-2"

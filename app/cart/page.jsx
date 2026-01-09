@@ -1,14 +1,11 @@
 "use client"
-import { useEffect, useState } from "react"
 import Head from "next/head"
 import Product from "@/components/Product"
 import useRatanContext from "@/lib/hooks/useRatanContext"
 import Link from "next/link"
 
 export default function CartPage() {
-  const [mount, setMount] = useState(false)
-  const { cart, authLoad } = useRatanContext()
-  useEffect(() => setMount(true), [])
+  const { cart, authLoading } = useRatanContext()
 
   return (
     <>
@@ -26,7 +23,7 @@ export default function CartPage() {
           ) : null}
         </div>
         <div className="3xl:grid-cols-5 grid gap-5 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4">
-          {mount && !authLoad ? (
+          {!authLoading ? (
             cart.length > 0 ? (
               cart.map((props) => {
                 return (

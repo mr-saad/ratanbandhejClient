@@ -1,20 +1,21 @@
 "use client"
-import { useEffect, useState } from "react"
+import { useState, useEffect } from "react"
 import editFormAction from "@/lib/actions/editForm"
 import { useRouter } from "next/navigation"
 import useRatanContext from "@/lib/hooks/useRatanContext"
 
 export default function Account() {
-  const [mount, setMount] = useState(false)
-  useEffect(() => setMount(true), [])
+  const { auth, authLoading } = useRatanContext()
 
-  const { replace } = useRouter()
-  const { auth } = useRatanContext()
-  if (mount && !auth.status) replace("/sign-in")
+  useEffect(() => {
+    if (authLoading) return
+    if (!auth.status) replace("/sign-in")
+  }, [authLoading, auth?.status])
 
   const [loading, setLoading] = useState(false)
-  const [isEditable, setIsEditable] = useState(false)
+  const [editable, setEditable] = useState(false)
   const [message, setMessage] = useState("")
+  const { replace } = useRouter()
 
   const Submit = async (e) => {
     setLoading(true)
@@ -30,6 +31,14 @@ export default function Account() {
     setMessage(res.message)
     setLoading(false)
   }
+
+  if (authLoading)
+    return (
+      <div className="Container highlight mx-auto max-w-2xl text-3xl font-bold">
+        Loading
+      </div>
+    )
+
   return (
     <div className="Container mx-auto max-w-2xl">
       <h1 className="heading">My Profile</h1>
@@ -43,7 +52,7 @@ export default function Account() {
               defaultValue={auth.username}
               placeholder=" "
               className="input peer disabled:opacity-50"
-              disabled={!isEditable}
+              disabled={editable}
             />
             <label className="floating-label" htmlFor="username">
               Username
@@ -51,7 +60,7 @@ export default function Account() {
           </div>
           <div className="relative">
             <textarea
-              disabled={!isEditable}
+              disabled={editable}
               pattern="[0-9]{10}"
               minLength={10}
               maxLength={60}
@@ -69,9 +78,13 @@ export default function Account() {
         </div>
         {message !== "" && <p className="mt-2">message</p>}
         <div className="mt-2 flex flex-wrap gap-2">
-          {isEditable ? (
+          {editable ? (
             <div className="flex gap-2">
-              <button disabled={loading} className="btn" type="submit">
+              <button
+                disabled={loading}
+                className="btn flex-1 items-center"
+                type="submit"
+              >
                 {loading ? (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -92,14 +105,17 @@ export default function Account() {
                 )}
               </button>
               <button
-                className="btn-secondary"
-                onClick={() => setIsEditable(false)}
+                onClick={() => setEditable(true)}
+                className="btn-secondary flex-1 text-center"
               >
                 Cancel
               </button>
             </div>
           ) : (
-            <button className="btn" onClick={() => setIsEditable(true)}>
+            <button
+              onClick={() => setEditable(true)}
+              className="btn flex gap-1"
+            >
               Edit
             </button>
           )}
