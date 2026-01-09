@@ -22,14 +22,21 @@ export default function Account() {
     e.preventDefault()
     const formData = new FormData(e.target)
     const data = {
-      _id: user._id,
+      _id: auth._id,
       username: formData.get("username"),
       address: formData.get("address"),
     }
-    const res = await editFormAction(data)
-    if (res.ok) replace("/profile")
-    setMessage(res.message)
-    setLoading(false)
+    try {
+      const res = await editFormAction(data)
+      if (res.ok) replace("/profile")
+      setEditable(false)
+      setMessage(res.message)
+    } catch (error) {
+      alert(error.message)
+      console.error(error)
+    } finally {
+      setLoading(false)
+    }
   }
 
   if (authLoading)
@@ -52,7 +59,7 @@ export default function Account() {
               defaultValue={auth.username}
               placeholder=" "
               className="input peer disabled:opacity-50"
-              disabled={editable}
+              disabled={!editable}
             />
             <label className="floating-label" htmlFor="username">
               Username
@@ -60,7 +67,7 @@ export default function Account() {
           </div>
           <div className="relative">
             <textarea
-              disabled={editable}
+              disabled={!editable}
               pattern="[0-9]{10}"
               minLength={10}
               maxLength={60}
@@ -105,7 +112,9 @@ export default function Account() {
                 )}
               </button>
               <button
-                onClick={() => setEditable(true)}
+                disabled={loading}
+                type="button"
+                onClick={() => setEditable(false)}
                 className="btn-secondary flex-1 text-center"
               >
                 Cancel
@@ -113,6 +122,7 @@ export default function Account() {
             </div>
           ) : (
             <button
+              type="button"
               onClick={() => setEditable(true)}
               className="btn flex gap-1"
             >
