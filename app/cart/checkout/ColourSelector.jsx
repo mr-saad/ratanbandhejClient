@@ -183,7 +183,7 @@ const ColourSelector = ({ _id, colours, price, setTotal, prod }) => {
             </div>
           </div>
 
-          <div className="flex items-stretch justify-end gap-4">
+          <div className="flex items-stretch justify-end gap-2">
             <button
               disabled={loading}
               onClick={() => removeColour(index)}

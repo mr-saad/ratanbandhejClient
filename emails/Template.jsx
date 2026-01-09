@@ -29,17 +29,15 @@ export default function Template({ username = "", token = "" }) {
             }}
           />
         </Head>
-        <Body className="p-5 dark:bg-[#100000] dark:text-white/60">
+        <Body className="p-5">
           <Section className="mx-auto max-w-4xl">
-            <Heading className="dark:text-white">
-              Welcome to Ratan Bandhej {username}
-            </Heading>
+            <Heading>Welcome to Ratan Bandhej {username}</Heading>
             <Text>
               Click the link below to Verify your Account & Sign in to continue
               Shopping with Ratan Bandhej.
             </Text>
             <Link
-              className="rounded-md bg-linear-45 from-red-800 to-red-600 px-3 py-2 font-semibold text-white dark:bg-white dark:text-black"
+              className="rounded-md bg-red-800 px-3 py-2 font-semibold text-white"
               href={`${baseUrl}/verify-account?token=${token}`}
             >
               Verify
@@ -47,21 +45,21 @@ export default function Template({ username = "", token = "" }) {
             <Text>
               If you haven&apos;t requested for this, kindly ignore this email.
             </Text>
-            <Text>Warm Regards</Text>
-            <Heading>
+            <Text className="mb-0">Warm Regards</Text>
+            <Heading className="mt-0">
               <Link
-                className="text-black dark:text-white"
+                className="text-black"
                 href="https://ratanbandhej.vercel.app"
               >
                 Ratan Bandhej
               </Link>
             </Heading>
-            <Text>Contact us</Text>
+            <Text className="mb-0">Contact us</Text>
             <Link href="https://wa.me/919228405162">WhatsApp</Link>
             <Link className="ml-3" href="mailto:ratanbandhejbhuj@gmail.com">
               E-Mail
             </Link>
-            <Text>Follow us</Text>
+            <Text className="mb-0">Follow us</Text>
             <Link href="https://instagram.com/ratanbandhejbhuj">Instagram</Link>
             <Link
               className="ml-3"

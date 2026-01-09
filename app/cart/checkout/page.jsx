@@ -96,7 +96,7 @@ export default function Checkout() {
                           src={prod.image.path}
                           className="aspect-square rounded-md object-cover"
                           width={80}
-                          height={80}
+                          height={120}
                         />
                         <div className="w-full">
                           <p className="highlight line-clamp-2">{prod.title}</p>
