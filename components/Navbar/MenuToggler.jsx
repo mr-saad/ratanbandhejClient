@@ -14,7 +14,7 @@ export default function MenuToggler() {
   return (
     <div
       tabIndex={0}
-      className={`z-20 flex h-[12px] flex-col justify-between justify-self-start md:hidden`}
+      className={`z-20 flex h-3 cursor-pointer flex-col justify-between justify-self-start md:hidden`}
       onClick={openNav}
       onKeyUp={(e) => {
         e.preventDefault()
@@ -22,10 +22,10 @@ export default function MenuToggler() {
       }}
     >
       <span
-        className={`line1 h-[2px] w-[26px] origin-center rounded-md bg-white`}
+        className={`line1 h-0.5 w-6.5 origin-center rounded-md bg-white`}
       ></span>
       <span
-        className={`line2 h-[2px] w-[26px] origin-center rounded-md bg-white`}
+        className={`line2 h-0.5 w-6.5 origin-center rounded-md bg-white`}
       ></span>
     </div>
   )

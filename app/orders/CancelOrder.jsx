@@ -21,7 +21,7 @@ export default function CancelOrder({ _id }) {
 
   return (
     <>
-      <div className="flex items-center gap-5">
+      <div className="mt-2 flex items-center gap-5">
         <button
           onClick={onClick}
           disabled={loading}

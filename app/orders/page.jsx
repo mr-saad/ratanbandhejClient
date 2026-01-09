@@ -19,46 +19,51 @@ export default async function Orders() {
   return (
     <div className="Container">
       <h1 className="heading">My Orders</h1>
-      <div className="grid gap-5 lg:grid-cols-2 dark:divide-white/10">
+      <div className="3xl:grid-cols-5 grid gap-5 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 dark:divide-white/10">
         {orders.length ? (
-          orders.map((order, index, arr) => {
+          orders.map((order) => {
             return (
-              <div key={order._id} className={`flex gap-4`}>
+              <div
+                key={order._id}
+                className={`relative flex flex-wrap overflow-clip rounded-lg border border-black/10 dark:border-white/10`}
+              >
+                <span
+                  className={`absolute top-0 right-0 rounded-bl-lg px-1 text-white shadow ${order.status === "Processing" ? "bg-amber-600" : order.status === "Cancelled" ? "bg-red-800" : "bg-green-600"}`}
+                >
+                  {order.status}
+                </span>
                 <Image
                   alt={order.title}
-                  width={200}
-                  height={200}
+                  width={300}
+                  height={300}
                   quality={60}
                   style={{
                     objectFit: "cover",
                     objectPosition: "top",
                   }}
-                  className="aspect-square w-20 self-start rounded-md sm:w-64"
+                  className="aspect-square w-full"
                   src={order.image.path}
                   placeholder="blur"
                   blurDataURL={order.image.metadata.lqip}
                 />
 
-                <div className="flex flex-col">
+                <div className="p-5">
                   <p className="highlight line-clamp-3 capitalize">
                     {order.title}
                   </p>
-                  <p>₹{order.price}</p>
+                  {/* <p>₹{order.price}</p> */}
                   <p>
-                    {new Intl.DateTimeFormat("en-US", {
-                      timeStyle: "short",
-                      dateStyle: "short",
+                    {new Intl.DateTimeFormat("en-IN", {
+                      // timeStyle: "short",
+                      month: "short",
+                      day: "2-digit",
+                      year: "2-digit",
+                      hour: "2-digit",
+                      minute: "2-digit",
                       timeZone: "Asia/Kolkata",
                     }).format(new Date(order._createdAt))}
                   </p>
-                  <p>
-                    Status:{" "}
-                    <span
-                      className={`${order.status === "Cancelled" && "text-red-600!"} highlight font-semibold`}
-                    >
-                      {order.status}
-                    </span>
-                  </p>
+
                   {order.status !== "Cancelled" && (
                     <CancelOrder _id={order._id} />
                   )}
