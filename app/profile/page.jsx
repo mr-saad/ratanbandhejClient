@@ -3,6 +3,8 @@ import { useState, useEffect } from "react"
 import editFormAction from "@/lib/actions/editForm"
 import { useRouter } from "next/navigation"
 import useRatanContext from "@/lib/hooks/useRatanContext"
+import Button from "@/components/ui/Button"
+import { LoaderCircle } from "lucide-react"
 
 export default function Account() {
   const { auth, authLoading } = useRatanContext()
@@ -87,47 +89,22 @@ export default function Account() {
         <div className="mt-2 flex flex-wrap gap-2">
           {editable ? (
             <div className="flex gap-2">
-              <button
-                disabled={loading}
-                className="btn flex-1 items-center"
-                type="submit"
-              >
-                {loading ? (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="animate-spin"
-                  >
-                    <path d="M21 12a9 9 0 1 1-6.219-8.56" />
-                  </svg>
-                ) : (
-                  "Save"
-                )}
-              </button>
-              <button
+              <Button disabled={loading}>
+                {loading ? <LoaderCircle /> : "Save"}
+              </Button>
+              <Button
                 disabled={loading}
                 type="button"
                 onClick={() => setEditable(false)}
-                className="btn-secondary flex-1 text-center"
+                variant={"secondary"}
               >
                 Cancel
-              </button>
+              </Button>
             </div>
           ) : (
-            <button
-              type="button"
-              onClick={() => setEditable(true)}
-              className="btn flex gap-1"
-            >
+            <Button type="button" onClick={() => setEditable(true)}>
               Edit
-            </button>
+            </Button>
           )}
         </div>
       </form>

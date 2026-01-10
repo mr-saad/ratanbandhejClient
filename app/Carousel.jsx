@@ -3,9 +3,10 @@ import Image from "next/image"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Pagination, Autoplay } from "swiper/modules"
 import { motion } from "framer-motion"
-import Link from "next/link"
 import "swiper/css"
 import "swiper/css/pagination"
+import Button from "@/components/ui/Button"
+import { ChevronRight } from "lucide-react"
 
 export default function Carousel({ data }) {
   return (
@@ -20,7 +21,7 @@ export default function Carousel({ data }) {
       {data.map((prod) => (
         <SwiperSlide
           key={prod._id}
-          className="grid! items-center gap-4 select-none md:grid-cols-2"
+          className="grid! items-center gap-5 select-none md:grid-cols-2"
         >
           <motion.div
             initial={{
@@ -37,17 +38,13 @@ export default function Carousel({ data }) {
               ease: "easeOut",
             }}
           >
-            <h2 className="highlight text-2xl font-semibold tracking-tight capitalize">
+            <h2 className="highlight text-2xl leading-none font-semibold tracking-tight capitalize">
               {prod.title}
             </h2>
-            <p className="mb-2 line-clamp-2">{prod.description}</p>
-            <Link
-              prefetch
-              href={"/products/" + prod.slug}
-              className="btn inline-block"
-            >
-              View More
-            </Link>
+            <p className="mb-5 line-clamp-2">{prod.description}</p>
+            <Button prefetch={true} href={"/products/" + prod.slug}>
+              View More <ChevronRight />
+            </Button>
           </motion.div>
           {prod.image && (
             <motion.div

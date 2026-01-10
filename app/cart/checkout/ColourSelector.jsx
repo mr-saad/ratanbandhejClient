@@ -1,3 +1,4 @@
+import Button from "@/components/ui/Button"
 import useCartBtn from "@/lib/hooks/useCartBtn"
 import { useState } from "react"
 
@@ -184,10 +185,10 @@ const ColourSelector = ({ _id, colours, price, setTotal, prod }) => {
           </div>
 
           <div className="flex items-stretch justify-end gap-2">
-            <button
+            <Button
               disabled={loading}
               onClick={() => removeColour(index)}
-              className="btn flex! h-7 w-7 items-center justify-center rounded-full! p-0! [corner-shape:round]!"
+              className="btn flex h-7 w-7 items-center justify-center rounded-full p-0 [corner-shape:round]"
               type="button"
             >
               {loading ? (
@@ -208,15 +209,15 @@ const ColourSelector = ({ _id, colours, price, setTotal, prod }) => {
               ) : (
                 "-"
               )}
-            </button>
-            <button
+            </Button>
+            <Button
               disabled={loading}
               onClick={addColour}
-              className="btn flex! h-7 w-7 items-center justify-center rounded-full! p-0! [corner-shape:round]!"
+              className="btn flex h-7 w-7 items-center justify-center rounded-full p-0 [corner-shape:round]"
               type="button"
             >
               +
-            </button>
+            </Button>
           </div>
         </div>
       ))}

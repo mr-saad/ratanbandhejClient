@@ -1,7 +1,8 @@
-import Link from "next/link"
 import Product from "@/components/Product"
 import getProducts from "@/lib/getProducts"
 import ProductGrid from "@/components/ui/ProductGrid"
+import Button from "@/components/ui/Button"
+import { ChevronRight } from "lucide-react"
 
 export default async function Sections() {
   const [dupatta, saree, dress, topMaterial] = await Promise.all([
@@ -26,9 +27,9 @@ function Section({ title, data }) {
       <div className="mb-5 flex items-center justify-between gap-5">
         <h3 className="heading mb-0! shrink-0">{title}</h3>
         <hr className="w-full border-black/10 dark:border-white/10" />
-        <Link href={"/products?category=" + title} className="btn inline-block">
-          Explore
-        </Link>
+        <Button prefetch={true} href={"/products?category=" + title}>
+          Explore <ChevronRight />
+        </Button>
       </div>
       <ProductGrid>
         {data.map((props) => (

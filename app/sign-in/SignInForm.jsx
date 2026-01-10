@@ -5,6 +5,8 @@ import Link from "next/link"
 import { signInSchema } from "@/lib/zodSchemas/signInSchema"
 import { useRouter } from "next/navigation"
 import useRatanContext from "@/lib/hooks/useRatanContext"
+import { LoaderCircle } from "lucide-react"
+import Button from "@/components/ui/Button"
 
 export default function SignInForm() {
   const { setCart, setAuth } = useRatanContext()
@@ -68,13 +70,9 @@ export default function SignInForm() {
           E-Mail
         </label>
       </div>
-      <button
-        disabled={loading}
-        type="submit"
-        className="btn disabled:opacity-50"
-      >
+      <Button disabled={loading} className={"justify-self-start"}>
         Continue
-      </button>
+      </Button>
 
       <p>
         Don&apos;t have an account yet?{" "}
@@ -83,22 +81,7 @@ export default function SignInForm() {
         </Link>
       </p>
       {message !== "" && <p className="text-red-700">{message}</p>}
-      {loading && (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="animate-spin"
-        >
-          <path d="M21 12a9 9 0 1 1-6.219-8.56" />
-        </svg>
-      )}
+      {loading && <LoaderCircle />}
     </form>
   )
 }

@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react"
 import useCartBtn from "@/lib/hooks/useCartBtn"
 import useRatanContext from "@/lib/hooks/useRatanContext"
+import Button from "@/components/ui/Button"
+import { Minus, Plus } from "lucide-react"
 
 export default function CartBtn({ prod }) {
   const [mount, setMount] = useState(false)
@@ -24,60 +26,29 @@ export default function CartBtn({ prod }) {
   useEffect(() => setMount(true), [])
 
   return (
-    <>
+    <div className="mt-4">
       {mount ? (
         showCartBtn ? (
-          <button
-            className="btn mt-4 w-full"
+          <Button
+            variant={"primary"}
             onClick={() => {
               addToCartBtn(prod)
             }}
           >
             <span className="flex items-center justify-center gap-1">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <circle cx="8" cy="21" r="1" />
-                <circle cx="19" cy="21" r="1" />
-                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
-              </svg>
+              <Plus />
               Add to Cart
             </span>
-          </button>
+          </Button>
         ) : (
-          <button
-            className="btn mt-4 w-full border-red-700! bg-red-700! text-white! hover:bg-transparent! hover:text-red-700!"
-            onClick={() => removeFromCartBtn(prod)}
-          >
+          <Button variant={"danger"} onClick={() => removeFromCartBtn(prod)}>
             <span className="flex items-center justify-center gap-1">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <circle cx="8" cy="21" r="1" />
-                <circle cx="19" cy="21" r="1" />
-                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
-              </svg>
+              <Minus />
               Remove from Cart
             </span>
-          </button>
+          </Button>
         )
       ) : null}
-    </>
+    </div>
   )
 }

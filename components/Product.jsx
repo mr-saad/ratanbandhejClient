@@ -7,7 +7,7 @@ export default function Product({ slug, image, title, index }) {
   return (
     <motion.div
       layout
-      className="group relative overflow-hidden rounded-md focus-within:outline-3 focus-within:outline-red-800"
+      className="group relative overflow-hidden rounded-md focus-within:outline-3 focus-within:outline-rose-900"
     >
       <Link prefetch href={`/products/${slug}`}>
         {image && (
@@ -22,7 +22,7 @@ export default function Product({ slug, image, title, index }) {
             src={image.path}
             width={400}
             height={400}
-            className="h-full w-full object-cover object-top transition duration-300 ease-in-out will-change-transform group-focus-within:scale-105 group-hover:scale-105"
+            className="aspect-square w-full object-cover object-top transition duration-300 ease-in-out will-change-transform group-focus-within:scale-105 group-hover:scale-105"
           />
         )}
         <div className="absolute inset-0 flex flex-col justify-end bg-linear-to-t from-[#111]/80 to-transparent p-5">

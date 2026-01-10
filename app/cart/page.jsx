@@ -4,6 +4,7 @@ import Product from "@/components/Product"
 import useRatanContext from "@/lib/hooks/useRatanContext"
 import Link from "next/link"
 import ProductGrid from "@/components/ui/ProductGrid"
+import Button from "@/components/ui/Button"
 
 export default function CartPage() {
   const { cart, authLoading } = useRatanContext()
@@ -18,9 +19,9 @@ export default function CartPage() {
           <h1 className="heading mb-0! shrink-0">My Cart</h1>
           <hr className="w-full border-black/20 dark:border-white/20" />
           {cart.length ? (
-            <Link href={"/cart/checkout"} prefetch className="btn">
+            <Button href={"/cart/checkout"} prefetch>
               Checkout
-            </Link>
+            </Button>
           ) : null}
         </div>
         <ProductGrid>

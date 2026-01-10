@@ -1,4 +1,5 @@
 "use client"
+import Button from "@/components/ui/Button"
 import cancelOrder from "@/lib/actions/cancelOrder"
 import { useState } from "react"
 
@@ -22,11 +23,7 @@ export default function CancelOrder({ _id }) {
   return (
     <>
       <div className="mt-2 flex items-center gap-5">
-        <button
-          onClick={onClick}
-          disabled={loading}
-          className="btn mt-1 border-red-700! bg-red-700! text-white! hover:bg-transparent! hover:text-red-700! disabled:opacity-50"
-        >
+        <Button onClick={onClick} disabled={loading} variant={"danger"}>
           {loading ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +42,7 @@ export default function CancelOrder({ _id }) {
           ) : (
             "Cancel"
           )}
-        </button>
+        </Button>
       </div>
       {message !== "" && <p className="mt-2 text-red-700">{message}</p>}
     </>

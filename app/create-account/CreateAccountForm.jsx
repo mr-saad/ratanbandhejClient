@@ -5,6 +5,8 @@ import createAcc from "@/lib/actions/createAcc"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { formSchema } from "@/lib/zodSchemas/accSchema"
+import { LoaderCircle } from "lucide-react"
+import Button from "@/components/ui/Button"
 
 export default function CreateAccountForm() {
   const [loading, setLoading] = useState(false)
@@ -116,13 +118,9 @@ export default function CreateAccountForm() {
           Privacy Policy
         </Link>
       </p>
-      <button
-        disabled={loading}
-        type="submit"
-        className="btn mb-4 block w-full"
-      >
+      <Button disabled={loading} className="mb-4">
         Continue
-      </button>
+      </Button>
       <p>
         Already have one?{" "}
         <Link className="underline" href={"/sign-in"}>
@@ -130,22 +128,7 @@ export default function CreateAccountForm() {
         </Link>
       </p>
       {message !== "" && <p className="text-red-700">{message}</p>}
-      {loading && (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="animate-spin"
-        >
-          <path d="M21 12a9 9 0 1 1-6.219-8.56" />
-        </svg>
-      )}
+      {loading && <LoaderCircle />}
     </form>
   )
 }

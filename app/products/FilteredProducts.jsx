@@ -1,9 +1,11 @@
 "use client"
 
-import Link from "next/link"
 import Product from "@/components/Product"
 import { useSearchParams } from "next/navigation"
 import ProductGrid from "@/components/ui/ProductGrid"
+import Button from "@/components/ui/Button"
+import { SlidersHorizontal } from "lucide-react"
+import cn from "@/lib/cn"
 
 export default function FilteredProducts({ data }) {
   const search = useSearchParams()
@@ -17,40 +19,29 @@ export default function FilteredProducts({ data }) {
 
   return (
     <div className="Container">
-      <Link
+      <Button
         prefetch
         href={
           showFilter !== "true"
             ? `/products?filter=true${searchCat ? "&category=" + searchCat.replace(/ /g, "+") : ""}`
             : `/products${searchCat ? "?category=" + searchCat.replace(/ /g, "+") : ""}`
         }
-        className={`mb-2 inline-block rounded-[200px] border border-red-800 bg-transparent px-4 py-2 font-bold text-red-800 [corner-shape:squircle] md:hidden ${searchCat ? "bg-linear-to-r from-red-800 to-red-600 text-white!" : ""}`}
+        variant={searchCat ? "primary" : "secondary"}
+        className={"mb-2 inline-flex gap-2 md:hidden"}
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="mr-2 inline"
-        >
-          <path d="M20 7h-9" />
-          <path d="M14 17H5" />
-          <circle cx="17" cy="17" r="3" />
-          <circle cx="7" cy="7" r="3" />
-        </svg>
+        <SlidersHorizontal />
         Filter
-      </Link>
+      </Button>
       <div
-        className={`mb-5 ${showFilter === "true" ? "flex" : "hidden"} flex-wrap gap-2 md:flex`}
+        className={cn(
+          "flex-wrap gap-2 md:flex",
+          showFilter === "true" ? "flex" : "hidden",
+        )}
       >
         {categories.map((category) => {
           return (
-            <Link
+            <Button
+              variant={searchCat === category ? "primary" : "secondary"}
               prefetch
               href={
                 search.get("category") !== category
@@ -58,17 +49,13 @@ export default function FilteredProducts({ data }) {
                   : "/products?filter=true"
               }
               key={category}
-              className={`btn-secondary ${
-                search.get("category") === category &&
-                "bg-linear-to-r text-white!"
-              }`}
             >
               {category}
-            </Link>
+            </Button>
           )
         })}
       </div>
-      <ProductGrid>
+      <ProductGrid className={"mt-3"}>
         {products.length ? (
           products.map((product, index) => {
             return <Product index={index} key={product.slug} {...product} />

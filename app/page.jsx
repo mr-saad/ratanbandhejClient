@@ -4,7 +4,6 @@ import Sections from "./Sections"
 import { Quagera } from "@/components/logoFont"
 import getProducts from "@/lib/getProducts"
 import { Suspense } from "react"
-import HeaderImageLoading from "@/components/loadings/HeaderImageLoading"
 import CarouselLoading from "@/components/loadings/CarouselLoading"
 import ProductsLoading from "@/components/loadings/ProductsLoading"
 
@@ -15,8 +14,8 @@ export default async function Home() {
 
   return (
     <>
-      <header className="relative flex min-h-[95vh] w-full items-center bg-red-800 before:absolute before:z-2 before:h-full before:w-full before:bg-linear-to-l before:from-transparent before:to-[#111]/90">
-        <Suspense fallback={<HeaderImageLoading />}>
+      <header className="relative flex min-h-[95vh] w-full items-center bg-rose-900 before:absolute before:z-2 before:h-full before:w-full before:bg-linear-to-l before:from-transparent before:to-[#111]/90">
+        <Suspense fallback={""}>
           <HeaderImage />
         </Suspense>
         <div className="z-10 px-5 text-white md:px-20">
@@ -28,7 +27,9 @@ export default async function Home() {
           >
             Ratan Bandhej
           </h1>
-          <p className="text-2xl">One Place For All Your Bandhani Needs</p>
+          <p className="text-2xl leading-none tracking-tight">
+            One Place For All Your Bandhani Needs
+          </p>
         </div>
       </header>
       <div className="Container mx-auto">
