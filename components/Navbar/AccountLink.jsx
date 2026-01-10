@@ -1,76 +1,77 @@
 "use client"
 
-import SignOutBtn from "@/app/profile/SignOutBtn"
+import cn from "@/lib/cn"
 import useRatanContext from "@/lib/hooks/useRatanContext"
-import { ChevronDown } from "lucide-react"
+import { ChevronDown, LogOut, Package, User } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
 
 export default function AccountLink() {
+  const [loading, setLoading] = useState(false)
   const [dropdown, setDropdown] = useState(false)
-  const { auth } = useRatanContext()
+  const { auth, setCart, setAuth } = useRatanContext()
   const pathname = usePathname()
 
+  const onSignOut = async () => {
+    setLoading(true)
+    const warn = confirm(
+      "You'll be Signed Out. You have to Sign In again to place an order. Sure?",
+    )
+    if (warn) {
+      setCart([])
+      setAuth({})
+      await signOut()
+    }
+    setLoading(false)
+  }
+
   return auth.status ? (
-    <div className="relative py-2 text-white/60 md:py-0">
+    <div className="relative py-2 md:py-0">
       <button
         onClick={() => setDropdown((prev) => !prev)}
-        className="flex cursor-pointer items-center text-white"
+        className="flex cursor-pointer items-center text-black/60 hover:text-black focus-visible:text-black"
       >
         {auth.username ? auth.username : "Guest User"}
         <ChevronDown className={`transition ${dropdown ? "rotate-180" : ""}`} />
       </button>
       {dropdown && (
-        <div className="top-11 right-0 mt-2 grid w-max rounded-xl border-white/10 from-red-800 to-red-600 px-5 md:absolute md:border md:bg-linear-to-t md:shadow-md">
+        <div className="top-11 left-0 grid w-max rounded-xl md:absolute md:bg-gray-200/70 md:p-5 md:backdrop-blur-xl">
           <Link
             onClick={() => setDropdown(false)}
             prefetch
-            className={`flex items-center gap-1 border-white/10 py-2 transition hover:text-white focus-visible:text-white md:border-b`}
+            className={cn(
+              "flex items-center gap-1 border-white/10 py-2 transition hover:text-black focus-visible:text-black md:border-b",
+              pathname === "/profile" ? "text-black" : "text-black/60",
+            )}
             href={"/profile"}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#dda0a5"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M18 20a6 6 0 0 0-12 0" />
-              <circle cx="12" cy="10" r="4" />
-              <circle cx="12" cy="12" r="10" />
-            </svg>
+            <User />
             Profile
           </Link>
           <Link
             onClick={() => setDropdown(false)}
             prefetch
-            className={`flex items-center gap-1 border-white/10 py-2 transition hover:text-white focus-visible:text-white md:border-b`}
+            className={cn(
+              "flex items-center gap-1 border-white/10 py-2 text-black/60 transition hover:text-black focus-visible:text-black md:border-b",
+              pathname === "/orders" ? "text-black" : "text-black/60",
+            )}
             href={"/orders"}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#dda0a5"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z" />
-              <path d="M12 22V12" />
-              <path d="m3.3 7 7.703 4.734a2 2 0 0 0 1.994 0L20.7 7" />
-              <path d="m7.5 4.27 9 5.15" />
-            </svg>
+            <Package />
             Orders
           </Link>
-          <SignOutBtn />
+          <button
+            disabled={loading}
+            onClick={onSignOut}
+            type="button"
+            className="btn"
+          >
+            <span className="flex items-center justify-center gap-1">
+              <LogOut />
+              Sign Out
+            </span>
+          </button>
         </div>
       )}
     </div>

@@ -37,7 +37,7 @@ export default function Carousel({ data }) {
               ease: "easeOut",
             }}
           >
-            <h2 className="highlight text-2xl font-semibold capitalize">
+            <h2 className="highlight text-2xl font-semibold tracking-tight capitalize">
               {prod.title}
             </h2>
             <p className="mb-2 line-clamp-2">{prod.description}</p>

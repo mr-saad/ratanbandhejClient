@@ -34,7 +34,7 @@ html {
 }
 
 body {
-  @apply text-black/55 accent-red-800 transition-colors dark:bg-[#100000] dark:text-white/50;
+  @apply text-black/55 accent-red-800 transition-colors dark:bg-black dark:text-white/50;
 }
 .Container {
   @apply p-5 pt-24 md:px-20;
@@ -43,7 +43,7 @@ body {
   @apply text-black dark:text-white;
 }
 .heading {
-  @apply mb-5 text-3xl font-bold text-black capitalize dark:text-white;
+  @apply mb-5 text-3xl font-bold tracking-tight text-black capitalize dark:text-white;
 }
 .btn {
   @apply cursor-pointer rounded-md border border-red-800 bg-linear-to-r from-red-800 to-red-600 px-4 py-1.5 font-semibold text-white capitalize outline-offset-2 transition-all [corner-shape:squircle] hover:bg-none hover:text-red-800 focus-visible:bg-none focus-visible:text-red-800 active:scale-[.98] disabled:opacity-50 supports-[corner-shape:squircle]:rounded-[200px];

@@ -24,7 +24,7 @@ export default function ThemeToggle() {
       }}
       tabIndex={0}
       onClick={() => toggleTheme()}
-      className="py-2 opacity-60 transition hover:opacity-100 focus-visible:opacity-100 md:inline md:pb-0"
+      className="py-2 text-black/60 transition hover:text-black focus-visible:text-black md:inline md:pb-0"
     >
       {mounted ? (
         resolvedTheme === "dark" ? (

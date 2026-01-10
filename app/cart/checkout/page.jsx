@@ -84,9 +84,8 @@ export default function Checkout() {
           >
             <div className="grid content-start gap-5">
               {cart.map((prod, index) => {
-                // const prod = { _id, title, colours, price, slug, image }
                 return (
-                  <Card key={prod._id}>
+                  <Card key={prod._id} className={"p-5"}>
                     <div className={`cartItem-${index} grid gap-4`}>
                       <div className="flex items-start gap-4">
                         <Image
@@ -118,7 +117,7 @@ export default function Checkout() {
               })}
             </div>
 
-            <Card className="sticky top-25">
+            <Card className="sticky top-25 p-5">
               <div className="grid content-start gap-5">
                 <div className="relative mb-4 flex gap-2">
                   <input

@@ -10,6 +10,7 @@
     "email": "email dev"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
     "framer-motion": "^12.23.26",
     "geist": "^1.5.1",
     "jose": "^6.1.3",
@@ -21,6 +22,7 @@
     "resend": "^6.6.0",
     "server-only": "^0.0.1",
     "swiper": "^12.0.3",
+    "tailwind-merge": "^3.4.0",
     "zod": "^4.3.4"
   },
   "devDependencies": {

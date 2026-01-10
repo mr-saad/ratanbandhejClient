@@ -3,6 +3,7 @@ import Head from "next/head"
 import Product from "@/components/Product"
 import useRatanContext from "@/lib/hooks/useRatanContext"
 import Link from "next/link"
+import ProductGrid from "@/components/ui/ProductGrid"
 
 export default function CartPage() {
   const { cart, authLoading } = useRatanContext()
@@ -22,7 +23,7 @@ export default function CartPage() {
             </Link>
           ) : null}
         </div>
-        <div className="3xl:grid-cols-5 grid gap-5 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4">
+        <ProductGrid>
           {!authLoading ? (
             cart.length > 0 ? (
               cart.map((props) => {
@@ -40,7 +41,7 @@ export default function CartPage() {
           ) : (
             "Please Wait"
           )}
-        </div>
+        </ProductGrid>
       </div>
     </>
   )

@@ -3,6 +3,7 @@
 import Link from "next/link"
 import Product from "@/components/Product"
 import { useSearchParams } from "next/navigation"
+import ProductGrid from "@/components/ui/ProductGrid"
 
 export default function FilteredProducts({ data }) {
   const search = useSearchParams()
@@ -67,7 +68,7 @@ export default function FilteredProducts({ data }) {
           )
         })}
       </div>
-      <div className="3xl:grid-cols-5 mt-3 grid gap-5 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4">
+      <ProductGrid>
         {products.length ? (
           products.map((product, index) => {
             return <Product index={index} key={product.slug} {...product} />
@@ -75,7 +76,7 @@ export default function FilteredProducts({ data }) {
         ) : (
           <p>No Products</p>
         )}
-      </div>
+      </ProductGrid>
     </div>
   )
 }

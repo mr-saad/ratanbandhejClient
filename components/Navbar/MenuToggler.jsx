@@ -22,10 +22,10 @@ export default function MenuToggler() {
       }}
     >
       <span
-        className={`line1 h-0.5 w-6.5 origin-center rounded-md bg-white`}
+        className={`line1 h-0.5 w-6.5 origin-center rounded-md bg-black`}
       ></span>
       <span
-        className={`line2 h-0.5 w-6.5 origin-center rounded-md bg-white`}
+        className={`line2 h-0.5 w-6.5 origin-center rounded-md bg-black`}
       ></span>
     </div>
   )

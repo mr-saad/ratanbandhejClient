@@ -2,6 +2,7 @@ import isAuthenticated from "@/lib/isAuthenticated"
 import CancelOrder from "./CancelOrder"
 import { query } from "@/lib/sanity"
 import Image from "next/image"
+import Card from "@/components/ui/Card"
 
 export default async function Orders() {
   const { _id } = await isAuthenticated()
@@ -23,7 +24,7 @@ export default async function Orders() {
         {orders.length ? (
           orders.map((order) => {
             return (
-              <div
+              <Card
                 key={order._id}
                 className={`relative flex flex-wrap overflow-clip rounded-lg border border-black/10 dark:border-white/10`}
               >
@@ -68,7 +69,7 @@ export default async function Orders() {
                     <CancelOrder _id={order._id} />
                   )}
                 </div>
-              </div>
+              </Card>
             )
           })
         ) : (

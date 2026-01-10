@@ -3,6 +3,10 @@ import Carousel from "./Carousel"
 import Sections from "./Sections"
 import { Quagera } from "@/components/logoFont"
 import getProducts from "@/lib/getProducts"
+import { Suspense } from "react"
+import HeaderImageLoading from "@/components/loadings/HeaderImageLoading"
+import CarouselLoading from "@/components/loadings/CarouselLoading"
+import ProductsLoading from "@/components/loadings/ProductsLoading"
 
 export const revalidate = 3600
 
@@ -12,7 +16,9 @@ export default async function Home() {
   return (
     <>
       <header className="relative flex min-h-[95vh] w-full items-center bg-red-800 before:absolute before:z-2 before:h-full before:w-full before:bg-linear-to-l before:from-transparent before:to-[#111]/90">
-        <HeaderImage />
+        <Suspense fallback={<HeaderImageLoading />}>
+          <HeaderImage />
+        </Suspense>
         <div className="z-10 px-5 text-white md:px-20">
           <h1
             className={
@@ -28,9 +34,13 @@ export default async function Home() {
       <div className="Container mx-auto">
         <div className="home mb-10 overflow-hidden">
           <h1 className="heading arrivals my-5 text-4xl!">Fresh Crafts</h1>
-          <Carousel data={data} />
+          <Suspense fallback={<CarouselLoading />}>
+            <Carousel data={data} />
+          </Suspense>
         </div>
-        <Sections />
+        <Suspense fallback={<ProductsLoading />}>
+          <Sections />
+        </Suspense>
       </div>
     </>
   )

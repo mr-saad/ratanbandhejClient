@@ -1,27 +1,10 @@
 "use client"
+import cn from "@/lib/cn"
 import useRatanContext from "@/lib/hooks/useRatanContext"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
 
 export default function CartLink() {
   const { cart, auth } = useRatanContext()
-  const pathname = usePathname()
-
-  const restofprops =
-    cart.length !== 0
-      ? pathname.includes("/cart")
-        ? {
-            fill: "#ffffff",
-            stroke: "#ffffff",
-          }
-        : {
-            fill: "#fff",
-            stroke: "#fff",
-          }
-      : {
-          fill: "none",
-          stroke: "#fff",
-        }
 
   return (
     auth.status && (
@@ -40,14 +23,17 @@ export default function CartLink() {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            {...restofprops}
+            className={cn(
+              "cartLink stroke-black",
+              cart.length !== 0 ? "fill-black" : "fill-none",
+            )}
           >
             <circle cx="8" cy="21" r="1" />
             <circle cx="19" cy="21" r="1" />
             <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
           </svg>
           {cart.length !== 0 && (
-            <span className="absolute -top-2 -right-2 h-4 w-4 rounded-full bg-white text-center text-xs text-red-800">
+            <span className="absolute -top-2 -right-2 h-4 w-4 rounded-full bg-red-600 text-center text-xs text-white">
               {cart.length}
             </span>
           )}

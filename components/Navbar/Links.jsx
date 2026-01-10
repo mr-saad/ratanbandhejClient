@@ -1,4 +1,5 @@
 "use client"
+import cn from "@/lib/cn"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useEffect } from "react"
@@ -36,6 +37,7 @@ export default function Links() {
     const nav = document.querySelector("nav")
 
     const listener = document.addEventListener("click", (e) => {
+      console.log(e.target)
       if (!nav.contains(e.target) || e.target.tagName === "A") CloseNav()
     })
 
@@ -46,9 +48,10 @@ export default function Links() {
       <li className="md:inline">
         <Link
           prefetch={true}
-          className={`block pb-2 transition hover:opacity-100 focus-visible:opacity-100 md:inline md:px-2 md:py-0 ${
-            pathname === "/" ? "opacity-100" : "opacity-60"
-          }`}
+          className={cn(
+            "block pb-2 transition hover:text-black focus-visible:text-black md:inline md:px-2 md:py-0",
+            pathname === "/" ? "text-black" : "text-black/60",
+          )}
           href={"/"}
         >
           Home
@@ -59,9 +62,10 @@ export default function Links() {
           <li className="md:inline" key={all.url}>
             <Link
               prefetch={true}
-              className={`block py-2 transition hover:opacity-100 focus-visible:opacity-100 md:inline md:px-2 md:py-0 ${
-                pathname.includes(all.url) ? "opacity-100" : "opacity-60"
-              }`}
+              className={cn(
+                "block py-2 transition hover:text-black focus-visible:text-black md:inline md:px-2 md:py-0",
+                pathname.includes(all.url) ? "text-black" : "text-black/60",
+              )}
               href={all.url}
             >
               {all.text}

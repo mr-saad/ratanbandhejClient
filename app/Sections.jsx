@@ -1,13 +1,14 @@
 import Link from "next/link"
 import Product from "@/components/Product"
 import getProducts from "@/lib/getProducts"
+import ProductGrid from "@/components/ui/ProductGrid"
 
 export default async function Sections() {
   const [dupatta, saree, dress, topMaterial] = await Promise.all([
-    getProducts({ type: "Dupatta", count: 2 }),
-    getProducts({ type: "Saree", count: 2 }),
-    getProducts({ type: "Dress", count: 2 }),
-    getProducts({ type: "Top Material", count: 2 }),
+    getProducts({ type: "Dupatta", count: 3 }),
+    getProducts({ type: "Saree", count: 3 }),
+    getProducts({ type: "Dress", count: 3 }),
+    getProducts({ type: "Top Material", count: 3 }),
   ])
   return (
     <>
@@ -29,11 +30,11 @@ function Section({ title, data }) {
           Explore
         </Link>
       </div>
-      <div className="3xl:grid-cols-5 grid gap-5 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4">
+      <ProductGrid>
         {data.map((props) => (
           <Product key={props.slug} {...props} />
         ))}
-      </div>
+      </ProductGrid>
     </div>
   )
 }

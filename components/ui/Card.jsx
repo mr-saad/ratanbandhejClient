@@ -1,7 +1,12 @@
+import cn from "@/lib/cn"
+
 export default function Card({ children, className }) {
   return (
     <div
-      className={`rounded-xl border border-red-800/10 p-5 shadow-lg shadow-black/5 dark:border-red-800/30 ${className}`}
+      className={cn(
+        "${className} rounded-xl border border-black/10 shadow-lg shadow-black/5 dark:border-white/10",
+        className,
+      )}
     >
       {children}
     </div>

@@ -8,22 +8,6 @@ export default function Product({ slug, image, title, index }) {
     <motion.div
       layout
       className="group relative overflow-hidden rounded-md focus-within:outline-3 focus-within:outline-red-800"
-      transition={{
-        ease: "linear",
-        duration: 0.2,
-      }}
-      viewport={{
-        margin: "-50px",
-        once: true,
-      }}
-      initial={{
-        opacity: 0,
-        y: 20,
-      }}
-      whileInView={{
-        opacity: 1,
-        y: 0,
-      }}
     >
       <Link prefetch href={`/products/${slug}`}>
         {image && (

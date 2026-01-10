@@ -1,4 +1,5 @@
 import ScrollToTop from "@/components/ScrollToTop"
+import ProductGrid from "@/components/ui/ProductGrid"
 export default function Loading() {
   return (
     <div className="Container">
@@ -6,7 +7,7 @@ export default function Loading() {
 
       <div className="mb-5 h-11 max-w-52.5 animate-pulse rounded-md bg-red-800/20 dark:bg-white/20"></div>
 
-      <div className="3xl:grid-cols-5 grid gap-5 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4">
+      <ProductGrid>
         {Array(6)
           .fill(1)
           .map((item, index) => (
@@ -15,7 +16,7 @@ export default function Loading() {
               className="aspect-square animate-pulse rounded-md bg-red-800/20 dark:bg-white/20"
             ></div>
           ))}
-      </div>
+      </ProductGrid>
     </div>
   )
 }
