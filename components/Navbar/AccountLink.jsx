@@ -54,7 +54,7 @@ export default function AccountLink() {
             onClick={() => setDropdown(false)}
             prefetch
             className={cn(
-              "flex items-center gap-1 py-2 pb-4 text-black/60 transition hover:text-black focus-visible:text-black md:pb-2",
+              "flex items-center gap-1 py-2 pb-4 text-black/60 transition hover:text-black focus-visible:text-black",
               pathname === "/orders" ? "text-black" : "text-black/60",
             )}
             href={"/orders"}

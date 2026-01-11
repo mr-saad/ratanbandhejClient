@@ -3,7 +3,7 @@ import { notFound } from "next/navigation"
 import ImgSwiper from "@/app/products/[slug]/ImgSwiper"
 import getProducts from "@/lib/getProducts"
 import { query } from "@/lib/sanity"
-import Product from "@/components/Product"
+import Product from "@/components/ui/Product"
 
 export const revalidate = 3600
 

@@ -3,6 +3,7 @@ import CancelOrder from "./CancelOrder"
 import { query } from "@/lib/sanity"
 import Image from "next/image"
 import Card from "@/components/ui/Card"
+import ProductGrid from "@/components/ui/ProductGrid"
 
 export default async function Orders() {
   const { _id } = await isAuthenticated()
@@ -20,7 +21,7 @@ export default async function Orders() {
   return (
     <div className="Container">
       <h1 className="heading">My Orders</h1>
-      <div className="3xl:grid-cols-5 grid gap-5 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 dark:divide-white/10">
+      <ProductGrid>
         {orders.length ? (
           orders.map((order) => {
             return (
@@ -29,7 +30,7 @@ export default async function Orders() {
                 className={`relative flex flex-wrap overflow-clip rounded-lg border border-black/10 dark:border-white/10`}
               >
                 <span
-                  className={`absolute top-0 right-0 rounded-bl-lg px-1 text-white shadow ${order.status === "Processing" ? "bg-amber-600" : order.status === "Cancelled" ? "bg-red-800" : "bg-green-600"}`}
+                  className={`absolute top-0 right-0 rounded-bl-lg px-1 text-white shadow ${order.status === "Processing" ? "bg-amber-600" : order.status === "Cancelled" ? "bg-rose-900" : "bg-green-600"}`}
                 >
                   {order.status}
                 </span>
@@ -38,11 +39,7 @@ export default async function Orders() {
                   width={300}
                   height={300}
                   quality={60}
-                  style={{
-                    objectFit: "cover",
-                    objectPosition: "top",
-                  }}
-                  className="aspect-square w-full"
+                  className="aspect-square w-full object-cover object-top"
                   src={order.image.path}
                   placeholder="blur"
                   blurDataURL={order.image.metadata.lqip}
@@ -52,10 +49,8 @@ export default async function Orders() {
                   <p className="highlight line-clamp-3 capitalize">
                     {order.title}
                   </p>
-                  {/* <p>₹{order.price}</p> */}
                   <p>
                     {new Intl.DateTimeFormat("en-IN", {
-                      // timeStyle: "short",
                       month: "short",
                       day: "2-digit",
                       year: "2-digit",
@@ -75,7 +70,7 @@ export default async function Orders() {
         ) : (
           <p>No Orders Yet</p>
         )}
-      </div>
+      </ProductGrid>
     </div>
   )
 }

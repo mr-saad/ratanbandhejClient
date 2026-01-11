@@ -55,7 +55,7 @@ body {
   @apply cursor-pointer rounded-md border border-red-800 from-red-800 to-red-600 px-4 py-1.5 font-semibold text-red-800 capitalize outline-offset-2 transition-all hover:bg-linear-to-r hover:text-white focus-visible:bg-linear-45 focus-visible:text-white active:scale-[.98] disabled:opacity-50 supports-[corner-shape:squircle]:rounded-[200px] supports-[corner-shape:squircle]:[corner-shape:squircle];
 } */
 .input {
-  @apply w-full rounded-md border border-red-800/10 bg-transparent p-2 text-red-800 transition-all outline-none focus-visible:border-red-800 dark:border-white/10 dark:text-white dark:focus-visible:border-white;
+  @apply w-full rounded-md border border-rose-900/40 bg-transparent p-2 text-rose-900 transition-all outline-none focus-visible:border-rose-900 dark:text-white;
 }
 .link {
   @apply transition hover:text-black focus-visible:text-black dark:hover:text-white dark:focus-visible:text-white;
@@ -70,7 +70,7 @@ input[type="number"]::-webkit-outer-spin-button {
   opacity: 0 !important;
 }
 .floating-label {
-  @apply pointer-events-none absolute -top-4 left-0 -translate-y-1/2 transition-all will-change-contents peer-placeholder-shown:top-1/2 peer-placeholder-shown:left-2 peer-focus:-top-4 peer-focus:left-0;
+  @apply pointer-events-none absolute -top-2.5 left-0 -translate-y-1/2 transition-all will-change-transform peer-placeholder-shown:top-1/2 peer-placeholder-shown:left-2 peer-focus:-top-2.5 peer-focus:left-0;
 }
 
 .home .swiper {

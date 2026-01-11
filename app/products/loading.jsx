@@ -5,7 +5,7 @@ export default function Loading() {
     <div className="Container">
       <ScrollToTop />
 
-      <div className="mb-5 h-11 max-w-52.5 animate-pulse rounded-md bg-red-800/20 dark:bg-white/20"></div>
+      <div className="mb-5 h-11 max-w-52.5 animate-pulse rounded-md bg-gray-200 dark:bg-white/20"></div>
 
       <ProductGrid>
         {Array(6)
@@ -13,7 +13,7 @@ export default function Loading() {
           .map((item, index) => (
             <div
               key={index}
-              className="aspect-square animate-pulse rounded-md bg-red-800/20 dark:bg-white/20"
+              className="aspect-square animate-pulse rounded-md bg-gray-200 dark:bg-white/20"
             ></div>
           ))}
       </ProductGrid>

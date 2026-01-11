@@ -1,13 +1,26 @@
 import cn from "@/lib/cn"
+import { cva } from "class-variance-authority"
 
-export default function ProductGrid({ className, children }) {
+const gridVariants = cva("grid gap-5", {
+  variants: {
+    variant: {
+      grid: "sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6",
+      list: "grid-cols-1",
+    },
+  },
+  defaultVariants: {
+    variant: "grid",
+  },
+})
+
+export default function ProductGrid({
+  className,
+  children,
+  variant,
+  ...props
+}) {
   return (
-    <div
-      className={cn(
-        "3xl:grid-cols-6 grid gap-5 sm:grid-cols-3 md:grid-cols-4 2xl:grid-cols-5",
-        className,
-      )}
-    >
+    <div {...props} className={cn(gridVariants({ variant, className }))}>
       {children}
     </div>
   )

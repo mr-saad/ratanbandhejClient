@@ -1,6 +1,6 @@
 "use client"
 import Head from "next/head"
-import Product from "@/components/Product"
+import Product from "@/components/ui/Product"
 import useRatanContext from "@/lib/hooks/useRatanContext"
 import Link from "next/link"
 import ProductGrid from "@/components/ui/ProductGrid"
