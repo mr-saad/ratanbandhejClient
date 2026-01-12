@@ -18,7 +18,7 @@ export default function Product({
       <Link
         title={title}
         className={cn(
-          "group grid grid-cols-[1fr_2fr] overflow-hidden rounded-md border border-black/10 outline-rose-900 focus-within:outline-2 dark:border-white/10",
+          "group grid grid-cols-[1fr_2fr] overflow-hidden rounded-md border border-black/10 outline-rose-900 transition-all focus-within:outline-2 hover:shadow-lg dark:border-white/10",
           className,
         )}
         prefetch
@@ -42,7 +42,9 @@ export default function Product({
           )}
         </div>
         <div className="content-center p-5">
-          <h2 className="highlight capitalize">{title}</h2>
+          <h2 className="highlight tracking-tight text-pretty capitalize md:text-xl">
+            {title}
+          </h2>
           <p>{description}</p>
         </div>
       </Link>
@@ -50,10 +52,7 @@ export default function Product({
   ) : (
     <motion.div
       layout
-      className={cn(
-        "group relative overflow-hidden rounded-md outline-rose-900 focus-within:outline-2",
-        className,
-      )}
+      className={cn("group relative overflow-hidden rounded-md", className)}
     >
       <Link title={title} prefetch href={`/products/${slug}`}>
         {image && (
@@ -71,7 +70,7 @@ export default function Product({
             className="aspect-square w-full object-cover object-top transition duration-300 ease-in-out will-change-transform group-focus-within:scale-105 group-hover:scale-105"
           />
         )}
-        <div className="absolute inset-0 flex flex-col justify-end bg-linear-to-t from-[#111]/80 to-transparent p-5">
+        <div className="absolute inset-0 flex flex-col justify-end bg-linear-to-t from-[#111]/70 to-transparent p-5 opacity-0 transition-all group-focus-within:opacity-100 group-hover:opacity-100">
           <h2 className="text-white capitalize">{title}</h2>
         </div>
       </Link>

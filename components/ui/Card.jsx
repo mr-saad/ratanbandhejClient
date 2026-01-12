@@ -4,7 +4,7 @@ export default function Card({ children, className }) {
   return (
     <div
       className={cn(
-        "rounded-xl border border-black/10 shadow-lg shadow-black/5 dark:border-white/10",
+        "rounded-xl border border-rose-900/40 shadow-lg",
         className,
       )}
     >

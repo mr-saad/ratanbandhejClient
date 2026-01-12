@@ -9,7 +9,7 @@ import AccountLink from "./AccountLink"
 export default function Navbar() {
   return (
     <nav
-      className={`nav fixed inset-x-2 top-2 z-12 grid grid-cols-[1fr_2fr_1fr] items-center justify-between rounded-xl bg-gray-200/70 px-5 py-2 backdrop-blur-xl select-none md:text-base`}
+      className={`nav fixed inset-x-2 top-2 z-12 grid grid-cols-[1fr_2fr_1fr] items-center justify-between rounded-xl bg-gray-200/70 px-5 py-2 shadow-lg backdrop-blur-lg select-none md:text-base`}
     >
       <MenuToggler />
       <Link
