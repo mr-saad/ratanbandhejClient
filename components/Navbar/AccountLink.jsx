@@ -4,7 +4,7 @@ import cn from "@/lib/cn"
 import useRatanContext from "@/lib/hooks/useRatanContext"
 import { ChevronDown, LogOut } from "lucide-react"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import { useState } from "react"
 import Button from "../ui/Button"
 import signOut from "@/lib/actions/signOut"
@@ -14,8 +14,10 @@ export default function AccountLink() {
   const [dropdown, setDropdown] = useState(false)
   const { auth, setCart, setAuth } = useRatanContext()
   const pathname = usePathname()
+  const { prefetch } = useRouter()
 
   const onSignOut = async () => {
+    prefetch("/sign-in")
     setLoading(true)
     const warn = confirm(
       "You'll be Signed Out. You have to Sign In again to place an order. Sure?",
