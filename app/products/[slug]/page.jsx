@@ -4,6 +4,7 @@ import ImgSwiper from "@/app/products/[slug]/ImgSwiper"
 import getProducts from "@/lib/getProducts"
 import { query } from "@/lib/sanity"
 import Product from "@/components/ui/Product"
+import ProductGrid from "@/components/ui/ProductGrid"
 
 export const revalidate = 3600
 
@@ -72,21 +73,25 @@ export default async function Slug(props) {
   })
 
   return (
-    <div className="Container mx-auto md:max-w-4xl md:pt-10">
-      <div className="grid gap-5 md:grid-cols-2">
-        <ImgSwiper data={product.images} title={product.title} />
-        <ProductDetails product={product} />
+    <>
+      <div className="Container mx-auto md:max-w-4xl md:pt-10">
+        <div className="grid gap-5 md:grid-cols-2">
+          <ImgSwiper data={product.images} title={product.title} />
+          <ProductDetails product={product} />
+        </div>
       </div>
-      {similars.length ? (
-        <>
-          <h2 className="heading mt-20">You Might Also Like</h2>
-          <div className="grid gap-5 sm:grid-cols-2">
-            {similars.map((prod) => (
-              <Product {...prod} key={prod._id} />
-            ))}
-          </div>
-        </>
-      ) : null}
-    </div>
+      <div className="Container">
+        {similars.length ? (
+          <>
+            <h2 className="heading">You Might Also Like</h2>
+            <ProductGrid>
+              {similars.map((prod) => (
+                <Product {...prod} key={prod._id} />
+              ))}
+            </ProductGrid>
+          </>
+        ) : null}
+      </div>
+    </>
   )
 }

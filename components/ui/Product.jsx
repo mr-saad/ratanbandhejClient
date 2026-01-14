@@ -40,10 +40,10 @@ export default function Product({
         )}
       </div>
       <div className="content-center p-5">
-        <h2 className="highlight font-serif text-pretty capitalize md:text-xl">
+        <h2 className="highlight line-clamp-3 font-serif text-pretty capitalize md:text-3xl">
           {title}
         </h2>
-        <p>{description}</p>
+        <p className="line-clamp-2">{description}</p>
       </div>
     </Link>
   ) : (

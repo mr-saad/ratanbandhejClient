@@ -5,8 +5,19 @@ export default function Loading() {
     <div className="Container">
       <ScrollToTop />
 
-      <div className="mb-5 max-w-52.5 animate-pulse rounded-md bg-stone-500 text-stone-500 dark:bg-white/20">
-        Loading
+      <div className="mb-5 flex flex-wrap gap-2 md:gap-5">
+        <div className="max-w-133.5 grow animate-pulse rounded-md bg-stone-200 p-2 dark:bg-white/20">
+          &nbsp;
+        </div>
+        <div className="w-13 animate-pulse rounded-lg bg-stone-200 p-2 dark:bg-white/20">
+          &nbsp;
+        </div>
+        <div className="w-13 animate-pulse rounded-lg bg-stone-200 p-2 dark:bg-white/20">
+          &nbsp;
+        </div>
+        <div className="w-13 animate-pulse rounded-lg bg-stone-200 p-2 dark:bg-white/20">
+          &nbsp;
+        </div>
       </div>
 
       <ProductGrid>

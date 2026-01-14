@@ -148,8 +148,8 @@ const Footer = async () => {
         </div>
       </div>
       <hr className="my-10 border-black/10 dark:border-white/10" />
-      <div className="mb-5 grid md:grid-cols-3 md:gap-10">
-        <div className="col-span-2 mb-4 md:mb-0">
+      <div className="mb-5 flex flex-wrap justify-between md:gap-10">
+        <div className="mb-4 md:mb-0">
           <Link prefetch className="link" href="/terms-conditions">
             Terms & Conditions
           </Link>
