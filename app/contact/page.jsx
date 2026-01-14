@@ -22,7 +22,7 @@ const Contact = () => {
         E-Mail:{" "}
         <a
           href="mailto:ratanbandhej@gmail.com"
-          className="highlight mb-3 border-b border-current font-semibold"
+          className="mb-3 border-b border-current font-semibold transition hover:text-stone-950 focus-visible:text-stone-950"
         >
           ratanbandhejbhuj@gmail.com
         </a>
@@ -31,7 +31,7 @@ const Contact = () => {
         Phone:{" "}
         <a
           href="tel:+919228405162"
-          className="highlight border-b border-current font-semibold"
+          className="border-b border-current font-semibold transition hover:text-stone-950 focus-visible:text-stone-950"
         >
           +91 9228405162
         </a>
@@ -47,7 +47,7 @@ const Contact = () => {
         <a
           title="E-Mail"
           href="mailto:ratanbandhej@gmail.com"
-          className="highlight border-b border-current font-semibold"
+          className="border-b border-current font-semibold transition hover:text-stone-950 focus-visible:text-stone-950"
         >
           ratanbandhejbhuj@gmail.com
         </a>
@@ -59,7 +59,7 @@ const Contact = () => {
         <a
           title="Phone"
           href="tel:+919228405162"
-          className="highlight border-b border-current font-semibold"
+          className="border-b border-current font-semibold transition hover:text-stone-950 focus-visible:text-stone-950"
         >
           +91 9228405162
         </a>

@@ -48,13 +48,8 @@ const About = () => {
         and craftsmanship. We hope you enjoy exploring the vibrant world of
         Bandhani and find something that resonates with your style and passion.
       </p>
-      Warm regards,
-      <h1
-        className={
-          "heading"
-          // + Quagera.className
-        }
-      >
+      Warm regards
+      <h1 className={"heading font-bold " + Quagera.className}>
         Ratan Bandhej
       </h1>
     </div>

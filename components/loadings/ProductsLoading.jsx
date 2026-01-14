@@ -8,7 +8,7 @@ export default function ProductsLoading() {
         .map((item, index) => (
           <div
             key={index}
-            className="aspect-square max-w-100 animate-pulse rounded-md bg-gray-200 dark:bg-white/20"
+            className="aspect-square max-w-100 animate-pulse rounded-md bg-stone-500 dark:bg-white/20"
           ></div>
         ))}
     </ProductGrid>

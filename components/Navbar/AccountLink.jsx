@@ -40,7 +40,7 @@ export default function AccountLink() {
         <ChevronDown className={`transition ${dropdown ? "rotate-180" : ""}`} />
       </button>
       {dropdown && (
-        <div className="top-13 right-0 w-max rounded-xl md:absolute md:bg-gray-200/90 md:p-5 md:shadow-lg">
+        <div className="top-13 right-0 w-max rounded-xl md:absolute md:bg-stone-100/95 md:p-5 md:shadow-lg">
           <Link
             onClick={() => setDropdown(false)}
             prefetch

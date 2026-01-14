@@ -22,8 +22,8 @@ export default async function Home() {
         <div className="z-10 px-5 text-white md:px-20">
           <h1
             className={
-              "font-serif text-7xl [text-shadow:0_0_10px_rgba(0,0,0,0.5)]"
-              // Quagera.className
+              "text-7xl font-bold [text-shadow:0_0_10px_rgba(0,0,0,0.5)] " +
+              Quagera.className
             }
           >
             Ratan Bandhej

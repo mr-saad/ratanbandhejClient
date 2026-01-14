@@ -4,20 +4,6 @@
 
 @theme {
   --breakpoint-3xl: 120rem;
-  --font-serif: Bodoni, ui-serif, serif;
-}
-
-@font-face {
-  font-family: Bodoni;
-  src: url("/fonts/BodoniModa_72pt-Regular.ttf") format("truetype");
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: Bodoni;
-  src: url("/fonts/BodoniModa_72pt-Italic.ttf") format("truetype");
-  font-style: italic;
-  font-display: swap;
 }
 
 * {
@@ -48,7 +34,7 @@ html {
 }
 
 body {
-  @apply text-stone-500 accent-red-800 transition-colors dark:bg-stone-950;
+  @apply text-stone-500 accent-red-800 transition-colors md:text-lg dark:bg-stone-950;
 }
 .Container {
   @apply p-5 pt-24 md:px-20;
@@ -69,7 +55,7 @@ body {
   @apply cursor-pointer rounded-md border border-red-800 from-red-800 to-red-600 px-4 py-1.5 font-semibold text-red-800 capitalize outline-offset-2 transition-all hover:bg-linear-to-r hover:text-white focus-visible:bg-linear-45 focus-visible:text-white active:scale-[.98] disabled:opacity-50 supports-[corner-shape:squircle]:rounded-[200px] supports-[corner-shape:squircle]:[corner-shape:squircle];
 } */
 .input {
-  @apply w-full rounded-md border border-stone-700 bg-transparent p-2 text-stone-950 transition-all outline-none focus-visible:border-stone-500 dark:text-white;
+  @apply w-full rounded-md border border-stone-300 bg-transparent p-2 text-stone-950 transition-all outline-none focus-visible:border-stone-700 dark:border-stone-700 dark:text-white dark:focus-visible:border-stone-300;
 }
 .link {
   @apply transition hover:text-stone-950 focus-visible:text-stone-950 dark:hover:text-white dark:focus-visible:text-white;

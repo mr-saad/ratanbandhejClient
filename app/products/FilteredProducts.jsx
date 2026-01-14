@@ -101,7 +101,7 @@ export default function FilteredProducts({ data }) {
           </Button>
           <div
             className={cn(
-              "absolute top-[115%] right-0 z-2 flex-wrap gap-2 rounded-xl bg-gray-200/70 p-5 backdrop-blur-xl md:right-auto md:left-0",
+              "absolute top-[115%] right-0 z-2 flex-wrap gap-2 rounded-xl bg-stone-100/75 p-5 backdrop-blur-lg md:right-auto md:left-0",
               showFilter === "true" ? "flex" : "hidden",
             )}
           >
@@ -145,7 +145,7 @@ export default function FilteredProducts({ data }) {
 
       <ProductGrid
         variant={view === "list" ? "list" : "grid"}
-        className={"mt-3"}
+        className={"mt-5"}
       >
         {products.length ? (
           products.map((product, index) => {
