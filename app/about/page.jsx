@@ -50,7 +50,10 @@ const About = () => {
       </p>
       Warm regards,
       <h1
-        className={"highlight mt-2 text-5xl font-semibold " + Quagera.className}
+        className={
+          "heading"
+          // + Quagera.className
+        }
       >
         Ratan Bandhej
       </h1>

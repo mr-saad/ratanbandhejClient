@@ -8,9 +8,9 @@ const btnVariants = cva(
     variants: {
       variant: {
         primary:
-          "hover:text-rose-900 focus-visible:text-rose-900 from-rose-900 to-black border-rose-900 outline-rose-900",
+          "hover:text-stone-600 focus-visible:text-stone-600 from-stone-700 to-stone-950 border-stone-700 outline-stone-700",
         secondary:
-          "hover:text-white focus-visible:text-white focus-visible:bg-linear-to-r bg-none hover:bg-linear-to-r from-rose-900 to-black text-rose-900 border-rose-900 outline-rose-900",
+          "hover:text-white focus-visible:text-white focus-visible:bg-linear-to-r bg-none hover:bg-linear-to-r from-stone-700 to-stone-950 text-stone-600 border-stone-700 outline-stone-700",
         danger:
           "hover:text-red-800 focus-visible:text-red-800 border-red-800 from-red-800 to-red-600",
       },

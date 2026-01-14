@@ -13,7 +13,7 @@ export default function ProductDetails({
   }
   return (
     <div>
-      <h1 className="highlight mb-3 text-2xl font-semibold capitalize md:mt-0">
+      <h1 className="highlight mb-3 font-serif text-3xl capitalize md:mt-0">
         {title}
       </h1>
       <span>

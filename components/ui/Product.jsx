@@ -1,7 +1,6 @@
 "use client"
 import Image from "next/image"
 import Link from "next/link"
-import { motion } from "framer-motion"
 import cn from "@/lib/cn"
 
 export default function Product({
@@ -14,46 +13,41 @@ export default function Product({
   className,
 }) {
   return variant === "list" ? (
-    <motion.div layout>
-      <Link
-        title={title}
-        className={cn(
-          "group grid grid-cols-[1fr_2fr] overflow-hidden rounded-md border border-black/10 outline-rose-900 transition-all focus-within:outline-2 hover:shadow-lg dark:border-white/10",
-          className,
-        )}
-        prefetch
-        href={`/products/${slug}`}
-      >
-        <div className="overflow-clip">
-          {image && (
-            <Image
-              quality={60}
-              priority={index === 0}
-              fetchPriority={index === 0 ? "high" : "low"}
-              sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 33vw"
-              alt={slug}
-              placeholder="blur"
-              blurDataURL={image.metadata.lqip}
-              src={image.path}
-              width={200}
-              height={200}
-              className="aspect-square h-full w-full object-cover object-top transition duration-300 ease-in-out will-change-transform group-focus-within:scale-105 group-hover:scale-105"
-            />
-          )}
-        </div>
-        <div className="content-center p-5">
-          <h2 className="highlight tracking-tight text-pretty capitalize md:text-xl">
-            {title}
-          </h2>
-          <p>{description}</p>
-        </div>
-      </Link>
-    </motion.div>
-  ) : (
-    <motion.div
-      layout
-      className={cn("group relative overflow-hidden rounded-md", className)}
+    <Link
+      title={title}
+      className={cn(
+        "group grid grid-cols-[1fr_2fr] overflow-hidden rounded-md border border-black/10 outline-stone-700 transition-all focus-within:shadow-lg focus-within:outline-2 hover:shadow-lg dark:border-white/10",
+        className,
+      )}
+      prefetch
+      href={`/products/${slug}`}
     >
+      <div className="overflow-clip">
+        {image && (
+          <Image
+            quality={60}
+            priority={index === 0}
+            fetchPriority={index === 0 ? "high" : "low"}
+            sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 33vw"
+            alt={slug}
+            placeholder="blur"
+            blurDataURL={image.metadata.lqip}
+            src={image.path}
+            width={200}
+            height={200}
+            className="aspect-square h-full w-full object-cover object-top transition duration-300 ease-in-out will-change-transform group-focus-within:scale-105 group-hover:scale-105"
+          />
+        )}
+      </div>
+      <div className="content-center p-5">
+        <h2 className="highlight font-serif text-pretty capitalize md:text-xl">
+          {title}
+        </h2>
+        <p>{description}</p>
+      </div>
+    </Link>
+  ) : (
+    <div className={cn("group relative overflow-hidden rounded-md", className)}>
       <Link title={title} prefetch href={`/products/${slug}`}>
         {image && (
           <Image
@@ -71,9 +65,9 @@ export default function Product({
           />
         )}
         <div className="absolute inset-0 flex flex-col justify-end bg-linear-to-t from-[#111]/70 to-transparent p-5 opacity-0 transition-all group-focus-within:opacity-100 group-hover:opacity-100">
-          <h2 className="text-white capitalize">{title}</h2>
+          <h2 className="font-serif text-white capitalize">{title}</h2>
         </div>
       </Link>
-    </motion.div>
+    </div>
   )
 }

@@ -30,7 +30,7 @@ export default async function Orders() {
                 className={`relative flex flex-wrap overflow-clip rounded-lg border border-black/10 dark:border-white/10`}
               >
                 <span
-                  className={`absolute top-0 right-0 rounded-bl-lg px-1 text-white shadow ${order.status === "Processing" ? "bg-amber-600" : order.status === "Cancelled" ? "bg-rose-900" : "bg-green-600"}`}
+                  className={`absolute top-0 right-0 rounded-bl-lg px-1 text-white shadow ${order.status === "Processing" ? "bg-amber-600" : order.status === "Cancelled" ? "bg-red-800" : "bg-green-600"}`}
                 >
                   {order.status}
                 </span>

@@ -37,7 +37,7 @@ export default function Template({ username = "", token = "" }) {
               Shopping with Ratan Bandhej.
             </Text>
             <Link
-              className="rounded-md bg-rose-900 px-3 py-2 font-semibold text-white"
+              className="rounded-md bg-stone-950 px-3 py-2 font-semibold text-white"
               href={`${baseUrl}/verify-account?token=${token}`}
             >
               Verify
@@ -48,7 +48,7 @@ export default function Template({ username = "", token = "" }) {
             <Text className="mb-0">Warm Regards</Text>
             <Heading className="mt-0">
               <Link
-                className="text-black"
+                className="text-stone-950"
                 href="https://ratanbandhej.vercel.app"
               >
                 Ratan Bandhej

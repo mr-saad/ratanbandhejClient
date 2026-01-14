@@ -34,7 +34,7 @@ export default function AccountLink() {
     <div className="relative py-2 md:py-0">
       <button
         onClick={() => setDropdown((prev) => !prev)}
-        className="flex cursor-pointer items-center text-black/60 hover:text-black focus-visible:text-black"
+        className="flex cursor-pointer items-center text-stone-500 hover:text-stone-950 focus-visible:text-stone-950"
       >
         {auth.username ? auth.username : "Guest User"}
         <ChevronDown className={`transition ${dropdown ? "rotate-180" : ""}`} />
@@ -45,8 +45,8 @@ export default function AccountLink() {
             onClick={() => setDropdown(false)}
             prefetch
             className={cn(
-              "flex items-center gap-1 py-2 pt-4 transition hover:text-black focus-visible:text-black md:pt-0",
-              pathname === "/profile" ? "text-black" : "text-black/60",
+              "flex items-center gap-1 py-2 pt-4 transition hover:text-stone-950 focus-visible:text-stone-950 md:pt-0",
+              pathname === "/profile" ? "text-stone-950" : "text-stone-500",
             )}
             href={"/profile"}
           >
@@ -56,8 +56,8 @@ export default function AccountLink() {
             onClick={() => setDropdown(false)}
             prefetch
             className={cn(
-              "flex items-center gap-1 py-2 pb-4 text-black/60 transition hover:text-black focus-visible:text-black",
-              pathname === "/orders" ? "text-black" : "text-black/60",
+              "flex items-center gap-1 py-2 pb-4 text-stone-500 transition hover:text-stone-950 focus-visible:text-stone-950",
+              pathname === "/orders" ? "text-stone-950" : "text-stone-500",
             )}
             href={"/orders"}
           >
@@ -80,8 +80,10 @@ export default function AccountLink() {
   ) : (
     <Link
       prefetch
-      className={`block py-2 transition hover:text-black focus-visible:text-black md:inline md:px-2 md:py-0 ${
-        pathname.includes("/create-account") ? "text-black" : "text-black/60"
+      className={`block py-2 transition hover:text-stone-950 focus-visible:text-stone-950 md:inline md:px-2 md:py-0 ${
+        pathname.includes("/create-account")
+          ? "text-stone-950"
+          : "text-stone-500"
       }`}
       href={"/create-account"}
     >

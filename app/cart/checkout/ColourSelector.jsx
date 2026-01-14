@@ -128,7 +128,7 @@ const ColourSelector = ({ _id, colours, price, setTotal, prod }) => {
                   <option
                     key={clrItem}
                     value={clr}
-                    className="text-black capitalize"
+                    className="text-stone-950 capitalize"
                   >
                     {clr}
                   </option>
