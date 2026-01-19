@@ -54,8 +54,11 @@ body {
 /* .btn-secondary {
   @apply cursor-pointer rounded-md border border-red-800 from-red-800 to-red-600 px-4 py-1.5 font-semibold text-red-800 capitalize outline-offset-2 transition-all hover:bg-linear-to-r hover:text-white focus-visible:bg-linear-45 focus-visible:text-white active:scale-[.98] disabled:opacity-50 supports-[corner-shape:squircle]:rounded-[200px] supports-[corner-shape:squircle]:[corner-shape:squircle];
 } */
-.input {
+/* .input {
   @apply w-full rounded-md border border-stone-300 bg-transparent p-2 text-stone-950 transition-all outline-none focus-visible:border-stone-700 dark:border-stone-700 dark:text-white dark:focus-visible:border-stone-300;
+} */
+.input {
+  @apply w-full border-0 border-b border-stone-200 bg-transparent py-2 text-stone-800 transition-all outline-none placeholder:opacity-50 focus-visible:border-stone-700 dark:border-stone-700 dark:text-white dark:focus-visible:border-stone-300;
 }
 .link {
   @apply transition hover:text-stone-950 focus-visible:text-stone-950 dark:hover:text-white dark:focus-visible:text-white;

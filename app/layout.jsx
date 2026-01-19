@@ -16,8 +16,8 @@ export const viewport = {
 
 export const metadata = {
   title: {
-    template: "%s | Ratan Bandhej",
-    default: "Ratan Bandhej | One Place For All Your Bandhani Needs",
+    template: "%s - Ratan Bandhej",
+    default: "Ratan Bandhej - One Place For All Your Bandhani Needs",
   },
   alternates: {
     canonical: "https://ratanbandhej.vercel.app",
@@ -66,7 +66,7 @@ export const metadata = {
   description:
     "One Place for All Your Bandhani Needs. Ratan Bandhej Provides Their Customers A Large Number Of Variaties In Bandhani Dupattas, Sarees, Top Materials",
   openGraph: {
-    title: "Ratan Bandhej | One Place For All Your Bandhani Needs",
+    title: "Ratan Bandhej - One Place For All Your Bandhani Needs",
     description:
       "One Place for All Your Bandhani Needs. Ratan Bandhej Provides Their Customers A Large Number Of Variaties In Bandhani Dupattas, Sarees, Top Materials",
     url: "https://ratanbandhej.vercel.app",

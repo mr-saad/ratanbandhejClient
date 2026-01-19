@@ -108,25 +108,27 @@ export default function CreateAccountForm() {
           </label>
         </div>
       </div>
-      <p className="my-4 text-pretty">
-        By clicking continue, you agree to our{" "}
-        <Link className="underline" href={"/terms-conditions"}>
-          Terms & Conditions
-        </Link>{" "}
-        and{" "}
-        <Link className="underline" href={"/privacy-policy"}>
-          Privacy Policy
-        </Link>
-      </p>
-      <Button disabled={loading} className="mb-4">
-        Continue
-      </Button>
-      <p>
-        Already have one?{" "}
-        <Link className="underline" href={"/sign-in"}>
-          Sign In
-        </Link>
-      </p>
+      <div className="text-center">
+        <p className="my-4 text-balance">
+          By clicking continue, you agree to our{" "}
+          <Link className="underline" href={"/terms-conditions"}>
+            Terms & Conditions
+          </Link>{" "}
+          and{" "}
+          <Link className="underline" href={"/privacy-policy"}>
+            Privacy Policy
+          </Link>
+        </p>
+        <Button disabled={loading} className="mb-4">
+          Continue
+        </Button>
+        <p>
+          Already have one?{" "}
+          <Link className="underline" href={"/sign-in"}>
+            Sign In
+          </Link>
+        </p>
+      </div>
       {message !== "" && <p className="text-red-700">{message}</p>}
       {loading && <LoaderCircle />}
     </form>
