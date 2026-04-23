@@ -11,19 +11,22 @@ const catalogue = [
 const Footer = async () => {
   return (
     <footer className="mt-20 border-t border-black/10 p-5 lg:px-20 dark:border-white/10">
-      <section className="mx-auto mb-10 flex max-w-3xl flex-col items-center justify-center text-center">
-        <div className="mb-3 flex items-center gap-2 font-medium tracking-wider uppercase">
-          <span>Ratan Bandhej</span>
+      <section className="mb-10 flex flex-wrap justify-between gap-5">
+        <div>
+          <div className="flex items-center gap-2 font-medium tracking-wider">
+            <h2 className="highlight font-serif text-4xl">Ratan Bandhej</h2>
+          </div>
+          <h2 className="mb-4 font-serif text-3xl md:text-4xl">
+            Unfold the art of{" "}
+            <span className="highlight italic">Bandhani.</span>
+          </h2>
+          <p className="max-w-xl text-balance">
+            Join our newsletter to receive early access to limited edition
+            handcrafted collections and stories from our artisans.
+          </p>
         </div>
-        <h2 className="mb-4 font-serif text-3xl md:text-4xl">
-          Unfold the art of <span className="highlight italic">Bandhani.</span>
-        </h2>
-        <p className="text-balance">
-          Join our newsletter to receive early access to limited edition
-          handcrafted collections and stories from our artisans.
-        </p>
-        <form className="my-2">
-          <div className="flex items-center gap-5">
+        <form>
+          <div className="mb-3 flex items-center gap-5">
             <input
               type="email"
               placeholder="Enter your email"
@@ -31,8 +34,8 @@ const Footer = async () => {
             />
             <Button>Subscribe</Button>
           </div>
+          <p>We respect your privacy. No spam, ever.</p>
         </form>
-        <p>We respect your privacy. No spam, ever.</p>
       </section>
 
       <div className="my-5 grid items-center gap-4 md:grid-cols-3 md:gap-10">

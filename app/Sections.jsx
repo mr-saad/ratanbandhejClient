@@ -26,7 +26,7 @@ function Section({ title, data }) {
     <div className="my-20">
       <div className="mb-5 flex items-center justify-between gap-5">
         <h3 className="heading mb-0! shrink-0">{title}</h3>
-        <hr className="w-full border-black/10 dark:border-white/10" />
+        {/* <hr className="w-full border-black/10 dark:border-white/10" /> */}
         <Button prefetch={true} href={"/products?category=" + title}>
           Explore <ChevronRight />
         </Button>
