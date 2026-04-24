@@ -20,12 +20,12 @@ const Footer = async () => {
             Unfold the art of{" "}
             <span className="highlight italic">Bandhani.</span>
           </h2>
+        </div>
+        <form>
           <p className="max-w-xl text-balance">
             Join our newsletter to receive early access to limited edition
             handcrafted collections and stories from our artisans.
           </p>
-        </div>
-        <form>
           <div className="mb-3 flex items-center gap-5">
             <input
               type="email"
