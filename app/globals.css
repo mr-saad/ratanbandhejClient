@@ -34,7 +34,7 @@ html {
 }
 
 body {
-  @apply text-stone-500 accent-stone-700 transition-colors dark:bg-stone-950;
+  @apply bg-rose-50 text-stone-500 accent-rose-700 transition-colors dark:bg-stone-950;
 }
 .Container {
   @apply p-5 pt-24 md:px-20;
@@ -53,7 +53,7 @@ body {
   @apply w-full border-0 border-b border-black/10 bg-transparent py-2 text-stone-800 transition-all outline-none placeholder:opacity-50 focus-visible:border-black/10 disabled:opacity-50 dark:border-white/10 dark:text-white dark:focus-visible:border-white/10;
 }
 .link {
-  @apply transition hover:text-stone-950 focus-visible:text-stone-950 dark:hover:text-white dark:focus-visible:text-white;
+  @apply transition hover:text-rose-700 focus-visible:text-rose-700;
 }
 
 input[type="number"]::-webkit-inner-spin-button {

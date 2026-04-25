@@ -4,7 +4,7 @@ import { useSearchParams, useRouter, usePathname } from "next/navigation"
 import ProductGrid from "@/components/ui/ProductGrid"
 import Button from "@/components/ui/Button"
 import { LayoutGrid, List, SlidersHorizontal } from "lucide-react"
-import cn from "@/lib/cn"
+import cn from "@/lib/utils/cn"
 import { useEffect, useState } from "react"
 
 export default function FilteredProducts({ data }) {

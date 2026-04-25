@@ -6,7 +6,6 @@ import getProducts from "@/lib/getProducts"
 import { Suspense } from "react"
 import CarouselLoading from "@/components/loadings/CarouselLoading"
 import ProductsLoading from "@/components/loadings/ProductsLoading"
-import ProductCarousel from "./AiCarousel"
 
 export const revalidate = 3600
 
@@ -36,7 +35,7 @@ export default async function Home() {
       <div className="Container mx-auto">
         <div className="home mb-10 overflow-hidden">
           {/* <ProductCarousel /> */}
-          <h1 className="heading arrivals my-5 text-4xl!">Fresh Crafts</h1>
+          <h1 className="heading arrivals my-5 text-4xl!">New Arrivals</h1>
           <Suspense fallback={<CarouselLoading />}>
             <Carousel data={data} />
           </Suspense>

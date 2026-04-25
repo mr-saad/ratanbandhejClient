@@ -1,10 +1,6 @@
 import type { NextConfig } from "next"
 
-const withAnalyzer = require("@next/bundle-analyzer")({
-  enabled: process.env.ANALYZE === "false",
-}) as (config: NextConfig) => NextConfig
-
-const nextConfig = withAnalyzer({
+const nextConfig: NextConfig = {
   images: {
     qualities: [60, 75, 100],
     minimumCacheTTL: 31556926,
@@ -19,6 +15,6 @@ const nextConfig = withAnalyzer({
   },
   logging: false,
   productionBrowserSourceMaps: false,
-})
+}
 
 module.exports = nextConfig

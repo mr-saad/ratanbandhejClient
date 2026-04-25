@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import useCartBtn from "@/lib/hooks/useCartBtn"
 import useRatanContext from "@/lib/hooks/useRatanContext"
 import Button from "@/components/ui/Button"
-import { Minus, Plus } from "lucide-react"
+import { Minus, Plus, ShoppingCart } from "lucide-react"
 
 export default function CartBtn({ prod }) {
   const [mount, setMount] = useState(false)
@@ -36,14 +36,14 @@ export default function CartBtn({ prod }) {
             }}
           >
             <span className="flex items-center justify-center gap-1">
-              <Plus />
+              <ShoppingCart className="cursor-pointer fill-white" />
               Add to Cart
             </span>
           </Button>
         ) : (
-          <Button variant={"danger"} onClick={() => removeFromCartBtn(prod)}>
+          <Button variant={"secondary"} onClick={() => removeFromCartBtn(prod)}>
             <span className="flex items-center justify-center gap-1">
-              <Minus />
+              <ShoppingCart className="cursor-pointer stroke-rose-700" />
               Remove from Cart
             </span>
           </Button>

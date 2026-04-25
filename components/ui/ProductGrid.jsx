@@ -1,4 +1,4 @@
-import cn from "@/lib/cn"
+import cn from "@/lib/utils/cn"
 import { cva } from "class-variance-authority"
 
 const gridVariants = cva("grid gap-5", {

@@ -1,6 +1,5 @@
-import ScrollToTop from "@/components/ScrollToTop"
 import Button from "@/components/ui/Button"
-import { MapPin, Phone, Mail, Instagram, Facebook, Twitter } from "lucide-react"
+import { MapPin, Phone, Mail } from "lucide-react"
 
 export const metadata = {
   title: "Contact",
@@ -196,14 +195,14 @@ const Contact = () => {
                 href="https://instagram.com/ratanbandhejbhuj/"
                 className="rounded-full bg-white/10 p-2 transition-colors hover:bg-white/20"
               >
-                <Instagram size={18} />
+                {/* <Instagram size={18} /> */}
               </a>
               <a
                 target="_blank"
                 href="https://www.facebook.com/people/Ratan-Bandhej/100071573145928"
                 className="rounded-full bg-white/10 p-2 transition-colors hover:bg-white/20"
               >
-                <Facebook fill="currentColor" stroke="none" size={18} />
+                {/* <Facebook fill="currentColor" stroke="none" size={18} /> */}
               </a>
             </div>
           </div>

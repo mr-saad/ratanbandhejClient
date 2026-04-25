@@ -100,7 +100,9 @@ export default function Checkout() {
                           height={120}
                         />
                         <div className="w-full">
-                          <p className="highlight line-clamp-2">{prod.title}</p>
+                          <p className="highlight line-clamp-2 font-serif">
+                            {prod.title}
+                          </p>
                           {prod.colours && (
                             <ColourSelector
                               _id={prod._id}
@@ -163,7 +165,7 @@ export default function Checkout() {
                   <div className="flex items-center gap-2">
                     <Button disabled={loading}>
                       {loading ? (
-                       <LoaderCircle className="animate-spin" />
+                        <LoaderCircle className="animate-spin" />
                       ) : (
                         "Confirm"
                       )}

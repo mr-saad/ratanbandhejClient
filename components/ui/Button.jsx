@@ -1,19 +1,19 @@
-import cn from "@/lib/cn"
+import cn from "@/lib/utils/cn"
 import { cva } from "class-variance-authority"
 import Link from "next/link"
 
 const btnVariants = cva(
   // [corner-shape:squircle] supports-[corner-shape:squircle]:rounded-[200px]
-  "inline-flex items-center cursor-pointer will-change-transform rounded-full border px-4 py-1.5 font-semibold bg-linear-to-r text-white focus-visible:bg-none focus-visible:outline-none hover:bg-none capitalize outline-offset-2 transition-all active:scale-[.98] disabled:opacity-50 disabled:pointer-events-none",
+  "inline-flex items-center cursor-pointer will-change-transform rounded-md px-4 py-1.5 font-semibold text-white focus-visible:bg-none focus-visible:outline-none hover:bg-none capitalize outline-offset-2 transition-all active:scale-[.98] disabled:opacity-50 disabled:pointer-events-none",
   {
     variants: {
       variant: {
         primary:
-          "hover:text-stone-600 focus-visible:text-stone-600 from-stone-700 to-stone-950 border-stone-700 outline-stone-700",
+          "hover:bg-rose-800 focus-visible:bg-rose-800 bg-rose-700 outline-rose-800",
         secondary:
-          "hover:text-white focus-visible:text-white focus-visible:bg-linear-to-r bg-none hover:bg-linear-to-r from-stone-700 to-stone-950 text-stone-600 border-stone-700 outline-stone-700",
+          "text-rose-700 hover:outline-rose-800 focus-visible:ring-2 focus-visible:ring-rose-800 border-rose-700 border bg-transparent",
         danger:
-          "hover:text-red-800 focus-visible:text-red-800 border-red-800 from-red-800 to-red-600",
+          "hover:bg-red-800 focus-visible:bg-red-800 outline-red-800 bg-red-700 text-white",
       },
     },
     defaultVariants: {

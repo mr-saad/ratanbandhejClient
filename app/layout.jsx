@@ -1,5 +1,4 @@
 import "./globals.css"
-import { GeistSans } from "geist/font/sans"
 import Navbar from "@/components/Navbar/Navbar"
 import Footer from "@/components/Footer"
 import Provider from "@/lib/context/Provider"
@@ -88,7 +87,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   preconnect("https://cdn.sanity.io")
   return (
-    <html className={GeistSans.className} lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body>
         <Provider>
           <Navbar />
