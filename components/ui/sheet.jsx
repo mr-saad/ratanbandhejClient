@@ -60,8 +60,8 @@ function SheetContent({
             data-slot="sheet-close"
             render={
               <Button
-                variant="ghost"
-                className="absolute top-3 right-3"
+                variant="secondary"
+                className="absolute top-4 right-4 border-none text-black dark:text-white"
                 size="icon-sm"
               />
             }

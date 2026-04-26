@@ -14,7 +14,7 @@ export default async function Home() {
 
   return (
     <>
-      <header className="relative flex min-h-[95vh] w-full items-center bg-stone-700 before:absolute before:z-2 before:h-full before:w-full before:bg-linear-to-l before:from-transparent before:to-[#111]/90">
+      <header className="relative flex min-h-[95vh] w-full items-center bg-rose-700 before:absolute before:z-2 before:h-full before:w-full before:bg-linear-to-l before:from-transparent before:to-[#111]/90">
         <Suspense fallback={""}>
           <HeaderImage />
         </Suspense>

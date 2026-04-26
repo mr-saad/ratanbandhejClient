@@ -16,7 +16,7 @@ export default function Product({
     <Link
       title={title}
       className={cn(
-        "group grid grid-cols-[1fr_2fr] overflow-hidden rounded-md border border-black/10 outline-stone-700 transition-all focus-within:shadow-lg focus-within:outline-2 hover:shadow-lg dark:border-white/10",
+        "group grid grid-cols-[auto_2fr] overflow-hidden rounded-md border border-black/10 outline-stone-700 transition-all focus-within:shadow-lg focus-within:outline-2 hover:shadow-lg dark:border-white/10",
         className,
       )}
       prefetch
@@ -33,14 +33,14 @@ export default function Product({
             placeholder="blur"
             blurDataURL={image.metadata.lqip}
             src={image.path}
-            width={200}
-            height={200}
-            className="aspect-square h-full w-full object-cover object-top transition duration-300 ease-in-out will-change-transform group-focus-within:scale-105 group-hover:scale-105"
+            width={300}
+            height={300}
+            className="aspect-square object-cover object-top transition duration-300 ease-in-out will-change-transform group-focus-within:scale-105 group-hover:scale-105"
           />
         )}
       </div>
       <div className="content-center p-5">
-        <h2 className="highlight line-clamp-3 font-serif text-pretty capitalize md:text-3xl">
+        <h2 className="highlight line-clamp-3 font-serif text-pretty capitalize md:text-2xl">
           {title}
         </h2>
         <p className="line-clamp-2">{description}</p>

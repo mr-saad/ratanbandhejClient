@@ -48,8 +48,8 @@ export default function Links() {
         <Link
           prefetch={true}
           className={cn(
-            "block pb-2 transition hover:text-stone-950 focus-visible:text-stone-950 md:inline md:px-2 md:py-0",
-            pathname === "/" ? "text-stone-950" : "text-stone-500",
+            "block pb-2 transition hover:text-rose-700 focus-visible:text-rose-700 md:inline md:px-2 md:py-0",
+            pathname === "/" ? "text-rose-700" : "text-stone-500",
           )}
           href={"/"}
         >
@@ -62,10 +62,8 @@ export default function Links() {
             <Link
               prefetch={true}
               className={cn(
-                "block py-2 transition hover:text-stone-950 focus-visible:text-stone-950 md:inline md:px-2 md:py-0",
-                pathname.includes(all.url)
-                  ? "text-stone-950"
-                  : "text-stone-500",
+                "block py-2 transition hover:text-rose-700 focus-visible:text-rose-700 md:inline md:px-2 md:py-0",
+                pathname.includes(all.url) ? "text-rose-700" : "text-stone-500",
               )}
               href={all.url}
             >

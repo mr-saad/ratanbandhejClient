@@ -92,7 +92,7 @@ const About = () => {
             </div>
             {/* Two stacked smaller images */}
             <div className="grid grid-rows-2 gap-5 md:col-span-4">
-              <div className="overflow-hidden rounded-2xl bg-stone-700">
+              <div className="overflow-hidden rounded-2xl bg-stone-900">
                 <Image
                   unoptimized
                   loading="lazy"
@@ -103,7 +103,7 @@ const About = () => {
                   className="w-full object-cover"
                 />
               </div>
-              <div className="flex flex-col items-start justify-center rounded-2xl bg-stone-800 p-8 text-white">
+              <div className="flex flex-col items-start justify-center rounded-2xl bg-stone-900 p-8 text-white">
                 <h3 className="mb-2 font-serif text-3xl">100%</h3>
                 <p className="text-stone-300">
                   Handcrafted by master artisans.
@@ -150,7 +150,7 @@ const About = () => {
         </section>
       </div>
       {/* 4. CTA Strip */}
-      <section className="bg-stone-100 px-5 py-20 text-center dark:bg-stone-900">
+      <section className="bg-rose-100 px-5 py-20 text-center dark:bg-stone-900">
         <h2 className="mb-6 font-serif text-3xl">Experience the tradition.</h2>
         <Button href={"/products"}>
           View Latest Collection <ArrowRight className="ml-2" size={18} />

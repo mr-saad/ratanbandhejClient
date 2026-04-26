@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import useCartBtn from "@/lib/hooks/useCartBtn"
 import useRatanContext from "@/lib/hooks/useRatanContext"
 import Button from "@/components/ui/Button"
-import { Minus, Plus, ShoppingCart } from "lucide-react"
+import { ShoppingCart } from "lucide-react"
 
 export default function CartBtn({ prod }) {
   const [mount, setMount] = useState(false)

@@ -132,7 +132,7 @@ const Contact = () => {
     //   </div>
     // </div>
     <div className="Container">
-      <section className="overflow-hidden rounded-3xl border border-stone-100 shadow-xl shadow-black/5 dark:border-white/10">
+      <section className="overflow-hidden rounded-md border border-stone-100 shadow-xl shadow-black/5 dark:border-white/10">
         <div className="grid md:grid-cols-2">
           {/* Left Column: Contact Info */}
           <div className="flex flex-col justify-between bg-stone-900 p-5 md:p-10">

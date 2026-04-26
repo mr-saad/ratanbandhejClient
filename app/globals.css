@@ -34,7 +34,7 @@ html {
 }
 
 body {
-  @apply bg-rose-50 text-stone-500 accent-rose-700 transition-colors dark:bg-stone-950;
+  @apply bg-rose-50 text-stone-500 accent-rose-700 transition-colors dark:bg-stone-950 dark:text-stone-400;
 }
 .Container {
   @apply p-5 pt-24 md:px-20;
@@ -50,7 +50,7 @@ body {
   @apply w-full rounded-md border border-stone-300 bg-transparent p-2 text-stone-950 transition-all outline-none focus-visible:border-stone-700 dark:border-stone-700 dark:text-white dark:focus-visible:border-stone-300;
 } */
 .input {
-  @apply w-full border-0 border-b border-black/10 bg-transparent py-2 text-stone-800 transition-all outline-none placeholder:opacity-50 focus-visible:border-black/10 disabled:opacity-50 dark:border-white/10 dark:text-white dark:focus-visible:border-white/10;
+  @apply w-full border-0 border-b border-black/10 bg-transparent py-2 text-stone-800 transition-all outline-none focus-visible:border-black/10 disabled:opacity-50 dark:border-white/10 dark:text-white dark:focus-visible:border-white/10;
 }
 .link {
   @apply transition hover:text-rose-700 focus-visible:text-rose-700;

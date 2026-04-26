@@ -9,7 +9,7 @@ const btnVariants = cva(
     variants: {
       variant: {
         primary:
-          "hover:bg-rose-800 focus-visible:bg-rose-800 bg-rose-700 outline-rose-800",
+          "hover:bg-rose-800 focus-visible:bg-rose-800 bg-rose-700 border border-rose-700 outline-rose-800",
         secondary:
           "text-rose-700 hover:outline-rose-800 focus-visible:ring-2 focus-visible:ring-rose-800 border-rose-700 border bg-transparent",
         danger:

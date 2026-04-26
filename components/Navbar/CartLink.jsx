@@ -1,7 +1,6 @@
 "use client"
 import cn from "@/lib/utils/cn"
 import useRatanContext from "@/lib/hooks/useRatanContext"
-import Link from "next/link"
 import Button from "../ui/Button"
 import {
   Sheet,
@@ -12,8 +11,10 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "../ui/sheet"
-import { ShoppingCart } from "lucide-react"
+import { ShoppingCart, Trash2, XIcon } from "lucide-react"
 import Image from "next/image"
+import removeFromCart from "@/lib/actions/removeFromCart"
+import Link from "next/link"
 
 export default function CartLink() {
   const { cart } = useRatanContext()
@@ -72,19 +73,36 @@ export default function CartLink() {
         </SheetHeader>
         <div className="grid gap-5 overflow-auto" style={{ scrollbarWidth: 0 }}>
           {cart.length &&
-            cart.map((item) => {
+            cart.map((item, index) => {
               return (
-                <div key={item.slug} className="flex gap-2 p-5">
-                  <Image
-                    alt={item.title}
-                    src={item.image.path}
-                    placeholder="blur"
-                    blurDataURL={item.image.metadata?.lqip}
-                    width={100}
-                    height={100}
-                    className="aspect-square rounded-md object-cover"
-                  />
-                  <span className="highlight font-serif">{item.title}</span>
+                <div
+                  key={item.slug}
+                  className={cn(
+                    "mx-5 flex items-start justify-between gap-2 border-rose-200",
+                    index !== cart.length - 1 && "border-b",
+                  )}
+                >
+                  <Link href={item.slug} className="flex items-start gap-2">
+                    <Image
+                      alt={item.title}
+                      src={item.image.path}
+                      placeholder="blur"
+                      blurDataURL={item.image.metadata?.lqip}
+                      width={50}
+                      height={50}
+                      className="aspect-square max-w-full rounded-md object-cover"
+                    />
+                    <span className="highlight line-clamp-2 font-serif">
+                      {item.title}
+                    </span>
+                  </Link>
+                  <Button
+                    variant={"secondary"}
+                    className={"border-none p-0"}
+                    onClick={() => removeFromCart(item)}
+                  >
+                    <Trash2 />
+                  </Button>
                 </div>
               )
             })}
@@ -98,9 +116,13 @@ export default function CartLink() {
               </Button>
             }
           />
-          <Button href="/cart/checkout" className={"justify-center"}>
-            Checkout
-          </Button>
+          <SheetClose
+            render={
+              <Button href="/cart/checkout" className={"justify-center"}>
+                Checkout
+              </Button>
+            }
+          />
         </SheetFooter>
       </SheetContent>
     </Sheet>

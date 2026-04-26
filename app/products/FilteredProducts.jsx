@@ -15,7 +15,8 @@ export default function FilteredProducts({ data }) {
   const categories = [...new Set(data.map((all) => all.type))]
 
   const searchCategory = searchParams.get("category")
-  const showFilter = searchParams.get("filter")
+  const [showFilter, setShowFilter] = useState(false)
+  // const showFilter = searchParams.get("filter")
   const search = searchParams.get("search")
   const view = searchParams.get("view")
 
@@ -91,9 +92,10 @@ export default function FilteredProducts({ data }) {
         </div>
         <div className="relative">
           <Button
-            onClick={() =>
-              handleFilter({ filter: showFilter === "true" ? null : "true" })
-            }
+            onClick={() => {
+              setShowFilter((prev) => !prev)
+              // handleFilter({ filter: showFilter ? null : "true" })
+            }}
             variant={searchCategory ? "primary" : "secondary"}
             className={"inline-flex gap-2"}
           >
@@ -101,8 +103,8 @@ export default function FilteredProducts({ data }) {
           </Button>
           <div
             className={cn(
-              "absolute top-[115%] right-0 z-2 flex-wrap gap-2 rounded-xl bg-stone-100/75 p-5 backdrop-blur-lg md:right-auto md:left-0",
-              showFilter === "true" ? "flex" : "hidden",
+              "absolute top-[115%] right-0 z-2 flex-wrap gap-2 rounded-xl border border-rose-700 bg-stone-100/75 p-5 backdrop-blur-lg md:right-auto md:left-0 dark:bg-stone-950/75",
+              showFilter ? "flex" : "hidden",
             )}
           >
             {categories.map((category) => {
