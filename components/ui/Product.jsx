@@ -16,7 +16,7 @@ export default function Product({
     <Link
       title={title}
       className={cn(
-        "group grid grid-cols-[auto_2fr] overflow-hidden rounded-md border border-black/10 outline-stone-700 transition-all focus-within:shadow-lg focus-within:outline-2 hover:shadow-lg dark:border-white/10",
+        "group grid grid-cols-[1fr_2fr] items-center overflow-clip rounded-md border border-black/10 outline-stone-700 transition-all focus-within:shadow-lg focus-within:outline-2 hover:shadow-lg dark:border-white/10",
         className,
       )}
       prefetch

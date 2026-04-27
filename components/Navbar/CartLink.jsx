@@ -11,13 +11,14 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "../ui/sheet"
-import { ShoppingCart, Trash2, XIcon } from "lucide-react"
+import { ShoppingCart, Trash2 } from "lucide-react"
 import Image from "next/image"
-import removeFromCart from "@/lib/actions/removeFromCart"
+import useCartBtn from "@/lib/hooks/useCartBtn"
 import Link from "next/link"
 
 export default function CartLink() {
   const { cart } = useRatanContext()
+  const { removeFromCartBtn } = useCartBtn()
 
   return (
     // <Link
@@ -63,7 +64,7 @@ export default function CartLink() {
       </SheetTrigger>
       <SheetContent
         className={
-          "grid grid-rows-[auto_1fr_auto] border-rose-700 bg-white dark:bg-stone-950"
+          "grid grid-rows-[auto_1fr_auto] border-rose-700/20 bg-white dark:bg-stone-950"
         }
       >
         <SheetHeader>
@@ -71,18 +72,24 @@ export default function CartLink() {
             Your Cart
           </SheetTitle>
         </SheetHeader>
-        <div className="grid gap-5 overflow-auto" style={{ scrollbarWidth: 0 }}>
-          {cart.length &&
+        <div
+          className="grid content-start gap-5 overflow-auto"
+          style={{ scrollbarWidth: 0 }}
+        >
+          {cart.length > 0 ? (
             cart.map((item, index) => {
               return (
                 <div
                   key={item.slug}
                   className={cn(
-                    "mx-5 flex items-start justify-between gap-2 border-rose-200",
+                    "mx-5 flex items-start justify-between gap-2 border-rose-200 pb-5",
                     index !== cart.length - 1 && "border-b",
                   )}
                 >
-                  <Link href={item.slug} className="flex items-start gap-2">
+                  <Link
+                    href={"/products/" + item.slug}
+                    className="flex items-start gap-2"
+                  >
                     <Image
                       alt={item.title}
                       src={item.image.path}
@@ -99,30 +106,37 @@ export default function CartLink() {
                   <Button
                     variant={"secondary"}
                     className={"border-none p-0"}
-                    onClick={() => removeFromCart(item)}
+                    onClick={() => removeFromCartBtn(item)}
                   >
                     <Trash2 />
                   </Button>
                 </div>
               )
-            })}
+            })
+          ) : (
+            <p className="px-5 text-3xl font-bold">Empty</p>
+          )}
         </div>
 
         <SheetFooter>
           <SheetClose
+            // nativeButton={false}
             render={
               <Button variant={"secondary"} className={"justify-center"}>
                 Close
               </Button>
             }
           />
-          <SheetClose
-            render={
-              <Button href="/cart/checkout" className={"justify-center"}>
-                Checkout
-              </Button>
-            }
-          />
+          {cart.length > 0 && (
+            <SheetClose
+              // nativeButton={false}
+              render={
+                <Button href="/cart/checkout" className={"justify-center"}>
+                  Checkout
+                </Button>
+              }
+            />
+          )}
         </SheetFooter>
       </SheetContent>
     </Sheet>

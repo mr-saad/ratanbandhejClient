@@ -74,8 +74,8 @@ export default async function Slug(props) {
 
   return (
     <>
-      <div className="Container mx-auto md:max-w-4xl md:pt-10">
-        <div className="grid gap-5 md:grid-cols-2">
+      <div className="Container md:pt-10">
+        <div className="grid gap-5 sm:grid-cols-2">
           <ImgSwiper data={product.images} title={product.title} />
           <ProductDetails product={product} />
         </div>
