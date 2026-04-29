@@ -2,6 +2,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import cn from "@/lib/utils/cn"
+import loader from "@/ImageLoader"
 
 export default function Product({
   slug,
@@ -16,7 +17,7 @@ export default function Product({
     <Link
       title={title}
       className={cn(
-        "group grid grid-cols-[1fr_2fr] items-center overflow-clip rounded-md border border-black/10 outline-stone-700 transition-all focus-within:shadow-lg focus-within:outline-2 hover:shadow-lg dark:border-white/10",
+        "group grid grid-cols-[1fr_2fr] overflow-clip rounded-md border border-black/10 outline-stone-700 transition-all focus-within:shadow-lg focus-within:outline-2 hover:shadow-lg dark:border-white/10",
         className,
       )}
       prefetch
@@ -32,7 +33,7 @@ export default function Product({
             alt={slug}
             placeholder="blur"
             blurDataURL={image.metadata.lqip}
-            src={image.path}
+            src={image.url}
             width={300}
             height={300}
             className="aspect-square object-cover object-top transition duration-300 ease-in-out will-change-transform group-focus-within:scale-105 group-hover:scale-105"
@@ -58,7 +59,7 @@ export default function Product({
             alt={slug}
             placeholder="blur"
             blurDataURL={image.metadata.lqip}
-            src={image.path}
+            src={image.url}
             width={400}
             height={400}
             className="aspect-square w-full object-cover object-top transition duration-300 ease-in-out will-change-transform group-focus-within:scale-105 group-hover:scale-105"

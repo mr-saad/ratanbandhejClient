@@ -81,8 +81,8 @@ const About = () => {
             {/* Large Main Image */}
             <div className="overflow-hidden rounded-2xl bg-stone-200 md:col-span-8">
               <Image
-                unoptimized
-                loading="lazy"
+                priority
+                loading="eager"
                 width={400}
                 height={400}
                 src="/images/working.jpg"
@@ -92,9 +92,8 @@ const About = () => {
             </div>
             {/* Two stacked smaller images */}
             <div className="grid grid-rows-2 gap-5 md:col-span-4">
-              <div className="overflow-hidden rounded-2xl bg-stone-900">
+              <div className="overflow-hidden rounded-2xl bg-stone-200">
                 <Image
-                  unoptimized
                   loading="lazy"
                   width={400}
                   height={400}

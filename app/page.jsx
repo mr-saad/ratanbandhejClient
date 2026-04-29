@@ -14,11 +14,11 @@ export default async function Home() {
 
   return (
     <>
-      <header className="heroPattern relative flex min-h-[95vh] items-center before:absolute before:z-2 before:h-full before:w-full before:bg-linear-to-l before:from-transparent before:to-[#111]/90 sm:before:to-white/90">
+      <header className="heroPattern relative flex min-h-[95vh] items-center before:absolute before:z-2 before:h-full before:w-full before:bg-linear-to-r before:from-stone-950/90 before:to-transparent sm:before:from-white/90 dark:before:from-stone-950/90">
         <Suspense fallback={""}>
           <HeaderImage />
         </Suspense>
-        <div className="z-10 mx-auto grow px-5 text-white sm:text-black lg:max-w-7xl">
+        <div className="z-10 mx-auto grow px-5 text-white sm:text-black lg:max-w-7xl dark:text-white">
           <h1
             className={
               "text-7xl font-bold [text-shadow:0_0_10px_rgba(0,0,0,0.5)] " +

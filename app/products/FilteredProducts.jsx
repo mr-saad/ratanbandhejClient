@@ -96,14 +96,14 @@ export default function FilteredProducts({ data }) {
               setShowFilter((prev) => !prev)
               // handleFilter({ filter: showFilter ? null : "true" })
             }}
-            variant={searchCategory ? "primary" : "secondary"}
+            variant={searchCategory ? "primary" : "ghost"}
             className={"inline-flex gap-2"}
           >
             <SlidersHorizontal />
           </Button>
           <div
             className={cn(
-              "absolute top-[115%] right-0 z-2 flex-wrap gap-2 rounded-xl border border-rose-700 bg-stone-100/75 p-5 backdrop-blur-lg md:right-auto md:left-0 dark:bg-stone-950/75",
+              "absolute top-[115%] right-0 z-2 flex-wrap gap-2 rounded-md bg-stone-100/75 p-5 shadow backdrop-blur-lg md:right-auto md:left-0 dark:bg-stone-950/75 dark:shadow-white/10",
               showFilter ? "flex" : "hidden",
             )}
           >
@@ -111,9 +111,7 @@ export default function FilteredProducts({ data }) {
               return (
                 <Button
                   className={"text-nowrap"}
-                  variant={
-                    searchCategory === category ? "primary" : "secondary"
-                  }
+                  variant={searchCategory === category ? "primary" : "ghost"}
                   onClick={() => {
                     handleFilter({
                       category: searchCategory === category ? null : category,
@@ -130,7 +128,7 @@ export default function FilteredProducts({ data }) {
         <div className="flex gap-2 md:gap-5">
           <Button
             onClick={() => handleFilter({ view: null })}
-            variant={view === "list" ? "secondary" : "primary"}
+            variant={view === "list" ? "ghost" : "primary"}
           >
             <LayoutGrid />
           </Button>
@@ -138,7 +136,7 @@ export default function FilteredProducts({ data }) {
             onClick={() =>
               handleFilter({ view: view === "list" ? null : "list" })
             }
-            variant={view === "list" ? "primary" : "secondary"}
+            variant={view === "list" ? "primary" : "ghost"}
           >
             <List />
           </Button>

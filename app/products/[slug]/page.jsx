@@ -48,7 +48,7 @@ async function getProduct(slug) {
       "slug":slug.current,
       title,
       type,
-      "images":images[].asset->{path,metadata{lqip}},
+      "images":images[].asset->{url,metadata{lqip}},
       specs,
       description,
       colours,

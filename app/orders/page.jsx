@@ -12,7 +12,7 @@ export default async function Orders() {
         "_id":*[_type=="order" && user._ref==$userId && product._ref == ^._id][0]._id,
         title,price,
         "status":*[_type=="order" && user._ref==$userId && product._ref == ^._id][0].status,
-        "image":images[0].asset->{path,metadata{lqip}},
+        "image":images[0].asset->{url,metadata{lqip}},
         "_createdAt": *[_type=="order" && user._ref==$userId && product._ref == ^._id][0]._createdAt
       }`
 
@@ -40,7 +40,7 @@ export default async function Orders() {
                   height={300}
                   quality={60}
                   className="aspect-square w-full object-cover object-top"
-                  src={order.image.path}
+                  src={order.image.url}
                   placeholder="blur"
                   blurDataURL={order.image.metadata.lqip}
                 />

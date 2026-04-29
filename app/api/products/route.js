@@ -7,7 +7,7 @@ export const GET = async ({ nextUrl }) => {
     `*[_type=="product" && title match $search + "*"]{
     "slug":slug.current,
     title,
-    "image":images[0].asset->{path,metadata{lqip}},
+    "image":images[0].asset->{url,metadata{lqip}},
     }`,
     {
       search,

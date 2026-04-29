@@ -1,17 +1,21 @@
 "use client"
 
-import cn from "@/lib/utils/cn"
 import useRatanContext from "@/lib/hooks/useRatanContext"
-import { ChevronDown, LogOut } from "lucide-react"
+import { LogOut } from "lucide-react"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import { useState } from "react"
 import Button from "../ui/Button"
 import signOut from "@/lib/actions/signOut"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "../ui/dropdown-menu"
 
 export default function AccountLink() {
   const [loading, setLoading] = useState(false)
-  const [dropdown, setDropdown] = useState(false)
   const { auth, setCart, setAuth } = useRatanContext()
   const pathname = usePathname()
   const { prefetch } = useRouter()
@@ -31,38 +35,29 @@ export default function AccountLink() {
   }
 
   return auth.status ? (
-    <div className="relative py-2 md:py-0">
-      <button
-        onClick={() => setDropdown((prev) => !prev)}
-        className="flex cursor-pointer items-center text-stone-500 hover:text-stone-950 focus-visible:text-stone-950"
+    <DropdownMenu className="relative py-2 md:py-0">
+      <DropdownMenuTrigger
+        render={
+          <Button
+            variant="ghost"
+            className={
+              "px-0 font-normal normal-case hover:bg-white/50 focus-visible:bg-white/50 sm:px-4"
+            }
+          >
+            {auth.username ? auth.username : "Guest User"}
+          </Button>
+        }
+      />
+      <DropdownMenuContent
+        className={"bg-white shadow ring-0 dark:bg-stone-950"}
       >
-        {auth.username ? auth.username : "Guest User"}
-        <ChevronDown className={`transition ${dropdown ? "rotate-180" : ""}`} />
-      </button>
-      {dropdown && (
-        <div className="top-13 right-0 w-max rounded-xl shadow-black/5 md:absolute md:bg-stone-100/95 md:p-5 md:shadow-xl">
-          <Link
-            onClick={() => setDropdown(false)}
-            prefetch
-            className={cn(
-              "flex items-center gap-1 py-2 pt-4 transition hover:text-stone-950 focus-visible:text-stone-950 md:pt-0",
-              pathname === "/profile" ? "text-stone-950" : "text-stone-500",
-            )}
-            href={"/profile"}
-          >
-            Profile
-          </Link>
-          <Link
-            onClick={() => setDropdown(false)}
-            prefetch
-            className={cn(
-              "flex items-center gap-1 py-2 pb-4 text-stone-500 transition hover:text-stone-950 focus-visible:text-stone-950",
-              pathname === "/orders" ? "text-stone-950" : "text-stone-500",
-            )}
-            href={"/orders"}
-          >
-            Orders
-          </Link>
+        <DropdownMenuItem>
+          <Link href={"/profile"}>Profile</Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          <Link href={"/orders"}>Orders</Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem>
           <Button
             disabled={loading}
             onClick={onSignOut}
@@ -74,9 +69,9 @@ export default function AccountLink() {
               Sign Out
             </span>
           </Button>
-        </div>
-      )}
-    </div>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
   ) : (
     <Link
       prefetch

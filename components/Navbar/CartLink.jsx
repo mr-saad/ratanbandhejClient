@@ -63,6 +63,7 @@ export default function CartLink() {
         />
       </SheetTrigger>
       <SheetContent
+        showCloseButton={false}
         className={
           "grid grid-rows-[auto_1fr_auto] border-rose-700/20 bg-white dark:bg-stone-950"
         }
@@ -92,7 +93,7 @@ export default function CartLink() {
                   >
                     <Image
                       alt={item.title}
-                      src={item.image.path}
+                      src={item.image.url}
                       placeholder="blur"
                       blurDataURL={item.image.metadata?.lqip}
                       width={50}
@@ -120,7 +121,6 @@ export default function CartLink() {
 
         <SheetFooter>
           <SheetClose
-            // nativeButton={false}
             render={
               <Button variant={"secondary"} className={"justify-center"}>
                 Close
@@ -129,7 +129,6 @@ export default function CartLink() {
           />
           {cart.length > 0 && (
             <SheetClose
-              // nativeButton={false}
               render={
                 <Button href="/cart/checkout" className={"justify-center"}>
                   Checkout

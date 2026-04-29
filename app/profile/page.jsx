@@ -252,7 +252,7 @@ export default function Account() {
                         blurDataURL={i.image.metadata.lqip}
                         width={300}
                         height={300}
-                        src={i.image.path}
+                        src={i.image.url}
                         alt={i.title}
                         className="h-full w-full object-cover transition-transform duration-500 will-change-transform group-hover:scale-105"
                       />

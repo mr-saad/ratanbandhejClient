@@ -1,28 +1,27 @@
 "use client"
 import Image from "next/image"
-import { Navigation, Scrollbar } from "swiper/modules"
+import { Pagination } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css"
-import "swiper/css/navigation"
-import "swiper/css/scrollbar"
+import "swiper/css/pagination"
 
 export default function ImgSwiper({ data, title }) {
   return data ? (
     <Swiper
       className="max-w-full self-start rounded-md"
-      modules={[Scrollbar]}
-      loop={true}
-      scrollbar={{ draggable: true }}
+      modules={[Pagination]}
+      pagination
+      loop
     >
       {data.map((img, index, arr) => (
-        <SwiperSlide key={img.path}>
+        <SwiperSlide key={img.url}>
           <Image
             priority={index === 0}
             fetchPriority={index === 0 ? "high" : "low"}
             loading={index === 0 ? "eager" : "lazy"}
             quality={100}
             alt={title}
-            src={img.path}
+            src={img.url}
             placeholder="blur"
             blurDataURL={img.metadata.lqip}
             width={400}

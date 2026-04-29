@@ -94,7 +94,7 @@ export default function Checkout() {
                           placeholder="blur"
                           blurDataURL={prod.image.metadata.lqip}
                           alt={prod.title}
-                          src={prod.image.path}
+                          src={prod.image.url}
                           className="aspect-square rounded-md object-cover"
                           width={80}
                           height={120}

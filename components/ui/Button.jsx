@@ -12,6 +12,8 @@ const btnVariants = cva(
           "hover:bg-rose-800 focus-visible:bg-rose-800 bg-rose-700 border border-rose-700 outline-rose-800",
         secondary:
           "text-rose-700 hover:outline-rose-800 focus-visible:ring-2 focus-visible:ring-rose-800 border-rose-700 border bg-transparent",
+        ghost:
+          "text-rose-700 border border-transparent hover:bg-rose-100 focus-visible:bg-rose-100 dark:hover:bg-rose-700/20 dark:focus-visible:bg-rose-700/20 focus-visible:ring-2 focus-visible:ring-rose-800",
         danger:
           "hover:bg-red-800 focus-visible:bg-red-800 outline-red-800 bg-red-700 text-white",
       },
