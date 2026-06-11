@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: Quagera;
+  src: url("/quagera.otf") format("opentype");
+  font-display: swap;
+}
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
@@ -9,6 +15,14 @@
 * {
   -webkit-tap-highlight-color: transparent;
   scroll-behavior: smooth;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Quagera, serif;
 }
 
 .headersvg {
@@ -26,6 +40,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color-scheme: light dark;
 
   --swiper-navigation-color: #fff;
   --swiper-theme-color: #fff;
@@ -34,7 +49,7 @@ html {
 }
 
 body {
-  @apply bg-rose-50 text-stone-500 accent-rose-700 transition-colors dark:bg-stone-950 dark:text-stone-400;
+  @apply bg-rose-50 text-stone-500 accent-rose-700 transition-colors dark:bg-[#130006] dark:text-stone-400;
 }
 .Container {
   @apply mx-auto p-5 pt-24 lg:max-w-7xl;
@@ -43,7 +58,8 @@ body {
   @apply text-stone-950 dark:text-white;
 }
 .heading {
-  @apply mb-5 font-serif text-3xl text-stone-950 capitalize dark:text-white;
+  font-family: Quagera, serif;
+  @apply mb-5 text-3xl text-stone-950 capitalize dark:text-white;
 }
 
 /* .input {

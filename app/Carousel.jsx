@@ -6,7 +6,6 @@ import { motion } from "framer-motion"
 import "swiper/css"
 import "swiper/css/pagination"
 import Button from "@/components/ui/Button"
-import { ChevronRight } from "lucide-react"
 
 export default function Carousel({ data }) {
   return (
@@ -38,12 +37,12 @@ export default function Carousel({ data }) {
               ease: "easeOut",
             }}
           >
-            <h2 className="highlight font-serif text-3xl capitalize">
+            <h2 className="highlight font-serif text-xl capitalize md:text-3xl">
               {prod.title}
             </h2>
             <p className="mb-5 line-clamp-2">{prod.description}</p>
             <Button prefetch={true} href={"/products/" + prod.slug}>
-              View More <ChevronRight />
+              View More
             </Button>
           </motion.div>
           {prod.image && (

@@ -6,6 +6,8 @@ import Button from "@/components/ui/Button"
 import { LayoutGrid, List, SlidersHorizontal } from "lucide-react"
 import cn from "@/lib/utils/cn"
 import { useEffect, useState } from "react"
+import Empty from "@/components/ui/Empty"
+import Link from "next/link"
 
 export default function FilteredProducts({ data }) {
   const searchParams = useSearchParams()
@@ -94,7 +96,6 @@ export default function FilteredProducts({ data }) {
           <Button
             onClick={() => {
               setShowFilter((prev) => !prev)
-              // handleFilter({ filter: showFilter ? null : "true" })
             }}
             variant={searchCategory ? "primary" : "ghost"}
             className={"inline-flex gap-2"}
@@ -103,24 +104,26 @@ export default function FilteredProducts({ data }) {
           </Button>
           <div
             className={cn(
-              "absolute top-[115%] right-0 z-2 flex-wrap gap-2 rounded-md bg-stone-100/75 p-5 shadow backdrop-blur-lg md:right-auto md:left-0 dark:bg-stone-950/75 dark:shadow-white/10",
+              "absolute top-[115%] right-0 z-2 w-max flex-col flex-wrap items-start overflow-clip rounded-md border border-black/10 bg-white shadow md:right-auto md:left-0 dark:border-white/20 dark:bg-black",
               showFilter ? "flex" : "hidden",
             )}
           >
             {categories.map((category) => {
               return (
-                <Button
-                  className={"text-nowrap"}
-                  variant={searchCategory === category ? "primary" : "ghost"}
+                <button
+                  key={category}
+                  className={cn(
+                    "w-full cursor-pointer px-3 py-1 text-left first:pt-2 last:pb-2",
+                    searchCategory === category ? "bg-rose-700 text-white" : "",
+                  )}
                   onClick={() => {
                     handleFilter({
                       category: searchCategory === category ? null : category,
                     })
                   }}
-                  key={category}
                 >
                   {category}
-                </Button>
+                </button>
               )
             })}
           </div>
@@ -143,12 +146,12 @@ export default function FilteredProducts({ data }) {
         </div>
       </div>
 
-      <ProductGrid
-        variant={view === "list" ? "list" : "grid"}
-        className={"mt-5"}
-      >
-        {products.length ? (
-          products.map((product, index) => {
+      {products.length > 0 ? (
+        <ProductGrid
+          variant={view === "list" ? "list" : "grid"}
+          className={"mt-5"}
+        >
+          {products.map((product, index) => {
             return (
               <Product
                 variant={view === "list" ? "list" : "grid"}
@@ -157,11 +160,19 @@ export default function FilteredProducts({ data }) {
                 {...product}
               />
             )
-          })
-        ) : (
-          <p>No Products</p>
-        )}
-      </ProductGrid>
+          })}
+        </ProductGrid>
+      ) : (
+        <Empty
+          className={"mt-30"}
+          message={"No products matched your criteria"}
+          content={
+            <Link className="underline" href="/products">
+              View All Products
+            </Link>
+          }
+        />
+      )}
     </div>
   )
 }

@@ -36,7 +36,7 @@ export default function Product({
             src={image.url}
             width={300}
             height={300}
-            className="aspect-square object-cover object-top transition duration-300 ease-in-out will-change-transform group-focus-within:scale-105 group-hover:scale-105"
+            className="aspect-square h-full object-cover object-top transition duration-300 ease-in-out will-change-transform group-focus-within:scale-105 group-hover:scale-105"
           />
         )}
       </div>

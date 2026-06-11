@@ -4,13 +4,13 @@ import {
   User,
   Package,
   MapPin,
-  Settings,
   LogOut,
-  Camera,
   Edit2,
   Trash2,
-  ChevronRight,
   ShoppingCart,
+  LoaderCircle,
+  Box,
+  FileExclamationPoint,
 } from "lucide-react"
 import useRatanContext from "@/lib/hooks/useRatanContext"
 import Card from "@/components/ui/Card"
@@ -18,39 +18,50 @@ import Button from "@/components/ui/Button"
 import Image from "next/image"
 import Link from "next/link"
 import ProductGrid from "@/components/ui/ProductGrid"
+import signOut from "@/lib/actions/signOut"
+import useCartBtn from "@/lib/hooks/useCartBtn"
+import Empty from "@/components/ui/Empty"
 
-export default function Account() {
+export default function Profile() {
   const { auth, cart } = useRatanContext()
+  const { removeFromCartBtn } = useCartBtn()
+
+  const [logoutLoading, setLogoutLoading] = useState(false)
   const [activeTab, setActiveTab] = useState("profile")
 
   const user = {
     username: auth.username,
     email: auth.email,
-    phone: auth.phone,
-    avatar: "/api/placeholder/150/150",
     joined: auth.createdAt,
-    cart: cart,
+    cart,
+  }
+
+  const onSignOut = async () => {
+    setLogoutLoading(true)
+    const warn = confirm(
+      "You'll be Signed Out. You have to Sign In again to place an order. Sure?",
+    )
+    if (warn) {
+      setCart([])
+      setAuth({})
+      await signOut()
+    }
+    setLogoutLoading(false)
+  }
+
+  const handleRemoveFromCart = async (e, _id) => {
+    e.preventDefault()
+    removeFromCartBtn({ _id })
   }
 
   return (
     <div className="Container">
-      <h1 className="heading mb-5">My Account</h1>
+      <h1 className="heading mb-5">Profile</h1>
 
       <div className="flex flex-col gap-5 md:flex-row">
         <aside>
-          <Card>
-            <div className="flex items-center gap-3 border-b border-black/10 p-5 dark:border-white/10">
-              <img
-                src={user.avatar}
-                alt={user.username}
-                className="h-10 w-10 rounded-full bg-stone-600 object-cover"
-              />
-              <div>
-                <h3 className="truncate font-medium">{user.username}</h3>
-                <p className="truncate text-sm">Member since {user.joined}</p>
-              </div>
-            </div>
-            <nav className="flex flex-wrap gap-1 p-2 md:flex-col">
+          <Card className={"overflow-clip"}>
+            <nav className="flex overflow-x-auto md:flex-col">
               <NavButton
                 active={activeTab === "profile"}
                 onClick={() => setActiveTab("profile")}
@@ -61,13 +72,7 @@ export default function Account() {
                 active={activeTab === "orders"}
                 onClick={() => setActiveTab("orders")}
                 icon={Package}
-                label="My Orders"
-              />
-              <NavButton
-                active={activeTab === "addresses"}
-                onClick={() => setActiveTab("addresses")}
-                icon={MapPin}
-                label="Addresses"
+                label="Orders"
               />
               <NavButton
                 active={activeTab === "cart"}
@@ -75,115 +80,49 @@ export default function Account() {
                 icon={ShoppingCart}
                 label="Cart"
               />
-              <NavButton
-                active={activeTab === "settings"}
-                onClick={() => setActiveTab("settings")}
-                icon={Settings}
-                label="Settings"
-              />
             </nav>
-            <div className="mt-2 border-t border-black/10 p-2 dark:border-white/10">
-              <button className="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-red-500 transition-colors hover:bg-red-50">
+            <div className="shrink-0 border-t border-black/10 dark:border-white/10">
+              <Button
+                variant={"ghost"}
+                disabled={logoutLoading}
+                onClick={onSignOut}
+                className={"gap-2 text-nowrap"}
+              >
                 <LogOut size={18} />
                 <span>Sign Out</span>
-              </button>
+              </Button>
             </div>
           </Card>
         </aside>
 
         {/* RIGHT CONTENT AREA */}
-        <Card className="flex-1 p-5 md:px-10">
+        <div className="grow">
           {/* TAB: PERSONAL INFO */}
           {activeTab === "profile" && (
             <>
-              <div className="mb-8 flex items-start justify-between">
-                <h2 className="highlight font-serif text-xl">
-                  Personal Information
-                </h2>
+              {/* <div className="mb-8 flex items-start justify-between">
+                <h2 className="highlight font-serif text-xl">Personal Info</h2>
                 <Button>Save</Button>
-              </div>
+              </div> */}
               <div className="mb-8 flex flex-col gap-8 md:flex-row">
-                {/* Avatar Upload */}
-                <div className="shrink-0">
-                  <div className="group relative h-24 w-24 overflow-hidden rounded-full bg-stone-100 ring-4 ring-stone-50">
-                    <img
-                      src={user.avatar}
-                      alt="User"
-                      className="h-full w-full object-cover"
-                    />
-                    <div className="absolute inset-0 flex cursor-pointer items-center justify-center bg-black/30 opacity-0 transition-opacity group-hover:opacity-100">
-                      <Camera className="h-5 w-5 text-white" />
-                    </div>
-                  </div>
-                </div>
                 {/* Form Fields */}
                 <div className="grid flex-1 gap-5 md:grid-cols-2">
                   <InputField
-                    disabled={true}
+                    disabled
                     label="Username"
                     value={user.username}
                     readOnly
                     note="Username cannot be changed."
                   />
                   <InputField
+                    disabled
                     label="Email Address"
                     value={user.email}
                     type="email"
                   />
-                  <InputField
-                    label="Phone Number"
-                    value={user.phone}
-                    type="tel"
-                  />
-                  <InputField
-                    label="Date of Birth"
-                    placeholder="DD/MM/YYYY"
-                    type="date"
-                  />
                 </div>
               </div>
-            </>
-          )}
 
-          {/* TAB: ORDERS */}
-          {activeTab === "orders" && (
-            <>
-              <div>
-                <h2 className="highlight font-serif text-xl">Order History</h2>
-              </div>
-              <div>
-                {[1, 2, 3].map((order) => (
-                  <div
-                    key={order}
-                    className="flex flex-col justify-between gap-5 border-b border-black/10 p-5 pl-0 transition-colors last:border-0 hover:bg-stone-100 md:flex-row md:items-center dark:border-white/10 dark:hover:bg-stone-900"
-                  >
-                    <div className="flex items-start gap-5">
-                      <div className="rounded-lg bg-stone-100 p-3">
-                        <Package className="" size={20} />
-                      </div>
-                      <div>
-                        <h4 className="font-medium">Order #BAND-849{order}</h4>
-                        <p className="mt-1 text-sm">Placed on Jan 15, 2026</p>
-                        <div className="mt-2 flex items-center gap-2">
-                          <span className="inline-block h-2 w-2 rounded-full bg-orange-400"></span>
-                          <span className="text-sm font-medium text-orange-600">
-                            Processing
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-5">
-                      <p className="font-serif font-medium">₹4,250.00</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </>
-          )}
-
-          {/* TAB: ADDRESSES */}
-          {activeTab === "addresses" && (
-            <>
               <div className="mb-5 flex items-start justify-between">
                 <h2 className="highlight font-serif text-xl">
                   Saved Addresses
@@ -235,82 +174,75 @@ export default function Account() {
             </>
           )}
 
+          {/* TAB: ORDERS */}
+          {activeTab === "orders" && (
+            <>
+              <div>
+                <h2 className="highlight font-serif text-xl">Order History</h2>
+              </div>
+              <div>
+                {[1, 2, 3].map((order) => (
+                  <div
+                    key={order}
+                    className="flex flex-col justify-between gap-5 border-b border-black/10 p-5 pl-0 transition-colors last:border-0 hover:bg-stone-100 md:flex-row md:items-center dark:border-white/10 dark:hover:bg-stone-900"
+                  >
+                    <div className="flex items-start gap-5">
+                      <div className="rounded-lg bg-stone-100 p-3">
+                        <Package className="" size={20} />
+                      </div>
+                      <div>
+                        <h4 className="font-medium">Order #BAND-849{order}</h4>
+                        <p className="mt-1 text-sm">Placed on Jan 15, 2026</p>
+                        <div className="mt-2 flex items-center gap-2">
+                          <span className="inline-block h-2 w-2 rounded-full bg-orange-400"></span>
+                          <span className="text-sm font-medium text-orange-600">
+                            Processing
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-5">
+                      <p className="font-serif font-medium">₹4,250.00</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
+
           {/* TAB: CART */}
 
           {activeTab === "cart" && (
             <>
-              <ProductGrid>
-                {user.cart.map((i) => (
-                  <Link
-                    href={"/products/" + i.slug}
-                    key={i.slug}
-                    className="group"
-                  >
-                    <div className="relative mb-3 aspect-3/4 overflow-hidden rounded-xl bg-stone-100">
-                      <Image
-                        placeholder="blur"
-                        blurDataURL={i.image.metadata.lqip}
-                        width={300}
-                        height={300}
-                        src={i.image.url}
-                        alt={i.title}
-                        className="h-full w-full object-cover transition-transform duration-500 will-change-transform group-hover:scale-105"
+              {user.cart.length > 0 ? (
+                <ProductGrid>
+                  {user.cart.map((i) => {
+                    return (
+                      <CartItem
+                        key={i._id}
+                        {...i}
+                        handleRemoveFromCart={handleRemoveFromCart}
                       />
-                      <Button
-                        variant={"danger"}
-                        className="absolute top-2 right-2 backdrop-blur-lg hover:bg-white/20"
-                      >
-                        <Trash2 size={14} />
-                      </Button>
-                    </div>
-                    <h4 className="highlight line-clamp-3 font-serif text-sm">
-                      {i.title}
-                    </h4>
-                    <p className="text-sm">₹{i.price}</p>
-                  </Link>
-                ))}
-              </ProductGrid>
-            </>
-          )}
-
-          {/* TAB: SETTINGS */}
-          {activeTab === "settings" && (
-            <>
-              <h2 className="highlight mb-5 font-serif text-xl">
-                Security & Preferences
-              </h2>
-
-              <div className="space-y-5">
-                <div className="flex items-center justify-between py-2">
-                  <div>
-                    <h4 className="font-medium">Newsletter</h4>
-                    <p className="text-sm">
-                      Receive updates on new Bandhani collections.
+                    )
+                  })}
+                </ProductGrid>
+              ) : (
+                <Empty
+                  className={"mt-10"}
+                  message={"Cart is currently empty."}
+                  content={
+                    <p>
+                      <Link className="underline" href="/products">
+                        Explore
+                      </Link>{" "}
+                      Products
                     </p>
-                  </div>
-                  <ToggleSwitch />
-                </div>
-
-                <div className="border-t border-stone-100 pt-5">
-                  <h4 className="mb-4 font-medium">Change Password</h4>
-                  <div className="space-y-4">
-                    <input
-                      type="password"
-                      placeholder="Current Password"
-                      className="input"
-                    />
-                    <input
-                      type="password"
-                      placeholder="New Password"
-                      className="input"
-                    />
-                  </div>
-                  <Button className={"mt-5"}>Update</Button>
-                </div>
-              </div>
+                  }
+                />
+              )}
             </>
           )}
-        </Card>
+        </div>
       </div>
     </div>
   )
@@ -318,16 +250,56 @@ export default function Account() {
 
 // --- Sub-Components ---
 
+const CartItem = ({ _id, slug, title, image, price, handleRemoveFromCart }) => {
+  const [cartOpLoading, setCartOpLoading] = useState(false)
+  return (
+    <Card>
+      <Link href={"/products/" + slug} className="group">
+        <div className="relative mb-3 aspect-3/4 overflow-clip bg-stone-100">
+          <Image
+            placeholder="blur"
+            blurDataURL={image.metadata.lqip}
+            width={300}
+            height={300}
+            src={image.url}
+            alt={title}
+            className="h-full w-full object-cover transition-transform duration-500 will-change-transform group-hover:scale-105 group-focus-visible:scale-105"
+          />
+          <Button
+            disabled={cartOpLoading}
+            variant={"danger"}
+            className="absolute top-2 right-2"
+            onClick={(e) => {
+              setCartOpLoading(true)
+              handleRemoveFromCart(e, _id)
+              setCartOpLoading(false)
+            }}
+          >
+            {cartOpLoading ? (
+              <LoaderCircle className="animate-spin" />
+            ) : (
+              <Trash2 size={14} />
+            )}
+          </Button>
+        </div>
+        <h4 className="highlight line-clamp-3 font-serif text-sm">{title}</h4>
+        <p className="text-base">₹{price}</p>
+      </Link>
+    </Card>
+  )
+}
+
 const NavButton = ({ active, onClick, icon: Icon, label }) => (
   <button
     onClick={onClick}
-    className={`flex cursor-pointer items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 md:w-full ${
-      active ? "bg-stone-900 text-white" : " hover:bg-stone-100"
+    className={`flex shrink-0 cursor-pointer items-center gap-3 px-4 py-3 text-sm font-medium transition-all duration-200 md:w-full ${
+      active
+        ? "bg-rose-700 text-white"
+        : " hover:bg-rose-100 focus-visible:bg-rose-100"
     }`}
   >
     <Icon size={18} className={active ? "text-white" : ""} />
     <span>{label}</span>
-    {active && <ChevronRight size={14} className="ml-auto opacity-50" />}
   </button>
 )
 
@@ -354,11 +326,4 @@ const InputField = ({
     />
     {note && <p className="mt-1 text-sm">{note}</p>}
   </div>
-)
-
-const ToggleSwitch = () => (
-  <label className="relative inline-flex cursor-pointer items-center">
-    <input type="checkbox" className="peer sr-only" defaultChecked />
-    <div className="peer h-6 w-11 rounded-full bg-stone-200 peer-checked:bg-green-600 peer-focus:ring-2 peer-focus:ring-stone-300 peer-focus:outline-none after:absolute after:top-0.5 after:left-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:after:translate-x-full peer-checked:after:border-white"></div>
-  </label>
 )

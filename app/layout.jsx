@@ -87,7 +87,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   preconnect("https://cdn.sanity.io")
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <body>
         <Provider>
           <Navbar />

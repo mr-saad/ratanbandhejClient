@@ -18,7 +18,7 @@ export default function Navbar() {
         title="Ratan Bandhej"
         href="/"
         className={
-          "w-max justify-self-center text-4xl font-bold text-stone-950 md:justify-self-start " +
+          "w-max justify-self-center text-3xl font-bold text-stone-950 md:justify-self-start md:text-4xl " +
           Quagera.className
         }
       >

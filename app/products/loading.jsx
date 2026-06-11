@@ -26,7 +26,7 @@ export default function Loading() {
           .map((item, index) => (
             <div
               key={index}
-              className="aspect-square animate-pulse rounded-md bg-stone-500 dark:bg-white/20"
+              className="aspect-square animate-pulse rounded-md bg-stone-200 dark:bg-white/20"
             ></div>
           ))}
       </ProductGrid>

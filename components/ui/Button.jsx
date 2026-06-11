@@ -3,7 +3,6 @@ import { cva } from "class-variance-authority"
 import Link from "next/link"
 
 const btnVariants = cva(
-  // [corner-shape:squircle] supports-[corner-shape:squircle]:rounded-[200px]
   "inline-flex items-center cursor-pointer will-change-transform rounded-md px-4 py-1.5 font-semibold text-white focus-visible:bg-none focus-visible:outline-none hover:bg-none capitalize outline-offset-2 transition-all active:scale-[.98] disabled:opacity-50 disabled:pointer-events-none",
   {
     variants: {
