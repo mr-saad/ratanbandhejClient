@@ -1,4 +1,4 @@
-import { query } from "@/lib/sanity"
+import { query } from "@/lib/server/sanity"
 import { NextResponse } from "next/server"
 
 export const GET = async ({ nextUrl }) => {

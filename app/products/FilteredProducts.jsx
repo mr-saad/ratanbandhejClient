@@ -104,7 +104,7 @@ export default function FilteredProducts({ data }) {
           </Button>
           <div
             className={cn(
-              "absolute top-[115%] right-0 z-2 w-max flex-col flex-wrap items-start overflow-clip rounded-md border border-black/10 bg-white shadow md:right-auto md:left-0 dark:border-white/20 dark:bg-black",
+              "absolute top-[115%] right-0 z-2 w-max flex-col flex-wrap items-start overflow-clip rounded-md bg-white shadow md:right-auto md:left-0 dark:bg-black",
               showFilter ? "flex" : "hidden",
             )}
           >

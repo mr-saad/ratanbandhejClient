@@ -25,7 +25,7 @@ export default function Navbar() {
         Ratan Bandhej
       </Link>
       <ul
-        className={`col-span-3 row-start-2 hidden grid-flow-row pt-5 capitalize md:col-span-1 md:row-start-auto md:mt-0 md:grid md:grid-flow-col md:place-content-center md:border-none md:pt-0`}
+        className={`col-span-3 row-start-2 hidden grid-flow-row pt-5 md:col-span-1 md:row-start-auto md:mt-0 md:grid md:grid-flow-col md:place-content-center md:border-none md:pt-0`}
       >
         <Links />
         <div className="md:hidden">

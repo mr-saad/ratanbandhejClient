@@ -1,4 +1,4 @@
-import isAuthenticated from "@/lib/isAuthenticated"
+import isAuthenticated from "@/lib/server/isAuthenticated"
 import SignInForm from "./SignInForm"
 
 export const metadata = {

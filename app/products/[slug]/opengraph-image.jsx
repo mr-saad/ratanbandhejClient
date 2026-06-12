@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og"
-import { query } from "@/lib/sanity"
+import { query } from "@/lib/server/sanity"
 
 export async function generateImageMetadata({ params }) {
   const images = await query(

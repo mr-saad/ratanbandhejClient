@@ -1,5 +1,5 @@
 import Product from "@/components/ui/Product"
-import getProducts from "@/lib/getProducts"
+import getProducts from "@/lib/server/getProducts"
 import ProductGrid from "@/components/ui/ProductGrid"
 import Button from "@/components/ui/Button"
 import { ChevronRight } from "lucide-react"

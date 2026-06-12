@@ -14,7 +14,7 @@ export default function SignInForm() {
   const [message, setMessage] = useState("")
   const [loading, setLoading] = useState(false)
 
-  const { push } = useRouter()
+  const { replace } = useRouter()
 
   const onSubmit = async (e) => {
     e.preventDefault()
@@ -30,7 +30,7 @@ export default function SignInForm() {
       if (res.ok) {
         setAuth(res.auth)
         setCart(res.auth.cart)
-        return push("/products")
+        return replace("/products")
       }
       setMessage(res.message)
       setTimeout(() => setMessage(""), 4000)

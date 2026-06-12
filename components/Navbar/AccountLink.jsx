@@ -11,7 +11,9 @@ export default function AccountLink() {
   return auth.status ? (
     <Link
       href={"/profile"}
-      className={"link text-stone-400 dark:text-stone-600"}
+      className={
+        "link block py-2 text-stone-500 md:inline md:py-0 dark:text-stone-600"
+      }
     >
       {auth.username ? auth.username : "Guest User"}
     </Link>

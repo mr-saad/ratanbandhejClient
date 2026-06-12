@@ -1,8 +1,8 @@
 import ProductDetails from "./ProductDetails"
 import { notFound } from "next/navigation"
 import ImgSwiper from "@/app/products/[slug]/ImgSwiper"
-import getProducts from "@/lib/getProducts"
-import { query } from "@/lib/sanity"
+import getProducts from "@/lib/server/getProducts"
+import { query } from "@/lib/server/sanity"
 import Product from "@/components/ui/Product"
 import ProductGrid from "@/components/ui/ProductGrid"
 

@@ -30,21 +30,27 @@ export default function CartBtn({ prod }) {
       {mount ? (
         showCartBtn ? (
           <Button
+            title="Add to Cart"
             variant={"primary"}
             onClick={() => {
               addToCartBtn(prod)
             }}
           >
             <span className="flex items-center justify-center gap-1">
-              <ShoppingCart className="cursor-pointer fill-white" />
-              Add to Cart
+              <ShoppingCart size={18} className="cursor-pointer fill-white" />
             </span>
           </Button>
         ) : (
-          <Button variant={"secondary"} onClick={() => removeFromCartBtn(prod)}>
+          <Button
+            title="Remove from Cart"
+            variant={"secondary"}
+            onClick={() => removeFromCartBtn(prod)}
+          >
             <span className="flex items-center justify-center gap-1">
-              <ShoppingCart className="cursor-pointer stroke-rose-700" />
-              Remove from Cart
+              <ShoppingCart
+                size={18}
+                className="cursor-pointer stroke-rose-700"
+              />
             </span>
           </Button>
         )

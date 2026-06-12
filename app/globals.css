@@ -17,12 +17,13 @@
   scroll-behavior: smooth;
 }
 h1,
-h2,
-h3,
+h2
+/* h3,
 h4,
 h5,
-h6 {
+h6 */ {
   font-family: Quagera, serif;
+  @apply font-bold;
 }
 
 .headersvg {
@@ -59,7 +60,7 @@ body {
 }
 .heading {
   font-family: Quagera, serif;
-  @apply mb-5 text-3xl text-stone-950 capitalize dark:text-white;
+  @apply mb-5 text-3xl font-bold text-stone-950 capitalize dark:text-white;
 }
 
 /* .input {
@@ -89,10 +90,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .swiper-pagination {
-  @apply [--swiper-pagination-color:#9f0712] dark:[--swiper-pagination-color:#fff];
-  width: fit-content !important;
-  border-radius: 1000px;
-  @apply [--swiper-pagination-bottom:auto] [--swiper-pagination-top:0px] md:[--swiper-pagination-bottom:0px] md:[--swiper-pagination-top:unset];
+  @apply left-2! w-fit! rounded-md bg-white/70 backdrop-blur-xs [--swiper-pagination-bottom:auto] [--swiper-pagination-color:#9f0712] [--swiper-pagination-top:0.5rem] dark:[--swiper-pagination-color:#fff];
 }
 
 .heroPattern {

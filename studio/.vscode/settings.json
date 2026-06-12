@@ -1,0 +1,10 @@
+{
+  "files.associations": {
+    "*.embeddedhtml": "html",
+    "globals.css": "tailwindcss",
+    ".env*": "dotenv",
+    "*.css": "css",
+    "iostream": "cpp",
+    "ostream": "cpp"
+  }
+}

@@ -2,7 +2,6 @@
 import Image from "next/image"
 import Link from "next/link"
 import cn from "@/lib/utils/cn"
-import loader from "@/ImageLoader"
 
 export default function Product({
   slug,
@@ -66,7 +65,9 @@ export default function Product({
           />
         )}
         <div className="absolute inset-0 flex flex-col justify-end bg-linear-to-t from-[#111]/70 to-transparent p-5 opacity-0 transition-all group-focus-within:opacity-100 group-hover:opacity-100">
-          <h2 className="font-serif text-white capitalize">{title}</h2>
+          <h2 className="font-serif text-sm text-white capitalize md:text-base">
+            {title}
+          </h2>
         </div>
       </Link>
     </div>

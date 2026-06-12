@@ -1,5 +1,5 @@
 import FilteredProducts from "./FilteredProducts"
-import getProducts from "@/lib/getProducts"
+import getProducts from "@/lib/server/getProducts"
 
 export const revalidate = 3600
 

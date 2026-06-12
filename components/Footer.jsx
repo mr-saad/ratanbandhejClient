@@ -108,12 +108,12 @@ const Footer = async () => {
         </div>
         <div className="mt-8 grid grid-cols-1 gap-10 md:grid-cols-3">
           <div>
-            <strong className="highlight mx-auto mb-2 font-semibold">
+            <strong className="highlight mx-auto font-semibold">
               CATALOGUE
             </strong>
             {catalogue.map((cat) => (
               <Link
-                className="link block py-1 md:py-0"
+                className="link block py-1 first-of-type:pt-0 md:py-0"
                 href={`/products?category=${cat.route}`}
                 key={cat.text}
               >

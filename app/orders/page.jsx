@@ -1,6 +1,6 @@
-import isAuthenticated from "@/lib/isAuthenticated"
+import isAuthenticated from "@/lib/server/isAuthenticated"
 import CancelOrder from "./CancelOrder"
-import { query } from "@/lib/sanity"
+import { query } from "@/lib/server/sanity"
 import Image from "next/image"
 import Card from "@/components/ui/Card"
 import ProductGrid from "@/components/ui/ProductGrid"

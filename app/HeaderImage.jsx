@@ -1,4 +1,4 @@
-import { query } from "@/lib/sanity"
+import { query } from "@/lib/server/sanity"
 import Image from "next/image"
 
 export default async function HeaderImage() {

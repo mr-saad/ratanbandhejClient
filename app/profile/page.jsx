@@ -3,14 +3,11 @@ import React, { useState } from "react"
 import {
   User,
   Package,
-  MapPin,
   LogOut,
   Edit2,
   Trash2,
   ShoppingCart,
   LoaderCircle,
-  Box,
-  FileExclamationPoint,
 } from "lucide-react"
 import useRatanContext from "@/lib/hooks/useRatanContext"
 import Card from "@/components/ui/Card"
@@ -21,6 +18,7 @@ import ProductGrid from "@/components/ui/ProductGrid"
 import signOut from "@/lib/actions/signOut"
 import useCartBtn from "@/lib/hooks/useCartBtn"
 import Empty from "@/components/ui/Empty"
+import cn from "@/lib/utils/cn"
 
 export default function Profile() {
   const { auth, cart } = useRatanContext()
@@ -28,13 +26,6 @@ export default function Profile() {
 
   const [logoutLoading, setLogoutLoading] = useState(false)
   const [activeTab, setActiveTab] = useState("profile")
-
-  const user = {
-    username: auth.username,
-    email: auth.email,
-    joined: auth.createdAt,
-    cart,
-  }
 
   const onSignOut = async () => {
     setLogoutLoading(true)
@@ -56,12 +47,23 @@ export default function Profile() {
 
   return (
     <div className="Container">
-      <h1 className="heading mb-5">Profile</h1>
+      <div className="flex items-start justify-between">
+        <h1 className="heading mb-5">Profile</h1>
+        <Button
+          variant={"danger"}
+          disabled={logoutLoading}
+          onClick={onSignOut}
+          className={"gap-2"}
+        >
+          <LogOut size={18} />
+          <span>Sign Out</span>
+        </Button>
+      </div>
 
       <div className="flex flex-col gap-5 md:flex-row">
         <aside>
           <Card className={"overflow-clip"}>
-            <nav className="flex overflow-x-auto md:flex-col">
+            <nav className="flex overflow-x-auto *:grow md:flex-col">
               <NavButton
                 active={activeTab === "profile"}
                 onClick={() => setActiveTab("profile")}
@@ -81,17 +83,7 @@ export default function Profile() {
                 label="Cart"
               />
             </nav>
-            <div className="shrink-0 border-t border-black/10 dark:border-white/10">
-              <Button
-                variant={"ghost"}
-                disabled={logoutLoading}
-                onClick={onSignOut}
-                className={"gap-2 text-nowrap"}
-              >
-                <LogOut size={18} />
-                <span>Sign Out</span>
-              </Button>
-            </div>
+            <div className="shrink-0 border-t border-black/10 dark:border-white/10"></div>
           </Card>
         </aside>
 
@@ -110,14 +102,14 @@ export default function Profile() {
                   <InputField
                     disabled
                     label="Username"
-                    value={user.username}
+                    value={auth.username}
                     readOnly
                     note="Username cannot be changed."
                   />
                   <InputField
                     disabled
                     label="Email Address"
-                    value={user.email}
+                    value={auth.email}
                     type="email"
                   />
                 </div>
@@ -181,31 +173,68 @@ export default function Profile() {
                 <h2 className="highlight font-serif text-xl">Order History</h2>
               </div>
               <div>
-                {[1, 2, 3].map((order) => (
-                  <div
-                    key={order}
-                    className="flex flex-col justify-between gap-5 border-b border-black/10 p-5 pl-0 transition-colors last:border-0 hover:bg-stone-100 md:flex-row md:items-center dark:border-white/10 dark:hover:bg-stone-900"
-                  >
-                    <div className="flex items-start gap-5">
-                      <div className="rounded-lg bg-stone-100 p-3">
-                        <Package className="" size={20} />
-                      </div>
-                      <div>
-                        <h4 className="font-medium">Order #BAND-849{order}</h4>
-                        <p className="mt-1 text-sm">Placed on Jan 15, 2026</p>
-                        <div className="mt-2 flex items-center gap-2">
-                          <span className="inline-block h-2 w-2 rounded-full bg-orange-400"></span>
-                          <span className="text-sm font-medium text-orange-600">
-                            Processing
-                          </span>
+                {auth?.orders?.length > 0 ? (
+                  auth.orders.map((order) => (
+                    <div
+                      key={order._id}
+                      className="flex flex-col justify-between gap-5 border-b border-black/10 p-5 pl-0 transition-colors last:border-0 hover:bg-stone-100 md:flex-row md:items-center dark:border-white/10 dark:hover:bg-stone-900"
+                    >
+                      <div className="flex items-start gap-5">
+                        <div className="shrink-0 rounded-lg bg-stone-200 dark:bg-rose-900/50">
+                          <Image
+                            src={order?.product.image.url}
+                            width={70}
+                            height={70}
+                            alt={order?.product.title}
+                            className="aspect-square object-cover"
+                          />
+                        </div>
+                        <div>
+                          <p className="text-sm">Order #{order._id}</p>
+                          <p className="highlight">{order.product.title}</p>
+                          <p className="mt-1 text-sm">
+                            Placed on{" "}
+                            {new Date(order._createdAt).toLocaleDateString(
+                              "in",
+                              { dateStyle: "medium" },
+                            )}
+                          </p>
+                          <div className="mt-2 flex items-center gap-2">
+                            <div
+                              className={cn(
+                                "text-sm font-medium",
+                                order.status === "Cancelled" ||
+                                  order.status === "Error"
+                                  ? "text-red-700"
+                                  : order.status === "Shipped"
+                                    ? "text-green-600"
+                                    : "text-orange-600",
+                              )}
+                            >
+                              <span className="mr-1 inline-block h-2 w-2 rounded-full bg-current"></span>
+                              {order?.status}
+                            </div>
+                            <p className="font-serif font-medium">
+                              ₹{order?.product.price}
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
-                    <div className="flex items-center gap-5">
-                      <p className="font-serif font-medium">₹4,250.00</p>
-                    </div>
-                  </div>
-                ))}
+                  ))
+                ) : (
+                  <Empty
+                    message={"No Orders yet"}
+                    content={
+                      <p>
+                        Explore{" "}
+                        <Link href={"/products"} className="link underline">
+                          Products
+                        </Link>
+                      </p>
+                    }
+                  />
+                )}
               </div>
             </>
           )}
@@ -214,9 +243,9 @@ export default function Profile() {
 
           {activeTab === "cart" && (
             <>
-              {user.cart.length > 0 ? (
+              {auth.cart.length > 0 ? (
                 <ProductGrid>
-                  {user.cart.map((i) => {
+                  {auth.cart.map((i) => {
                     return (
                       <CartItem
                         key={i._id}
@@ -232,10 +261,10 @@ export default function Profile() {
                   message={"Cart is currently empty."}
                   content={
                     <p>
+                      Explore{" "}
                       <Link className="underline" href="/products">
-                        Explore
-                      </Link>{" "}
-                      Products
+                        Products
+                      </Link>
                     </p>
                   }
                 />
@@ -255,7 +284,7 @@ const CartItem = ({ _id, slug, title, image, price, handleRemoveFromCart }) => {
   return (
     <Card>
       <Link href={"/products/" + slug} className="group">
-        <div className="relative mb-3 aspect-3/4 overflow-clip bg-stone-100">
+        <div className="relative aspect-square overflow-clip bg-stone-100">
           <Image
             placeholder="blur"
             blurDataURL={image.metadata.lqip}
@@ -282,8 +311,10 @@ const CartItem = ({ _id, slug, title, image, price, handleRemoveFromCart }) => {
             )}
           </Button>
         </div>
-        <h4 className="highlight line-clamp-3 font-serif text-sm">{title}</h4>
-        <p className="text-base">₹{price}</p>
+        <div className="p-5">
+          <h4 className="highlight line-clamp-3 text-sm">{title}</h4>
+          <p className="text-base">₹{price}</p>
+        </div>
       </Link>
     </Card>
   )
@@ -292,7 +323,7 @@ const CartItem = ({ _id, slug, title, image, price, handleRemoveFromCart }) => {
 const NavButton = ({ active, onClick, icon: Icon, label }) => (
   <button
     onClick={onClick}
-    className={`flex shrink-0 cursor-pointer items-center gap-3 px-4 py-3 text-sm font-medium transition-all duration-200 md:w-full ${
+    className={`flex shrink-0 cursor-pointer items-center gap-2 px-4 py-3 text-sm font-medium transition-all duration-200 md:w-full ${
       active
         ? "bg-rose-700 text-white"
         : " hover:bg-rose-100 focus-visible:bg-rose-100"
