@@ -83,7 +83,7 @@ export default function CartLink() {
                     className={"border-none p-0"}
                     onClick={() => removeFromCartBtn(item)}
                   >
-                    <Trash2 />
+                    <Trash2 size={17} />
                   </Button>
                 </div>
               )
@@ -106,7 +106,6 @@ export default function CartLink() {
 
         <SheetFooter>
           <SheetClose
-            nativeButton={false}
             render={
               <Button variant={"secondary"} className={"justify-center"}>
                 Close

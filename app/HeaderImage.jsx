@@ -1,10 +1,9 @@
-import { query } from "@/lib/server/sanity"
+import sanity from "@/lib/server/sanity"
 import Image from "next/image"
 
 export default async function HeaderImage() {
-  const { image } = await query(
+  const { image } = await sanity.fetch(
     `*[_type=="headerImage"][0]{image{asset->{url,metadata{lqip}}}}`,
-    null,
   )
   return (
     <Image

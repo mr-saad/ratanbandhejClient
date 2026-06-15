@@ -1,8 +1,8 @@
 import { ImageResponse } from "next/og"
-import { query } from "@/lib/server/sanity"
+import sanity from "@/lib/server/sanity"
 
 export async function generateImageMetadata({ params }) {
-  const images = await query(
+  const images = await sanity.fetch(
     `*[slug.current==$slug]{title,"image":images[0].asset->{url}}`,
     {
       slug: (await params).slug,
@@ -18,7 +18,7 @@ export async function generateImageMetadata({ params }) {
 }
 
 export default async function OGImage({ params }) {
-  const product = await query(
+  const product = await sanity.fetch(
     `*[slug.current==$slug][0]{title,"image":images[0].asset->{url}}`,
     {
       slug: (await params).slug,

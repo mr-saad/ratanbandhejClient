@@ -1,9 +1,9 @@
-import { query } from "@/lib/server/sanity"
+import sanity from "@/lib/server/sanity"
 import { NextResponse } from "next/server"
 
 export const GET = async ({ nextUrl }) => {
   const search = nextUrl.searchParams.get("search").trim()
-  const res = await query(
+  const res = await sanity.fetch(
     `*[_type=="product" && title match $search + "*"]{
     "slug":slug.current,
     title,

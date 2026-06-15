@@ -38,7 +38,7 @@ export default function Template({ username = "", token = "" }) {
             </Text>
             <Link
               className="rounded-md bg-stone-950 px-3 py-2 font-semibold text-white"
-              href={`${baseUrl}/verify-account?token=${token}`}
+              href={`${baseUrl}/api/verify-account?token=${token}`}
             >
               Verify
             </Link>

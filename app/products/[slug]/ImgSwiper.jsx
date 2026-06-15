@@ -8,7 +8,7 @@ import "swiper/css/pagination"
 export default function ImgSwiper({ data, title }) {
   return data ? (
     <Swiper
-      className="max-w-full self-start rounded-md"
+      className="max-w-full self-start rounded-md [&_.swiper-pagination]:left-2!"
       modules={[Pagination]}
       pagination
       loop

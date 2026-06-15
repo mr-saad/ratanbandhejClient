@@ -2,6 +2,9 @@
 import { ThemeProvider, useTheme } from "next-themes"
 import { useEffect, useState } from "react"
 import RatanContext from "./RatanContext"
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+
+const queryClient = new QueryClient()
 
 export default function Provider({ children }) {
   const { setTheme } = useTheme()
@@ -13,7 +16,6 @@ export default function Provider({ children }) {
     username: "",
     address: "",
     email: "",
-    cart: [],
     noAcc: null,
   })
   const [authLoading, setAuthLoading] = useState(true)
@@ -28,25 +30,33 @@ export default function Provider({ children }) {
     } else {
       setTheme("light")
     }
+
     const getAuth = async () => {
       try {
         const res = await (await fetch("/api/getAuth")).json()
         setAuth(res)
-        setCart(res.cart)
+        setCart(res?.cart || [])
       } catch (error) {
         console.error(error)
       } finally {
         setAuthLoading(false)
       }
     }
+
     getAuth()
-  }, [setTheme])
+  }, [])
 
   return (
-    <ThemeProvider defaultTheme="system" enableSystem={true} attribute="class">
-      <RatanContext value={{ cart, setCart, auth, setAuth, authLoading }}>
-        {children}
-      </RatanContext>
-    </ThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider
+        defaultTheme="system"
+        enableSystem={true}
+        attribute="class"
+      >
+        <RatanContext value={{ cart, setCart, auth, setAuth, authLoading }}>
+          {children}
+        </RatanContext>
+      </ThemeProvider>
+    </QueryClientProvider>
   )
 }

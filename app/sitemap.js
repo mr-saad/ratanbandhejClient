@@ -1,8 +1,8 @@
-import { query } from "../lib/server/sanity"
+import sanity from "../lib/server/sanity"
 
 export default async function sitemap() {
   const q = `*[_type == "product"]{"slug":slug.current,_updatedAt}`
-  const products = await query(q)
+  const products = await sanity.fetch(q)
 
   return [
     {

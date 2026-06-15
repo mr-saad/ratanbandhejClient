@@ -2,7 +2,7 @@ import ProductDetails from "./ProductDetails"
 import { notFound } from "next/navigation"
 import ImgSwiper from "@/app/products/[slug]/ImgSwiper"
 import getProducts from "@/lib/server/getProducts"
-import { query } from "@/lib/server/sanity"
+import sanity from "@/lib/server/sanity"
 import Product from "@/components/ui/Product"
 import ProductGrid from "@/components/ui/ProductGrid"
 
@@ -15,7 +15,7 @@ export async function generateMetadata(props) {
 
   const q = `*[slug.current==$slug][0]{title}`
 
-  const product = await query(q, { slug })
+  const product = await sanity.fetch(q, { slug })
   if (product) {
     const keywords = product.title.toLowerCase()
 
@@ -38,7 +38,7 @@ export async function generateMetadata(props) {
 
 export async function generateStaticParams() {
   const q = `*[_type=="product"]{"slug":slug.current}`
-  const res = await query(q)
+  const res = await sanity.fetch(q)
   return res.map((all) => ({ slug: all.slug }))
 }
 
@@ -54,7 +54,7 @@ async function getProduct(slug) {
       colours,
       price
     }`
-  const res = await query(q, { slug })
+  const res = await sanity.fetch(q, { slug })
   if (res) {
     return res
   } else {
