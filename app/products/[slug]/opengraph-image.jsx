@@ -5,7 +5,7 @@ export async function generateImageMetadata({ params }) {
   const images = await sanity.fetch(
     `*[slug.current==$slug]{title,"image":images[0].asset->{url}}`,
     {
-      slug: (await params).slug,
+      slug: params?.slug || "slug",
     },
   )
 
