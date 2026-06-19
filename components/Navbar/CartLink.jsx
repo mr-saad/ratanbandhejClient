@@ -19,7 +19,6 @@ import Empty from "../ui/Empty"
 
 export default function CartLink() {
   const { cart } = useRatanContext()
-  console.log(cart, "cart link")
 
   const { removeFromCartBtn } = useCartBtn()
 

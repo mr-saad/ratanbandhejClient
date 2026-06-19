@@ -1,6 +1,6 @@
 "use client"
 import { ThemeProvider, useTheme } from "next-themes"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import RatanContext from "./RatanContext"
 import {
   QueryClient,
@@ -30,17 +30,6 @@ const initialData = {
 
 export default function Provider({ children }) {
   const { setTheme } = useTheme()
-  // const [cart, setCart] = useState([])
-  // const [auth, setAuth] = useState({
-  //   status: null,
-  //   verified: null,
-  //   _id: "",
-  //   username: "",
-  //   address: "",
-  //   email: "",
-  //   noAcc: null,
-  // })
-  // const [authLoading, setAuthLoading] = useState(true)
 
   const { isLoading: authLoading, data: auth } = useQuery(
     {
