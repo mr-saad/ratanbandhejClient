@@ -64,7 +64,7 @@ body {
   @apply text-stone-950 dark:text-white;
 }
 .heading {
-  @apply mb-5 font-serif text-3xl font-bold text-stone-950 capitalize dark:text-white;
+  @apply mb-5 font-serif text-3xl text-stone-950 capitalize dark:text-white;
 }
 
 .input {
