@@ -21,7 +21,7 @@ import cn from "@/lib/utils/cn"
 import { useQuery } from "@tanstack/react-query"
 
 export default function Profile() {
-  const { auth, cart, setCart, setAuth } = useRatanContext()
+  const { auth, cart, setAuth } = useRatanContext()
   const { removeFromCartBtn } = useCartBtn()
 
   const [logoutLoading, setLogoutLoading] = useState(false)
@@ -42,8 +42,16 @@ export default function Profile() {
       "You'll be Signed Out. You have to Sign In again to place an order. Sure?",
     )
     if (warn) {
-      setCart([])
-      setAuth({})
+      setAuth({
+        status: false,
+        verified: false,
+        cart: [],
+        _id: "",
+        username: "",
+        address: "",
+        email: "",
+        noAcc: true,
+      })
       await signOut()
     }
     setLogoutLoading(false)

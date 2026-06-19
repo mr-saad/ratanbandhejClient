@@ -19,6 +19,8 @@ import Empty from "../ui/Empty"
 
 export default function CartLink() {
   const { cart } = useRatanContext()
+  console.log(cart, "cart link")
+
   const { removeFromCartBtn } = useCartBtn()
 
   return (
@@ -27,7 +29,7 @@ export default function CartLink() {
         <ShoppingCart
           className={cn(
             "cursor-pointer stroke-rose-700",
-            cart.length !== 0 ? "fill-rose-700" : "fill-none",
+            cart?.length !== 0 ? "fill-rose-700" : "fill-none",
           )}
         />
       </SheetTrigger>
@@ -46,7 +48,7 @@ export default function CartLink() {
           className="grid content-start gap-5 overflow-auto"
           style={{ scrollbarWidth: 0 }}
         >
-          {cart.length > 0 ? (
+          {cart?.length > 0 ? (
             cart.map((item, index) => {
               return (
                 <div
@@ -112,7 +114,7 @@ export default function CartLink() {
               </Button>
             }
           />
-          {cart.length > 0 && (
+          {cart?.length > 0 && (
             <SheetClose
               nativeButton={false}
               render={

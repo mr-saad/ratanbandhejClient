@@ -1,10 +1,28 @@
 @import "tailwindcss";
 
-/* @font-face {
-  font-family: Quagera;
-  src: url("/quagera.otf") format("opentype");
+@font-face {
+  font-family: "DM Sans";
+  src: url("/fonts/DMSans-Regular.ttf") format("truetype");
+  font-weight: normal;
   font-display: swap;
-} */
+}
+@font-face {
+  font-family: "DM Sans";
+  src: url("/fonts/DMSans-SemiBold.ttf") format("truetype");
+  font-weight: bold;
+  font-display: swap;
+}
+@font-face {
+  font-family: "DM Serif Display";
+  src: url("/fonts/DMSerifDisplay-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "DM Serif Display";
+  src: url("/fonts/DMSerifDisplay-Italic.ttf") format("truetype");
+  font-style: italic;
+  font-display: swap;
+}
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -17,12 +35,6 @@
   scroll-behavior: smooth;
 }
 
-h1,
-h2 {
-  font-family: serif;
-  @apply font-bold;
-}
-
 .headersvg {
   fill: #9f0712;
 }
@@ -32,10 +44,13 @@ h2 {
 }
 
 html {
+  --font-sans: "DM Sans", sans-serif;
+  --font-serif: "DM Serif Display", serif;
+
+  font-family: var(--font-sans), Tahoma, Geneva, Verdana, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color-scheme: light dark;
 }
 
@@ -49,8 +64,7 @@ body {
   @apply text-stone-950 dark:text-white;
 }
 .heading {
-  font-family: Quagera, serif;
-  @apply mb-5 text-3xl font-bold text-stone-950 capitalize dark:text-white;
+  @apply mb-5 font-serif text-3xl font-bold text-stone-950 capitalize dark:text-white;
 }
 
 .input {
