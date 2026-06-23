@@ -13,10 +13,10 @@ export const metadata = {
 export default function Contact() {
   return (
     <div className="Container">
-      <section className="overflow-hidden rounded-md border border-stone-100 shadow-xl shadow-black/5 dark:border-white/10">
+      <section className="overflow-hidden rounded-md border border-black/5 dark:border-white/10">
         <div className="grid md:grid-cols-2">
           {/* Left Column: Contact Info */}
-          <div className="flex flex-col justify-between bg-rose-950 p-5 md:p-10">
+          <div className="flex flex-col justify-between bg-rose-700 p-5 text-white/80 md:p-10">
             <strong className="mb-2 font-medium tracking-widest uppercase">
               Get in touch
             </strong>

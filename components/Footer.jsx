@@ -10,19 +10,14 @@ const catalogue = [
 
 const Footer = async () => {
   return (
-    <footer className="mt-20 border-t border-black/10 dark:border-white/10">
+    <footer className="mt-20 border-t border-black/5 dark:border-white/5">
       <div className="mx-auto p-5 lg:max-w-7xl">
-        <section className="mb-10 flex flex-wrap justify-between gap-5">
-          <div>
-            <div className="flex items-center gap-2 font-medium tracking-wider">
-              <h2 className="highlight font-serif text-4xl">Ratan Bandhej</h2>
-            </div>
-            <h2 className="mb-4 font-serif text-3xl md:text-4xl">
-              Unfold the art of{" "}
-              <span className="highlight italic">Bandhani.</span>
-            </h2>
-          </div>
-          <form>
+        <h2 className="font-serif text-4xl text-rose-700">Ratan Bandhej</h2>
+        <h2 className="font-serif text-3xl md:text-4xl">
+          Unfold the art of{" "}
+          <span className="text-rose-700 italic">Bandhani.</span>
+        </h2>
+        {/* <form>
             <p className="max-w-xl text-balance">
               Join our newsletter to receive early access to limited edition
               handcrafted collections and stories from our artisans.
@@ -36,8 +31,7 @@ const Footer = async () => {
               <Button>Subscribe</Button>
             </div>
             <p>We respect your privacy. No spam, ever.</p>
-          </form>
-        </section>
+          </form> */}
         <div className="my-5 grid items-center gap-4 md:grid-cols-3 md:gap-10">
           <p className="col-span-2">
             Stay connected with us through our social media channels to receive
@@ -111,17 +105,19 @@ const Footer = async () => {
             <strong className="highlight mx-auto font-semibold">
               CATALOGUE
             </strong>
-            {catalogue.map((cat) => (
-              <Link
-                className="link block py-1 first-of-type:pt-0 md:py-0"
-                href={`/products?category=${cat.route}`}
-                key={cat.text}
-              >
-                {cat.text}
-              </Link>
-            ))}
+            <div className="items-startk flex flex-col">
+              {catalogue.map((cat) => (
+                <Link
+                  className="link py-1 first-of-type:pt-0 md:py-0"
+                  href={`/products?category=${cat.route}`}
+                  key={cat.text}
+                >
+                  {cat.text}
+                </Link>
+              ))}
+            </div>
           </div>
-          <div className="md:justify-self-center-safe">
+          <div className="flex flex-col items-center text-center md:justify-self-center-safe">
             <strong className="highlight mx-auto mb-2 font-semibold">
               CONTACT US
             </strong>
@@ -169,7 +165,7 @@ const Footer = async () => {
               +91 9228405162
             </a>
           </div>
-          <div className="md:justify-self-end-safe">
+          <div className="text-right md:justify-self-end-safe">
             <strong className="highlight mx-auto mb-2 font-semibold">
               ADDRESS
             </strong>

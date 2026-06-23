@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import {
   User,
   Package,
@@ -18,23 +18,33 @@ import signOut from "@/lib/actions/signOut"
 import useCartBtn from "@/lib/hooks/useCartBtn"
 import Empty from "@/components/ui/Empty"
 import cn from "@/lib/utils/cn"
-import { useQuery } from "@tanstack/react-query"
+import { initialAuth } from "@/lib/context/Provider"
 
 export default function Profile() {
-  const { auth, cart, setAuth } = useRatanContext()
+  const { auth, cart, setAuth, authLoading } = useRatanContext()
   const { removeFromCartBtn } = useCartBtn()
 
   const [logoutLoading, setLogoutLoading] = useState(false)
   const [activeTab, setActiveTab] = useState("profile")
+  const [orders, setOrders] = useState([])
+  const [ordersLoading, setOrdersLoading] = useState(true)
 
-  const orders = useQuery({
-    queryKey: ["orders", auth?._id],
-    queryFn: async () =>
-      await (
-        await fetch(`/api/getOrders?userId=${auth?._id}`, { method: "GET" })
-      ).json(),
-    enabled: auth?._id ? true : false,
-  })
+  useEffect(() => {
+    const getOrders = async () => {
+      try {
+        const res = await (
+          await fetch(`/api/getOrders?userId=${auth?._id}`, { method: "GET" })
+        ).json()
+        if (res) setOrders(res || [])
+      } catch (error) {
+        console.error(error)
+        alert(error?.message || "Error while fetching orders")
+      } finally {
+        setOrdersLoading(false)
+      }
+    }
+    !authLoading ? getOrders() : null
+  }, [authLoading])
 
   const onSignOut = async () => {
     setLogoutLoading(true)
@@ -42,16 +52,7 @@ export default function Profile() {
       "You'll be Signed Out. You have to Sign In again to place an order. Sure?",
     )
     if (warn) {
-      setAuth({
-        status: false,
-        verified: false,
-        cart: [],
-        _id: "",
-        username: "",
-        address: "",
-        email: "",
-        noAcc: true,
-      })
+      setAuth(initialAuth)
       await signOut()
     }
     setLogoutLoading(false)
@@ -133,13 +134,10 @@ export default function Profile() {
           {activeTab === "orders" && (
             <>
               <div>
-                <h2 className="highlight font-serif text-xl">Order History</h2>
-              </div>
-              <div>
-                {orders.isLoading ? (
+                {authLoading || ordersLoading ? (
                   <p>Loading</p>
-                ) : orders.data?.length > 0 ? (
-                  orders.data.map((order) => (
+                ) : orders?.length > 0 ? (
+                  orders.map((order) => (
                     <div
                       key={order?._id}
                       className="flex flex-col justify-between gap-5 border-b border-black/10 p-5 pl-0 transition-colors last:border-0 hover:bg-stone-100 md:flex-row md:items-center dark:border-white/10 dark:hover:bg-stone-900"
@@ -250,7 +248,7 @@ export default function Profile() {
 const CartItem = ({ _id, slug, title, image, price, handleRemoveFromCart }) => {
   const [cartOpLoading, setCartOpLoading] = useState(false)
   return (
-    <Card>
+    <Card className={"overflow-clip"}>
       <Link href={"/products/" + slug} className="group">
         <div className="relative aspect-square overflow-clip bg-stone-100">
           <Image

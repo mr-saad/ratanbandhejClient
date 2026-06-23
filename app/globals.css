@@ -52,10 +52,12 @@ html {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   color-scheme: light dark;
+
+  @apply transition-colors duration-200;
 }
 
 body {
-  @apply bg-rose-50 text-stone-500 accent-rose-700 transition-colors dark:bg-[#130006] dark:text-stone-400;
+  @apply bg-rose-50 text-stone-500 accent-rose-700 transition-colors duration-300 dark:bg-[#130006] dark:text-stone-400;
 }
 .Container {
   @apply mx-auto p-5 pt-24 lg:max-w-7xl;
@@ -91,34 +93,5 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .swiper-pagination {
-  @apply w-fit! rounded-md bg-white/70 backdrop-blur-xs [--swiper-pagination-bottom:auto] [--swiper-pagination-color:#9f0712] [--swiper-pagination-top:0.5rem] dark:[--swiper-pagination-color:#fff];
-}
-
-.heroPattern {
-  background-image:
-    linear-gradient(to right, rgba(0, 0, 0, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.06) 1px, transparent 1px),
-    radial-gradient(circle, rgba(51, 65, 85, 0.4) 2px, transparent 2px);
-  background-size:
-    20px 20px,
-    20px 20px,
-    20px 20px;
-  background-position:
-    0 0,
-    0 0,
-    0 0;
-}
-.dark .heroPattern {
-  background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.2) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 1px, transparent 1px),
-    radial-gradient(circle, rgba(255, 255, 255, 0.3) 2px, transparent 2px);
-  background-size:
-    20px 20px,
-    20px 20px,
-    20px 20px;
-  background-position:
-    0 0,
-    0 0,
-    0 0;
+  @apply w-fit! rounded-md bg-rose-200/70 backdrop-blur-xs [--swiper-pagination-bottom:auto] [--swiper-pagination-color:#9f0712] [--swiper-pagination-top:0.5rem];
 }

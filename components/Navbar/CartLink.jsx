@@ -35,7 +35,7 @@ export default function CartLink() {
       <SheetContent
         showCloseButton={false}
         className={
-          "grid grid-rows-[auto_1fr_auto] border-rose-700/20 bg-white dark:bg-stone-950"
+          "grid grid-rows-[auto_1fr_auto] border-black/5 bg-white dark:border-white/10 dark:bg-stone-950"
         }
       >
         <SheetHeader>
@@ -53,7 +53,7 @@ export default function CartLink() {
                 <div
                   key={item.slug}
                   className={cn(
-                    "mx-5 flex items-start justify-between gap-2 border-rose-200 pb-5",
+                    "mx-5 flex items-start justify-between gap-2 border-black/5 pb-5 dark:border-white/10",
                     index !== cart.length - 1 && "border-b",
                   )}
                 >
