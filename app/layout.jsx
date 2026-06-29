@@ -2,7 +2,6 @@ import "./globals.css"
 import Navbar from "@/components/Navbar/Navbar"
 import Footer from "@/components/Footer"
 import Provider from "@/lib/context/Provider"
-import isAuthenticated from "@/lib/server/isAuthenticated"
 
 const SITE_BASE_URL = process.env.NEXT_PUBLIC_SITE_BASE_URL
 
@@ -87,7 +86,6 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
-  const authPromise = isAuthenticated()
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -129,7 +127,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
-        <Provider authPromise={authPromise}>
+        <Provider>
           <Navbar />
           <main className="min-h-screen">{children}</main>
         </Provider>

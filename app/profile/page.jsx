@@ -18,18 +18,7 @@ import signOut from "@/lib/actions/signOut"
 import useCartBtn from "@/lib/hooks/useCartBtn"
 import Empty from "@/components/ui/Empty"
 import cn from "@/lib/utils/cn"
-
-const emptyAuth = {
-  status: false,
-  verified: false,
-  _id: "",
-  _createdAt: "",
-  username: "",
-  address: "",
-  email: "",
-  cart: [],
-  noAcc: true,
-}
+import { initialAuth } from "@/lib/context/Provider"
 
 export default function Profile() {
   const { auth, cart, setAuth, authLoading } = useRatanContext()
@@ -54,7 +43,7 @@ export default function Profile() {
         setOrdersLoading(false)
       }
     }
-    getOrders()
+    !authLoading ? getOrders() : null
   }, [])
 
   const onSignOut = async () => {
@@ -63,7 +52,7 @@ export default function Profile() {
       "You'll be Signed Out. You have to Sign In again to place an order. Sure?",
     )
     if (warn) {
-      setAuth(emptyAuth)
+      setAuth(initialAuth)
       await signOut()
     }
     setLogoutLoading(false)
@@ -145,7 +134,7 @@ export default function Profile() {
           {activeTab === "orders" && (
             <>
               <div>
-                {ordersLoading ? (
+                {authLoading || ordersLoading ? (
                   <p>Loading</p>
                 ) : orders?.length > 0 ? (
                   orders.map((order) => (
