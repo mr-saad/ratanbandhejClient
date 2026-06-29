@@ -7,7 +7,7 @@ import "swiper/css"
 import "swiper/css/pagination"
 import Button from "@/components/ui/Button"
 
-export default function Carousel({ data }) {
+export default function Carousel({ newArrivals }) {
   return (
     <Swiper
       spaceBetween={50}
@@ -17,7 +17,7 @@ export default function Carousel({ data }) {
       loop={true}
       className="cursor-grab active:cursor-grabbing"
     >
-      {data.map((prod) => (
+      {newArrivals.map((prod) => (
         <SwiperSlide
           key={prod._id}
           className="grid! items-center gap-5 select-none md:grid-cols-2"
@@ -66,7 +66,7 @@ export default function Carousel({ data }) {
                 sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 33vw"
                 alt={prod.title}
                 placeholder="blur"
-                blurDataURL={prod.image.metadata.lqip}
+                blurDataURL={prod.image.lqip}
                 width={400}
                 height={400}
               />

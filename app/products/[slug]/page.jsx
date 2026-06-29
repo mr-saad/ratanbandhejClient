@@ -58,7 +58,7 @@ async function getProduct(slug) {
       "slug":slug.current,
       title,
       type,
-      "images":images[].asset->{url,metadata{lqip}},
+      "images":images[].asset->{url,"lqip":metadata.lqip},
       specs,
       description,
       colours,
@@ -110,6 +110,18 @@ export default async function Slug(props) {
       {
         "@type": "ListItem",
         position: 1,
+        name: "Home",
+        item: `${SITE_BASE_URL}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Products",
+        item: `${SITE_BASE_URL}/products`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
         name: product.title,
         item: `${SITE_BASE_URL}/products/${product.slug}`,
       },

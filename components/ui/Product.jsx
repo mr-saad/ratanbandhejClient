@@ -31,7 +31,7 @@ export default function Product({
             sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 33vw"
             alt={slug}
             placeholder="blur"
-            blurDataURL={image.metadata.lqip}
+            blurDataURL={image.lqip}
             src={image.url}
             width={300}
             height={300}
@@ -57,7 +57,7 @@ export default function Product({
             sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 33vw"
             alt={slug}
             placeholder="blur"
-            blurDataURL={image.metadata.lqip}
+            blurDataURL={image.lqip}
             src={image.url}
             width={400}
             height={400}

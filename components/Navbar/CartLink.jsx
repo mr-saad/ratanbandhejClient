@@ -68,7 +68,7 @@ export default function CartLink() {
                           alt={item.title}
                           src={item.image.url}
                           placeholder="blur"
-                          blurDataURL={item.image.metadata?.lqip}
+                          blurDataURL={item.image?.lqip}
                           width={50}
                           height={50}
                           className="aspect-square max-w-full rounded-md object-cover"

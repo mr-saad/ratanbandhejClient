@@ -18,7 +18,18 @@ import signOut from "@/lib/actions/signOut"
 import useCartBtn from "@/lib/hooks/useCartBtn"
 import Empty from "@/components/ui/Empty"
 import cn from "@/lib/utils/cn"
-import { initialAuth } from "@/lib/context/Provider"
+
+const emptyAuth = {
+  status: false,
+  verified: false,
+  _id: "",
+  _createdAt: "",
+  username: "",
+  address: "",
+  email: "",
+  cart: [],
+  noAcc: true,
+}
 
 export default function Profile() {
   const { auth, cart, setAuth, authLoading } = useRatanContext()
@@ -43,8 +54,8 @@ export default function Profile() {
         setOrdersLoading(false)
       }
     }
-    !authLoading ? getOrders() : null
-  }, [authLoading])
+    getOrders()
+  }, [])
 
   const onSignOut = async () => {
     setLogoutLoading(true)
@@ -52,7 +63,7 @@ export default function Profile() {
       "You'll be Signed Out. You have to Sign In again to place an order. Sure?",
     )
     if (warn) {
-      setAuth(initialAuth)
+      setAuth(emptyAuth)
       await signOut()
     }
     setLogoutLoading(false)
@@ -134,7 +145,7 @@ export default function Profile() {
           {activeTab === "orders" && (
             <>
               <div>
-                {authLoading || ordersLoading ? (
+                {ordersLoading ? (
                   <p>Loading</p>
                 ) : orders?.length > 0 ? (
                   orders.map((order) => (
@@ -146,7 +157,7 @@ export default function Profile() {
                         <div className="shrink-0 rounded-lg bg-stone-200 dark:bg-rose-900/50">
                           <Image
                             placeholder="blur"
-                            blurDataURL={order?.product?.image?.metadata?.lqip}
+                            blurDataURL={order?.product?.image?.lqip}
                             src={order?.product?.image?.url}
                             width={70}
                             height={70}
@@ -253,7 +264,7 @@ const CartItem = ({ _id, slug, title, image, price, handleRemoveFromCart }) => {
         <div className="relative aspect-square overflow-clip bg-stone-100">
           <Image
             placeholder="blur"
-            blurDataURL={image.metadata.lqip}
+            blurDataURL={image.lqip}
             width={300}
             height={300}
             src={image.url}

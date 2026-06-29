@@ -20,26 +20,3 @@ export default async function Sections() {
     </>
   )
 }
-
-function Section({ title, data }) {
-  return (
-    <div className="my-20">
-      <div className="mb-5 flex items-center justify-between gap-5">
-        <h3 className="heading mb-0! shrink-0">{title}</h3>
-        {/* <hr className="w-full border-black/10 dark:border-white/10" /> */}
-        <Button
-          variant={"ghost"}
-          prefetch={true}
-          href={"/products?category=" + title}
-        >
-          <ChevronRight />
-        </Button>
-      </div>
-      <ProductGrid>
-        {data.map((props) => (
-          <Product key={props.slug} {...props} />
-        ))}
-      </ProductGrid>
-    </div>
-  )
-}

@@ -92,7 +92,7 @@ export default function Checkout() {
                       <div className="flex items-start gap-4">
                         <Image
                           placeholder="blur"
-                          blurDataURL={prod.image.metadata.lqip}
+                          blurDataURL={prod.image.lqip}
                           alt={prod.title}
                           src={prod.image.url}
                           className="aspect-square rounded-md object-cover"
