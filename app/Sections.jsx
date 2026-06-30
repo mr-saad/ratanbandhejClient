@@ -36,6 +36,7 @@ function Section({ title, products }) {
       <div className="mb-5 flex items-center justify-between gap-5">
         <h3 className="heading mb-0! shrink-0">{title}</h3>
         <Button
+          title={`View all ${title}`}
           variant={"ghost"}
           prefetch={true}
           href={"/products?category=" + title}

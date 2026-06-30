@@ -6,10 +6,12 @@ import Sections from "./Sections"
 import ProductsLoading from "@/components/loadings/ProductsLoading"
 import CarouselLoading from "@/components/loadings/CarouselLoading"
 
+export const revalidate = 3600
+
 export default function Home() {
   return (
     <>
-      <header className="relative flex min-h-[95vh] items-center before:absolute before:z-2 before:h-full before:w-full before:bg-linear-to-r before:from-stone-950/90 before:to-transparent">
+      <header className="relative flex h-[95vh] items-center before:absolute before:z-2 before:h-full before:w-full before:bg-linear-to-r before:from-stone-950/90 before:to-transparent">
         <Suspense fallback={""}>
           <HeaderImage />
         </Suspense>

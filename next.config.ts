@@ -2,7 +2,7 @@ import type { NextConfig } from "next"
 
 const nextConfig: NextConfig = {
   images: {
-    dangerouslyAllowLocalIP: process.env.NODE_ENV === "development",
+    dangerouslyAllowLocalIP: true,
     qualities: [60, 75, 100],
     minimumCacheTTL: 31556926,
     remotePatterns: [

@@ -24,7 +24,7 @@ export default function CartLink() {
 
   return (
     <Sheet>
-      <SheetTrigger>
+      <SheetTrigger title="Cart">
         <ShoppingCart
           className={cn(
             "cursor-pointer stroke-rose-700",
