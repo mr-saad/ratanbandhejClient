@@ -57,7 +57,7 @@ html {
 }
 
 body {
-  @apply bg-rose-50 text-stone-500 accent-rose-700 transition-colors duration-300 dark:bg-[#130006] dark:text-stone-400;
+  @apply bg-rose-50 text-stone-600 accent-rose-700 transition-colors duration-300 dark:bg-[#130006] dark:text-stone-400;
 }
 .Container {
   @apply mx-auto p-5 pt-24 lg:max-w-7xl;
@@ -93,5 +93,5 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .swiper-pagination {
-  @apply w-fit! rounded-md bg-rose-200/70 backdrop-blur-xs [--swiper-pagination-bottom:auto] [--swiper-pagination-color:#9f0712] [--swiper-pagination-top:0.5rem];
+  @apply w-fit! rounded-md bg-rose-700 [--swiper-pagination-bottom:auto] [--swiper-pagination-bullet-inactive-color:#fff] [--swiper-pagination-bullet-inactive-opacity:0.5] [--swiper-pagination-color:#fff] [--swiper-pagination-top:0.5rem];
 }

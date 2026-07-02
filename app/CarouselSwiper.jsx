@@ -40,7 +40,7 @@ export default function Carousel({ newArrivals }) {
             <h2 className="highlight font-serif text-xl capitalize md:text-3xl">
               {prod.title}
             </h2>
-            <p className="mb-5 line-clamp-2">{prod.description}</p>
+            <p className="mb-2 line-clamp-2">{prod.description}</p>
             <Button prefetch={true} href={"/products/" + prod.slug}>
               View More
             </Button>

@@ -32,7 +32,7 @@ export default function Product({
             alt={slug}
             placeholder="blur"
             blurDataURL={image.lqip}
-            src={image.url}
+            src={`${img.image.url}?w=480&auto=format`}
             width={300}
             height={300}
             className="aspect-square h-full object-cover object-top transition duration-300 ease-in-out will-change-transform group-focus-within:scale-105 group-hover:scale-105"
@@ -54,11 +54,11 @@ export default function Product({
             quality={60}
             priority={index === 0}
             fetchPriority={index === 0 ? "high" : "low"}
-            sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 33vw"
+            sizes="(max-width:640px) 50vw,(max-width:1024px) 33vw, 25vw"
             alt={slug}
             placeholder="blur"
             blurDataURL={image.lqip}
-            src={image.url}
+            src={`${image.url}?w=480&auto=format`}
             width={400}
             height={400}
             className="aspect-square w-full object-cover object-top transition duration-300 ease-in-out will-change-transform group-focus-within:scale-105 group-hover:scale-105"

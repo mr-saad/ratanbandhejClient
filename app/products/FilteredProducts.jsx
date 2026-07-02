@@ -15,7 +15,6 @@ export default function FilteredProducts({ data }) {
   const categories = [...new Set(data.map((all) => all.type))]
 
   const searchCategory = searchParams.get("category")
-  // const showFilter = searchParams.get("filter")
   const search = searchParams.get("search")
   const view = searchParams.get("view")
 

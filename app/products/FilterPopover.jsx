@@ -42,7 +42,7 @@ export default function FilterPopover({
                   variant={"secondary"}
                   key={category}
                   className={cn(
-                    "grow cursor-pointer rounded-full px-3 py-1",
+                    "inline-flex cursor-pointer rounded-full px-3 py-1",
                     searchCategory === category ? "bg-rose-700 text-white" : "",
                   )}
                   onClick={() => {
@@ -106,7 +106,7 @@ export default function FilterPopover({
               />
             </div>
             <PopoverHeader>
-              <PopoverTitle className={"font-semibold"}>Filter</PopoverTitle>
+              <PopoverTitle className={"font-semibold"}>Category</PopoverTitle>
             </PopoverHeader>
             <div className="relative">
               <div className={cn("flex flex-wrap gap-1")}>
@@ -116,7 +116,7 @@ export default function FilterPopover({
                       variant={"secondary"}
                       key={category}
                       className={cn(
-                        "grow cursor-pointer rounded-full px-3 py-1",
+                        "cursor-pointer rounded-full px-3 py-1",
                         searchCategory === category
                           ? "bg-rose-700 text-white"
                           : "",
@@ -140,7 +140,7 @@ export default function FilterPopover({
                 onClick={() => handleFilter({ view: null })}
                 variant={view === "list" ? "ghost" : "primary"}
               >
-                <LayoutGrid />
+                <LayoutGrid size={20} />
               </Button>
               <Button
                 onClick={() =>
@@ -148,7 +148,7 @@ export default function FilterPopover({
                 }
                 variant={view === "list" ? "primary" : "ghost"}
               >
-                <List />
+                <List size={20} />
               </Button>
             </div>
           </PopoverContent>
