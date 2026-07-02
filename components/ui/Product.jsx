@@ -32,7 +32,7 @@ export default function Product({
             alt={slug}
             placeholder="blur"
             blurDataURL={image.lqip}
-            src={`${img.image.url}?w=480&auto=format`}
+            src={`${image.url}?w=480&auto=format`}
             width={300}
             height={300}
             className="aspect-square h-full object-cover object-top transition duration-300 ease-in-out will-change-transform group-focus-within:scale-105 group-hover:scale-105"

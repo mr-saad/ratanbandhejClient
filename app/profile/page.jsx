@@ -140,14 +140,14 @@ export default function Profile() {
                   orders.map((order) => (
                     <div
                       key={order?._id}
-                      className="flex flex-col justify-between gap-5 border-b border-black/10 p-5 pl-0 transition-colors last:border-0 hover:bg-stone-100 md:flex-row md:items-center dark:border-white/10 dark:hover:bg-stone-900"
+                      className="flex flex-col justify-between gap-5 border-b border-black/10 p-5 pl-0 transition-colors last:border-0 md:flex-row md:items-center dark:border-white/10"
                     >
                       <div className="flex items-start gap-5">
                         <div className="shrink-0 rounded-lg bg-stone-200 dark:bg-rose-900/50">
                           <Image
                             placeholder="blur"
                             blurDataURL={order?.product?.image?.lqip}
-                            src={order?.product?.image?.url}
+                            src={`${order?.product?.image?.url}?w=70&auto=format`}
                             width={70}
                             height={70}
                             alt={order?.product?.title}
