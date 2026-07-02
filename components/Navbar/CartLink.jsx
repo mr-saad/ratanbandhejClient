@@ -66,12 +66,12 @@ export default function CartLink() {
                       >
                         <Image
                           alt={item.title}
-                          src={`${img.image.url}?w=50&auto=format`}
+                          src={`${item.image.url}?w=50&auto=format`}
                           placeholder="blur"
                           blurDataURL={item.image?.lqip}
                           width={50}
                           height={50}
-                          className="aspect-square max-w-full rounded-md object-cover"
+                          className="aspect-square max-w-full shrink-0 rounded-md object-cover"
                         />
                         <span className="highlight line-clamp-2">
                           {item.title}

@@ -4,7 +4,7 @@ export default function Loading() {
     <div className="Container mx-auto md:max-w-4xl md:pt-10">
       <ScrollToTop />
       <div className="grid gap-5 md:grid-cols-2">
-        <div className="max-w-full animate-pulse rounded-md bg-stone-200 dark:bg-white/20"></div>
+        <div className="aspect-square max-w-full animate-pulse rounded-md bg-stone-200 dark:bg-white/20"></div>
         <div>
           {Array(4)
             .fill(1)

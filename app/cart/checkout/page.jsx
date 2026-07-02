@@ -94,10 +94,10 @@ export default function Checkout() {
                           placeholder="blur"
                           blurDataURL={prod.image.lqip}
                           alt={prod.title}
-                          src={prod.image.url}
+                          src={`${prod.image.url}?w=80&auto=format`}
                           className="aspect-square rounded-md object-cover"
                           width={80}
-                          height={120}
+                          height={80}
                         />
                         <div className="w-full">
                           <p className="highlight line-clamp-2 font-serif">
