@@ -21,7 +21,7 @@ export default function ImgSwiper({ data, title }) {
             quality={100}
             sizes="(max-width:768px) 100vw, 50vw"
             alt={title}
-            src={img.url}
+            src={`${img.url}?w=480&auto=format`}
             placeholder="blur"
             blurDataURL={img.lqip}
             width={400}
