@@ -8,9 +8,9 @@ import "swiper/css/pagination"
 export default function ImgSwiper({ data, title }) {
   return (
     <Swiper
-      className="aspect-square min-h-80 max-w-full rounded-md [&_.swiper-pagination]:left-2!"
+      className="aspect-square w-full rounded-md [&_.swiper-pagination]:left-2!"
       modules={[Pagination]}
-      pagination
+      pagination={{ clickable: true }}
     >
       {data.map((img, index, arr) => (
         <SwiperSlide key={img.url}>
@@ -21,7 +21,7 @@ export default function ImgSwiper({ data, title }) {
             quality={100}
             sizes="(max-width:768px) 100vw, 50vw"
             alt={title}
-            src={`${img.url}?w=480&auto=format`}
+            src={`${img.url}?w=640&auto=format`}
             placeholder="blur"
             blurDataURL={img.lqip}
             width={400}

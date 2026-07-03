@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@font-face {
+/*@font-face {
   font-family: "DM Sans";
   src: url("/fonts/DMSans-Regular.ttf") format("truetype");
   font-weight: normal;
@@ -22,7 +22,7 @@
   src: url("/fonts/DMSerifDisplay-Italic.ttf") format("truetype");
   font-style: italic;
   font-display: swap;
-}
+}*/
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -44,16 +44,16 @@
 }
 
 html {
-  --font-sans: "DM Sans", sans-serif;
-  --font-serif: "DM Serif Display", serif;
+  /*--font-sans: "DM Sans", sans-serif;
+  --font-serif: "DM Serif Display", serif;*/
 
-  font-family: var(--font-sans), Tahoma, Geneva, Verdana, sans-serif;
+  /*font-family: var(--font-sans), Tahoma, Geneva, Verdana, sans-serif;*/
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   color-scheme: light dark;
 
-  @apply transition-colors duration-200;
+  @apply font-sans transition-colors duration-200;
 }
 
 body {
@@ -93,5 +93,5 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .swiper-pagination {
-  @apply w-fit! rounded-md bg-rose-700 [--swiper-pagination-bottom:auto] [--swiper-pagination-bullet-inactive-color:#fff] [--swiper-pagination-bullet-inactive-opacity:0.5] [--swiper-pagination-color:#fff] [--swiper-pagination-top:0.5rem];
+  @apply w-fit! rounded-md bg-rose-700 px-2 [--swiper-pagination-bottom:auto] [--swiper-pagination-bullet-inactive-color:#fff] [--swiper-pagination-bullet-inactive-opacity:0.5] [--swiper-pagination-color:#fff] [--swiper-pagination-top:0.5rem];
 }
