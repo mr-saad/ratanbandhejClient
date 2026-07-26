@@ -1,29 +1,5 @@
 @import "tailwindcss";
 
-/*@font-face {
-  font-family: "DM Sans";
-  src: url("/fonts/DMSans-Regular.ttf") format("truetype");
-  font-weight: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "DM Sans";
-  src: url("/fonts/DMSans-SemiBold.ttf") format("truetype");
-  font-weight: bold;
-  font-display: swap;
-}
-@font-face {
-  font-family: "DM Serif Display";
-  src: url("/fonts/DMSerifDisplay-Regular.ttf") format("truetype");
-  font-display: swap;
-}
-@font-face {
-  font-family: "DM Serif Display";
-  src: url("/fonts/DMSerifDisplay-Italic.ttf") format("truetype");
-  font-style: italic;
-  font-display: swap;
-}*/
-
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {

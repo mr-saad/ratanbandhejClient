@@ -10,7 +10,9 @@ export default function Carousel({ newArrivals }) {
   return (
     <Swiper
       spaceBetween={50}
-      slidesPerView={2}
+      breakpoints={{
+        1024: { slidesPerView: 2 },
+      }}
       pagination={{ clickable: true }}
       modules={[Pagination, Autoplay]}
       autoplay={{ delay: 4500 }}
@@ -23,7 +25,7 @@ export default function Carousel({ newArrivals }) {
           className="grid! items-center gap-5 select-none md:grid-cols-2"
         >
           <div>
-            <h2 className="highlight font-serif text-xl capitalize md:text-2xl">
+            <h2 className="highlight font-serif text-xl capitalize">
               {prod.title}
             </h2>
             <p className="mb-2 line-clamp-2">{prod.description}</p>
