@@ -2,7 +2,6 @@
 import Image from "next/image"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Pagination, Autoplay } from "swiper/modules"
-import { motion } from "framer-motion"
 import "swiper/css"
 import "swiper/css/pagination"
 import Button from "@/components/ui/Button"
@@ -11,6 +10,7 @@ export default function Carousel({ newArrivals }) {
   return (
     <Swiper
       spaceBetween={50}
+      slidesPerView={2}
       pagination={{ clickable: true }}
       modules={[Pagination, Autoplay]}
       autoplay={{ delay: 4500 }}
@@ -22,43 +22,17 @@ export default function Carousel({ newArrivals }) {
           key={prod._id}
           className="grid! items-center gap-5 select-none md:grid-cols-2"
         >
-          <motion.div
-            initial={{
-              x: 50,
-              opacity: 0,
-            }}
-            whileInView={{
-              x: 0,
-              opacity: 1,
-            }}
-            transition={{
-              delay: 0.3,
-              duration: 0.3,
-              ease: "easeOut",
-            }}
-          >
-            <h2 className="highlight font-serif text-xl capitalize md:text-3xl">
+          <div>
+            <h2 className="highlight font-serif text-xl capitalize md:text-2xl">
               {prod.title}
             </h2>
             <p className="mb-2 line-clamp-2">{prod.description}</p>
             <Button prefetch={true} href={"/products/" + prod.slug}>
               View More
             </Button>
-          </motion.div>
+          </div>
           {prod.image && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{
-                opacity: 1,
-                transition: {
-                  delay: 0.6,
-                  duration: 0.3,
-                  ease: "easeOut",
-                },
-              }}
-              transition={{ delay: 0, duration: 0, ease: "easeOut" }}
-              className="md:justify-self-end"
-            >
+            <div className="md:justify-self-end">
               <Image
                 className="aspect-square w-full rounded-md object-cover object-top"
                 src={`${prod.image.url}?w=640&auto=format`}
@@ -69,7 +43,7 @@ export default function Carousel({ newArrivals }) {
                 width={400}
                 height={400}
               />
-            </motion.div>
+            </div>
           )}
         </SwiperSlide>
       ))}

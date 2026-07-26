@@ -1,5 +1,7 @@
 import sanity from "@/lib/server/sanity"
-import CarouselSwiper from "./CarouselSwiper"
+import dynamic from "next/dynamic"
+const CarouselSwiper = dynamic(() => import("./CarouselSwiper"))
+// import CarouselSwiper from "./CarouselSwiper"
 
 export default async function Carousel() {
   const newArrivals = await sanity.fetch(`
