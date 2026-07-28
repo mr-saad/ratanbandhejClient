@@ -23,6 +23,8 @@ export default function ThemeToggle() {
         if (e.key === "Enter") toggleTheme()
       }}
       tabIndex={0}
+      title="Toggle Theme"
+      aria-labelledby="Toggle Theme"
       onClick={() => toggleTheme()}
       className="py-2 text-stone-500 transition hover:text-stone-950 focus-visible:text-stone-950 md:inline md:pb-0"
     >

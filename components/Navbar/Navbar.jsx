@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { Quagera } from "../logoFont"
 import ThemeToggle from "./ThemeToggle"
 import MenuToggler from "./MenuToggler"
 import Links from "./Links"
@@ -18,8 +17,7 @@ export default function Navbar() {
         title="Ratan Bandhej"
         href="/"
         className={
-          "w-max justify-self-center text-3xl font-bold text-stone-950 md:justify-self-start md:text-4xl " +
-          Quagera.className
+          "font-quagera w-max justify-self-center text-3xl font-bold text-stone-950 md:justify-self-start md:text-4xl"
         }
       >
         Ratan Bandhej

@@ -6,8 +6,40 @@ import {
   PopoverTitle,
   PopoverTrigger,
 } from "@/components/ui/popover"
-import cn from "@/lib/utils/cn"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 import { LayoutGrid, List, SlidersHorizontal } from "lucide-react"
+
+function SelectCategory({ categoriesOptions, handleFilter, searchCategory }) {
+  return (
+    <Select items={categoriesOptions}>
+      <SelectTrigger className="border-primary cursor-pointer bg-white dark:bg-black">
+        <SelectValue placeholder="Category" />
+      </SelectTrigger>
+      <SelectContent className="ring-primary/50 bg-white dark:bg-black">
+        {categoriesOptions.map((c) => (
+          <SelectItem
+            key={c.value}
+            value={c.value}
+            className="cursor-pointer"
+            onClick={() => {
+              handleFilter({
+                category: searchCategory === c.value ? null : c.value,
+              })
+            }}
+          >
+            {c.label}
+          </SelectItem>
+        ))}
+      </SelectContent>
+    </Select>
+  )
+}
 
 export default function FilterPopover({
   categories,
@@ -15,6 +47,8 @@ export default function FilterPopover({
   searchCategory,
   handleFilter,
 }) {
+  const categoriesOptions = categories.map((c) => ({ value: c, label: c }))
+
   return (
     <>
       <div className="hidden items-center gap-3 lg:flex">
@@ -34,7 +68,12 @@ export default function FilterPopover({
           />
         </div>
         <div className="relative">
-          <div className={cn("flex flex-wrap gap-1")}>
+          <SelectCategory
+            searchCategory={searchCategory}
+            handleFilter={handleFilter}
+            categoriesOptions={categoriesOptions}
+          />
+          {/* <div className={cn("flex flex-wrap gap-1")}>
             {categories.map((category) => {
               return (
                 <Button
@@ -55,7 +94,7 @@ export default function FilterPopover({
                 </Button>
               )
             })}
-          </div>
+          </div>*/}
         </div>
         <div className="flex gap-2">
           <Button
@@ -63,7 +102,7 @@ export default function FilterPopover({
             onClick={() => handleFilter({ view: null })}
             variant={view === "list" ? "ghost" : "primary"}
           >
-            <LayoutGrid />
+            <LayoutGrid size={18} />
           </Button>
           <Button
             title="List View"
@@ -72,7 +111,7 @@ export default function FilterPopover({
             }
             variant={view === "list" ? "primary" : "ghost"}
           >
-            <List />
+            <List size={18} />
           </Button>
         </div>
       </div>
@@ -81,7 +120,7 @@ export default function FilterPopover({
           <PopoverTrigger
             render={
               <Button title="Filter Products">
-                <SlidersHorizontal />
+                <SlidersHorizontal size={18} />
               </Button>
             }
           />
@@ -108,7 +147,12 @@ export default function FilterPopover({
             <PopoverHeader>
               <PopoverTitle className={"font-semibold"}>Category</PopoverTitle>
             </PopoverHeader>
-            <div className="relative">
+            <SelectCategory
+              searchCategory={searchCategory}
+              handleFilter={handleFilter}
+              categoriesOptions={categoriesOptions}
+            />
+            {/* <div className="relative">
               <div className={cn("flex flex-wrap gap-1")}>
                 {categories.map((category) => {
                   return (
@@ -133,7 +177,7 @@ export default function FilterPopover({
                   )
                 })}
               </div>
-            </div>
+            </div>*/}
             <PopoverTitle className={"font-semibold"}>View</PopoverTitle>
             <div className="flex gap-2">
               <Button

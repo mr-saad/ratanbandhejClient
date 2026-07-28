@@ -1,9 +1,21 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: Quagera;
+  src: url("/fonts/quagera.otf") format("opentype");
+  font-display: swap;
+  font-style: normal;
+}
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
   --breakpoint-3xl: 120rem;
+
+  --font-quagera: Quagera;
+
+  --color-primary: var(--color-rose-700);
+  --color-primary-dark: var(--color-rose-800);
 }
 
 * {

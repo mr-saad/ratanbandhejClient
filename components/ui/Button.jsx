@@ -3,14 +3,14 @@ import { cva } from "class-variance-authority"
 import Link from "next/link"
 
 const btnVariants = cva(
-  "inline-flex items-center cursor-pointer will-change-transform rounded-md px-4 py-1.5 font-semibold text-white focus-visible:bg-none focus-visible:outline-none hover:bg-none capitalize outline-offset-2 transition-all active:scale-[.98] disabled:opacity-50 disabled:pointer-events-none",
+  "inline-flex text-sm items-center cursor-pointer will-change-transform rounded-md px-3 py-1 font-semibold text-white focus-visible:bg-none focus-visible:outline-1 hover:bg-none capitalize outline-offset-2 transition-all active:scale-[.98] disabled:opacity-50 disabled:pointer-events-none",
   {
     variants: {
       variant: {
         primary:
-          "hover:bg-rose-800 focus-visible:bg-rose-800 bg-rose-700 border border-rose-700 outline-rose-800",
+          "hover:bg-primary-dark focus-visible:bg-primary-dark bg-primary border border-primary outline-primary-dark",
         secondary:
-          "text-rose-700 hover:outline-rose-800 focus-visible:ring-2 focus-visible:ring-rose-800 border-rose-700 border bg-transparent",
+          "text-rose-700 hover:outline-rose-800 focus-visible:outline-rose-800 border-rose-700 border bg-transparent",
         ghost:
           "text-rose-700 border border-transparent hover:bg-rose-100 focus-visible:bg-rose-100 dark:hover:bg-rose-700/20 dark:focus-visible:bg-rose-700/20 focus-visible:ring-2 focus-visible:ring-rose-800",
         danger:

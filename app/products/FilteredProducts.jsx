@@ -19,14 +19,9 @@ export default function FilteredProducts({ data }) {
   const view = searchParams.get("view")
 
   const filtered = data.filter(({ type }) => type === searchCategory)
-  const [products, setProducts] = useState(
-    searchParams.get("category") ? filtered : data,
-  )
+  const [products, setProducts] = useState(searchCategory ? filtered : data)
+
   useEffect(() => {
-    if (!searchCategory) {
-      setProducts(data)
-      return
-    }
     setProducts(filtered)
   }, [searchCategory])
 
@@ -65,7 +60,6 @@ export default function FilteredProducts({ data }) {
 
   useEffect(() => {
     if (!search) {
-      setProducts(data)
       return
     }
     getSearchedProducts()
@@ -85,7 +79,7 @@ export default function FilteredProducts({ data }) {
       {products.length > 0 ? (
         <ProductGrid
           variant={view === "list" ? "list" : "grid"}
-          className={"mt-5"}
+          className={"mt-4"}
         >
           {products.map((product, index) => {
             return (
@@ -103,7 +97,11 @@ export default function FilteredProducts({ data }) {
           className={"mt-30"}
           message={"No products matched your criteria"}
           content={
-            <Link className="underline" href="/products">
+            <Link
+              className="underline"
+              href="/products"
+              onClick={() => setProducts(data)}
+            >
               View All Products
             </Link>
           }
