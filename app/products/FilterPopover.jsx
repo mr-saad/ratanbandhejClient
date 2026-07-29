@@ -14,14 +14,23 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { LayoutGrid, List, SlidersHorizontal } from "lucide-react"
+import { useRouter } from "next/navigation"
 
 function SelectCategory({ categoriesOptions, handleFilter, searchCategory }) {
+  const { push } = useRouter()
   return (
     <Select items={categoriesOptions}>
-      <SelectTrigger className="border-primary cursor-pointer bg-white dark:bg-black">
-        <SelectValue placeholder="Category" />
+      <SelectTrigger className="border-primary/60 cursor-pointer bg-white dark:bg-black">
+        <SelectValue placeholder="Category" className="highlight" />
       </SelectTrigger>
       <SelectContent className="ring-primary/50 bg-white dark:bg-black">
+        <SelectItem
+          value="All"
+          className="cursor-pointer"
+          onClick={() => push("/products")}
+        >
+          All
+        </SelectItem>
         {categoriesOptions.map((c) => (
           <SelectItem
             key={c.value}
@@ -29,7 +38,7 @@ function SelectCategory({ categoriesOptions, handleFilter, searchCategory }) {
             className="cursor-pointer"
             onClick={() => {
               handleFilter({
-                category: searchCategory === c.value ? null : c.value,
+                category: c.value,
               })
             }}
           >

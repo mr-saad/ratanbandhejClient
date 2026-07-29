@@ -15,7 +15,7 @@ export default function Product({
     <Link
       title={title}
       className={cn(
-        "group grid grid-cols-[1fr_2fr] overflow-clip rounded-md border border-black/10 outline-stone-700 transition-all focus-within:shadow-lg focus-within:outline-2 hover:shadow-lg dark:border-white/10",
+        "group flex overflow-clip rounded-md border border-black/10 outline-stone-700 transition-all focus-within:shadow-lg focus-within:outline-2 hover:shadow-lg dark:border-white/10",
         className,
       )}
       prefetch
@@ -34,7 +34,7 @@ export default function Product({
             src={`${image.url}?w=480&auto=format`}
             width={300}
             height={300}
-            className="aspect-square h-full object-cover object-top transition duration-300 ease-in-out will-change-transform group-focus-within:scale-105 group-hover:scale-105"
+            className="aspect-square h-full max-w-full object-cover object-top transition duration-300 ease-in-out will-change-transform group-focus-within:scale-105 group-hover:scale-105"
           />
         )}
       </div>

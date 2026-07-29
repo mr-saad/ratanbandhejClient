@@ -6,6 +6,7 @@ import { useEffect, useState } from "react"
 import Empty from "@/components/ui/Empty"
 import Link from "next/link"
 import FilterPopover from "./FilterPopover"
+import Button from "@/components/ui/Button"
 
 export default function FilteredProducts({ data }) {
   const searchParams = useSearchParams()
@@ -18,7 +19,9 @@ export default function FilteredProducts({ data }) {
   const search = searchParams.get("search")
   const view = searchParams.get("view")
 
-  const filtered = data.filter(({ type }) => type === searchCategory)
+  const filtered = searchCategory
+    ? data.filter(({ type }) => type === searchCategory)
+    : data
   const [products, setProducts] = useState(searchCategory ? filtered : data)
 
   useEffect(() => {
@@ -97,13 +100,13 @@ export default function FilteredProducts({ data }) {
           className={"mt-30"}
           message={"No products matched your criteria"}
           content={
-            <Link
-              className="underline"
+            <Button
+              className="mt-2"
               href="/products"
               onClick={() => setProducts(data)}
             >
               View All Products
-            </Link>
+            </Button>
           }
         />
       )}
