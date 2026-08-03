@@ -47,6 +47,9 @@ html {
 body {
   @apply bg-rose-50 text-stone-600 accent-rose-700 transition-colors duration-300 dark:bg-[#130006] dark:text-stone-400;
 }
+.nav {
+  backdrop-filter: url(#svgfm-filter);
+}
 .Container {
   @apply mx-auto p-5 pt-24 lg:max-w-7xl;
 }

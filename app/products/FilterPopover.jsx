@@ -16,7 +16,7 @@ import {
 import { LayoutGrid, List, SlidersHorizontal } from "lucide-react"
 import { useRouter } from "next/navigation"
 
-function SelectCategory({ categoriesOptions, handleFilter, searchCategory }) {
+function SelectCategory({ categoriesOptions, handleFilter }) {
   const { push } = useRouter()
   return (
     <Select items={categoriesOptions}>
@@ -26,7 +26,7 @@ function SelectCategory({ categoriesOptions, handleFilter, searchCategory }) {
       <SelectContent className="ring-primary/50 bg-white dark:bg-black">
         <SelectItem
           value="All"
-          className="cursor-pointer"
+          className="focus-visible:ring-primary cursor-pointer focus-visible:ring"
           onClick={() => push("/products")}
         >
           All
@@ -35,7 +35,7 @@ function SelectCategory({ categoriesOptions, handleFilter, searchCategory }) {
           <SelectItem
             key={c.value}
             value={c.value}
-            className="cursor-pointer"
+            className="focus-visible:ring-primary cursor-pointer focus-visible:ring"
             onClick={() => {
               handleFilter({
                 category: c.value,

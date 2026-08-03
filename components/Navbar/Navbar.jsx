@@ -8,8 +8,37 @@ import AccountLink from "./AccountLink"
 export default function Navbar() {
   return (
     <nav
-      className={`nav fixed inset-x-2 top-2 z-12 grid grid-cols-[1fr_2fr_1fr] items-center justify-between rounded-md bg-stone-100/80 px-5 py-3 backdrop-blur-lg select-none md:text-base`}
+      className={`nav fixed inset-x-2 top-2 z-12 grid grid-cols-[1fr_2fr_1fr] items-center justify-between rounded-md bg-stone-100/80 px-5 py-3 select-none md:text-base`}
     >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="0"
+        height="0"
+        className="hidden"
+      >
+        <defs>
+          <filter id="svgfm-filter">
+            <feTurbulence
+              type="fractalNoise"
+              baseFrequency="0.05"
+              numOctaves="1"
+              result="turb"
+            />
+            <feGaussianBlur
+              in="SourceGraphic"
+              stdDeviation="3"
+              result="blurred"
+            ></feGaussianBlur>
+            <feDisplacementMap
+              in="blurred"
+              in2="turb"
+              scale="20"
+              xChannelSelector="R"
+              yChannelSelector="G"
+            ></feDisplacementMap>
+          </filter>
+        </defs>
+      </svg>
       <MenuToggler />
       <Link
         prefetch

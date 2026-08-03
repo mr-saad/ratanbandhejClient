@@ -60,11 +60,9 @@ const About = () => {
                   className="w-full object-cover"
                 />
               </div>
-              <div className="flex flex-col items-start justify-center rounded-2xl bg-stone-900 p-8 text-white">
+              <div className="bg-primary flex flex-col items-start justify-center rounded-2xl p-8 text-white dark:bg-white/10">
                 <h3 className="mb-2 font-serif text-3xl">100%</h3>
-                <p className="text-stone-300">
-                  Handcrafted by master artisans.
-                </p>
+                <p>Handcrafted by master artisans.</p>
               </div>
             </div>
           </div>
@@ -72,9 +70,11 @@ const About = () => {
 
         {/* 3. The Process / Values - Clean 3-Column Layout */}
         <section className="mx-auto mb-16 max-w-7xl">
-          <ProductGrid className={"gap-10 md:grid-cols-3 lg:grid-cols-3"}>
+          <ProductGrid
+            className={"grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3"}
+          >
             <div className="flex flex-col items-start gap-3">
-              <div className="rounded-xl bg-stone-100 p-3 text-stone-700">
+              <div className="rounded-xl bg-rose-100 p-3">
                 <Users size={24} />
               </div>
               <h3 className="font-serif text-xl">Community First</h3>
@@ -84,7 +84,7 @@ const About = () => {
               </p>
             </div>
             <div className="flex flex-col items-start gap-3">
-              <div className="rounded-xl bg-stone-100 p-3 text-stone-700">
+              <div className="rounded-xl bg-rose-100 p-3">
                 <Leaf size={24} />
               </div>
               <h3 className="font-serif text-xl">Sustainable Dyes</h3>
@@ -94,7 +94,7 @@ const About = () => {
               </p>
             </div>
             <div className="flex flex-col items-start gap-3">
-              <div className="rounded-xl bg-stone-100 p-3">
+              <div className="rounded-xl bg-rose-100 p-3">
                 <Gem size={24} />
               </div>
               <h3 className="font-serif text-xl">Heirloom Quality</h3>
@@ -107,7 +107,7 @@ const About = () => {
         </section>
       </div>
       {/* 4. CTA Strip */}
-      <section className="bg-rose-100 px-5 py-20 text-center dark:bg-stone-900">
+      <section className="bg-rose-100 px-5 py-20 text-center dark:bg-white/10">
         <h2 className="mb-6 font-serif text-3xl">Experience the tradition.</h2>
         <Button href={"/products"}>
           View Latest Collection <ArrowRight className="ml-2" size={18} />

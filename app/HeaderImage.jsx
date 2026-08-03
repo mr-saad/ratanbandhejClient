@@ -15,7 +15,7 @@ export default async function HeaderImage() {
       blurDataURL={img.image.lqip}
       fill
       sizes="100vw"
-      src={`${img.image.url}?w=1200&auto=format`}
+      src={`${img.image.url}?w=1024&auto=format`}
       className="object-cover select-none"
       alt={"Ratan Bandhej"}
     />

@@ -258,7 +258,7 @@ const CartItem = ({ _id, slug, title, image, price, handleRemoveFromCart }) => {
             height={300}
             src={`${image.url}?w=480&auto=format`}
             alt={title}
-            className="h-full w-full object-cover transition-transform duration-500 will-change-transform group-hover:scale-105 group-focus-visible:scale-105"
+            className="h-full w-full scale-105 object-cover transition-transform duration-300 will-change-transform group-hover:scale-100 group-focus-visible:scale-100"
           />
           <Button
             disabled={cartOpLoading}

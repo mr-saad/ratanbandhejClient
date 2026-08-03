@@ -34,7 +34,7 @@ export default function Product({
             src={`${image.url}?w=480&auto=format`}
             width={300}
             height={300}
-            className="aspect-square h-full max-w-full object-cover object-top transition duration-300 ease-in-out will-change-transform group-focus-within:scale-105 group-hover:scale-105"
+            className="aspect-square h-full max-w-full scale-105 object-cover object-top transition duration-300 ease-in-out will-change-transform group-focus-within:scale-100 group-hover:scale-100"
           />
         )}
       </div>
@@ -60,7 +60,7 @@ export default function Product({
             src={`${image.url}?w=480&auto=format`}
             width={400}
             height={400}
-            className="aspect-square w-full object-cover object-top transition duration-300 ease-in-out will-change-transform group-focus-within:scale-105 group-hover:scale-105"
+            className="aspect-square w-full scale-105 object-cover object-top transition duration-300 ease-in-out will-change-transform group-focus-within:scale-100 group-hover:scale-100"
           />
         )}
         <div className="absolute inset-0 flex flex-col justify-end bg-linear-to-t from-[#111]/70 to-transparent p-5 opacity-0 transition-all group-focus-within:opacity-100 group-hover:opacity-100">
