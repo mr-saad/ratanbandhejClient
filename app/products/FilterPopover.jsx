@@ -82,28 +82,7 @@ export default function FilterPopover({
             handleFilter={handleFilter}
             categoriesOptions={categoriesOptions}
           />
-          {/* <div className={cn("flex flex-wrap gap-1")}>
-            {categories.map((category) => {
-              return (
-                <Button
-                  title="Category"
-                  variant={"secondary"}
-                  key={category}
-                  className={cn(
-                    "inline-flex cursor-pointer rounded-full px-3 py-1",
-                    searchCategory === category ? "bg-rose-700 text-white" : "",
-                  )}
-                  onClick={() => {
-                    handleFilter({
-                      category: searchCategory === category ? null : category,
-                    })
-                  }}
-                >
-                  {category}
-                </Button>
-              )
-            })}
-          </div>*/}
+
         </div>
         <div className="flex gap-2">
           <Button
@@ -153,56 +132,36 @@ export default function FilterPopover({
                 }}
               />
             </div>
-            <PopoverHeader>
-              <PopoverTitle className={"font-semibold"}>Category</PopoverTitle>
-            </PopoverHeader>
-            <SelectCategory
-              searchCategory={searchCategory}
-              handleFilter={handleFilter}
-              categoriesOptions={categoriesOptions}
-            />
-            {/* <div className="relative">
-              <div className={cn("flex flex-wrap gap-1")}>
-                {categories.map((category) => {
-                  return (
-                    <Button
-                      variant={"secondary"}
-                      key={category}
-                      className={cn(
-                        "cursor-pointer rounded-full px-3 py-1",
-                        searchCategory === category
-                          ? "bg-rose-700 text-white"
-                          : "",
-                      )}
-                      onClick={() => {
-                        handleFilter({
-                          category:
-                            searchCategory === category ? null : category,
-                        })
-                      }}
-                    >
-                      {category}
-                    </Button>
-                  )
-                })}
+
+            <div className="flex flex-wrap gap-2">
+              <div>
+                <PopoverTitle className={"font-semibold"}>Category</PopoverTitle>
+                <SelectCategory
+                  searchCategory={searchCategory}
+                  handleFilter={handleFilter}
+                  categoriesOptions={categoriesOptions}
+                />
               </div>
-            </div>*/}
-            <PopoverTitle className={"font-semibold"}>View</PopoverTitle>
-            <div className="flex gap-2">
-              <Button
-                onClick={() => handleFilter({ view: null })}
-                variant={view === "list" ? "ghost" : "primary"}
-              >
-                <LayoutGrid size={20} />
-              </Button>
-              <Button
-                onClick={() =>
-                  handleFilter({ view: view === "list" ? null : "list" })
-                }
-                variant={view === "list" ? "primary" : "ghost"}
-              >
-                <List size={20} />
-              </Button>
+
+              <div>
+                <PopoverTitle className={"font-semibold"}>View</PopoverTitle>
+                <div className="flex gap-2">
+                  <Button
+                    onClick={() => handleFilter({ view: null })}
+                    variant={view === "list" ? "ghost" : "primary"}
+                  >
+                    <LayoutGrid size={20} />
+                  </Button>
+                  <Button
+                    onClick={() =>
+                      handleFilter({ view: view === "list" ? null : "list" })
+                    }
+                    variant={view === "list" ? "primary" : "ghost"}
+                  >
+                    <List size={20} />
+                  </Button>
+                </div>
+              </div>
             </div>
           </PopoverContent>
         </Popover>

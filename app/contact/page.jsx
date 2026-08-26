@@ -1,5 +1,4 @@
 import { MapPin, Phone, Mail } from "lucide-react"
-import Image from "next/image"
 import ContactForm from "./ContactForm"
 
 export const metadata = {

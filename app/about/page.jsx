@@ -43,9 +43,9 @@ const About = () => {
                 loading="eager"
                 width={400}
                 height={400}
-                src="/images/working.jpg"
-                alt="Artisan working"
-                className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                src="https://cdn.shopify.com/s/files/1/2447/5025/files/DSC08563w_1024x1024.jpg"
+                alt="Fabric detail"
+                className="h-full w-full object-cover transition-transform duration-700 scale-105 hover:scale-100"
               />
             </div>
             {/* Two stacked smaller images */}
@@ -55,9 +55,9 @@ const About = () => {
                   loading="lazy"
                   width={400}
                   height={400}
-                  src="/images/fabric.jpg"
-                  alt="Fabric detail"
-                  className="w-full object-cover"
+                  src="https://made-in.org/media/pages/craft-techniques/bandhani-and-kalamkari/82a4bf4c47-1644429701/02-bandhani23-640x.jpg"
+                  alt="Artisan working"
+                  className="w-full h-full object-cover transition-transform duration-700 scale-105 hover:scale-100"
                 />
               </div>
               <div className="bg-primary flex flex-col items-start justify-center rounded-2xl p-8 text-white dark:bg-white/10">
@@ -74,7 +74,7 @@ const About = () => {
             className={"grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3"}
           >
             <div className="flex flex-col items-start gap-3">
-              <div className="rounded-xl bg-rose-100 p-3">
+              <div className="rounded-xl bg-white-100 dark:bg-white/10 p-3">
                 <Users size={24} />
               </div>
               <h3 className="font-serif text-xl">Community First</h3>
@@ -84,7 +84,7 @@ const About = () => {
               </p>
             </div>
             <div className="flex flex-col items-start gap-3">
-              <div className="rounded-xl bg-rose-100 p-3">
+              <div className="rounded-xl bg-white-100 dark:bg-white/10 p-3">
                 <Leaf size={24} />
               </div>
               <h3 className="font-serif text-xl">Sustainable Dyes</h3>
@@ -94,7 +94,7 @@ const About = () => {
               </p>
             </div>
             <div className="flex flex-col items-start gap-3">
-              <div className="rounded-xl bg-rose-100 p-3">
+              <div className="rounded-xl bg-white-100 dark:bg-white/10 p-3">
                 <Gem size={24} />
               </div>
               <h3 className="font-serif text-xl">Heirloom Quality</h3>
