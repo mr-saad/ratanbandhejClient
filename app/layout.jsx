@@ -3,6 +3,8 @@ import Navbar from "@/components/Navbar/Navbar"
 import Footer from "@/components/Footer"
 import Provider from "@/lib/context/Provider"
 
+const SITE_BASE_URL = process.env.NEXT_PUBLIC_SITE_BASE_URL
+
 export const viewport = {
   width: "device-width",
   initialScale: 1,
@@ -84,8 +86,52 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Ratan Bandhej",
+    url: SITE_BASE_URL,
+    logo: `${SITE_BASE_URL}/android-chrome-512x512.png`,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Bhuj",
+      addressRegion: "Gujarat",
+      addressCountry: "IN",
+      postalCode: "370001",
+      streetAddress: "Apna Nagar - 1",
+    },
+    sameAs: [
+      "https://www.facebook.com/people/Ratan-Bandhej/100071573145928",
+      "https://www.instagram.com/ratanbandhejbhuj/",
+    ],
+  }
+  const webSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    url: SITE_BASE_URL,
+  }
   return (
     <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
+      <head>
+        <link
+          rel="preload"
+          href="/fonts/quagera.otf"
+          as="font"
+          crossOrigin="anonymous"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(webSchema),
+          }}
+        />
+      </head>
       <body>
         <Provider>
           <Navbar />

@@ -1,5 +1,3 @@
-import { Quagera } from "@/components/logoFont"
-import ScrollToTop from "@/components/ScrollToTop"
 import Button from "@/components/ui/Button"
 import ProductGrid from "@/components/ui/ProductGrid"
 import { ArrowRight, Gem, Leaf, Users } from "lucide-react"
@@ -15,60 +13,20 @@ export const metadata = {
 
 const About = () => {
   return (
-    // <div className="Container mx-auto max-w-4xl">
-    //   <ScrollToTop />
-    //   <h1 className="heading">About Us</h1>
-    //   <p className="mb-5">
-    //     At Ratan Bandhej, we celebrate the vibrant heritage and artistry of
-    //     traditional Indian textiles. We are passionate about preserving and
-    //     promoting the rich cultural legacy of Bandhani, a centuries-old tie-dye
-    //     technique originating from the colorful state of Gujarat, India.
-    //   </p>
-    //   <p className="mb-5">
-    //     Bandhani is known for its distinctive patterns created through the
-    //     laborious process of tying and dyeing. Our skilled artisans meticulously
-    //     tie thousands of tiny knots by hand, forming intricate designs on the
-    //     fabric. These knots resist the dye, resulting in beautiful patterns when
-    //     the fabric is dyed. It is a testament to the artisans&apos;
-    //     craftsmanship and attention to detail.
-    //   </p>
-    //   <p className="mb-5">
-    //     We work closely with talented artisans from different regions of
-    //     Gujarat, ensuring that their skills are recognized and valued. By
-    //     supporting fair trade practices, we strive to empower these artisans,
-    //     providing them with a sustainable livelihood while preserving their
-    //     traditional craft. Each Bandhani product you find on our website is a
-    //     labor of love and a testament to the artisans&apos; dedication.
-    //   </p>
-    //   <p className="mb-5">
-    //     We invite you to explore our collection and discover the intricate
-    //     beauty of Bandhani. Whether you are attending a special occasion,
-    //     looking for a statement piece, or simply embracing the elegance of
-    //     Indian textiles, Bandhani offers you an exquisite range of products to
-    //     choose from.
-    //   </p>
-    //   <p className="mb-5">
-    //     Thank you for joining us on this journey of celebrating art, culture,
-    //     and craftsmanship. We hope you enjoy exploring the vibrant world of
-    //     Bandhani and find something that resonates with your style and passion.
-    //   </p>
-    //   Warm regards
-    //   <h1 className={"heading font-bold " + Quagera.className}>
-    //     Ratan Bandhej
-    //   </h1>
-    // </div>
     <>
       <div className="Container">
         {/* 1. Hero Section - Centered & Minimal */}
-        <section className="mb-5 max-w-4xl">
-          <span className="mb-5 inline-block rounded-full border border-stone-200 px-3 py-1 text-sm font-medium tracking-widest uppercase dark:border-stone-700">
-            Est. 2019 • Bhuj, Gujarat
-          </span>
-          <h1 className="leading-tighter mb-3 font-serif text-4xl">
-            Weaving stories, <br />
-            <span className="highlight italic">one knot at a time.</span>
-          </h1>
-          <p className="text-balance md:text-xl">
+        <section className="mb-5 flex flex-col justify-between gap-2 md:flex-row md:items-center">
+          <div className="shrink-0">
+            <span className="text-sm font-medium tracking-widest uppercase">
+              Est. 2019 • Bhuj, Gujarat
+            </span>
+            <h1 className="leading-tighter font-serif text-4xl">
+              Weaving stories, <br />
+              <span className="highlight italic">one knot at a time.</span>
+            </h1>
+          </div>
+          <p className="max-w-xl self-end text-right md:text-xl">
             We are a collective of artisans dedicated to preserving the ancient
             art of Bandhani. Every piece tells a story of patience, precision
             and the vibrant culture of Kachchh.
@@ -85,9 +43,9 @@ const About = () => {
                 loading="eager"
                 width={400}
                 height={400}
-                src="/images/working.jpg"
-                alt="Artisan working"
-                className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                src="https://cdn.shopify.com/s/files/1/2447/5025/files/DSC08563w_1024x1024.jpg"
+                alt="Fabric detail"
+                className="h-full w-full object-cover transition-transform duration-700 scale-105 hover:scale-100"
               />
             </div>
             {/* Two stacked smaller images */}
@@ -97,16 +55,14 @@ const About = () => {
                   loading="lazy"
                   width={400}
                   height={400}
-                  src="/images/fabric.jpg"
-                  alt="Fabric detail"
-                  className="w-full object-cover"
+                  src="https://made-in.org/media/pages/craft-techniques/bandhani-and-kalamkari/82a4bf4c47-1644429701/02-bandhani23-640x.jpg"
+                  alt="Artisan working"
+                  className="w-full h-full object-cover transition-transform duration-700 scale-105 hover:scale-100"
                 />
               </div>
-              <div className="flex flex-col items-start justify-center rounded-2xl bg-stone-900 p-8 text-white">
+              <div className="bg-primary flex flex-col items-start justify-center rounded-2xl p-8 text-white dark:bg-white/10">
                 <h3 className="mb-2 font-serif text-3xl">100%</h3>
-                <p className="text-stone-300">
-                  Handcrafted by master artisans.
-                </p>
+                <p>Handcrafted by master artisans.</p>
               </div>
             </div>
           </div>
@@ -114,9 +70,11 @@ const About = () => {
 
         {/* 3. The Process / Values - Clean 3-Column Layout */}
         <section className="mx-auto mb-16 max-w-7xl">
-          <ProductGrid className={"gap-10 md:grid-cols-3 lg:grid-cols-3"}>
+          <ProductGrid
+            className={"grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3"}
+          >
             <div className="flex flex-col items-start gap-3">
-              <div className="rounded-xl bg-stone-100 p-3 text-stone-700">
+              <div className="rounded-xl bg-white-100 dark:bg-white/10 p-3">
                 <Users size={24} />
               </div>
               <h3 className="font-serif text-xl">Community First</h3>
@@ -126,7 +84,7 @@ const About = () => {
               </p>
             </div>
             <div className="flex flex-col items-start gap-3">
-              <div className="rounded-xl bg-stone-100 p-3 text-stone-700">
+              <div className="rounded-xl bg-white-100 dark:bg-white/10 p-3">
                 <Leaf size={24} />
               </div>
               <h3 className="font-serif text-xl">Sustainable Dyes</h3>
@@ -136,7 +94,7 @@ const About = () => {
               </p>
             </div>
             <div className="flex flex-col items-start gap-3">
-              <div className="rounded-xl bg-stone-100 p-3">
+              <div className="rounded-xl bg-white-100 dark:bg-white/10 p-3">
                 <Gem size={24} />
               </div>
               <h3 className="font-serif text-xl">Heirloom Quality</h3>
@@ -149,7 +107,7 @@ const About = () => {
         </section>
       </div>
       {/* 4. CTA Strip */}
-      <section className="bg-rose-100 px-5 py-20 text-center dark:bg-stone-900">
+      <section className="bg-rose-100 px-5 py-20 text-center dark:bg-white/10">
         <h2 className="mb-6 font-serif text-3xl">Experience the tradition.</h2>
         <Button href={"/products"}>
           View Latest Collection <ArrowRight className="ml-2" size={18} />

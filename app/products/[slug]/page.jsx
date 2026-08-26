@@ -5,6 +5,9 @@ import getProducts from "@/lib/server/getProducts"
 import sanity from "@/lib/server/sanity"
 import Product from "@/components/ui/Product"
 import ProductGrid from "@/components/ui/ProductGrid"
+import Script from "next/script"
+
+const SITE_BASE_URL = process.env.NEXT_PUBLIC_SITE_BASE_URL
 
 export const revalidate = 3600
 
@@ -29,6 +32,13 @@ export async function generateMetadata(props) {
         title: product.title,
         description: `Buy ${product.title} at Ratan Bandhej`,
         url: `/products/${slug}`,
+        images: [product.images?.[0]?.url],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: product.title,
+        description: `Buy ${product.title} at Ratan Bandhej`,
+        images: [product.images?.[0]?.url],
       },
     }
   } else {
@@ -48,7 +58,7 @@ async function getProduct(slug) {
       "slug":slug.current,
       title,
       type,
-      "images":images[].asset->{url,metadata{lqip}},
+      "images":images[].asset->{url,"lqip":metadata.lqip},
       specs,
       description,
       colours,
@@ -72,8 +82,58 @@ export default async function Slug(props) {
     _id: product._id,
   })
 
+  const prodSchema = {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    name: product.title,
+    url: `${SITE_BASE_URL}/products/${product.slug}`,
+    image: product.images.map((img) => img.url),
+    description: product.description,
+    sku: product._id,
+    brand: {
+      "@type": "Brand",
+      name: "Ratan Bandhej",
+    },
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "INR",
+      price: product.price,
+      itemCondition: "https://schema.org/NewCondition",
+      availability: "https://schema.org/InStock",
+      url: `${SITE_BASE_URL}/products/${product.slug}`,
+    },
+  }
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: `${SITE_BASE_URL}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Products",
+        item: `${SITE_BASE_URL}/products`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: product.title,
+        item: `${SITE_BASE_URL}/products/${product.slug}`,
+      },
+    ],
+  }
+
   return (
     <>
+      <Script type="application/ld+json">{JSON.stringify(prodSchema)}</Script>
+      <Script type="application/ld+json">
+        {JSON.stringify(breadcrumbSchema)}
+      </Script>
       <div className="Container md:pt-10">
         <div className="grid gap-5 sm:grid-cols-2">
           <ImgSwiper data={product.images} title={product.title} />

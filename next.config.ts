@@ -2,14 +2,25 @@ import type { NextConfig } from "next"
 
 const nextConfig: NextConfig = {
   images: {
-    dangerouslyAllowLocalIP: process.env.NODE_ENV === "development",
+    dangerouslyAllowLocalIP: true,
+    formats: ["image/webp"],
     qualities: [60, 75, 100],
+    deviceSizes: [360, 640, 768, 1024, 1280],
+    imageSizes: [96, 160, 240, 320, 480],
     minimumCacheTTL: 31556926,
     remotePatterns: [
       {
         protocol: "https",
         hostname: "cdn.sanity.io",
         pathname: "/images/**",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.shopify.com",
+      },
+      {
+        protocol: "https",
+        hostname: "made-in.org",
       },
     ],
   },

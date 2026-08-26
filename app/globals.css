@@ -1,33 +1,21 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: "DM Sans";
-  src: url("/fonts/DMSans-Regular.ttf") format("truetype");
-  font-weight: normal;
+  font-family: Quagera;
+  src: url("/fonts/quagera.otf") format("opentype");
   font-display: swap;
-}
-@font-face {
-  font-family: "DM Sans";
-  src: url("/fonts/DMSans-SemiBold.ttf") format("truetype");
-  font-weight: bold;
-  font-display: swap;
-}
-@font-face {
-  font-family: "DM Serif Display";
-  src: url("/fonts/DMSerifDisplay-Regular.ttf") format("truetype");
-  font-display: swap;
-}
-@font-face {
-  font-family: "DM Serif Display";
-  src: url("/fonts/DMSerifDisplay-Italic.ttf") format("truetype");
-  font-style: italic;
-  font-display: swap;
+  font-style: normal;
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
   --breakpoint-3xl: 120rem;
+
+  --font-quagera: Quagera;
+
+  --color-primary: var(--color-rose-700);
+  --color-primary-dark: var(--color-rose-800);
 }
 
 * {
@@ -44,18 +32,23 @@
 }
 
 html {
-  --font-sans: "DM Sans", sans-serif;
-  --font-serif: "DM Serif Display", serif;
+  /*--font-sans: "DM Sans", sans-serif;
+  --font-serif: "DM Serif Display", serif;*/
 
-  font-family: var(--font-sans), Tahoma, Geneva, Verdana, sans-serif;
+  /*font-family: var(--font-sans), Tahoma, Geneva, Verdana, sans-serif;*/
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   color-scheme: light dark;
+
+  @apply font-sans transition-colors duration-200;
 }
 
 body {
-  @apply bg-rose-50 text-stone-500 accent-rose-700 transition-colors dark:bg-[#130006] dark:text-stone-400;
+  @apply bg-rose-50 text-stone-600 accent-rose-700 transition-colors duration-300 dark:bg-[#130006] dark:text-stone-400;
+}
+.nav {
+  backdrop-filter: url(#svgfm-filter);
 }
 .Container {
   @apply mx-auto p-5 pt-24 lg:max-w-7xl;
@@ -64,7 +57,7 @@ body {
   @apply text-stone-950 dark:text-white;
 }
 .heading {
-  @apply mb-5 font-serif text-3xl font-bold text-stone-950 capitalize dark:text-white;
+  @apply mb-5 font-serif text-3xl text-stone-950 capitalize dark:text-white;
 }
 
 .input {
@@ -91,34 +84,5 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .swiper-pagination {
-  @apply w-fit! rounded-md bg-white/70 backdrop-blur-xs [--swiper-pagination-bottom:auto] [--swiper-pagination-color:#9f0712] [--swiper-pagination-top:0.5rem] dark:[--swiper-pagination-color:#fff];
-}
-
-.heroPattern {
-  background-image:
-    linear-gradient(to right, rgba(0, 0, 0, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.06) 1px, transparent 1px),
-    radial-gradient(circle, rgba(51, 65, 85, 0.4) 2px, transparent 2px);
-  background-size:
-    20px 20px,
-    20px 20px,
-    20px 20px;
-  background-position:
-    0 0,
-    0 0,
-    0 0;
-}
-.dark .heroPattern {
-  background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.2) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 1px, transparent 1px),
-    radial-gradient(circle, rgba(255, 255, 255, 0.3) 2px, transparent 2px);
-  background-size:
-    20px 20px,
-    20px 20px,
-    20px 20px;
-  background-position:
-    0 0,
-    0 0,
-    0 0;
+  @apply w-fit! rounded-md bg-rose-700 px-2 [--swiper-pagination-bottom:auto] [--swiper-pagination-bullet-inactive-color:#fff] [--swiper-pagination-bullet-inactive-opacity:0.5] [--swiper-pagination-color:#fff] [--swiper-pagination-top:0.5rem];
 }

@@ -65,7 +65,7 @@ export default function ContactForm() {
         >
           Subject
         </label>
-        <select id="subject" name="subject" className="input">
+        <select id="subject" name="subject" className="w-full">
           <option>General Inquiry</option>
           <option>Order Status</option>
           <option>Wholesale</option>

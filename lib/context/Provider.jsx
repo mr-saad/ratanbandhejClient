@@ -1,22 +1,9 @@
 "use client"
 import { ThemeProvider, useTheme } from "next-themes"
-import { useEffect } from "react"
+import { useState, useEffect, use } from "react"
 import RatanContext from "./RatanContext"
-import {
-  QueryClient,
-  QueryClientProvider,
-  useQuery,
-} from "@tanstack/react-query"
 
-const queryClient = new QueryClient()
-
-const setCart = (cart) => {
-  queryClient.setQueryData(["auth"], (auth) => ({ ...auth, cart }))
-}
-
-const setAuth = (newAuth) => queryClient.setQueryData(["auth"], newAuth)
-
-const initialData = {
+export const initialAuth = {
   status: false,
   verified: false,
   _id: "",
@@ -30,15 +17,12 @@ const initialData = {
 
 export default function Provider({ children }) {
   const { setTheme } = useTheme()
+  const [auth, setAuth] = useState(initialAuth)
+  const [authLoading, setAuthLoading] = useState(true)
 
-  const { isLoading: authLoading, data: auth } = useQuery(
-    {
-      queryKey: ["auth"],
-      queryFn: async () => await (await fetch("/api/getAuth")).json(),
-      initialData,
-    },
-    queryClient,
-  )
+  const setCart = (cart) => {
+    setAuth((prev) => ({ ...prev, cart }))
+  }
 
   useEffect(() => {
     const isDark = localStorage.getItem("ratanTheme")
@@ -52,25 +36,34 @@ export default function Provider({ children }) {
     }
   }, [])
 
+  useEffect(() => {
+    const getAuth = async () => {
+      try {
+        const res = await (await fetch("/api/getAuth")).json()
+        setAuth(res || initialAuth)
+      } catch (error) {
+        console.error(error)
+        alert(error?.message || "Error Fetching Auth")
+      } finally {
+        setAuthLoading(false)
+      }
+    }
+    getAuth()
+  }, [])
+
   return (
-    <QueryClientProvider client={queryClient}>
-      <ThemeProvider
-        defaultTheme="system"
-        enableSystem={true}
-        attribute="class"
+    <ThemeProvider defaultTheme="system" enableSystem={true} attribute="class">
+      <RatanContext
+        value={{
+          cart: auth.cart,
+          setCart,
+          auth,
+          setAuth,
+          authLoading,
+        }}
       >
-        <RatanContext
-          value={{
-            cart: auth.cart,
-            auth,
-            setCart,
-            setAuth,
-            authLoading,
-          }}
-        >
-          {children}
-        </RatanContext>
-      </ThemeProvider>
-    </QueryClientProvider>
+        {children}
+      </RatanContext>
+    </ThemeProvider>
   )
 }

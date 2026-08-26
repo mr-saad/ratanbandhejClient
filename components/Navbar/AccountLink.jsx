@@ -10,6 +10,7 @@ export default function AccountLink() {
 
   return auth.status ? (
     <Link
+      prefetch
       href={"/profile"}
       className={
         "link block py-2 text-stone-500 md:inline md:py-0 dark:text-stone-600"
