@@ -2,7 +2,7 @@ import HeaderImage from "./HeaderImage"
 import Carousel from "./Carousel"
 import Sections from "./Sections"
 
-export const revalidate = 3600
+export const revalidate = 86400
 
 export default function Home() {
   return (
