@@ -1,18 +1,13 @@
 @import "tailwindcss";
 
-@font-face {
-  font-family: Quagera;
-  src: url("/fonts/quagera.otf") format("opentype");
-  font-display: swap;
-  font-style: normal;
-}
+/*table td:first-of-type{
+  border: 1px solid
+}*/
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
   --breakpoint-3xl: 120rem;
-
-  --font-quagera: Quagera;
 
   --color-primary: var(--color-rose-700);
   --color-primary-dark: var(--color-rose-800);
@@ -32,10 +27,6 @@
 }
 
 html {
-  /*--font-sans: "DM Sans", sans-serif;
-  --font-serif: "DM Serif Display", serif;*/
-
-  /*font-family: var(--font-sans), Tahoma, Geneva, Verdana, sans-serif;*/
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -47,15 +38,19 @@ html {
 body {
   @apply bg-rose-50 text-stone-600 accent-rose-700 transition-colors duration-300 dark:bg-[#130006] dark:text-stone-400;
 }
+
 .nav {
   backdrop-filter: url(#svgfm-filter);
 }
+
 .Container {
   @apply mx-auto p-5 pt-24 lg:max-w-7xl;
 }
+
 .highlight {
   @apply text-stone-950 dark:text-white;
 }
+
 .heading {
   @apply mb-5 font-serif text-3xl text-stone-950 capitalize dark:text-white;
 }
@@ -63,6 +58,7 @@ body {
 .input {
   @apply w-full border-0 border-b border-black/10 bg-transparent py-2 text-stone-800 transition-all outline-none focus-visible:border-black/10 disabled:opacity-50 dark:border-white/10 dark:text-white dark:focus-visible:border-white/10;
 }
+
 .link {
   @apply transition hover:text-rose-700 focus-visible:text-rose-700;
 }
@@ -71,10 +67,12 @@ input[type="number"]::-webkit-inner-spin-button {
   appearance: none !important;
   opacity: 0 !important;
 }
+
 input[type="number"]::-webkit-outer-spin-button {
   appearance: none !important;
   opacity: 0 !important;
 }
+
 .floating-label {
   @apply pointer-events-none absolute -top-2.5 left-0 -translate-y-1/2 transition-all will-change-transform peer-placeholder-shown:top-1/2 peer-placeholder-shown:left-2 peer-focus:-top-2.5 peer-focus:left-0;
 }

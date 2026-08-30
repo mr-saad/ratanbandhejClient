@@ -56,7 +56,7 @@ export default async function sitemap() {
     ...products.map((all) => ({
       url: `https://ratanbandhej.vercel.app/products/${all.slug}`,
       lastModified: all._updatedAt,
-      changeFrequency: "daily",
+      changeFrequency: "weekly",
       priority: 0.9,
     })),
   ]

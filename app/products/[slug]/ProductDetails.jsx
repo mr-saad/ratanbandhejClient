@@ -22,8 +22,8 @@ export default function ProductDetails({
       <p className="mt-2 whitespace-pre-wrap">{description}</p>
 
       <CartBtn prod={prod} />
-      <hr className="mt-4 border-black/10 dark:border-white/10" />
-      <table className="w-full border-separate border-spacing-y-4">
+      {/*<hr className="mt-4 border-black/10 dark:border-white/10" />*/}
+      <table className="w-full mt-4 border-t border-black/10 dark:border-white/10 [&_td]:p-2 [&_td:first-of-type]:border-r [&_td:first-of-type]:border-black/10 dark:[&_td:first-of-type]:border-white/10">
         <tbody>
           {specs.split(";").map((item) => (
             <tr key={item} className="*:w-1/2">

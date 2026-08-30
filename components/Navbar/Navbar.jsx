@@ -4,6 +4,7 @@ import MenuToggler from "./MenuToggler"
 import Links from "./Links"
 import CartLink from "./CartLink"
 import AccountLink from "./AccountLink"
+import { quagera } from "@/lib/utils/quagera";
 
 export default function Navbar() {
   return (
@@ -45,9 +46,7 @@ export default function Navbar() {
         aria-label="Home"
         title="Ratan Bandhej"
         href="/"
-        className={
-          "font-quagera w-max justify-self-center text-3xl font-bold text-stone-950 md:justify-self-start md:text-4xl"
-        }
+        className={`${quagera.className} w-max justify-self-center text-3xl font-bold text-stone-950 md:justify-self-start md:text-4xl`}
       >
         Ratan Bandhej
       </Link>
