@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-/*table td:first-of-type{
-  border: 1px solid
-}*/
-
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {

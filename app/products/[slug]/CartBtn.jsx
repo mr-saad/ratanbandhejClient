@@ -26,7 +26,7 @@ export default function CartBtn({ prod }) {
   useEffect(() => setMount(true), [])
 
   return (
-    <div className="mt-4">
+    <>
       {mount ? (
         showCartBtn ? (
           <Button
@@ -55,6 +55,6 @@ export default function CartBtn({ prod }) {
           </Button>
         )
       ) : null}
-    </div>
+    </>
   )
 }
