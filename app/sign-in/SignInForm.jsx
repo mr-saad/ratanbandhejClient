@@ -41,7 +41,7 @@ export default function SignInForm() {
     setLoading(false)
   }
   return (
-    <form onSubmit={onSubmit} className="mx-auto mt-10 grid max-w-lg gap-8">
+    <form onSubmit={onSubmit} className="mx-auto text-center mt-10 grid max-w-lg gap-8">
       <div className="relative">
         <input
           minLength={3}
@@ -70,7 +70,7 @@ export default function SignInForm() {
           E-Mail
         </label>
       </div>
-      <Button disabled={loading} className={"justify-self-start"}>
+      <Button disabled={loading} className={"justify-self-center"}>
         Continue
       </Button>
 

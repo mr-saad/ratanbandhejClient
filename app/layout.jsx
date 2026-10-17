@@ -2,8 +2,15 @@ import "./globals.css"
 import Navbar from "@/components/Navbar/Navbar"
 import Footer from "@/components/Footer"
 import Provider from "@/lib/context/Provider"
+import { DM_Sans } from "next/font/google"
 
 const SITE_BASE_URL = process.env.NEXT_PUBLIC_SITE_BASE_URL
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  preload: true,
+  display: "swap"
+})
 
 export const viewport = {
   width: "device-width",
@@ -126,7 +133,7 @@ export default function RootLayout({ children }) {
           }}
         />
       </head>
-      <body>
+      <body className={dmSans.className}>
         <Provider>
           <Navbar />
           <main className="min-h-screen">{children}</main>
