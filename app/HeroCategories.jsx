@@ -33,7 +33,7 @@ export default async function HeroCategories() {
                 alt={cat.type}
                 placeholder="blur"
                 blurDataURL={cat.image.lqip}
-                src={`${cat.image.url}?w=200&auto=format`}
+                src={`${cat.image.url}?w=3500&auto=format`}
                 width={200}
                 height={200}
                 className="aspect-square scale-105 object-cover object-top transition duration-300 ease-in-out will-change-transform group-focus-within:scale-100 group-hover:scale-100"
