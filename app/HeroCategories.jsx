@@ -16,7 +16,7 @@ const getCategories = async () => {
 export default async function HeroCategories() {
   const categories = await getCategories()
   return (
-    <div className="Container flex gap-2 overflow-x-auto">
+    <div className="Container pb-0! flex gap-2 overflow-x-auto">
       {categories.map((cat) => {
         return (
           <Link

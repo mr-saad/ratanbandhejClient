@@ -8,9 +8,8 @@ export default async function HeaderImage() {
   return (
     <Image
       priority
-      fetchPriority="high"
+      fetchPriority="low"
       quality={60}
-      loading="eager"
       placeholder="blur"
       blurDataURL={img.image.lqip}
       fill

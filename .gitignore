@@ -43,3 +43,5 @@ cornsilk-chough
 eslint.config.mjs
 .unlighthouse
 .vercel
+/dist/
+.vinext/

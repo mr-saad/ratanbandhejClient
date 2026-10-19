@@ -12,7 +12,7 @@ export default function Home() {
       <HeroCategories />
       <div className="Container mx-auto pt-0!">
         <div className="home mb-10 overflow-hidden">
-          <h1 className="heading arrivals my-5 text-4xl!">New Arrivals</h1>
+          <h1 className="heading arrivals mt-5 mb-2 text-4xl!">New Arrivals</h1>
           <Carousel />
         </div>
         <Sections />

@@ -18,9 +18,9 @@ const About = () => {
         {/* 1. Hero Section - Centered & Minimal */}
         <section className="mb-5 flex flex-col justify-between gap-2 md:flex-row md:items-center">
           <div className="shrink-0">
-            <span className="text-sm font-medium tracking-widest uppercase">
+            {/* <span className="text-sm font-medium tracking-widest uppercase">
               Est. 2019 • Bhuj, Gujarat
-            </span>
+            </span>*/}
             <h1 className="leading-tighter font-serif text-4xl">
               Weaving stories, <br />
               <span className="highlight italic">one knot at a time.</span>
@@ -41,8 +41,9 @@ const About = () => {
               <Image
                 priority
                 loading="eager"
-                width={400}
-                height={400}
+                style={{ maxWidth: "100%", maxHeight: "none" }}
+                width={500}
+                height={500}
                 src="https://cdn.shopify.com/s/files/1/2447/5025/files/DSC08563w_1024x1024.jpg"
                 alt="Fabric detail"
                 className="h-full w-full object-cover transition-transform duration-700 scale-105 hover:scale-100"
@@ -53,8 +54,9 @@ const About = () => {
               <div className="overflow-hidden rounded-2xl bg-stone-200">
                 <Image
                   loading="lazy"
-                  width={400}
-                  height={400}
+                  width={200}
+                  height={200}
+                  style={{ maxWidth: "100%", maxHeight: "none" }}
                   src="https://made-in.org/media/pages/craft-techniques/bandhani-and-kalamkari/82a4bf4c47-1644429701/02-bandhani23-640x.jpg"
                   alt="Artisan working"
                   className="w-full h-full object-cover transition-transform duration-700 scale-105 hover:scale-100"

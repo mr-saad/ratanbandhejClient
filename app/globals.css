@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
@@ -49,7 +48,7 @@ body {
 }
 
 .heading {
-  @apply mb-5 font-serif text-3xl text-stone-950 capitalize dark:text-white;
+  @apply mb-2 font-serif text-3xl text-stone-950 capitalize dark:text-white;
 }
 
 .input {

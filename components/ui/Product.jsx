@@ -34,12 +34,12 @@ export default function Product({
             src={`${image.url}?w=480&auto=format`}
             width={300}
             height={300}
-            className="aspect-square h-full max-w-30 md:max-w-3xs scale-105 object-cover object-top transition duration-300 ease-in-out will-change-transform group-focus-within:scale-100 group-hover:scale-100"
+            className="aspect-square h-full max-w-30 scale-105 object-cover object-top transition duration-300 ease-in-out will-change-transform group-focus-within:scale-100 group-hover:scale-100 md:max-w-3xs"
           />
         )}
       </div>
       <div className="content-center p-2 md:p-5">
-        <h2 className="highlight line-clamp-3 leading-tight font-serif text-pretty capitalize md:text-2xl">
+        <h2 className="highlight line-clamp-3 font-serif leading-tight text-pretty capitalize md:text-2xl">
           {title}
         </h2>
         <p className="line-clamp-2 text-sm">{description}</p>
@@ -63,7 +63,7 @@ export default function Product({
             className="aspect-square scale-105 object-cover object-top transition duration-300 ease-in-out will-change-transform group-focus-within:scale-100 group-hover:scale-100"
           />
         )}
-        <div className="absolute inset-0 flex flex-col justify-end bg-linear-to-t from-[#111]/70 to-transparent p-5 opacity-0 transition-all group-focus-within:opacity-100 group-hover:opacity-100">
+        <div className="absolute inset-0 flex flex-col justify-end bg-linear-to-t from-[#111]/70 to-transparent p-2 opacity-0 transition-all group-focus-within:opacity-100 group-hover:opacity-100 md:p-5">
           <h2 className="font-serif text-sm text-white capitalize md:text-base">
             {title}
           </h2>

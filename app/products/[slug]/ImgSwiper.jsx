@@ -8,7 +8,7 @@ import "swiper/css/pagination"
 export default function ImgSwiper({ data, title }) {
   return (
     <Swiper
-      className="aspect-square w-full rounded-md [&_.swiper-pagination]:left-2!"
+      className="aspect-square w-full sm:rounded-md [&_.swiper-pagination]:left-2!"
       modules={[Pagination]}
       pagination={{ clickable: true }}
     >
@@ -26,7 +26,8 @@ export default function ImgSwiper({ data, title }) {
             blurDataURL={img.lqip}
             width={400}
             height={400}
-            className={`aspect-square w-full cursor-grab object-cover object-top select-none active:cursor-grabbing ${index === 0 && "rounded-l-md"} ${index === arr.length - 1 && "rounded-r-md"}`}
+            style={{ maxWidth: "100%", maxHeight: "auto" }}
+            className={`aspect-square w-full cursor-grab object-cover object-top select-none active:cursor-grabbing ${index === 0 && "sm:rounded-l-md"} ${index === arr.length - 1 && "sm:rounded-r-md"}`}
           />
         </SwiperSlide>
       ))}

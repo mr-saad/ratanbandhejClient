@@ -130,11 +130,13 @@ export default async function Slug(props) {
 
   return (
     <>
-      <Script type="application/ld+json">{JSON.stringify(prodSchema)}</Script>
-      <Script type="application/ld+json">
+      <Script id="jsonld_product" type="application/ld+json">
+        {JSON.stringify(prodSchema)}
+      </Script>
+      <Script id="jsonld_breadcrumb" type="application/ld+json">
         {JSON.stringify(breadcrumbSchema)}
       </Script>
-      <div className="Container md:pt-10">
+      <div className="mx-auto max-w-7xl pt-24! sm:p-5">
         <div className="grid gap-5 sm:grid-cols-2">
           <ImgSwiper data={product.images} title={product.title} />
           <ProductDetails product={product} />
