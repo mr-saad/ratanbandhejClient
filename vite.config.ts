@@ -4,5 +4,5 @@ import { nitro } from "nitro/vite";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  plugins: [tailwindcss(), vinext(), nitro({ preset: "vercel" })],
+  plugins: [tailwindcss(), vinext(), nitro()],
 });

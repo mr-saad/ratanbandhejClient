@@ -25,6 +25,9 @@ const nextConfig: NextConfig = {
     ],
   },
   productionBrowserSourceMaps: false,
+  outputFileTracingExcludes: {
+    '/__server': ['node_modules/.nf3/@img'],
+  },
 }
 
 module.exports = nextConfig
