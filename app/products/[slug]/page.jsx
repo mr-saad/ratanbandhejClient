@@ -5,7 +5,7 @@ import getProducts from "@/lib/server/getProducts"
 import sanity from "@/lib/server/sanity"
 import Product from "@/components/ui/Product"
 import ProductGrid from "@/components/ui/ProductGrid"
-import Script from "next/script"
+
 
 const SITE_BASE_URL = process.env.NEXT_PUBLIC_SITE_BASE_URL
 
@@ -130,12 +130,12 @@ export default async function Slug(props) {
 
   return (
     <>
-      <Script id="jsonld_product" type="application/ld+json">
-        {JSON.stringify(prodSchema)}
-      </Script>
-      <Script id="jsonld_breadcrumb" type="application/ld+json">
-        {JSON.stringify(breadcrumbSchema)}
-      </Script>
+      <script type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(prodSchema) }}
+      />
+      <script type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <div className="mx-auto max-w-7xl pt-24! sm:p-5">
         <div className="grid gap-5 sm:grid-cols-2">
           <ImgSwiper data={product.images} title={product.title} />
