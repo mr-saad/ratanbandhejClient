@@ -33,7 +33,6 @@ export default function CartLink() {
         />
       </SheetTrigger>
       <SheetContent
-        showCloseButton={false}
         className={
           "grid grid-rows-[auto_1fr_auto] border-black/5 bg-white dark:border-white/10 dark:bg-stone-950"
         }
@@ -106,13 +105,13 @@ export default function CartLink() {
         </div>
 
         <SheetFooter>
-          <SheetClose
+          {/* <SheetClose
             render={
               <Button variant={"secondary"} className={"justify-center"}>
                 Close
               </Button>
             }
-          />
+          /> */}
           {cart?.length > 0 && (
             <SheetClose
               nativeButton={false}

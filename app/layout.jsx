@@ -3,7 +3,6 @@ import Navbar from "@/components/Navbar/Navbar"
 import Footer from "@/components/Footer"
 import Provider from "@/lib/context/Provider"
 import { DM_Sans } from "next/font/google"
-import Script from "next/script";
 
 const SITE_BASE_URL = process.env.NEXT_PUBLIC_SITE_BASE_URL
 
@@ -121,12 +120,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
-        <Script id="organization" type="application/ld+json"
+        <script id="organization" type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(organizationSchema),
           }}
         />
-        <Script id="web" type="application/ld+json"
+        <script id="web" type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(webSchema),
           }}
