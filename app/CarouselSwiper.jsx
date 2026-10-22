@@ -15,7 +15,7 @@ export default function CarouselSwiper({ newArrivals }) {
   }, [])
 
   return (
-    <div suppressHydrationWarning>
+    <>
       {mounted ? (
         <Swiper
           spaceBetween={50}
@@ -24,7 +24,7 @@ export default function CarouselSwiper({ newArrivals }) {
           }}
           pagination={{ clickable: true }}
           modules={[Pagination, Autoplay]}
-          autoplay={{ delay: 4500 }}
+          // autoplay={{ delay: 4500 }}
           loop={true}
           className="cursor-grab active:cursor-grabbing"
         >
@@ -34,7 +34,7 @@ export default function CarouselSwiper({ newArrivals }) {
               className="grid! items-center gap-5 select-none md:grid-cols-2"
             >
               <div>
-                <h2 className="highlight font-serif text-xl capitalize">
+                <h2 className="highlight font-serif text-xl capitalize leading-[1.1]">
                   {prod.title}
                 </h2>
                 <p className="mb-2 line-clamp-2">{prod.description}</p>
@@ -46,7 +46,11 @@ export default function CarouselSwiper({ newArrivals }) {
                 <div className="md:justify-self-end">
                   <Image
                     className="aspect-square w-full rounded-md object-cover object-top"
-                    src={`${prod.image.url}?w=640&auto=format`}
+                    src={`${prod.image.url}?w=480&auto=format`}
+                    style={{
+                      backgroundSize: "cover",
+                      backgroundRepeat: "no-repeat",
+                    }}
                     sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 33vw"
                     alt={prod.title}
                     placeholder="blur"
@@ -79,6 +83,6 @@ export default function CarouselSwiper({ newArrivals }) {
           ))}
         </div>
       )}
-    </div>
+    </>
   )
 }

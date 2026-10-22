@@ -13,7 +13,7 @@ export default function ProductDetails({
   }
   return (
     <div className="px-5 sm:px-0">
-      <h1 className="highlight mb-3 font-serif text-xl text-pretty capitalize md:mt-0 md:text-2xl">
+      <h1 className="highlight leading-[1.1] mb-3 font-serif text-xl text-pretty capitalize md:mt-0 md:text-2xl">
         {title}
       </h1>
       <div className="flex items-center justify-between gap-2">

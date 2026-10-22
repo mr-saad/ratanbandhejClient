@@ -25,12 +25,12 @@ export default function CartLink() {
   return (
     <Sheet>
       <SheetTrigger title="Cart">
-        <ShoppingCart
-          className={cn(
-            "cursor-pointer stroke-rose-700",
-            cart?.length !== 0 ? "fill-rose-700" : "fill-none",
-          )}
-        />
+        <div className="relative">
+          <ShoppingCart className="cursor-pointer stroke-primary" />
+          {cart?.length > 0 ? (
+            <span className="absolute -top-1 -right-1 h-2 w-2 rounded-full bg-primary" />
+          ) : null}
+        </div>
       </SheetTrigger>
       <SheetContent
         className={

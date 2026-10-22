@@ -4,7 +4,7 @@ import Link from "next/link"
 
 const getCategories = async () => {
   const categories = await sanity.fetch(
-    `*[_type == "product" && defined(type) && _id == *[_type == "product" && type == ^.type && defined(images)][0]._id] {
+    `*[_type == "product" && _id == *[_type == "product" && type == ^.type][0]._id] {
         type,
         "image": images[0].asset->{url, "lqip": metadata.lqip}
      }
@@ -33,7 +33,11 @@ export default async function HeroCategories() {
                 alt={cat.type}
                 placeholder="blur"
                 blurDataURL={cat.image.lqip}
-                src={`${cat.image.url}?w=3500&auto=format`}
+                style={{
+                  backgroundSize: "cover",
+                  backgroundRepeat: "no-repeat",
+                }}
+                src={`${cat.image.url}?w=300&auto=format`}
                 width={200}
                 height={200}
                 className="aspect-square scale-105 object-cover object-top transition duration-300 ease-in-out will-change-transform group-focus-within:scale-100 group-hover:scale-100"

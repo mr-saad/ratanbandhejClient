@@ -136,7 +136,7 @@ export default async function Slug(props) {
       <script type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      <div className="mx-auto max-w-7xl pt-24! sm:p-5">
+      <div className="mx-auto max-w-7xl pt-20 sm:pt-24! sm:p-5">
         <div className="grid gap-5 sm:grid-cols-2">
           <ImgSwiper data={product.images} title={product.title} />
           <ProductDetails product={product} />

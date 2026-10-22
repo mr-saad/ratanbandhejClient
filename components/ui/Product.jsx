@@ -21,7 +21,7 @@ export default function Product({
       prefetch
       href={`/products/${slug}`}
     >
-      <div className="overflow-clip">
+      <div className="overflow-clip max-w-30 md:max-w-3xs">
         {image && (
           <Image
             quality={60}
@@ -31,10 +31,14 @@ export default function Product({
             alt={slug}
             placeholder="blur"
             blurDataURL={image.lqip}
+            style={{
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+            }}
             src={`${image.url}?w=480&auto=format`}
             width={300}
             height={300}
-            className="aspect-square h-full max-w-30 scale-105 object-cover object-top transition duration-300 ease-in-out will-change-transform group-focus-within:scale-100 group-hover:scale-100 md:max-w-3xs"
+            className="aspect-square scale-105 object-cover object-top transition duration-300 ease-in-out will-change-transform group-focus-within:scale-100 group-hover:scale-100"
           />
         )}
       </div>
@@ -57,14 +61,18 @@ export default function Product({
             alt={slug}
             placeholder="blur"
             blurDataURL={image.lqip}
+            style={{
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+            }}
             src={`${image.url}?w=480&auto=format`}
             width={400}
             height={400}
             className="aspect-square scale-105 object-cover object-top transition duration-300 ease-in-out will-change-transform group-focus-within:scale-100 group-hover:scale-100"
           />
         )}
-        <div className="absolute inset-0 flex flex-col justify-end bg-linear-to-t from-[#111]/70 to-transparent p-2 opacity-0 transition-all group-focus-within:opacity-100 group-hover:opacity-100 md:p-5">
-          <h2 className="font-serif text-sm text-white capitalize md:text-base">
+        <div className="absolute inset-0 flex flex-col justify-end bg-linear-to-t from-[#111]/80 to-transparent p-2 opacity-0 transition-all group-focus-within:opacity-100 group-hover:opacity-100 md:p-5">
+          <h2 className="font-serif text-sm text-white capitalize md:text-base leading-[1.1]">
             {title}
           </h2>
         </div>

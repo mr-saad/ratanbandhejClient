@@ -277,8 +277,8 @@ const CartItem = ({ _id, slug, title, image, price, handleRemoveFromCart }) => {
             )}
           </Button>
         </div>
-        <div className="p-5">
-          <h4 className="highlight line-clamp-3 text-sm">{title}</h4>
+        <div className="md:p-5 p-2">
+          <h4 className="highlight leading-[1.1] mb-1 line-clamp-3 text-sm">{title}</h4>
           <p className="text-base">₹{price}</p>
         </div>
       </Link>
@@ -289,11 +289,10 @@ const CartItem = ({ _id, slug, title, image, price, handleRemoveFromCart }) => {
 const NavButton = ({ active, onClick, icon: Icon, label }) => (
   <button
     onClick={onClick}
-    className={`flex shrink-0 cursor-pointer items-center gap-2 px-4 py-3 text-sm font-medium transition-all duration-200 md:w-full ${
-      active
-        ? "bg-rose-700 text-white"
-        : " hover:bg-rose-100 focus-visible:bg-rose-100"
-    }`}
+    className={`flex shrink-0 cursor-pointer items-center gap-2 px-4 py-3 text-sm font-medium transition-all duration-200 md:w-full ${active
+      ? "bg-rose-700 text-white"
+      : " hover:bg-rose-100 focus-visible:bg-rose-100"
+      }`}
   >
     <Icon size={18} className={active ? "text-white" : ""} />
     <span>{label}</span>
