@@ -45,3 +45,4 @@ eslint.config.mjs
 .vercel
 /dist/
 .vinext/
+.output

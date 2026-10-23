@@ -17,7 +17,7 @@ export default function ImgSwiper({ data, title }) {
     <>
       {mounted ? (
         <Swiper
-          className="aspect-square w-full sm:rounded-md [&_.swiper-pagination]:left-2!"
+          className="aspect-square max-w-full sm:rounded-md [&_.swiper-pagination]:left-2!"
           modules={[Pagination]}
           pagination={{ clickable: true }}
         >
@@ -30,12 +30,17 @@ export default function ImgSwiper({ data, title }) {
                 quality={100}
                 sizes="(max-width:768px) 100vw, 50vw"
                 alt={title}
+                style={{
+                  maxWidth: "100%",
+                  maxHeight: "auto",
+                  backgroundSize: "cover",
+                  backgroundRepeat: "no-repeat",
+                }}
                 src={`${img.url}?w=640&auto=format`}
                 placeholder="blur"
                 blurDataURL={img.lqip}
                 width={400}
                 height={400}
-                style={{ maxWidth: "100%", maxHeight: "auto" }}
                 className={`aspect-square w-full cursor-grab object-cover object-top select-none active:cursor-grabbing ${index === 0 && "sm:rounded-l-md"} ${index === arr.length - 1 && "sm:rounded-r-md"}`}
               />
             </SwiperSlide>
@@ -44,7 +49,7 @@ export default function ImgSwiper({ data, title }) {
       ) : (
         <div
           className="aspect-square w-full sm:rounded-md animate-pulse bg-current opacity-10"
-          style={{ backgroundImage: data[0]?.lqip ? `url(${data[0].lqip})` : undefined, backgroundSize: "cover" }}
+          style={{ backgroundImage: data[0]?.lqip ? `url(${data[0].lqip})` : undefined, backgroundSize: "cover", backgroundRepeat: "no-repeat" }}
         />
       )}
     </>
