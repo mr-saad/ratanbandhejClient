@@ -147,6 +147,10 @@ export default function Profile() {
                           <Image
                             placeholder="blur"
                             blurDataURL={order?.product?.image?.lqip}
+                            style={{
+                              backgroundSize: "cover",
+                              backgroundRepeat: "no-repeat",
+                            }}
                             src={`${order?.product?.image?.url}?w=70&auto=format`}
                             width={70}
                             height={70}
@@ -256,6 +260,10 @@ const CartItem = ({ _id, slug, title, image, price, handleRemoveFromCart }) => {
             blurDataURL={image.lqip}
             width={300}
             height={300}
+            style={{
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+            }}
             src={`${image.url}?w=480&auto=format`}
             alt={title}
             className="h-full w-full scale-105 object-cover transition-transform duration-300 will-change-transform group-hover:scale-100 group-focus-visible:scale-100"
