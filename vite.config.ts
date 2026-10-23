@@ -5,7 +5,6 @@ import tailwindcss from "@tailwindcss/vite"
 
 export default defineConfig({
   plugins: [tailwindcss(), vinext(), nitro({
-    output: { dir: "dist" },
     traceOpts: {
       nft: {
         ignore: [
