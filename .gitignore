@@ -37,12 +37,10 @@ next-env.d.ts
 .eslintrc.json
 public/favicon_io.zip
 analyze
-cornsilk-chough
 .npmrc
 .prettierrc
-eslint.config.mjs
 .unlighthouse
 .vercel
-/dist/
+dist
 .vinext/
 .output

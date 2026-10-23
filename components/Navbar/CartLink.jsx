@@ -65,6 +65,10 @@ export default function CartLink() {
                       >
                         <Image
                           alt={item.title}
+                          style={{
+                            backgroundSize: "cover",
+                            backgroundRepeat: "no-repeat",
+                          }}
                           src={`${item.image.url}?w=100&auto=format`}
                           placeholder="blur"
                           blurDataURL={item.image?.lqip}
