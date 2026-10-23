@@ -8,11 +8,12 @@ export default defineConfig({
     traceOpts: {
       nft: {
         ignore: [
-          "**/node_modules/webpack/**",
-          "**/node_modules/minimizer-webpack-plugin/**",
-          "**/node_modules/@vercel/og/**",
-          "**/node_modules/sharp/**",
-          "**/node_modules/@img/**",
+          "**/webpack/**",
+          "**/minimizer-webpack-plugin/**",
+          "**/@vercel/og/**",
+          "**/sharp/**",
+          "**/@img/**",
+          "**/eslint/**",
           "**/node_modules/.nf3/@img/**",
           "**/node_modules/.nf3/sharp**",
         ],
