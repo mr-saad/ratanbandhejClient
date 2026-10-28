@@ -61,7 +61,7 @@ function SheetContent({
             render={
               <Button
                 variant="secondary"
-                className="absolute top-4 right-4 border-none text-black dark:text-white"
+                className="absolute top-4 right-4 border-none text-black dark:text-white px-0"
                 size="icon-sm"
               />
             }

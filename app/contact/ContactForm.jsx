@@ -8,8 +8,8 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleFormSubmit} className="grid gap-10 p-5 md:p-10">
-      <div className="grid gap-10 md:grid-cols-2">
+    <form onSubmit={handleFormSubmit} className="grid gap-5 pt-5 md:p-10">
+      <div className="grid gap-5 md:grid-cols-2">
         <div className="group">
           <label
             htmlFor="fname"
@@ -54,7 +54,7 @@ export default function ContactForm() {
           name="email"
           type="email"
           className="input"
-          placeholder="example@gmail.com"
+          placeholder="saad@gmail.com"
         />
       </div>
 
@@ -65,7 +65,7 @@ export default function ContactForm() {
         >
           Subject
         </label>
-        <select id="subject" name="subject" className="w-full">
+        <select id="subject" name="subject" className="w-full rounded-md px-2 py-1 bg-white dark:bg-white/10">
           <option>General Inquiry</option>
           <option>Order Status</option>
           <option>Wholesale</option>

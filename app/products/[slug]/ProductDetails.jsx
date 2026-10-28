@@ -1,3 +1,4 @@
+import cn from "@/lib/utils/cn";
 import CartBtn from "./CartBtn"
 
 export default function ProductDetails({
@@ -27,12 +28,12 @@ export default function ProductDetails({
       {/*<hr className="mt-4 border-black/10 dark:border-white/10" />*/}
       <table className="mt-4 w-full border-t border-black/10 dark:border-white/10 [&_td:first-of-type]:border-r [&_td:first-of-type]:border-black/10 dark:[&_td:first-of-type]:border-white/10">
         <tbody>
-          {specs.split(";").map((item) => (
+          {specs.split(";").map((item, index) => (
             <tr key={item} className="*:w-1/2">
-              <td className="highlight align-top font-bold pr-2 pb-2">
+              <td className={cn("highlight align-top font-bold pr-2 pb-2", index === 0 && "pt-2")}>
                 {item.split(":=")[0]}
               </td>
-              <td className="pl-2 pb-2">{item.split(":=")[1]}</td>
+              <td className={cn("pl-2 pb-2", index === 0 && "pt-2")}>{item.split(":=")[1]}</td>
             </tr>
           ))}
           {colours && (

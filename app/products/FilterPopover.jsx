@@ -20,10 +20,10 @@ function SelectCategory({ categoriesOptions, handleFilter }) {
   const { push } = useRouter()
   return (
     <Select items={categoriesOptions}>
-      <SelectTrigger className="border-primary/60 cursor-pointer bg-white dark:bg-black">
+      <SelectTrigger className="cursor-pointer bg-white dark:bg-white/10">
         <SelectValue placeholder="Category" className="highlight" />
       </SelectTrigger>
-      <SelectContent className="ring-primary/50 bg-white dark:bg-black">
+      <SelectContent className="bg-white dark:bg-black/90">
         <SelectItem
           value="All"
           className="focus-visible:ring-primary cursor-pointer focus-visible:ring"
@@ -115,7 +115,7 @@ export default function FilterPopover({
           <PopoverContent
             align="start"
             className={
-              "bg-white ring-black/5 dark:bg-[#130006] dark:ring-white/20"
+              "bg-rose-50 dark:bg-[#130006]"
             }
           >
             <div className="relative grow">

@@ -11,17 +11,18 @@ export default function Product({
   variant,
   className,
 }) {
+  // border border-black/10
   return variant === "list" ? (
     <Link
       title={title}
       className={cn(
-        "group flex overflow-clip rounded-md border border-black/10 outline-stone-700 transition-all focus-within:shadow-lg focus-within:outline-2 hover:shadow-lg dark:border-white/10",
+        "group flex overflow-clip rounded-md transition-all focus-within:shadow-lg outline-none hover:shadow-lg",
         className,
       )}
       prefetch
       href={`/products/${slug}`}
     >
-      <div className="overflow-clip max-w-30 md:max-w-3xs">
+      <div className="overflow-clip shrink-0 w-30 md:w-3xs">
         {image && (
           <Image
             quality={60}
@@ -34,6 +35,8 @@ export default function Product({
             style={{
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
+              maxHeight: "100%",
+              maxWidth: "auto"
             }}
             src={`${image.url}?w=480&auto=format`}
             width={300}

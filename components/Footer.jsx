@@ -1,5 +1,9 @@
+"use client"
+
 import Link from "next/link"
 import Button from "./ui/Button"
+import { usePathname } from "next/navigation";
+import cn from "@/lib/utils/cn";
 
 const catalogue = [
   { text: "Saree", route: "Saree" },
@@ -8,9 +12,11 @@ const catalogue = [
   { text: "Top Material", route: "Top+Material" },
 ]
 
-const Footer = async () => {
+// border-t border-black/5 dark:border-white/5
+export default function Footer() {
+  const pathname = usePathname()
   return (
-    <footer className="mt-20 border-t border-black/5 dark:border-white/5">
+    <footer className={cn(pathname !== "/" ? "mt-20" : "")}>
       <div className="mx-auto p-5 lg:max-w-7xl">
         <h2 className="font-serif text-4xl text-rose-700">Ratan Bandhej</h2>
         <h2 className="font-serif text-3xl md:text-4xl">
@@ -205,5 +211,3 @@ const Footer = async () => {
     </footer>
   )
 }
-
-export default Footer
