@@ -1,3 +1,4 @@
+import { useState } from "react"
 import Button from "@/components/ui/Button"
 import {
   Popover,
@@ -14,14 +15,21 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { LayoutGrid, List, SlidersHorizontal } from "lucide-react"
-import { useRouter } from "next/navigation"
+import { useRouter, useSearchParams } from "next/navigation"
 
 function SelectCategory({ categoriesOptions, handleFilter }) {
+  const params = useSearchParams()
+  const [selected, setSelected] = useState(params.get("category") || "All")
   const { push } = useRouter()
+
   return (
-    <Select items={categoriesOptions}>
+    <Select
+      onValueChange={(val) => {
+        setSelected(val)
+      }}
+      items={categoriesOptions}>
       <SelectTrigger className="cursor-pointer bg-white dark:bg-white/10">
-        <SelectValue placeholder="Category" className="highlight" />
+        <SelectValue placeholder="All" className="highlight" >{selected}</SelectValue>
       </SelectTrigger>
       <SelectContent className="bg-white dark:bg-black/90">
         <SelectItem

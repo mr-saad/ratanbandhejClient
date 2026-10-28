@@ -1,5 +1,7 @@
 import Button from "@/components/ui/Button"
 import useCartBtn from "@/lib/hooks/useCartBtn"
+import cn from "@/lib/utils/cn";
+import { Minus, Plus } from "lucide-react";
 import { useState } from "react"
 
 const ColourSelector = ({ _id, colours, price, setTotal, prod }) => {
@@ -112,13 +114,13 @@ const ColourSelector = ({ _id, colours, price, setTotal, prod }) => {
     }
   }
   return (
-    <div className="mt-2 grid gap-4">
+    <div className="mt-2 grid gap-3">
       {colourData.map((item, index) => (
         <div className="grid gap-2" key={index}>
-          <div className="flex gap-4">
+          <div className="flex gap-2">
             <select
               id={`colours-${index}-${_id}`}
-              className="input clr min-h-7.25 capitalize"
+              className={cn("input clr capitalize cursor-pointer", "bg-rose-50! dark:bg-white/10!")}
               value={item.colour}
               onChange={(e) => handleSelectChange(index, e.target.value)}
             >
@@ -135,19 +137,20 @@ const ColourSelector = ({ _id, colours, price, setTotal, prod }) => {
                 )
               })}
             </select>
-            <div className="relative">
+            <div className="relative shrink-0">
               <input
                 id={`quantity-${index}-${_id}`}
                 type="number"
                 min={1}
                 max={item.maxQuantity}
-                className={`input qnt peer capitalize`}
+                disabled={item.maxQuantity === 1}
+                className={cn("input qnt peer capitalize bg-rose-50! dark:bg-white/10!", item.maxQuantity > 1 && "pr-3!")}
                 value={item.quantity}
                 onChange={(e) => handleQuantityChange(index, e.target.value)}
               />
               {(parseInt(colours.split(",")[0].split("=")[1]) || 1) > 1 && (
                 <>
-                  <button type="button" onClick={() => increaseQuan(index)}>
+                  <button type="button" className="cursor-pointer" onClick={() => increaseQuan(index)}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
@@ -163,7 +166,7 @@ const ColourSelector = ({ _id, colours, price, setTotal, prod }) => {
                       <path d="m18 15-6-6-6 6" />
                     </svg>
                   </button>
-                  <button type="button" onClick={() => decreaseQuan(index)}>
+                  <button type="button" className="cursor-pointer" onClick={() => decreaseQuan(index)}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
@@ -207,7 +210,7 @@ const ColourSelector = ({ _id, colours, price, setTotal, prod }) => {
                   <path d="M21 12a9 9 0 1 1-6.219-8.56" />
                 </svg>
               ) : (
-                "-"
+                <Minus size={18}/>
               )}
             </Button>
             <Button
@@ -216,7 +219,7 @@ const ColourSelector = ({ _id, colours, price, setTotal, prod }) => {
               className="btn flex h-7 w-7 items-center justify-center rounded-full p-0 [corner-shape:round]"
               type="button"
             >
-              +
+              <Plus size={18}/>
             </Button>
           </div>
         </div>

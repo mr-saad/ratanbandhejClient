@@ -12,7 +12,7 @@ import Button from "@/components/ui/Button"
 import { LoaderCircle } from "lucide-react"
 
 export default function Checkout() {
-  const { replace } = useRouter()
+  const { replace, back } = useRouter()
   const { cart, setCart, authLoading, auth } = useRatanContext()
 
   useEffect(() => {
@@ -100,7 +100,7 @@ export default function Checkout() {
                           height={80}
                         />
                         <div className="w-full">
-                          <p className="highlight line-clamp-2 font-serif">
+                          <p className="highlight line-clamp-2 leading-none">
                             {prod.title}
                           </p>
                           {prod.colours && (
@@ -173,7 +173,7 @@ export default function Checkout() {
                     <Button
                       variant={"secondary"}
                       disabled={loading}
-                      href={"/cart"}
+                      onClick={() => back()}
                     >
                       Back
                     </Button>

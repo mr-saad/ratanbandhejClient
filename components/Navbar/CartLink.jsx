@@ -26,7 +26,7 @@ export default function CartLink() {
     <Sheet>
       <SheetTrigger title="Cart">
         <div className="relative">
-          <ShoppingCart className="cursor-pointer stroke-primary" />
+          <ShoppingCart size={20} className="cursor-pointer stroke-primary" />
           {cart?.length > 0 ? (
             <span className="absolute -top-1 -right-1 h-2 w-2 rounded-full bg-primary" />
           ) : null}
